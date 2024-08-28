@@ -1,0 +1,10 @@
+/* Initial state: hidden */
+body {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Visible state */
+body.fade-in {
+  opacity: 1;
+}
