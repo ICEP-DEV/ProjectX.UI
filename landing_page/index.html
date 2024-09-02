@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="keywords" content="jQuery, Plugin, Event, Calendar, EvoCalendar">
         <meta name="description" content="">
         <meta name="author" content="">
 
@@ -25,6 +25,16 @@
         <link href="css/style.css" rel="stylesheet">
 
         <script src="/landing_page/js/app.js" defer></script>
+
+
+    <!-- CSS For Calendar-->
+    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.min.css">
+    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.orange-coral.min.css">
+    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.midnight-blue.min.css">
+    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.royal-navy.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./demo/demo.css">
+   
 <!--
 
 TemplateMo 590 topic listing
@@ -198,6 +208,43 @@ https://templatemo.com/tm-590-topic-listing
 
       <!-- Advertising Div Start -->      
 
+      <!-- Calendar Start -->
+              <section class="explore-section section-padding" id="section_2">
+              
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Calendar</h1>
+                        </div>
+
+                        <div class="section-content">
+                          
+                            <div class="action-buttons">
+                                
+                                <button class="btn-action active" data-set-theme="Default">DEFAULT</button>
+                                <button class="btn-action" data-set-theme="Midnight Blue">MIDNIGHT BLUE</button>
+                                <button class="btn-action" data-set-theme="Royal Navy">ROYAL NAVY</button>
+                                <button class="btn-action" data-set-theme="Orange Coral">ORANGE CORAL</button>
+                            </div>
+                            <div class="console-log">
+                                <div class="log-content">
+                                    <div class="--noshadow" id="demoEvoCalendar"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="action-buttons">
+                                <button class="btn-action" id="addBtn">ADD EVENT</button>
+                                <button class="btn-action" id="removeBtn" disabled>REMOVE EVENT</button>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+
+             
+
+            </section>
+   <!-- Calendar End -->  
+
         <!-- Events Start -->
             <section class="explore-section section-padding" id="section_2">
                 <div class="container">
@@ -256,7 +303,7 @@ https://templatemo.com/tm-590-topic-listing
                                                        
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif5.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -274,7 +321,7 @@ https://templatemo.com/tm-590-topic-listing
                                                         
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif6.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -292,7 +339,7 @@ https://templatemo.com/tm-590-topic-listing
                                                         
                                                     </div>
 
-                                                    <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif7.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -314,7 +361,7 @@ https://templatemo.com/tm-590-topic-listing
                                                            
                                                         </div>
 
-                                                        <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
+                                                        <img src="images/topics/gif1.gif" class="custom-block-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             </div>
@@ -332,12 +379,12 @@ https://templatemo.com/tm-590-topic-listing
                                                           
                                                         </div>
 
-                                                        <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
+                                                        <img src="images/topics/gif2.gif" class="custom-block-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                                 <div class="custom-block bg-white shadow-lg">
                                                     <a href="topics-detail.html">
                                                         <div class="d-flex">
@@ -350,7 +397,7 @@ https://templatemo.com/tm-590-topic-listing
                                                      
                                                         </div>
 
-                                                        <img src="images/topics/undraw_viral_tweet_gndb.png" class="custom-block-image img-fluid" alt="">
+                                                        <img src="images/topics/gif3.gif" class="custom-block-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             </div>
@@ -358,32 +405,56 @@ https://templatemo.com/tm-590-topic-listing
                                   </div>
 
                                 <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
-                                            <div class="custom-block bg-white shadow-lg">
-                                                <a href="topics-detail.html">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h5 class="mb-2">Heading Here</h5>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="custom-block custom-block-overlay">
+                                            <div class="d-flex flex-column h-100">
+                                                <img src="images/topics/gif4.gif" class="custom-block-image img-fluid" alt="">
 
-                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                        </div>
+                                                <div class="custom-block-overlay-text d-flex">
+                                                    <div>
+                                                        <h5 class="text-white mb-2">Heading Here</h5>
 
-                                                       
+                                                        <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
+
+                                                        <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
-                                                </a>
+                                                  
+                                                </div>
+
+                                                <div class="social-share d-flex">
+                                                    <p class="text-white me-4">Share:</p>
+
+                                                    <ul class="social-icon">
+                                                        <li class="social-icon-item">
+                                                            <a href="#" class="social-icon-link bi-twitter"></a>
+                                                        </li>
+
+                                                        <li class="social-icon-item">
+                                                            <a href="#" class="social-icon-link bi-facebook"></a>
+                                                        </li>
+
+                                                        <li class="social-icon-item">
+                                                            <a href="#" class="social-icon-link bi-pinterest"></a>
+                                                        </li>
+                                                    </ul>
+
+                                                    <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
+                                                </div>
+
+                                                <div class="section-overlay"></div>
                                             </div>
                                         </div>
+                                    </div>
 
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="custom-block custom-block-overlay">
                                                 <div class="d-flex flex-column h-100">
-                                                    <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif11.gif" class="custom-block-image img-fluid" alt="">
 
                                                     <div class="custom-block-overlay-text d-flex">
                                                         <div>
-                                                            <h5 class="text-white mb-2">Finance</h5>
+                                                            <h5 class="text-white mb-2">Heading Here</h5>
 
                                                             <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
 
@@ -427,7 +498,7 @@ https://templatemo.com/tm-590-topic-listing
                                                 <a href="topics-detail.html">
                                                     <div class="d-flex">
                                                         <div>
-                                                            <h5 class="mb-2">Composing Song</h5>
+                                                            <h5 class="mb-2">Heading Here</h5>
 
                                                             <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
                                                         </div>
@@ -435,7 +506,7 @@ https://templatemo.com/tm-590-topic-listing
                                                       
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Compose_music_re_wpiw.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif8.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -445,7 +516,7 @@ https://templatemo.com/tm-590-topic-listing
                                                 <a href="topics-detail.html">
                                                     <div class="d-flex">
                                                         <div>
-                                                            <h5 class="mb-2">Online Music</h5>
+                                                            <h5 class="mb-2">Heading Here</h5>
 
                                                             <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
                                                         </div>
@@ -453,12 +524,12 @@ https://templatemo.com/tm-590-topic-listing
                                                       
                                                     </div>
 
-                                                    <img src="images/topics/undraw_happy_music_g6wc.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif9.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                             <div class="custom-block bg-white shadow-lg">
                                                 <a href="topics-detail.html">
                                                     <div class="d-flex">
@@ -471,7 +542,7 @@ https://templatemo.com/tm-590-topic-listing
                                                       
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif10.gif" class="custom-block-image img-fluid" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -485,13 +556,13 @@ https://templatemo.com/tm-590-topic-listing
                                                 <a href="topics-detail.html">
                                                     <div class="d-flex">
                                                         <div>
-                                                            <h5 class="mb-2">Graduation</h5>
+                                                            <h5 class="mb-2">Heading Here</h5>
 
                                                             <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
                                                         </div>                                                       
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Graduation_re_gthn.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif12.gif" class="custom-block-image img-fluid certain-pic" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -501,13 +572,13 @@ https://templatemo.com/tm-590-topic-listing
                                                 <a href="topics-detail.html">
                                                     <div class="d-flex">
                                                         <div>
-                                                            <h5 class="mb-2">Educator</h5>
+                                                            <h5 class="mb-2">Heading Here</h5>
 
                                                             <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
                                                         </div>                                                      
                                                     </div>
 
-                                                    <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid" alt="">
+                                                    <img src="images/topics/gif13.gif" class="custom-block-image img-fluid certain-pic" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -630,6 +701,11 @@ https://templatemo.com/tm-590-topic-listing
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
+
+            <!-- jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="./evo-calendar/js/evo-calendar.min.js"></script>
+    <script src="./demo/demo.js"></script>
 
     </body>
 </html>
