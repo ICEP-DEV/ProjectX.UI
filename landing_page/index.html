@@ -26,14 +26,7 @@
 
         <script src="/landing_page/js/app.js" defer></script>
 
-
-    <!-- CSS For Calendar-->
-    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.min.css">
-    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.orange-coral.min.css">
-    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.midnight-blue.min.css">
-    <link rel="stylesheet" type="text/css" href="./evo-calendar/css/evo-calendar.royal-navy.min.css">
-
-    <link rel="stylesheet" type="text/css" href="./demo/demo.css">
+        <link rel="stylesheet" href="css/calendar_style.css" />
    
 <!--
 
@@ -206,44 +199,85 @@ https://templatemo.com/tm-590-topic-listing
                 </div>
             </section>     
 
-      <!-- Advertising Div Start -->      
 
-      <!-- Calendar Start -->
-              <section class="explore-section section-padding" id="section_2">
-              
-                    <div class="row">
-
-                        <div class="col-12 text-center">
-                            <h2 class="mb-4">Calendar</h1>
-                        </div>
-
-                        <div class="section-content">
-                          
-                            <div class="action-buttons">
-                                
-                                <button class="btn-action active" data-set-theme="Default">DEFAULT</button>
-                                <button class="btn-action" data-set-theme="Midnight Blue">MIDNIGHT BLUE</button>
-                                <button class="btn-action" data-set-theme="Royal Navy">ROYAL NAVY</button>
-                                <button class="btn-action" data-set-theme="Orange Coral">ORANGE CORAL</button>
-                            </div>
-                            <div class="console-log">
-                                <div class="log-content">
-                                    <div class="--noshadow" id="demoEvoCalendar"></div>
-                                </div>
-                            </div>
-                            <!-- <div class="action-buttons">
-                                <button class="btn-action" id="addBtn">ADD EVENT</button>
-                                <button class="btn-action" id="removeBtn" disabled>REMOVE EVENT</button>
-                            </div> -->
-                        </div>
-
+      <!-- Calendar Start Here -->
+        <section class="explore-section section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-4">Calendar</h1>
                     </div>
+                    <div class="calendar container">
+                        <div class="calendar left">
+                          <div class="calendar">
+                            <div class="month">
+                              <i class="fas fa-angle-left prev"></i>
+                              <div class="date">december 2015</div>
+                              <i class="fas fa-angle-right next"></i>
+                            </div>
+                            <div class="weekdays">
+                              <div>Sun</div>
+                              <div>Mon</div>
+                              <div>Tue</div>
+                              <div>Wed</div>
+                              <div>Thu</div>
+                              <div>Fri</div>
+                              <div>Sat</div>
+                            </div>
+                            <div class="days"></div>
+                            <div class="goto-today">
+                              <div class="goto">
+                                <input type="text" placeholder="mm/yyyy" class="date-input" />
+                                <button class="goto-btn">Go</button>
+                              </div>
+                              <button class="today-btn">Today</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right">
+                          <div class="today-date">
+                            <div class="event-day">wed</div>
+                            <div class="event-date">12th december 2022</div>
+                          </div>
+                          <div class="events"></div>
+                          <div class="add-event-wrapper">
+                            <div class="add-event-header">
+                              <div class="title">Add Event</div>
+                              <i class="fas fa-times close"></i>
+                            </div>
+                            <div class="add-event-body">
+                              <div class="add-event-input">
+                                <input type="text" placeholder="Event Name" class="event-name" />
+                              </div>
+                              <div class="add-event-input">
+                                <input
+                                  type="text"
+                                  placeholder="Event Time From"
+                                  class="event-time-from"
+                                />
+                              </div>
+                              <div class="add-event-input">
+                                <input
+                                  type="text"
+                                  placeholder="Event Time To"
+                                  class="event-time-to"
+                                />
+                              </div>
+                            </div>
+                            <div class="calendar add-event-footer">
+                              <button class="add-event-btn">Add Event</button>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="plusadd-event">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
                 </div>
-
-             
-
-            </section>
-   <!-- Calendar End -->  
+            </div>
+        </section>        
+      <!-- Calendar End Here -->
+   
 
         <!-- Events Start -->
             <section class="explore-section section-padding" id="section_2">
@@ -253,7 +287,7 @@ https://templatemo.com/tm-590-topic-listing
                         <div class="col-12 text-center">
                             <h2 class="mb-4">Events</h1>
                         </div>
-
+                            
                     </div>
                 </div>
 
@@ -701,11 +735,8 @@ https://templatemo.com/tm-590-topic-listing
         <script src="js/jquery.sticky.js"></script>
         <script src="js/click-scroll.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/calendar_script.js"></script>
 
-            <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="./evo-calendar/js/evo-calendar.min.js"></script>
-    <script src="./demo/demo.js"></script>
 
     </body>
 </html>
