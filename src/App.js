@@ -1,16 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Login from './screens/Login';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage'; 
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import './App.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
-      <Routes>
-      <Route exact path='/' element={<Login />} />
-      </Routes>
+      <div className="App"> 
+        
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
+
 export default App;
+

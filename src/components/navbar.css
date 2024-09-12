@@ -1,0 +1,47 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.homepage-bg {
+    background-color: transparent; /* Transparent navbar by default */
+    border-bottom: none;
+}
+
+.navbar-scrolled {
+    background-color: hsl(202, 73%, 28%); /* Solid blue background when scrolled */
+    border-bottom: 1px solid rgba(128, 208, 199, 0.35);
+    padding: 10px 0; /* Adjust padding when scrolled */
+}
+
+/* Initially hide the TUT logo */
+.navbar .tut-logo {
+    display: none;
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Show the logo and hide the text when scrolled */
+.navbar-scrolled .tut-logo {
+    display: inline-block;
+    width: 320px; /* Adjust the width of the logo when scrolled */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar-scrolled .heading-color,
+.navbar-scrolled .bi-mortarboard {
+    display: none; /* Hide the text and icon when scrolled */
+}
+
+.nav-link {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.nav-link:hover {
+    color: #008cba; /* Change text color on hover */
+    text-decoration: none; /* Remove underline */
+}
