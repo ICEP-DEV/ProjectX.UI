@@ -9,13 +9,13 @@ function Login() {
   return (
     <div className={`containers ${isSignUpMode ? 'sign-up-modes' : ''}`}>
 
-     <div className="header-infos">
+     {/*<div className="header-infos">
         <FaGraduationCap className="graduation-icons" />
         <div className="header-texts">
           <span className="alumni-texts">Alumni</span>
           <span className="space-texts">space</span>
         </div>
-      </div>
+      </div> */}
 
       <div className="forms-containers">
         <div className="signins-signups">
