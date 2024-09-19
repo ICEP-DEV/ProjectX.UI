@@ -49,7 +49,7 @@ function NavBar() {
             <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link">
               Contact Us
             </ScrollLink>
-            <Nav.Link as={Link} to="/Donate.js">Donate</Nav.Link>
+            <Nav.Link as={Link} to="/Donate">Donate</Nav.Link>
           </Nav>
 
           <div className="d-none d-lg-block">

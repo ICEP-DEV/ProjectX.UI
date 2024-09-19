@@ -250,7 +250,7 @@ https://templatemo.com/tm-590-topic-listing
     SITE HEADER              
   -----------------------------------------*/
   .site-header {
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    /* background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); */
     padding-top: 150px;
     padding-bottom: 80px;
   }
