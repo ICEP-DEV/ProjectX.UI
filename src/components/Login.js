@@ -40,67 +40,36 @@ function Login() {
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <a href="/landing_page/index.html" className="anchors transition-links">Login</a>
-
-            <a href="/forgot-password" className="forgot-password-links"  style={{
-                  display: 'block',
-                  marginTop: '10px',
-                  fontSize: '0.75rem',
-                  color: '#000000',
-                  textDecoration: 'underline'
-                 }}> Forgot Password? </a>
-
-            <p className="social-texts">Our social platforms</p>
-            <div className="social-medias">
-              <a href="#" className="social-icons">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-google"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
-
-          {/* Sign Up Form */}
-          <form action="#" className="sign-up-forms">
-            <h2 className="titles">Sign up</h2>
-            <div className="input-fields">
-              <i className="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div className="input-fields">
-              <i className="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div className="input-fields">
-              <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-              
-            </div>
             
-            <input type="submit" className="btns" value="Sign up" />
+
+            <Link to="/forgot-password" className="forgot-password-links" style={{
+              display: 'block',
+              marginTop: '10px',
+              fontSize: '0.75rem',
+              color: '#000000',
+              textDecoration: 'underline'
+             }}>
+                Forgot Password?
+            </Link>
+
             <p className="social-texts">Our social platforms</p>
             <div className="social-medias">
-              <a href="#" className="social-icons">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-google"></i>
-              </a>
-              <a href="#" className="social-icons">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
+              <div className="social-icons" onClick={() => window.open('https://facebook.com', '_blank')}>
+              <i className="fab fa-facebook-f"></i>
             </div>
-          </form>
+            <div className="social-icons" onClick={() => window.open('https://twitter.com', '_blank')}>
+              <i className="fab fa-twitter"></i>
+            </div>
+           <div className="social-icons" onClick={() => window.open('https://google.com', '_blank')}>
+          <i className="fab fa-google"></i>
+            </div>
+            <div className="social-icons" onClick={() => window.open('https://linkedin.com', '_blank')}>
+           <i className="fab fa-linkedin-in"></i>
+           </div>
+         </div>
+        </form>
+          {/* Sign Up Form */}
+          
         </div>
       </div>
 
