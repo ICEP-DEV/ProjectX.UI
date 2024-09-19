@@ -41,7 +41,7 @@ function NavBar() {
               Home
             </ScrollLink>
             <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link">
-              What Is Alumini Space?
+              What Is Alumni Space?
             </ScrollLink>
             <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link">
               FAQs
