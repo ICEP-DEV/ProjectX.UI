@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import NavBar from './NavBar'; // Ensure the path is correct
+import { Container, Row, Col, Button, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Import Link for routing
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome
 import './homepage.css';
 import './navbar.css';
 import './Donate.css';
+import NavBar from './NavBar'; // Ensure the path is correct
 import Footer from './Footer'; // Import the Footer component
 
 const Donate = () => {
@@ -24,13 +25,15 @@ const Donate = () => {
 
     return (
         <div>
-            {/* Render the NavBar component */}
-            <NavBar />
+            <NavBar /> {/* Render the NavBar component */}
             <div className='hero-section'>
                 <Container className="donation-journey">
                     <Row>
-                        {/* Steps section at the top */}
                         <Col md={12}>
+
+                            {/* Add a Home link here */}
+                            {/* <Nav.Link as={Link} to="/HomePage" className="text-primary mb-3">Home</Nav.Link> */}
+
                             <div className="d-flex justify-content-between">
                                 <div className="donation-step">
                                     <i className="fas fa-check-circle"></i>
@@ -57,7 +60,6 @@ const Donate = () => {
                     </Row>
 
                     <Row>
-                        {/* Step details section */}
                         <Col md={12}>
                             <div className="donation-step-details">
                                 {step === 1 && (
@@ -92,8 +94,7 @@ const Donate = () => {
                                 )}
                             </div>
 
-                          {/* Buttons close to each other */}
-                          <div className="d-flex justify-content-center mt-4">
+                            <div className="d-flex justify-content-center mt-4">
                                 <Button
                                     variant="secondary"
                                     onClick={handlePreviousStep}
@@ -114,9 +115,8 @@ const Donate = () => {
                         </Col>
                     </Row>
 
-                    {/* "Your help..." section moved to just above the footer */}
                     <Row className="mt-5">
-                        <Col md={18}>
+                        <Col md={12}>
                             <div className="donation-info text-center">
                                 <h2>Your Little Help Will Make a Big Impact</h2>
                                 <p>Click here for donation:</p>
@@ -127,8 +127,7 @@ const Donate = () => {
                 </Container>
             </div>
 
-            {/* Render the Footer component */}
-            <Footer/>
+            <Footer/> {/* Render the Footer component */}
         </div>
     );
 };
