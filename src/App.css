@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.site-header {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  padding-top: 150px;
+  padding-bottom: 80px;
+}
+
+.site-header .container {
+  height: 100%;
+}

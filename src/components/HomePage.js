@@ -80,7 +80,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <NavBar />
+        
             <main>
 
                 {/* Search Start */}
@@ -110,7 +110,7 @@ const HomePage = () => {
                                     <Link to="/topics-detail">
                                         <div className="d-flex">
                                             <div>
-                                                <h5 className="mb-2">Alumini Community</h5>
+                                                <h5 className="mb-2">Alumni Community</h5>
                                                 <p className="mb-0">
                                                     Welcome to the Alumni Workspace—where you can connect with fellow graduates, explore career opportunities, and celebrate the achievements of our university community.
                                                     <br />
@@ -180,7 +180,7 @@ const HomePage = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 text-center">
-                                <h2 className="text-white mb-4">What Is Alumini Space?</h2>
+                                <h2 className="text-white mb-4">What Is Alumni Space?</h2>
                             </div>
                             <div className="col-lg-10 col-12 mx-auto">
                                 <div className="timeline-container">
@@ -256,7 +256,7 @@ const HomePage = () => {
                     aria-expanded="false"
                     aria-controls="collapseOne"
                   >
-                    How can I benefit from using Alumini Space?
+                    How can I benefit from using Alumni Space?
                   </button>
                 </h2>
                 <div
@@ -266,7 +266,7 @@ const HomePage = () => {
                   data-bs-parent="#accordionExample"
                 >
                   <div className="accordion-body">
-                    Using Alumini Space, you can <strong>reconnect with former classmates</strong>, <strong>access exclusive career resources</strong> and networking opportunities, and stay engaged with your alma mater through <strong>events and community initiatives</strong>. Whether you're looking to advance your career, participate in alumni events, or contribute to the university community, Alumini Space provides valuable tools and connections to enhance your professional and personal growth.
+                    Using Alumni Space, you can <strong>reconnect with former classmates</strong>, <strong>access exclusive career resources</strong> and networking opportunities, and stay engaged with your alma mater through <strong>events and community initiatives</strong>. Whether you're looking to advance your career, participate in alumni events, or contribute to the university community, Alumini Space provides valuable tools and connections to enhance your professional and personal growth.
                   </div>
                 </div>
               </div>

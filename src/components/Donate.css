@@ -1,5 +1,5 @@
   .donation-journey {
-    margin-top: 160px;
+    margin-top: 90px;
   }
   
   .donation-step {
@@ -11,7 +11,7 @@
   }
   
   .donation-step-details {
-    margin-top: 30px;
+    margin-top: 70px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -35,6 +35,7 @@
    .btn-secondary {
     background-color: red;
     border-color: red;
+    border-radius: 50px;
   }
 
   

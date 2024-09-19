@@ -50,14 +50,16 @@ function NavBar() {
               Contact Us
             </ScrollLink>
             <Nav.Link as={Link} to="/Donate">Donate</Nav.Link>
+           
           </Nav>
-
+          {/* Custom Login Link */}
           <div className="d-none d-lg-block">
-          <Link to="/Login.js" className="navbar-icon bi-person" title="Click here to login"></Link>
+            <Link to="/login" className="navbar-icon bi-person" title="Click here to login"></Link>
           </div>
           <div className="login-add-space">
             <p>Login</p>
           </div>
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>
