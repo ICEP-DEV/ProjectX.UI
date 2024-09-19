@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Login.css"; // Make sure to update the path if necessary
 import { FaGraduationCap } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
