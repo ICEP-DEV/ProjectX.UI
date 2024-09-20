@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Button, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import NavBar from './NavBar'; // Ensure the path is correct
+import Footer from './Footer'; // Import the Footer component
 import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome
 import './homepage.css';
 import './navbar.css';
 import './Donate.css';
-import NavBar from './NavBar'; // Ensure the path is correct
-import Footer from './Footer'; // Import the Footer component
 
 const Donate = () => {
     const [step, setStep] = useState(1);
@@ -23,6 +22,10 @@ const Donate = () => {
         }
     };
 
+    const handleDonateClick = () => {
+        window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSe8cm9txO4rDgkMbiHQyB23n-zPYwbw_gAV7eBSryJ3rQ0b5g/viewform?usp=sf_link';
+    };
+
     return (
         <div>
             <NavBar /> {/* Render the NavBar component */}
@@ -30,10 +33,6 @@ const Donate = () => {
                 <Container className="donation-journey">
                     <Row>
                         <Col md={12}>
-
-                            {/* Add a Home link here */}
-                            {/* <Nav.Link as={Link} to="/HomePage" className="text-primary mb-3">Home</Nav.Link> */}
-
                             <div className="d-flex justify-content-between">
                                 <div className="donation-step">
                                     <i className="fas fa-check-circle"></i>
@@ -64,32 +63,32 @@ const Donate = () => {
                             <div className="donation-step-details">
                                 {step === 1 && (
                                     <div>
-                                        <h2>Step 1: Your Information</h2>
-                                        <p>Please provide your personal details.</p>
+                                        <h2>Step 1: Explore</h2>
+                                        <p>Browse our website to view what Alumni space is about</p>
                                     </div>
                                 )}
                                 {step === 2 && (
                                     <div>
-                                        <h2>Step 2: Donation Amount</h2>
-                                        <p>Choose your donation amount.</p>
+                                        <h2>Step 2: Donate</h2>
+                                        <p>Click on the donate here button to complete the form..</p>
                                     </div>
                                 )}
                                 {step === 3 && (
                                     <div>
                                         <h2>Step 3: Payment Method</h2>
-                                        <p>Select your preferred payment method.</p>
+                                        <p>We will respond with our banking details and a form to complete your company’s details for the s18A certificate</p>
                                     </div>
                                 )}
                                 {step === 4 && (
                                     <div>
-                                        <h2>Step 4: Review and Submit</h2>
-                                        <p>Review your donation details and submit.</p>
+                                        <h2>Step 4: Payment</h2>
+                                        <p>Once the payment is made, please email the POP to 20from20@tut.ac.za</p>
                                     </div>
                                 )}
                                 {step === 5 && (
                                     <div>
                                         <h2>Step 5: Thank You!</h2>
-                                        <p>Thank you for your donation.</p>
+                                        <p>Acknowledgment of payment and receipt of thank you letter and S18A certificate (if eligible).</p>
                                     </div>
                                 )}
                             </div>
@@ -103,7 +102,7 @@ const Donate = () => {
                                 >
                                     Previous Step
                                 </Button>
-                                
+
                                 <Button
                                     variant="primary"
                                     onClick={handleNextStep}
@@ -120,14 +119,14 @@ const Donate = () => {
                             <div className="donation-info text-center">
                                 <h2>Your Little Help Will Make a Big Impact</h2>
                                 <p>Click here for donation:</p>
-                                <Button variant="secondary">Donate Here</Button>
+                                <Button variant="secondary" onClick={handleDonateClick}>Donate Here</Button>
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
 
-            <Footer/> {/* Render the Footer component */}
+            <Footer /> {/* Render the Footer component */}
         </div>
     );
 };

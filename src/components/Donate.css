@@ -1,5 +1,5 @@
 .donation-journey {
-  margin-top: 30px;
+  margin-top: 30p x;
 }
 
 .donation-step {
@@ -20,7 +20,7 @@
   border: 1px solid white;
   border-radius: 5px;
   color: white;
-
+ background-color: azure;
   
 }
 
@@ -60,6 +60,7 @@
 
   .donation-step-details {
       margin-top: 20px;
+      
   }
 
   /* Adjust donation info for mobile if needed */
