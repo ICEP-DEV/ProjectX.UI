@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link as ScrollLink } from 'react-scroll'; // Import from react-scroll
+import { Link as ScrollLink } from 'react-scroll'; // For smooth scroll on homepage
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation for route check
 import './navbar.css';
-import { Link } from 'react-router-dom';
 import tutLogo from '../images/tut logo.png'; // Update path as needed
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation(); // Check the current location
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 50); // Trigger the scrolled state after 50px of scroll
@@ -37,20 +38,40 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto">
-            <ScrollLink to="section_1" smooth={true} duration={200} className="nav-link">
-              Home
-            </ScrollLink>
-            <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link">
-              What Is Alumni Space?
-            </ScrollLink>
-            <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link">
-              FAQs
-            </ScrollLink>
-            <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link">
-              Contact Us
-            </ScrollLink>
+            {/* If we're on the donate page, link back to the homepage */}
+            {location.pathname === '/Donate' ? (
+              <>
+                <Nav.Link as={Link} to="/#section_1">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/#section_2">
+                  What Is Alumni Space?
+                </Nav.Link>
+                <Nav.Link as={Link} to="/#section_3">
+                  FAQs
+                </Nav.Link>
+                <Nav.Link as={Link} to="/#section_4">
+                  Contact Us
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                {/* If we're already on the homepage, use smooth scroll */}
+                <ScrollLink to="section_1" smooth={true} duration={200} className="nav-link">
+                  Home
+                </ScrollLink>
+                <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link">
+                  What Is Alumni Space?
+                </ScrollLink>
+                <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link">
+                  FAQs
+                </ScrollLink>
+                <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link">
+                  Contact Us
+                </ScrollLink>
+              </>
+            )}
             <Nav.Link as={Link} to="/Donate">Donate</Nav.Link>
-           
           </Nav>
           {/* Custom Login Link */}
           <div className="d-none d-lg-block">
@@ -59,7 +80,6 @@ function NavBar() {
           <div className="login-add-space">
             <p>Login</p>
           </div>
-         
         </Navbar.Collapse>
       </Container>
     </Navbar>
