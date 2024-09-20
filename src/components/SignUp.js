@@ -1,72 +1,46 @@
 import React, { useState } from 'react';
 import "./Login.css"; // Make sure to update the path if necessary
+//import { FaGraduationCap } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function SignUp() {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
-  const [userType, setUserType] = useState('alumni'); // Default to alumni
 
   const handleSignUpClick = () => {
     setIsSignUpMode(true); // This toggles the animation class
   };
-
-  const handleUserTypeChange = (event) => {
-    setUserType(event.target.value); // Update the user type based on the selected radio button
-  };
-
+ 
   return (
     <div className={`containers ${isSignUpMode ? 'sign-up-modes' : ''}`}>
+
+     
+
       <div className="forms-containers">
         <div className="signins-signups">
           {/* Sign In Form */}
           <form action="#" className="sign-in-forms">
-            <h2 className="titles">Login as an: </h2>
-            <div className="radio-buttons">
-              <label>
-                <input 
-                  type="radio" 
-                  name="user-type" 
-                  value="admin" 
-                  checked={userType === 'admin'} 
-                  onChange={handleUserTypeChange} 
-                />
-                Admin
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="user-type" 
-                  value="alumni" 
-                  checked={userType === 'alumni'} 
-                  onChange={handleUserTypeChange} 
-                />
-                Alumni
-              </label>
-            </div>
+            <h2 className="titles">Sign up </h2>
+            
             <div className="input-fields">
               <i className="fas fa-user"></i>
-              <input 
-                type="text" 
-                placeholder={userType === 'admin' ? 'Staff number' : 'Student number'} // Update placeholder based on userType
-              />
+              <input type="text" placeholder="Student number" />
+            </div>
+            <div className="input-fields">
+              <i className="fas fa-envelope"></i>
+              <input type="text" placeholder="Email" />
             </div>
             <div className="input-fields">
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
+            <div className="input-fields">
+              <i className="fas fa-lock"></i>
+              <input type="password" placeholder=" Confirm Password" />
+            </div>
             <Link to="/landing_page/index.html" className="anchors transition-links">
-              LOGIN
+                SIGN UP
             </Link>
-
-            <Link to="/forgot-password" className="forgot-password-links" style={{
-              display: 'block',
-              marginTop: '10px',
-              fontSize: '0.75rem',
-              color: '#000000',
-              textDecoration: 'underline'
-            }}>
-              Forgot Password?
-            </Link>
+          
             <p className="social-texts">Our social platforms</p>
             <div className="social-medias">
               <div className="social-icons" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
@@ -82,25 +56,23 @@ function Login() {
                 <i className="fab fa-linkedin-in"></i>
               </div>
             </div>
+
           </form>
+
         </div>
       </div>
 
       {/* Panels for and Sign Up */}
-      <div className="panels-containers">
-        <div className="panels left-panels">
-          <div className="contents">
-            <h3>New here ?</h3>
-        <button
-              className="btns transparents"
-              id="sign-up-btns"
-              onClick={() => window.location.href = '/signup'}>
-              Sign up
-        </button>
+      
+      {/*<div class="panels right-panels">
+          <div class="contents">
+            <h3>One of us ?</h3>
+            <button class="btns transparents" id="sign-in-btns">
+              Sign in
+            </button>
           </div>
- 
-        </div> 
-      </div>
+          
+        </div>*/}
 
 
       {/*<div className="panels-containers">
@@ -123,4 +95,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
