@@ -38,6 +38,7 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto">
+            
             {/* If we're on the donate page, link back to the homepage */}
             {location.pathname === '/Donate' ? (
               <>
