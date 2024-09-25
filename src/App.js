@@ -10,6 +10,7 @@ import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
 import SignUp from './components/SignUp';
+import DonationForm from './components/DonationForm';
 
 
 function App() {
@@ -21,12 +22,14 @@ function App() {
   return (
     <div className="App">
       {/* Conditionally render NavBar */}
-      {!hideNavBar && <NavBar />}
+      
 
       <Routes>
+      {!hideNavBar && <NavBar />}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/DonationForm" element={<DonationForm />}/>
         <Route path="/signup" element={<SignUp/>} />
       </Routes>
 

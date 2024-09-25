@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import NavBar from './NavBar'; // Ensure the path is correct
-import Footer from './Footer'; // Import the Footer component
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import Footer from './Footer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './homepage.css';
-import './navbar.css';
 import './Donate.css';
 
 const Donate = () => {
     const [step, setStep] = useState(1);
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleNextStep = () => {
         if (step < 5) {
@@ -23,12 +23,12 @@ const Donate = () => {
     };
 
     const handleDonateClick = () => {
-        window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSe8cm9txO4rDgkMbiHQyB23n-zPYwbw_gAV7eBSryJ3rQ0b5g/viewform?usp=sf_link';
+        navigate('/DonationForm'); // Navigate to the form page
     };
 
     return (
         <div>
-            <NavBar /> {/* Render the NavBar component */}
+            {/* <NavBar /> */}
             <div className='hero-section'>
                 <Container className="donation-journey">
                     <Row>
@@ -76,13 +76,13 @@ const Donate = () => {
                                 {step === 3 && (
                                     <div>
                                         <h2>Step 3: Payment Method</h2>
-                                        <p>We will respond with our banking details and a form to complete your company’s details for the s18A certificate</p>
+                                        <p>We will respond with our banking details.</p>
                                     </div>
                                 )}
                                 {step === 4 && (
                                     <div>
                                         <h2>Step 4: Payment</h2>
-                                        <p>Once the payment is made, please email the POP to 20from20@tut.ac.za</p>
+                                        <p>Once the payment is made, please email the POP to alumnispace@tut.ac.za</p>
                                     </div>
                                 )}
                                 {step === 5 && (
@@ -114,11 +114,13 @@ const Donate = () => {
                         </Col>
                     </Row>
 
+
+
                     <Row className="mt-5">
                         <Col md={12}>
                             <div className="donation-info text-center">
                                 <h2>Your Little Help Will Make a Big Impact</h2>
-                                <p>Click here for donation:</p>
+                                <p>Click below for donation form:</p>
                                 <Button variant="secondary" onClick={handleDonateClick}>Donate Here</Button>
                             </div>
                         </Col>
@@ -126,7 +128,7 @@ const Donate = () => {
                 </Container>
             </div>
 
-            <Footer /> {/* Render the Footer component */}
+            <Footer />
         </div>
     );
 };
