@@ -22,10 +22,9 @@ function App() {
   return (
     <div className="App">
       {/* Conditionally render NavBar */}
-      
+      {!hideNavBar && <NavBar />}
 
       <Routes>
-      {!hideNavBar && <NavBar />}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/donate" element={<Donate />} />
