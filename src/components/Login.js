@@ -1,84 +1,148 @@
-import React, { useState } from 'react';
-import "./Login.css"; // Make sure to update the path if necessary
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-function Login() {
-  const [isSignUpMode, setIsSignUpMode] = useState(false);
-  const [userType, setUserType] = useState('alumni'); // Default to alumni
+const Login = () => {
+  const [signUpMode, setSignUpMode] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleSignUpClick = () => {
-    setIsSignUpMode(true); // This toggles the animation class
+    setSignUpMode(true);
   };
 
-  const handleUserTypeChange = (event) => {
-    setUserType(event.target.value); // Update the user type based on the selected radio button
+  const handleSignInClick = () => {
+    setSignUpMode(false);
+  };
+
+  const handleRoleChange = (event) => {
+    setIsAdmin(event.target.value === "admin");
   };
 
   return (
-    <div className={`containers ${isSignUpMode ? 'sign-up-modes' : ''}`}>
-      <div className="forms-containers">
-        <div className="signins-signups">
+    <div className={`containerss ${signUpMode ? "sign-up-modess" : ""}`}>
+      {/* Conditionally render the graduation icon and Alumni Space text only when not in sign-up mode */}
+      {!signUpMode && (
+        <div className="graduation-icon">
+          <i className="fas fa-graduation-cap"></i>
+          {/* Add Alumni Space below the icon */}
+          <span className="heading-colorss">
+            Alumni<sup className="aspacess"> Space</sup>
+          </span>
+        </div>
+      )}
+
+      <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}></div>
+
+      <div className="forms-containerss">
+        <div className="signinss-signupss">
           {/* Sign In Form */}
-          <form action="#" className="sign-in-forms">
-            <h2 className="titles">Login as an: </h2>
-            <div className="radio-buttons">
+          <form action="#" className="sign-in-formss">
+            <h2 className="titless">Sign in</h2>
+
+            {/* Radio buttons for Alumni and Admin */}
+            <div className="radio-group">
               <label>
-                <input 
-                  type="radio" 
-                  name="user-type" 
-                  value="admin" 
-                  checked={userType === 'admin'} 
-                  onChange={handleUserTypeChange} 
-                />
-                Admin
-              </label>
-              <label>
-                <input 
-                  type="radio" 
-                  name="user-type" 
-                  value="alumni" 
-                  checked={userType === 'alumni'} 
-                  onChange={handleUserTypeChange} 
+                <input
+                  type="radio"
+                  value="alumni"
+                  name="role"
+                  onChange={handleRoleChange}
+                  checked={!isAdmin}
                 />
                 Alumni
               </label>
+              <label>
+                <input
+                  type="radio"
+                  value="admin"
+                  name="role"
+                  onChange={handleRoleChange}
+                  checked={isAdmin}
+                />
+                Admin
+              </label>
             </div>
-            <div className="input-fields">
+
+            {/* Conditionally render fields based on the role */}
+            <div className="input-fieldss">
               <i className="fas fa-user"></i>
-              <input 
-                type="text" 
-                placeholder={userType === 'admin' ? 'Staff number' : 'Student number'} // Update placeholder based on userType
+              <input
+                type="text"
+                placeholder={isAdmin ? "Staff number" : "Student number"}
               />
             </div>
-            <div className="input-fields">
+
+            {isAdmin && (
+              <div className="input-fieldss">
+                <i className="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" />
+              </div>
+            )}
+
+            {!isAdmin && (
+              <div className="input-fieldss">
+                <i className="fas fa-lock"></i>
+                <input type="password" placeholder="Password" />
+              </div>
+            )}
+
+            <Link to="/logged" className="anchorss transition-linkss">
+              Login
+            </Link>
+
+            <Link to="/forgot-password" className="forgot-password-link">
+              Forgot Password?
+            </Link>
+
+            <p className="social-textss">Our social platforms</p>
+            <div className="social-mediass">
+              <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
+                <i className="fab fa-facebook-f"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://x.com/official_tut', '_blank')}>
+                <i className="fab fa-twitter"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://www.tut.ac.za', '_blank')}>
+                <i className="fab fa-google"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://www.linkedin.com/school/tshwane-university-of-technology/', '_blank')}>
+                <i className="fab fa-linkedin-in"></i>
+              </div>
+            </div>
+          </form>
+
+          {/* Sign Up Form */}
+          <form action="#" className="sign-up-formss">
+            <h2 className="titless">Sign up</h2>
+            <div className="input-fieldss">
+              <i className="fas fa-user"></i>
+              <input type="text" placeholder="Student number" />
+            </div>
+            <div className="input-fieldss">
+              <i className="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div className="input-fieldss">
               <i className="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <Link to="/landing_page/index.html" className="anchors transition-links">
-              LOGIN
-            </Link>
-
-            <Link to="/forgot-password" className="forgot-password-links" style={{
-              display: 'block',
-              marginTop: '10px',
-              fontSize: '0.75rem',
-              color: '#000000',
-              textDecoration: 'underline'
-            }}>
-              Forgot Password?
-            </Link>
-            <p className="social-texts">Our social platforms</p>
-            <div className="social-medias">
-              <div className="social-icons" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
+            <div className="input-fieldss">
+              <i className="fas fa-lock"></i>
+              <input type="password" placeholder="Confirm Password" />
+            </div>
+            <input type="submit" className="btnss" value="Sign up" />
+            <p className="social-textss">Our social platforms</p>
+            <div className="social-mediass">
+              <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
                 <i className="fab fa-facebook-f"></i>
               </div>
-              <div className="social-icons" onClick={() => window.open('https://x.com/official_tut', '_blank')}>
+              <div className="social-iconss" onClick={() => window.open('https://x.com/official_tut', '_blank')}>
                 <i className="fab fa-twitter"></i>
               </div>
-              <div className="social-icons" onClick={() => window.open('https://www.tut.ac.za', '_blank')}>
+              <div className="social-iconss" onClick={() => window.open('https://www.tut.ac.za', '_blank')}>
                 <i className="fab fa-google"></i>
               </div>
-              <div className="social-icons" onClick={() => window.open('https://www.linkedin.com/school/tshwane-university-of-technology/', '_blank')}>
+              <div className="social-iconss" onClick={() => window.open('https://www.linkedin.com/school/tshwane-university-of-technology/', '_blank')}>
                 <i className="fab fa-linkedin-in"></i>
               </div>
             </div>
@@ -86,41 +150,26 @@ function Login() {
         </div>
       </div>
 
-      {/* Panels for and Sign Up */}
-      <div className="panels-containers">
-        <div className="panels left-panels">
-          <div className="contents">
-            <h3>New here ?</h3>
-        <button
-              className="btns transparents"
-              id="sign-up-btns"
-              onClick={() => window.location.href = '/signup'}>
+      <div className="panelss-containerss">
+        <div className="panelss left-panelss">
+          <div className="contentss">
+            <h3>New here?</h3>
+            <button className="btnss transparentss" id="sign-up-btnss" onClick={handleSignUpClick}>
               Sign up
-        </button>
+            </button>
           </div>
- 
-        </div> 
-      </div>
-
-
-      {/*<div className="panels-containers">
-        <div className="panels left-panels">
-          
-        <div className="header-infos">
-        <FaGraduationCap className="graduation-icons" />
-        <div className="header-texts">
-          <span className="alumni-texts">Alumni</span>
-          <span className="space-texts">space</span>
+        </div>
+        <div className="panelss right-panelss">
+          <div className="contentss">
+            <h3>One of us?</h3>
+            <button className="btnss transparentss" id="sign-in-btnss" onClick={handleSignInClick}>
+              Sign in
+            </button>
+          </div>
         </div>
       </div>
-
-        </div> 
-      </div>*/}
-
-      
-
     </div>
   );
-}
+};
 
 export default Login;

@@ -9,7 +9,6 @@ import HomePage from './components/HomePage';
 import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
-import SignUp from './components/SignUp';
 import DonationForm from './components/DonationForm';
 
 
@@ -17,7 +16,7 @@ function App() {
   const location = useLocation();
 
   // Define paths where the NavBar should not appear
-  const hideNavBar = location.pathname === '/login' || location.pathname === '/signup';
+  const hideNavBar = location.pathname === '/login';
 
   return (
     <div className="App">
@@ -29,7 +28,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />}/>
-        <Route path="/signup" element={<SignUp/>} />
       </Routes>
 
       {/* footer */}
