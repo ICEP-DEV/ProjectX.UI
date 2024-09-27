@@ -1,14 +1,44 @@
 import React, { useState } from 'react';
 import "./Login.css"; // Make sure to update the path if necessary
 //import { FaGraduationCap } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function SignUp() {
+
+function SignUp(){
   const [isSignUpMode, setIsSignUpMode] = useState(false);
 
   const handleSignUpClick = () => {
     setIsSignUpMode(true); // This toggles the animation class
-  };
+
+  }
+
+  const [ studentNum, setStudentNum] = useState('')
+  const [ email, setEmail] = useState('')
+  const [ password, setPassword] = useState('')
+
+  const handleSave =(e) => 
+  {
+      e.preventDefault();
+      console.log(studentNum, email, password);
+      const url = 'https://localhost:44391/api/AlumnusRegistration/AlumnusRegistration';
+
+      const data = 
+      {
+        StudentNum : studentNum,
+        Email : email,
+        Password : password
+      }
+
+      axios.post(url,data)
+      .then((result) => {
+        const dt = result.data;
+      })
+      .catch((error)=>{
+          console.log(error);
+      })
+
+      
+  }
  
   return (
     <div className={`containers ${isSignUpMode ? 'sign-up-modes' : ''}`}>
@@ -22,24 +52,41 @@ function SignUp() {
             <h2 className="titles">Sign up </h2>
             
             <div className="input-fields">
-              <i className="fas fa-user"></i>
-              <input type="text" placeholder="Student number" />
+              <i className="fas fa-user-graduate"></i>
+              <input 
+                  type="text" 
+                  placeholder="Student number" 
+                  onChange={(e) => setStudentNum(e.target.value)}
+              />
             </div>
             <div className="input-fields">
               <i className="fas fa-envelope"></i>
-              <input type="text" placeholder="Email" />
+              <input
+                  type="text" 
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
             </div>
+
             <div className="input-fields">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input
+                 type="password" 
+                 placeholder="Password"
+                 onChange={(e) => setPassword(e.target.value)}
+               />
             </div>
             <div className="input-fields">
               <i className="fas fa-lock"></i>
               <input type="password" placeholder=" Confirm Password" />
             </div>
-            <Link to="/landing_page/index.html" className="anchors transition-links">
+            <button 
+                 type="button"
+                 className="anchors transition-links"
+                 onClick={(e) => handleSave(e)} 
+            >
                 SIGN UP
-            </Link>
+            </button>
           
             <p className="social-texts">Our social platforms</p>
             <div className="social-medias">
@@ -61,38 +108,9 @@ function SignUp() {
 
         </div>
       </div>
-
-      {/* Panels for and Sign Up */}
-      
-      {/*<div class="panels right-panels">
-          <div class="contents">
-            <h3>One of us ?</h3>
-            <button class="btns transparents" id="sign-in-btns">
-              Sign in
-            </button>
-          </div>
-          
-        </div>*/}
-
-
-      {/*<div className="panels-containers">
-        <div className="panels left-panels">
-          
-        <div className="header-infos">
-        <FaGraduationCap className="graduation-icons" />
-        <div className="header-texts">
-          <span className="alumni-texts">Alumni</span>
-          <span className="space-texts">space</span>
-        </div>
-      </div>
-
-        </div> 
-      </div>*/}
-
-      
-
     </div>
   );
 }
+
 
 export default SignUp;
