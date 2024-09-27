@@ -22,7 +22,7 @@ body.fade-out #loading-spinner {
 }
 
 /* Loading Spinner */
-.spinner {
+.spinnerss {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -41,19 +41,15 @@ body.fade-out #loading-spinner {
   100% { transform: rotate(360deg); }
 }
 
-.containers {
+.containerss {
   position: relative;
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
-  height: 100vh; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.forms-containers {
+.forms-containerss {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -61,7 +57,7 @@ body.fade-out #loading-spinner {
   left: 0;
 }
 
-.signins-signups {
+.signinss-signupss {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -85,22 +81,22 @@ form {
   grid-row: 1 / 2;
 }
 
-form.sign-up-forms {
+form.sign-up-formss {
   opacity: 0;
   z-index: 1;
 }
 
-form.sign-in-forms {
+form.sign-in-formss {
   z-index: 2;
 }
 
-.titles {
+.titless{
   font-size: 2.2rem;
   color: #444;
   margin-bottom: 10px;
 }
 
-.input-fields {
+.input-fieldss {
   max-width: 380px;
   width: 100%;
   background-color: #f0f0f0;
@@ -113,7 +109,7 @@ form.sign-in-forms {
   position: relative;
 }
 
-.input-fields i {
+.input-fieldss i {
   text-align: center;
   line-height: 55px;
   color: #acacac;
@@ -121,7 +117,7 @@ form.sign-in-forms {
   font-size: 1.1rem;
 }
 
-.input-fields input {
+.input-fieldss input {
   background: none;
   outline: none;
   border: none;
@@ -131,22 +127,22 @@ form.sign-in-forms {
   color: #333;
 }
 
-.input-fields input::placeholder {
+.input-fieldss input::placeholder {
   color: #aaa;
   font-weight: 500;
 }
 
-.social-texts {
+.social-textss {
   padding: 0.7rem 0;
   font-size: 1rem;
 }
 
-.social-medias {
+.social-mediass {
   display: flex;
   justify-content: center;
 }
 
-.social-icons {
+.social-iconss {
   height: 46px;
   width: 46px;
   display: flex;
@@ -161,12 +157,12 @@ form.sign-in-forms {
   transition: 0.3s;
 }
 
-.social-icons:hover {
+.social-iconss:hover {
   color: #4481eb;
   border-color: #4481eb;
 }
 
-.btns {
+.btnss{
   width: 150px;
   background-color: #5995fd;
   border: none;
@@ -182,11 +178,11 @@ form.sign-in-forms {
 
 }
 
-.btns:hover {
+.btnss:hover {
   background-color: #4d84e2;
 }
 
-.anchors
+.anchorss
 {
   display: flex;
   align-items: center;
@@ -206,22 +202,23 @@ form.sign-in-forms {
   text-decoration: none;
 }
 
-.anchors:hover
+.anchorss:hover
 {
   background-color: #4d84e2;
 }
 
-.panels-containers {
+.panelss-containerss {
   position: absolute;
   height: 100%;
   width: 100%;
-  top: -350px;
+  top: 0;
   left: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: -250px; 
 }
 
-.containers:before {
+.containerss:before {
   content: "";
   position: absolute;
   height: 2000px;
@@ -241,7 +238,7 @@ form.sign-in-forms {
   transition-delay: 0.4s;
 }
 
-.panels {
+.panelss {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -250,34 +247,34 @@ form.sign-in-forms {
   z-index: 6;
 }
 
-.left-panels {
+.left-panelss {
   pointer-events: all;
   padding: 3rem 17% 2rem 12%;
 }
 
-.right-panels {
+.right-panelss {
   pointer-events: none;
   padding: 3rem 12% 2rem 17%;
 }
 
-.panels .contents {
+.panelss .contentss {
   color: #fff;
   transition: transform 0.9s ease-in-out;
   transition-delay: 0.6s;
 }
 
-.panels h3 {
+.panelss h3 {
   font-weight: 600;
   line-height: 1;
   font-size: 1.5rem;
 }
 
-.panels p {
+.panelss p {
   font-size: 0.95rem;
   padding: 0.7rem 0;
 }
 
-.btns.transparents {
+.btnss.transparentss {
   margin: 0;
   background: none;
   border: 2px solid #fff;
@@ -288,37 +285,73 @@ form.sign-in-forms {
   margin-top: 20px;
 }
 
-.right-panels .images,
-.right-panels .contents {
+.right-panelss .images,
+.right-panelss .contentss {
   transform: translateX(800px);
 }
 
 /* ANIMATION */
 
+.containerss.sign-up-modess:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+.containerss.sign-up-modess .left-panelss .images,
+.containerss.sign-up-modess .left-panelss .contentss {
+  transform: translateX(-800px);
+}
+
+.containerss.sign-up-modess .signinss-signupss {
+  left: 25%;
+}
+
+.containerss.sign-up-modess form.sign-up-formss {
+  opacity: 1;
+  z-index: 2;
+}
+
+.containerss.sign-up-modess form.sign-in-formss {
+  opacity: 0;
+  z-index: 1;
+}
+
+.containerss.sign-up-modess .right-panelss .images,
+.containerss.sign-up-modess .right-panelss .contentss {
+  transform: translateX(0%);
+}
+
+.containerss.sign-up-modess .left-panelss {
+  pointer-events: none;
+}
+
+.containerss.sign-up-modess .right-panelss {
+  pointer-events: all;
+}
 
 @media (max-width: 870px) {
-  .containers {
+  .containerss {
     min-height: 800px;
     height: 100vh;
   }
-  .signins-signups {
+  .signinss-signupss {
     width: 100%;
     top: 95%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
 
-  .signins-signups,
-  .containers.sign-up-modes .signins-signups {
+  .signinss-signupss,
+  .containerss.sign-up-modess .signinss-signupss {
     left: 50%;
   }
 
-  .panels-containers {
+  .panelss-containerss {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
   }
 
-  .panels {
+  .panelss {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -326,11 +359,11 @@ form.sign-in-forms {
     grid-column: 1 / 2;
   }
 
-  .right-panels {
+  .right-panelss {
     grid-row: 3 / 4;
   }
 
-  .left-panels {
+  .left-panelss {
     grid-row: 1 / 2;
   }
 
@@ -340,28 +373,28 @@ form.sign-in-forms {
     transition-delay: 0.6s;
   }
 
-  .panels .contents {
+  .panelss .contentss {
     padding-right: 15%;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.8s;
   }
 
-  .panels h3 {
+  .panelss h3 {
     font-size: 1.2rem;
   }
 
-  .panels p {
+  .panelss p {
     font-size: 0.7rem;
     padding: 0.5rem 0;
   }
 
-  .btns.transparents {
+  .btnss.transparentss {
     width: 110px;
     height: 35px;
     font-size: 0.7rem;
   }
 
-  .containers:before {
+  .containerss:before {
     width: 1500px;
     height: 1500px;
     transform: translateX(-50%);
@@ -372,28 +405,28 @@ form.sign-in-forms {
     transition: 2s ease-in-out;
   }
 
-  .containers.sign-up-modes:before {
+  .containerss.sign-up-modess:before {
     transform: translate(-50%, 100%);
     bottom: 32%;
     right: initial;
   }
 
-  .containers.sign-up-modes .left-panels .images,
-  .containers.sign-up-modes .left-panels .contents {
+  .containerss.sign-up-modess .left-panelss .images,
+  .containerss.sign-up-modess .left-panelss .contentss {
     transform: translateY(-300px);
   }
 
-  .containers.sign-up-modes .right-panels .images,
-  .containers.sign-up-modes .right-panels .contents {
+  .containerss.sign-up-modess .right-panelss .images,
+  .containerss.sign-up-modess .right-panelss .contentss {
     transform: translateY(0px);
   }
 
-  .right-panels .images,
-  .right-panels .contents {
+  .right-panelss .images,
+  .right-panelss .contentss {
     transform: translateY(300px);
   }
 
-  .containers.sign-up-modes .signins-signups {
+  .containerss.sign-up-modess .signinss-signupss {
     top: 5%;
     transform: translate(-50%, 0);
   }
@@ -407,74 +440,59 @@ form.sign-in-forms {
   .images {
     display: none;
   }
-  .panels .contents {
+  .panelss .contentss {
     padding: 0.5rem 1rem;
   }
-  .containers {
+  .containerss {
     padding: 1.5rem;
   }
 
-  .containers:before {
+  .containerss:before {
     bottom: 72%;
     left: 50%;
   }
 
-  .containers.sign-up-modes:before {
+  .containerss.sign-up-modess:before {
     bottom: 28%;
     left: 50%;
   }
+}
 
-/* Add these styles to your existing CSS file */
-.radio-buttons {
+.forgot-password-link {
+  color: black; /* Change the text color to black */
+  text-decoration: underline; /* Add underline */
+  font-size: 14px; /* Optional: adjust the size if needed */
+  margin-top: 10px; /* Optional: add some margin to create space */
+  display: inline-block; /* Ensures it behaves like a link */
+}
+
+.radio-group {
   display: flex;
-  justify-content: center; /* Center the radio buttons horizontally */
-  margin-bottom: 40px; /* Space between the radio buttons and other elements */
-  gap: 80px; /* Space between radio buttons */
+  gap: 25px; /* Adjust the space between the radio buttons */
+  margin-bottom: 20px; /* Add space below the radio group */
 }
 
-.radio-buttons label {
-  font-size: 1rem;
-}
-
-.radio-buttons input[type="radio"] {
-  margin-right: 10px; /* Space between radio button and label */
-}
-
-
-
-
-
-/* Header info styling */
-.header-infos {
+.graduation-icon {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
+  top: 110px;
+  left: 100px;
+  font-size: 180px;
+  z-index: 100; /* Make sure it appears above everything */
 }
 
-.graduation-icons {
-  font-size: 2rem; /* Adjust size as needed */
-  color: #ffffff; /* Adjust color as needed */
+.aspacess
+  {
+      font-size: 20px;
+      color: #fdb913;
+  }
+.heading-colorss{
+  font-size: 20px;
 }
 
-.header-texts {
-  text-align: center;
-  color: #ffffff; /* Adjust color as needed */
-  margin-top: 5px;
-}
 
-.alumni-texts {
-  display: block;
-  font-size: 1rem; /* Adjust size as needed */
-}
 
-.space-texts {
-  display: block;
-  font-size: 0.875rem; /* Adjust size as needed */
-}
 
-}
+
+
+
+
