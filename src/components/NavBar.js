@@ -29,7 +29,7 @@ function NavBar() {
       navigate('/');
       setTimeout(() => {
         scroll.scrollTo(document.getElementById(sectionId).offsetTop);
-      }, 20); // Delay to allow for the page to load
+      }, 10); // Delay to allow for the page to load
     } else {
       // If already on the homepage, use smooth scroll directly
       scroll.scrollTo(document.getElementById(sectionId).offsetTop);
@@ -40,10 +40,8 @@ function NavBar() {
   // Function to handle Donate navigation and force the scroll to the top
   const handleDonateNavigation = () => {
     navigate('/Donate');
-    // Force scroll to top after navigating
-    setTimeout(() => {
       window.scrollTo(0, 0); // Scroll to top after navigation
-    }, 0); // Use a slight delay to ensure the page loads before scrolling
+    
   };
 
   return (
@@ -83,16 +81,16 @@ function NavBar() {
             ) : (
               <>
                 {/* Smooth scroll on homepage */}
-                <ScrollLink to="section_1" smooth={true} duration={80} className="nav-link">
+                <ScrollLink to="section_1" smooth={true} duration={50} className="nav-link">
                   Home
                 </ScrollLink>
-                <ScrollLink to="section_2" smooth={true} duration={80} className="nav-link">
+                <ScrollLink to="section_2" smooth={true} duration={50} className="nav-link">
                   What Is Alumni Space?
                 </ScrollLink>
-                <ScrollLink to="section_3" smooth={true} duration={80} className="nav-link">
+                <ScrollLink to="section_3" smooth={true} duration={50} className="nav-link">
                   FAQs
                 </ScrollLink>
-                <ScrollLink to="section_4" smooth={true} duration={80} className="nav-link">
+                <ScrollLink to="section_4" smooth={true} duration={50} className="nav-link">
                   Contact Us
                 </ScrollLink>
               </>

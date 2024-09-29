@@ -24,9 +24,8 @@ const Donate = () => {
 
     const handleDonateClick = () => {
         navigate('/DonationForm'); // Navigate to the form page
-        setTimeout(() => {
             window.scrollTo(0, 0); // Scroll to top after navigation
-          }, 0);
+        
     };
 
     return (
