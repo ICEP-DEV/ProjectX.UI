@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import axios from 'axios';
 
 const Login = () => {
   const [signUpMode, setSignUpMode] = useState(false);
@@ -17,6 +18,57 @@ const Login = () => {
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
   };
+
+  const [ studentNum, setStudentNum] = useState('')
+  const [ email, setEmail] = useState('')
+  const [ password, setPassword] = useState('')
+  const [ cpassword, setCPassword] = useState('')
+
+  const handleSave =(e) => 
+  {
+      e.preventDefault();
+      console.log(studentNum, email, password);
+      const url = 'https://localhost:44391/api/AlumnusRegistration/AlumnusRegistration';
+
+      const data = 
+      {
+        StudentNum : studentNum,
+        Email : email,
+        Password : password
+      }
+
+      
+    // Make the Axios POST request
+    axios.post(url, data, {
+      headers: {
+        'Content-Type': 'application/json', // Set content type
+      },
+    })
+    .then((result) => {
+      console.log("API Response:", result); // Check the API response
+      // Optionally clear the form fields if the request is successful
+      clear();
+      const dt = result.data;
+      if (dt && dt.statusMessage) {
+        alert(dt.statusMessage); // Show success message
+      } else {
+        alert("No status message returned.");
+      }
+    })
+    .catch((error) => {
+      console.log("API Error:", error); // Log the error
+      alert("An error occurred.");
+    });
+  };
+  
+
+const clear = () => 
+{
+  setStudentNum('');
+  setEmail('');
+  setPassword('');
+  setCPassword('');
+}
 
   return (
     <div className={`containerss ${signUpMode ? "sign-up-modess" : ""}`}>
@@ -69,20 +121,22 @@ const Login = () => {
               <input
                 type="text"
                 placeholder={isAdmin ? "Staff number" : "Student number"}
+                required
               />
             </div>
 
             {isAdmin && (
               <div className="input-fieldss">
                 <i className="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
+                <input type="email" placeholder="Email" required />
               </div>
             )}
 
             {!isAdmin && (
               <div className="input-fieldss">
                 <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" required/>
+                
               </div>
             )}
 
@@ -115,22 +169,53 @@ const Login = () => {
           <form action="#" className="sign-up-formss">
             <h2 className="titless">Sign up</h2>
             <div className="input-fieldss">
-              <i className="fas fa-user"></i>
-              <input type="text" placeholder="Student number" />
+                <i className="fas fa-user-graduate"></i>
+              <input
+                 type="text"
+                 placeholder="Student number" 
+                 onChange={(e) => setStudentNum(e.target.value)}
+                 value={studentNum}
+                 required
+                 />
             </div>
             <div className="input-fieldss">
               <i className="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input 
+                type="email" 
+                placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+                />
             </div>
             <div className="input-fieldss">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+                />
             </div>
             <div className="input-fieldss">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm Password" />
+              <input
+                type="password"
+                placeholder="Confirm Password"  
+                onChange={(e) => setCPassword(e.target.value)}              
+                value={cpassword}
+                required
+                /> 
             </div>
-            <input type="submit" className="btnss" value="Sign up" />
+            <button
+               type="button"
+               className="btnss"                
+               onClick={(e) => handleSave(e)} 
+               >
+                SIGN UP
+            </button>   
+
             <p className="social-textss">Our social platforms</p>
             <div className="social-mediass">
               <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
