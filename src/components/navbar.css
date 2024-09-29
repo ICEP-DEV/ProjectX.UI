@@ -5,6 +5,7 @@
     right: 0;
     z-index: 1000;
     transition: background-color 0.3s ease, padding 0.3s ease;
+    border-bottom: 2px solid rgba(128, 208, 199, 0.35);
 }
 
 .homepage-bg {
@@ -44,4 +45,44 @@
 .nav-link:hover {
     color: #008cba; /* Change text color on hover */
     text-decoration: none; /* Remove underline */
+}
+
+
+@media (max-width: 768px) {
+    /* For small screens */
+    #navbar {
+        padding: 5px 0; /* Reduce padding on smaller screens */
+    }
+
+    .navbar .tut-logo {
+        width: 40px; /* Smaller logo for small screens */
+    }
+
+    .navbar-scrolled .tut-logo {
+        width: 200px; /* Adjusted logo width when scrolled */
+    }
+
+    .navbar-collapse {
+        text-align: center; /* Center nav items on small screens */
+    }
+
+    .nav-link {
+        display: block; /* Stack nav links vertically */
+        margin: 10px 0; /* Add margin between links */
+    }
+
+    .login-add-space {
+        margin-top: 10px; /* Add space above the login text */
+    }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+    .navbar .tut-logo {
+        width: 30px; /* Even smaller logo for very small screens */
+    }
+
+    .navbar-scrolled .tut-logo {
+        width: 150px; /* Further reduced logo size */
+    }
 }

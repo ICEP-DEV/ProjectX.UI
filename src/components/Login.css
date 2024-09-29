@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
+
 * {
   margin: 0;
   padding: 0;
@@ -329,6 +330,8 @@ form.sign-in-formss {
   pointer-events: all;
 }
 
+
+
 @media (max-width: 870px) {
   .containerss {
     min-height: 800px;
@@ -432,7 +435,7 @@ form.sign-in-formss {
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 414px) {
   form {
     padding: 0 1.5rem;
   }
@@ -461,7 +464,7 @@ form.sign-in-formss {
 .forgot-password-link {
   color: black; /* Change the text color to black */
   text-decoration: underline; /* Add underline */
-  font-size: 14px; /* Optional: adjust the size if needed */
+  font-size: 12px; /* Optional: adjust the size if needed */
   margin-top: 10px; /* Optional: add some margin to create space */
   display: inline-block; /* Ensures it behaves like a link */
 }

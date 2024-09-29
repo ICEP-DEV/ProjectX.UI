@@ -20,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+
       {/* Conditionally render NavBar */}
       {!hideNavBar && <NavBar />}
 

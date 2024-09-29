@@ -31,7 +31,8 @@ const Login = () => {
         </div>
       )}
 
-      <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}></div>
+      <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}>
+        </div>
 
       <div className="forms-containerss">
         <div className="signinss-signupss">
