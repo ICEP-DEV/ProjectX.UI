@@ -53,11 +53,13 @@ const DonationForm = () => {
       },
     });
   };
-
+  
   return (
+    
     <div>
       {/* Form Section */}
-      <Container className="hero-section d-flex justify-content-center align-items-center">
+      <div className='hero-section d-flex justify-content-center align-items-center'>
+      <Container className="mt-2">
         <Row>
           <Col md={12}>
             <div className="form-container">
@@ -163,7 +165,7 @@ const DonationForm = () => {
           </Col>
         </Row>
       </Container>
-
+    </div>
       {/* Include Footer Component */}
       <Footer />
     </div>
