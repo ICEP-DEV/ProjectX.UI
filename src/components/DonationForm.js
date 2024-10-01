@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import Footer from './Footer'; // Import the Footer component
 import './DonationForm.css'; // Import the CSS file
 
+
 const DonationForm = () => {
   const [formData, setFormData] = useState({
     name: '',

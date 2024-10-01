@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation for route check
+import { animateScroll as scroll } from 'react-scroll'; // For smooth scrolling
 import Footer from './Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './homepage.css';
@@ -9,6 +10,7 @@ import './Donate.css';
 const Donate = () => {
     const [step, setStep] = useState(1);
     const navigate = useNavigate(); // Initialize useNavigate
+    const location = useLocation(); // Initialize useLocation to check the current path
 
     const handleNextStep = () => {
         if (step < 5) {
@@ -24,41 +26,56 @@ const Donate = () => {
 
     const handleDonateClick = () => {
         navigate('/DonationForm'); // Navigate to the form page
-            window.scrollTo(0, 0); // Scroll to top after navigation
-        
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smoothly scroll to the top after navigation
     };
+
+    useEffect(() => {
+        if (location.pathname === '/') {
+            const sectionId = 'donate-section'; // Define the section id to scroll to
+            const section = document.getElementById(sectionId);
+            if (section) {
+                scroll.scrollTo(section.offsetTop, { smooth: true });
+            }
+        }
+    }, [location]);
 
     return (
         <div>
           
             <div className='hero-section'>
                 <Container className="donation-journey">
-                    <Row>
-                        <Col md={12}>
-                            <div className="d-flex justify-content-between">
-                                <div className="donation-step">
-                                    <i className="fas fa-check-circle"></i>
-                                    <p>Step 1</p>
-                                </div>
-                                <div className="donation-step">
-                                    <i className={`fas ${step >= 2 ? 'fa-check-circle' : 'fa-times-circle'}`}></i>
-                                    <p>Step 2</p>
-                                </div>
-                                <div className="donation-step">
-                                    <i className={`fas ${step >= 3 ? 'fa-check-circle' : 'fa-times-circle'}`}></i>
-                                    <p>Step 3</p>
-                                </div>
-                                <div className="donation-step">
-                                    <i className={`fas ${step >= 4 ? 'fa-check-circle' : 'fa-times-circle'}`}></i>
-                                    <p>Step 4</p>
-                                </div>
-                                <div className="donation-step">
-                                    <i className={`fas ${step === 5 ? 'fa-check-circle' : 'fa-times-circle'}`}></i>
-                                    <p>Step 5</p>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
+               
+ <Row>
+  <Col md={12}>
+    <div className="timeline d-flex align-items-center">
+      <div className="timeline-line"></div>
+      <div className="timeline-steps d-flex justify-content-between w-100">
+        <div className="timeline-step">
+          <p>Step 1</p>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div className="timeline-step">
+          <p>Step 2</p>
+          <i class="fa-regular fa-file"></i>
+        </div>
+        <div className="timeline-step">
+          <p>Step 3</p>
+          <i class="fa-brands fa-cc-apple-pay"></i>
+        </div>
+        <div className="timeline-step">
+          <p>Step 4</p>
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+        <div className="timeline-step">
+          <p>Step 5</p>
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+    </div>
+  </Col>
+</Row>
+
+
 
                     <Row>
                         <Col md={12}>
@@ -71,7 +88,7 @@ const Donate = () => {
                                 )}
                                 {step === 2 && (
                                     <div>
-                                        <h2>Step 2: Donate</h2>
+                                        <h2>Step 2: Complete Form</h2>
                                         <p>Click on the donate here button to complete the form..</p>
                                     </div>
                                 )}
