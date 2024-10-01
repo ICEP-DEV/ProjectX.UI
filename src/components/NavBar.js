@@ -22,20 +22,7 @@ function NavBar() {
     };
   }, []);
 
-  // Function to handle navigation and scrolling to the section
-  const handleNavigation = (sectionId) => {
-    if (location.pathname !== '/') {
-      // If not on the homepage, navigate to it and scroll to the section
-      navigate('/');
-      setTimeout(() => {
-        scroll.scrollTo(document.getElementById(sectionId).offsetTop);
-      }, 10); // Delay to allow for the page to load
-    } else {
-      // If already on the homepage, use smooth scroll directly
-      scroll.scrollTo(document.getElementById(sectionId).offsetTop);
-    }
-  };
-
+  
   
   // Function to handle Donate navigation and force the scroll to the top
   const handleDonateNavigation = () => {
@@ -65,19 +52,19 @@ function NavBar() {
             {/* If on Donate or DonationForm page, navigate back to homepage */}
             {location.pathname === '/Donate' || location.pathname === '/DonationForm' ? (
               <>
-                <Nav.Link onClick={() => handleNavigation('section_1')}>
-                  Home
-                </Nav.Link>
-                <Nav.Link onClick={() => handleNavigation('section_2')}>
-                  What Is Alumni Space?
-                </Nav.Link>
-                <Nav.Link onClick={() => handleNavigation('section_3')}>
-                  FAQs
-                </Nav.Link>
-                <Nav.Link onClick={() => handleNavigation('section_4')}>
-                  Contact Us
-                </Nav.Link>
-              </>
+              <Nav.Link as={Link} to="/#section_1">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/#section_2">
+                What Is Alumni Space?
+              </Nav.Link>
+              <Nav.Link as={Link} to="/#section_3">
+                FAQs
+              </Nav.Link>
+              <Nav.Link as={Link} to="/#section_4">
+                Contact Us
+              </Nav.Link>
+            </>
             ) : (
               <>
                 {/* Smooth scroll on homepage */}

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation for detecting route changes
 import Footer from './Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './homepage.css';
@@ -9,6 +9,12 @@ import './Donate.css';
 const Donate = () => {
     const [step, setStep] = useState(1);
     const navigate = useNavigate(); // Initialize useNavigate
+    const { smoothS } = useLocation(); // Initialize useLocation to get the current path
+
+    // Scroll to the top whenever the path changes (including when "Donate" button is clicked)
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scrolls to the top of the page
+    }, [smoothS]); // Triggers the effect when `pathname` changes
 
     const handleNextStep = () => {
         if (step < 5) {
@@ -24,13 +30,11 @@ const Donate = () => {
 
     const handleDonateClick = () => {
         navigate('/DonationForm'); // Navigate to the form page
-            window.scrollTo(0, 0); // Scroll to top after navigation
-        
     };
 
     return (
         <div>
-          
+            {/* <NavBar /> */}
             <div className='hero-section'>
                 <Container className="donation-journey">
                     <Row>
@@ -116,8 +120,6 @@ const Donate = () => {
                         </Col>
                     </Row>
 
-
-
                     <Row className="mt-5">
                         <Col md={12}>
                             <div className="donation-info text-center">
@@ -136,3 +138,5 @@ const Donate = () => {
 };
 
 export default Donate;
+
+

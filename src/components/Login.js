@@ -20,16 +20,7 @@ const Login = () => {
 
   return (
     <div className={`containerss ${signUpMode ? "sign-up-modess" : ""}`}>
-      {/* Conditionally render the graduation icon and Alumni Space text only when not in sign-up mode */}
-      {!signUpMode && (
-        <div className="graduation-icon">
-          <i className="fas fa-graduation-cap"></i>
-          {/* Add Alumni Space below the icon */}
-          <span className="heading-colorss">
-            Alumni<sup className="aspacess"> Space</sup>
-          </span>
-        </div>
-      )}
+     
 
       <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}>
         </div>
