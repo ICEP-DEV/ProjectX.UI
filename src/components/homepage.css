@@ -276,276 +276,6 @@ https://templatemo.com/tm-590-topic-listing
   
   
   /*---------------------------------------
-    NAVIGATION              
-  -----------------------------------------*/
-  .sticky-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-  
-  .sticky-wrapper.is-sticky .navbar {
-    background-color: var(--secondary-color);
-    transition: 1s;
-  }
-  
-  /* Default state (non-sticky) */
-  .navbar .heading-color {
-    color: #3d8dca; /* Replace 'initial' with your original color if different */
-    font-size: 1em; /* Replace '1em' with your original font size */
-    transition: font-size .5s, color .5s; /* Smooth transition for both properties */
-  }
-  
-  .sticky-wrapper.is-sticky .navbar .heading-color {
-    color: white;
-    font-size: 1.3em;
-    transition: 1s;
-  }
-  
-  /* Default state (non-sticky) for the text and icon */
-  .navbar .heading-color,
-  .navbar .bi-mortarboard {
-    color: white; /* Replace 'initial' with your original color if different */
-    font-size: 1em; /* Replace '1em' with your original font size */
-    transition: font-size 1s, color 1s; /* Smooth transition for both properties */
-  }
-  
-  /* Initially hide the image */
-  .navbar .tut-logo {
-    display: none;
-    width: 50px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  /* Show the image and hide the text when sticky */
-  .sticky-wrapper.is-sticky .navbar .heading-color,
-  .sticky-wrapper.is-sticky .navbar .bi-mortarboard {
-    display: none;
-  }
-  
-  .sticky-wrapper.is-sticky .navbar .tut-logo {
-    display: inline; /* Ensure the image is displayed */
-    width: 300px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .aspace
-  {
-      font-size: 20px;
-      color: #fdb913;
-  }
-  
-  .navbar {
-    background: transparent;
-    border-bottom: 1px solid rgba(128, 208, 199, 0.35);
-    z-index: 9;
-  }
-  
-  .navbar-brand,
-  .navbar-brand:hover {
-    font-size: var(--h3-font-size);
-    font-weight: var(--font-weight-bold);
-    display: block;
-  }
-  
-  .navbar-brand span {
-    font-family: var(--title-font-family);
-  }
-  
-  .navbar-expand-lg .navbar-nav .nav-link {
-    border-radius: var(--border-radius-large);
-    margin: 10px;
-    padding: 10px;
-  }
-  
-  
-  
-  .navbar-nav .nav-link {
-    display: inline-block;
-    color: var(--white-color);
-    font-family: var(--title-font-family); 
-    font-size: var(--menu-font-size);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  
-  .navbar-nav .nav-link.active, 
-  .navbar-nav .nav-link:hover {
-    color: var(--border-color);
-  }
-  
-  .navbar .dropdown-menu {
-    background: var(--white-color);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
-    border: 0;
-    display: inherit;
-    opacity: 0;
-    min-width: 9rem;
-    margin-top: 20px;
-    padding: 13px 0 10px 0;
-    transition: all 0.3s;
-    pointer-events: none;
-  }
-  
-  .navbar .dropdown-menu::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 15px solid var(--white-color);
-    position: absolute;
-    top: -10px;
-    left: 10px;
-  }
-  
-  .navbar .dropdown-item {
-    display: inline-block;
-    color: var(--p-bg-color);
-    font-family: var(--title-font-family); 
-    font-size: var(--menu-font-size);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-  }
-  
-  .navbar .dropdown-item.active, 
-  .navbar .dropdown-item:active,
-  .navbar .dropdown-item:focus, 
-  .navbar .dropdown-item:hover {
-    background: transparent;
-    color: var(--primary-color);
-  }
-  
-  .navbar .dropdown-toggle::after {
-    content: "\f282";
-    display: inline-block;
-    font-family: bootstrap-icons !important;
-    font-size: var(--copyright-font-size);
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: -.125em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    left: 2px;
-    border: 0;
-  }
-  
-  @media screen and (min-width: 992px) {
-    .navbar .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      margin-top: 0;
-      pointer-events: auto;
-    }
-    
-  }
-  .navbar .login-add-space p {
-    color: white; /* Replace 'initial' with your original color if different */
-    font-size: 1em; /* Replace '1em' with your original font size */
-    margin-left: 10px;
-    transition: font-size 1s, color 1s; /* Smooth transition for both properties */
-  }
-  
-  .sticky-wrapper.is-sticky .navbar .login-add-space p {
-    color: white;
-    font-size: 1.2em; /* Adjust this value to your desired larger font size */
-  }
-  
-  .navbar-icon {
-    background: var(--white-color);
-    border-radius: var(--border-radius-large);
-    display: inline-block;
-    font-size: var(--h5-font-size);
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .navbar-icon:hover {
-    background: var(--primary-color);
-    color: var(--white-color);
-  }
-  
-  .navbar-toggler {
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    margin: 0;
-    width: 30px;
-    height: 35px;
-    outline: none;
-  }
-  
-  .navbar-toggler:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    background: transparent;
-  }
-  
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-    transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
-    transition: top 300ms 50ms ease, transform 300ms 350ms ease;
-    transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
-    top: 0;
-  }
-  
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
-    transform: rotate(45deg);
-  }
-  
-  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
-    transform: rotate(-45deg);
-  }
-  
-  .navbar-toggler .navbar-toggler-icon {
-    background: var(--white-color);
-    transition: background 10ms 300ms ease;
-    display: block;
-    width: 30px;
-    height: 2px;
-    position: relative;
-  }
-  
-  .navbar-toggler .navbar-toggler-icon:before,
-  .navbar-toggler .navbar-toggler-icon:after {
-    transition: top 300ms 350ms ease, -webkit-transform 300ms 50ms ease;
-    transition: top 300ms 350ms ease, transform 300ms 50ms ease;
-    transition: top 300ms 350ms ease, transform 300ms 50ms ease, -webkit-transform 300ms 50ms ease;
-    position: absolute;
-    right: 0;
-    left: 0;
-    background: var(--white-color);
-    width: 30px;
-    height: 2px;
-    content: '';
-  }
-  
-  .navbar-toggler .navbar-toggler-icon::before {
-    top: -8px;
-  }
-  
-  .navbar-toggler .navbar-toggler-icon::after {
-    top: 8px;
-  }
-  
-  
-  /*---------------------------------------
     HERO        
   -----------------------------------------*/
   .hero-section {
@@ -999,88 +729,7 @@ https://templatemo.com/tm-590-topic-listing
     border-color: transparent;
   }
   
-  
-  /*---------------------------------------
-    SITE FOOTER              
-  -----------------------------------------*/
-  .site-footer {
-    border-bottom: 10px solid var(--secondary-color);
-    position: relative;
-  }
-  
-  .site-footer::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0 200px 200px;
-    border-color: transparent transparent var(--secondary-color) transparent;
-    pointer-events: none;
-  }
-  
-  .site-footer-title {
-    color: var(--primary-color); 
-  }
-  
-  .site-footer .dropdown-menu {
-    padding: 0;
-  }
-  
-  .site-footer .dropdown-item {
-    color: var(--p-color);
-    font-size: var(--menu-font-size);
-    font-weight: var(--font-weight-medium);
-    padding: 4px 18px;
-  }
-  
-  .site-footer .dropdown-item:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-  }
-  
-  .site-footer .dropdown-menu li:first-child .dropdown-item {
-    padding-top: 10px;
-  }
-  
-  .site-footer .dropdown-menu li:last-child .dropdown-item {
-    padding-bottom: 12px;
-  }
-  
-  .site-footer .dropdown-toggle {
-    background-color: var(--secondary-color);
-    border-color: var(--white-color);
-  }
-  
-  .site-footer .dropdown-toggle:hover {
-    background-color: var(--primary-color);
-    border-color: transparent;
-  }
-  
-  .site-footer-links {
-    padding-left: 0;
-  }
-  
-  .site-footer-link-item {
-    display: block;
-    list-style: none;
-    line-height: normal;
-  }
-  
-  .site-footer-link {
-    color: var(--secondary-color);
-    font-size: var(--copyright-font-size);
-    font-weight: var(--font-weight-medium);
-    line-height: normal;
-  }
-  
-  .copyright-text {
-    font-size: var(--copyright-font-size);
-  }
-  
-  
+
   /*---------------------------------------
     SOCIAL ICON               
   -----------------------------------------*/
@@ -1118,29 +767,29 @@ https://templatemo.com/tm-590-topic-listing
   /*---------------------------------------
     RESPONSIVE STYLES               
   -----------------------------------------*/
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 870px) {
     h1 {
-      font-size: 48px;
+      font-size: 47px;
     }
   
     h2 {
-      font-size: 36px;
+      font-size: 35px;
     }
   
     h3 {
-      font-size: 32px;
+      font-size: 31px;
     }
   
     h4 {
-      font-size: 28px;
+      font-size: 27px;
     }
   
     h5 {
-      font-size: 20px;
+      font-size: 19px;
     }
   
     h6 {
-      font-size: 18px;
+      font-size: 17px;
     }
   
     .section-padding {
@@ -1209,11 +858,11 @@ https://templatemo.com/tm-590-topic-listing
     }
   
     .timeline-container .vertical-scrollable-timeline .list-progress {
-      height: 75%;
+      height: 70%;
     }
   
     .timeline-container .vertical-scrollable-timeline li {
-      padding-left: 135px;
+      padding-left: 130px;
     }
   
     .subscribe-form-wrap {

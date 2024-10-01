@@ -22,7 +22,7 @@ function NavBar() {
     };
   }, []);
 
-  
+
   
   // Function to handle Donate navigation and force the scroll to the top
   const handleDonateNavigation = () => {

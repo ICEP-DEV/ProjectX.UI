@@ -30,6 +30,7 @@ const Donate = () => {
 
     const handleDonateClick = () => {
         navigate('/DonationForm'); // Navigate to the form page
+        window.scrollTo(0, 0);
     };
 
     return (
