@@ -1,11 +1,10 @@
 import React , { useEffect }  from 'react';
-import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
+import { Link, useLocation } from 'react-router-dom';
 
 // Import images
 import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
@@ -15,33 +14,43 @@ import faqGraphic from '../images/faq_graphic.jpg';
 
 
 const HomePage = () => {
+  const smoothS = useLocation();
 
-    // Smooth scrolling function
-  const scrollToDiv = (element, navHeight) => {
-    const offsetTop = element.offsetTop;
-    const totalScroll = offsetTop - navHeight;
+// Smooth scrolling function
+const scrollToDiv = (element, navHeight) => {
+  const offsetTop = element.offsetTop;
+  const totalScroll = offsetTop - navHeight;
 
-    window.scrollTo({
+  window.scrollTo({
       top: totalScroll,
       behavior: 'smooth',
-    });
-  };
+  });
+};
 
-  useEffect(() => {
-    // Smooth scroll for navbar links
-    const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
-    smoothScrollLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        const headerHeight = document.querySelector('.navbar').offsetHeight;
-
-        if (targetElement) {
+// Handle smooth scrolling when navigating with hashes
+useEffect(() => {
+  const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+  
+  // If there's a hash in the URL, scroll to the corresponding section
+  if (smoothS.hash) {
+      const targetElement = document.querySelector(smoothS.hash);
+      if (targetElement) {
           scrollToDiv(targetElement, headerHeight);
-        }
+      }
+  }
+
+  // Smooth scroll for internal navbar links
+  const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
+  smoothScrollLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+              scrollToDiv(targetElement, headerHeight);
+          }
       });
-    });
+  });
 
     // Scroll event for timeline activation
     const onScroll = () => {
@@ -71,12 +80,13 @@ const HomePage = () => {
 
     window.addEventListener('scroll', onScroll);
 
-    // Cleanup event listeners on component unmount
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
+        // Cleanup event listeners on component unmount
+        return () => {
+          smoothScrollLinks.forEach(link => {
+              link.removeEventListener('click', function () {});
+          });
+      };
+  }, [smoothS]);
 
     return (
         <div>

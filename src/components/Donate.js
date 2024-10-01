@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation for route check
-import { animateScroll as scroll } from 'react-scroll'; // For smooth scrolling
+import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation for detecting route changes
 import Footer from './Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './homepage.css';
@@ -10,7 +9,12 @@ import './Donate.css';
 const Donate = () => {
     const [step, setStep] = useState(1);
     const navigate = useNavigate(); // Initialize useNavigate
-    const location = useLocation(); // Initialize useLocation to check the current path
+    const { smoothS } = useLocation(); // Initialize useLocation to get the current path
+
+    // Scroll to the top whenever the path changes (including when "Donate" button is clicked)
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scrolls to the top of the page
+    }, [smoothS]); // Triggers the effect when `pathname` changes
 
     const handleNextStep = () => {
         if (step < 5) {
@@ -26,22 +30,15 @@ const Donate = () => {
 
     const handleDonateClick = () => {
         navigate('/DonationForm'); // Navigate to the form page
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smoothly scroll to the top after navigation
+        window.scrollTo(0, 0);
     };
 
-    useEffect(() => {
-        if (location.pathname === '/') {
-            const sectionId = 'donate-section'; // Define the section id to scroll to
-            const section = document.getElementById(sectionId);
-            if (section) {
-                scroll.scrollTo(section.offsetTop, { smooth: true });
-            }
-        }
-    }, [location]);
+  
+  
 
     return (
         <div>
-          
+            {/* <NavBar /> */}
             <div className='hero-section'>
                 <Container className="donation-journey">
                
@@ -133,8 +130,6 @@ const Donate = () => {
                         </Col>
                     </Row>
 
-
-
                     <Row className="mt-5">
                         <Col md={12}>
                             <div className="donation-info text-center">
@@ -153,3 +148,5 @@ const Donate = () => {
 };
 
 export default Donate;
+
+
