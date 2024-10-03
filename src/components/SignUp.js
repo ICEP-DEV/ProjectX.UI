@@ -20,7 +20,7 @@ function SignUp(){
   {
       e.preventDefault();
       console.log(studentNum, email, password);
-      const url = 'https://localhost:44391/api/AlumnusRegistration/AlumnusRegistration';
+      const url = 'https://localhost:44391/api/AlumnusController/Registration';
 
       const data = 
       {
