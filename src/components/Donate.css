@@ -1,5 +1,97 @@
-.donation-journey {
-  margin-top: 30p x;
+/* Step Container Styling */
+.step-container {
+  display: flex; /* Flexbox to arrange items in a row */
+  justify-content: space-between; /* Space out steps evenly */
+  align-items: flex-start; /* Align circles and lines at the top */
+  margin-bottom: 20px; /* Spacing below the steps */
+  position: relative;
+}
+
+/* Step Item Styling */
+.step-item {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  justify-content: flex-start; /* Keep items aligned at the top */
+  align-items: center;
+  width: 8rem; /* Adjust to fit number of steps */
+  text-align: center; /* Center-align text below the circle */
+}
+
+/* Line between steps */
+.step-item:not(:first-child)::before {
+  content: '';
+  background-color: #e2e8f0; /* Default line color */
+  position: absolute;
+  width: 210%; /* Static width for the line */
+  height: 3px;
+  top: 1.25rem; /* Align the line in the middle of the circles */
+  left: -150%; /* Start line from the middle of the previous step */
+  z-index: 0;
+}
+
+
+/* Step Circle Styling */
+.step {
+  width: 2.5rem; /* Circle width */
+  height: 2.5rem; /* Circle height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background-color: #374151; /* Slate color */
+  border-radius: 50%; /* Makes the step a circle */
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px; /* Space between circle and text */
+  position: relative;
+}
+
+/* Step Title Styling */
+.step-item h2 {
+  font-size: 0.85rem; /* Smaller font size for titles */
+  margin: 5px 0;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if it's too long */
+}
+
+/* Step Description Styling */
+.step-item p {
+  font-size: 0.75rem; /* Smaller font size for descriptions */
+  color: #6b7280;
+  margin-top: 5px; /* Small spacing above description */
+  max-width: 6rem; /* Limit width to keep things aligned */
+  text-align: center;
+}
+/* Active Step */
+.active .step {
+  background-color: #0284c7; /* sky-600 */
+}
+
+/* Complete Step */
+.complete .step {
+  background-color: #f9e509; /* green-600 */
+}
+
+/* Complete Step Text */
+.complete p {
+  color: white;
+}
+
+/* Connecting Line for Complete Steps */
+.complete:not(:first-child)::before {
+  background-color: #f9e509; /* yellow- for completed steps */
+}
+
+/* Active Step Line */
+.active:not(:first-child)::before {
+  background-color: #f9e509; /* sky-600 */
+}
+
+/* Donation journey */
+.donation-journey { 
+  margin-top: 30px;
 }
 
 .donation-step {
@@ -10,8 +102,6 @@
   border-radius: 5px;
   font-size: 14px;
   color: white;
-  
-  
 }
 
 .donation-step-details {
@@ -20,8 +110,7 @@
   border: 1px solid white;
   border-radius: 5px;
   color: white;
- background-color: azure; 
-  
+  background-color: azure; 
 }
 
 /* Donation Information Styles */
@@ -44,108 +133,7 @@
   border-radius: 50px;
 }
 
-/* Timeline Styles */
-.timeline {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-  padding-top: 20px;
-}
-
-.timeline-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  z-index: 1;
-  transition: height 0.5s ease;
-}
-
-/* Step container styling */
-.timeline-steps {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-
-/* Each step in the timeline */
-.timeline-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* Step icon styling */
-.timeline-step i {
-  font-size: 24px;
-  color: rgb(214, 211, 31);
-  position: relative;
-  z-index: 2; /* Ensures icons are above the line */
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* Step label */
-.timeline-step p {
-  margin-top: 8px;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-/* Active class for steps that are in view */
-.timeline-step.active i {
-  color: #007bff; /* Change the icon color when active */
-  transform: scale(1.2); /* Slightly enlarge the active icon */
-}
-
-.timeline-step.active p {
-  color: #007bff; /* Change the label color when active */
-  font-weight: bold;
-}
-
 /* Responsive design adjustments */
-@media (max-width: 768px) {
-  .timeline {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 10px;
-  }
-
-  .timeline-line {
-    top: 50%; /* Line remains central vertically */
-    left: 0;
-    height: 2px;
-    width: 100%; /* Line stretches across the container */
-  }
-
-  .timeline-steps {
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .timeline-step {
-    width: 80px; /* Make each step smaller for smaller screens */
-  }
-
-  .timeline-step i {
-    font-size: 20px; /* Reduce icon size on small screens */
-  }
-
-  .timeline-step p {
-    font-size: 12px; /* Reduce text size */
-  }
-}
-
-
 
 /* Media Query for Cellphone Size */
 @media (max-width: 767px) {
@@ -163,11 +151,32 @@
 
   .donation-step-details {
       margin-top: 20px;
-      
   }
 
   /* Adjust donation info for mobile if needed */
   .donation-info {
       max-width: 90%; /* Make it wider on small screens */
   }
+  .step-container {
+    flex-direction: column; /* Stack the steps vertically on smaller screens */
+    align-items: flex-start; /* Align steps to the start (left) */
+  }
+
+  .step-item {
+    width: 100%; /* Make step items full width on small screens */
+    margin-bottom: 10px; /* Add some spacing between each step */
+  
+  }
+
+  .step-item:not(:first-child)::before {
+    width: 100%; /* Adjust line width to full width for vertical stacking */
+    left: 0; /* Adjust the position to align with the container */
+  }
+
+  .step {
+    width: 3rem; /* Adjust circle size for mobile */
+    height: 3rem; /* Adjust circle size for mobile */
+  }
 }
+
+

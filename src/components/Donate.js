@@ -1,138 +1,99 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useLocation for detecting route changes
+import { TiTick } from "react-icons/ti";
+import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import './homepage.css';
 import './Donate.css';
 
 const Donate = () => {
-    const [step, setStep] = useState(1);
-    const navigate = useNavigate(); // Initialize useNavigate
-    const { smoothS } = useLocation(); // Initialize useLocation to get the current path
+    const navigate = useNavigate();
+    const { smoothS } = useLocation();
 
-    // Scroll to the top whenever the path changes (including when "Donate" button is clicked)
     useEffect(() => {
-        window.scrollTo(0, 0); // Scrolls to the top of the page
-    }, [smoothS]); // Triggers the effect when `pathname` changes
-
-    const handleNextStep = () => {
-        if (step < 5) {
-            setStep(step + 1);
-        }
-    };
-
-    const handlePreviousStep = () => {
-        if (step > 1) {
-            setStep(step - 1);
-        }
-    };
+        window.scrollTo(0, 0);
+    }, [smoothS]);
 
     const handleDonateClick = () => {
-        navigate('/DonationForm'); // Navigate to the form page
+        navigate('/DonationForm');
         window.scrollTo(0, 0);
     };
 
-  
-  
+    // Update the steps array with detailed descriptions
+    const steps = [
+        { title: "Explore", description: "Browse our website to view what Alumni space is about." },
+        { title: "Donate", description: "Click on the donate here button to complete the form." },
+        { title: "Payment Method", description: "We will respond with our banking details." },
+        { title: "Payment", description: "Once payment is made, email the POP to alumnispace@tut.ac.za" },
+        { title: "Step 5", description: "Acknowledgment of payment and receipt of thank you letter and S18A certificate (if eligible)" }
+    ];
+    
+    const [currentStep, setCurrentStep] = useState(1);
+    const [complete, setComplete] = useState(false);
+
+    // Create a reference to the donate button section
+    const donateButtonRef = useRef(null);
+
+    // Scroll to the donation section when the "Finish" button is clicked
+    const handleFinishClick = () => {
+        setComplete(true);
+        donateButtonRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to donate button
+    };
 
     return (
         <div>
-            {/* <NavBar /> */}
             <div className='hero-section'>
                 <Container className="donation-journey">
-               
- <Row>
-  <Col md={12}>
-    <div className="timeline d-flex align-items-center">
-      <div className="timeline-line"></div>
-      <div className="timeline-steps d-flex justify-content-between w-100">
-        <div className="timeline-step">
-          <p>Step 1</p>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div className="timeline-step">
-          <p>Step 2</p>
-          <i class="fa-regular fa-file"></i>
-        </div>
-        <div className="timeline-step">
-          <p>Step 3</p>
-          <i class="fa-brands fa-cc-apple-pay"></i>
-        </div>
-        <div className="timeline-step">
-          <p>Step 4</p>
-          <i class="fa-regular fa-envelope"></i>
-        </div>
-        <div className="timeline-step">
-          <p>Step 5</p>
-          <i class="fa-solid fa-check"></i>
-        </div>
-      </div>
-    </div>
-  </Col>
-</Row>
-
-
-
                     <Row>
-                        <Col md={12}>
-                            <div className="donation-step-details">
-                                {step === 1 && (
-                                    <div>
-                                        <h2>Step 1: Explore</h2>
-                                        <p>Browse our website to view what Alumni space is about</p>
+                        <Col lg={12} className="mx-auto">
+                            <div className="step-container"> 
+                                {steps.map((step, i) => (
+                                    <div
+                                        key={i}
+                                        className={`step-item ${currentStep === i + 1 ? "active" : ""} ${
+                                            i + 1 < currentStep || complete ? "complete" : ""
+                                        }`}
+                                    >
+                                        <div className="step">
+                                            {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
+                                        </div>
+                                        <h2 className="text-gray-500">{step.title}</h2>
+                                        <p className="text-gray-500">{step.description}</p>
                                     </div>
-                                )}
-                                {step === 2 && (
-                                    <div>
-                                        <h2>Step 2: Complete Form</h2>
-                                        <p>Click on the donate here button to complete the form..</p>
-                                    </div>
-                                )}
-                                {step === 3 && (
-                                    <div>
-                                        <h2>Step 3: Payment Method</h2>
-                                        <p>We will respond with our banking details.</p>
-                                    </div>
-                                )}
-                                {step === 4 && (
-                                    <div>
-                                        <h2>Step 4: Payment</h2>
-                                        <p>Once the payment is made, please email the POP to alumnispace@tut.ac.za</p>
-                                    </div>
-                                )}
-                                {step === 5 && (
-                                    <div>
-                                        <h2>Step 5: Thank You!</h2>
-                                        <p>Acknowledgment of payment and receipt of thank you letter and S18A certificate (if eligible).</p>
-                                    </div>
-                                )}
+                                ))}
                             </div>
 
-                            <div className="d-flex justify-content-center mt-4">
+                            <div className="step-buttons"> {/* Container for buttons */} 
                                 <Button
                                     variant="secondary"
-                                    onClick={handlePreviousStep}
-                                    disabled={step === 1} // Disable "Previous" on the first step
-                                    className="me-2" // Add margin to the right
+                                    onClick={() => setCurrentStep((prev) => prev - 1)}
+                                    disabled={currentStep === 1} // Disable when on the first step
+                                    className="me-2" // Adds space between buttons
                                 >
-                                    Previous Step
+                                    Previous
                                 </Button>
 
-                                <Button
-                                    variant="primary"
-                                    onClick={handleNextStep}
-                                    disabled={step === 5} // Disable "Next" on the last step
-                                >
-                                    Next Step
-                                </Button>
+                                {!complete && (
+                                    <Button
+                                        variant="primary"
+                                        onClick={() => {
+                                            if (currentStep === steps.length) {
+                                                handleFinishClick(); // Scroll to donate button
+                                            } else {
+                                                setCurrentStep((prev) => prev + 1);
+                                            }
+                                        }}
+                                    >
+                                        {currentStep === steps.length ? "Finish" : "Next"}
+                                    </Button>
+                                )}
                             </div>
                         </Col>
                     </Row>
 
-                    <Row className="mt-5">
-                        <Col md={12}>
-                            <div className="donation-info text-center">
+                    <Row>
+                        <Col md={12} className="text-center mt-5" ref={donateButtonRef}> {/* Add ref to the Col */}
+                            <div className="donation-info">
                                 <h2>Your Little Help Will Make a Big Impact</h2>
                                 <p>Click below for donation form:</p>
                                 <Button variant="secondary" onClick={handleDonateClick}>Donate Here</Button>
@@ -148,5 +109,3 @@ const Donate = () => {
 };
 
 export default Donate;
-
-
