@@ -23,10 +23,10 @@
   content: '';
   background-color: #e2e8f0; /* Default line color */
   position: absolute;
-  width: 210%; /* Static width for the line */
+  width: 220%; /* Static width for the line */
   height: 3px;
   top: 1.25rem; /* Align the line in the middle of the circles */
-  left: -150%; /* Start line from the middle of the previous step */
+  left: -50%; /* Start line from the middle of the previous step */
   z-index: 0;
 }
 
@@ -53,6 +53,7 @@
   margin: 5px 0;
   white-space: nowrap; /* Prevent line breaks */
   overflow: hidden;
+  color: rgb(245, 195, 195);
   text-overflow: ellipsis; /* Add ellipsis if it's too long */
 }
 
@@ -91,7 +92,7 @@
 
 /* Donation journey */
 .donation-journey { 
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .donation-step {
@@ -125,6 +126,15 @@
   color: white;
 }
 
+.donation-journey h3 {
+  margin-top: 0px; /* Add top margin if needed */
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  color: rgb(252, 242, 242);
+  padding-right:1040px ;
+  margin-bottom: 20px;
+}
+
+
 /* Next Step button Styles */
 .btn-primary,
 .btn-secondary {
@@ -136,47 +146,89 @@
 /* Responsive design adjustments */
 
 /* Media Query for Cellphone Size */
+/* Media Queries for Smaller Screens */
 @media (max-width: 767px) {
-  header nav {
-      flex-direction: column;
-  }
-
-  header nav ul {
-      text-align: center;
-  }
-
-  .donation-journey .donation-step {
-      width: 100%;
-  }
-
-  .donation-step-details {
-      margin-top: 20px;
-  }
-
-  /* Adjust donation info for mobile if needed */
-  .donation-info {
-      max-width: 90%; /* Make it wider on small screens */
-  }
   .step-container {
-    flex-direction: column; /* Stack the steps vertically on smaller screens */
-    align-items: flex-start; /* Align steps to the start (left) */
+    flex-direction: row; /* Stack steps vertically */
+    align-items: flex-start; /* Align steps to the left */
+    justify-content: space-evenly;
   }
 
   .step-item {
-    width: 100%; /* Make step items full width on small screens */
-    margin-bottom: 10px; /* Add some spacing between each step */
-  
+    width: 100%; /* Step items are full width on small screens */
+    margin-bottom: 10px; /* Add spacing between steps */
   }
 
   .step-item:not(:first-child)::before {
-    width: 100%; /* Adjust line width to full width for vertical stacking */
-    left: 0; /* Adjust the position to align with the container */
+    width: 100%; /* Adjust line to full width in vertical layout */
+    left: -2; /* Line starts from the container edge */
   }
 
   .step {
-    width: 3rem; /* Adjust circle size for mobile */
-    height: 3rem; /* Adjust circle size for mobile */
+    width: 3rem; /* Increase circle size on mobile */
+    height: 3rem;
   }
+  .step {
+    width: 2.5rem; /* Adjust circle size for mobile */
+    height: 2.5rem; /* Keep circles proportional */
+    margin-bottom: 10px; /* Spacing below circles */
+    
+  }
+
+  .step-item h2 {
+    font-size: 0.85rem; /* Adjust title size for mobile */
+  }
+
+  .step-item p {
+    font-size: 0.75rem; /* Adjust description size for mobile */
+    max-width: 100%; /* Ensure text doesn't overflow */
+  }
+  .donation-journey h3 {
+    font-size: 1.25rem; /* Smaller font size on mobile */
+    margin-bottom: 10px; /* Less bottom margin on mobile */
+  }
+  
 }
 
+/* Media Queries for Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .step-container {
+    flex-direction: row; /* Steps arranged in a row */
+    justify-content: space-between;
+  }
 
+  .step-item {
+    width: calc(100% / 5); /* Each step gets equal width */
+  }
+
+  .step-item:not(:first-child)::before {
+    width: 100%; /* Adjust line width for each step */
+  }
+
+  .step {
+    width: 3rem;
+    height: 3rem;
+  }
+
+}
+
+/* Media Queries for Large Screens */
+@media (min-width: 1025px) {
+  .step-container {
+    flex-direction: row; /* Steps remain in a row */
+  }
+
+  .step-item {
+    width: calc(100% / 5); /* Each step takes 1/5th of the width */
+  }
+
+  .step-item:not(:first-child)::before {
+    width: 100%; /* Full-width line between steps */
+    
+  }
+
+  .step {
+    width: 3rem;
+    height: 3rem;
+  }
+}

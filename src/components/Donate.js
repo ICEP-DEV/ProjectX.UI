@@ -19,24 +19,23 @@ const Donate = () => {
         window.scrollTo(0, 0);
     };
 
-    // Update the steps array with detailed descriptions
     const steps = [
         { title: "Explore", description: "Browse our website to view what Alumni space is about." },
         { title: "Donate", description: "Click on the donate here button to complete the form." },
         { title: "Payment Method", description: "We will respond with our banking details." },
-        { title: "Payment", description: "Once payment is made, email the POP to alumnispace@tut.ac.za" },
-        { title: "Step 5", description: "Acknowledgment of payment and receipt of thank you letter and S18A certificate (if eligible)" }
+        { title: "Payment", description: "Once payment is made, email the POP to tut.ac.za" },
+        { title: "Thank you", description: "Acknowledgment of payment and receipt of thank you letter and S18A certificate (if eligible)" }
     ];
     
     const [currentStep, setCurrentStep] = useState(1);
     const [complete, setComplete] = useState(false);
+    const [showPreviousButton, setShowPreviousButton] = useState(true); // State to control the visibility of the previous button
 
-    // Create a reference to the donate button section
     const donateButtonRef = useRef(null);
 
-    // Scroll to the donation section when the "Finish" button is clicked
     const handleFinishClick = () => {
         setComplete(true);
+        setShowPreviousButton(false); // Hide the "Previous" button when Finish is clicked
         donateButtonRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to donate button
     };
 
@@ -46,6 +45,9 @@ const Donate = () => {
                 <Container className="donation-journey">
                     <Row>
                         <Col lg={12} className="mx-auto">
+                            {/* Add the heading at the top left side */}
+                            <h3 className="text-left mb-4">Donation Journey</h3> 
+
                             <div className="step-container"> 
                                 {steps.map((step, i) => (
                                     <div
@@ -64,14 +66,16 @@ const Donate = () => {
                             </div>
 
                             <div className="step-buttons"> {/* Container for buttons */} 
-                                <Button
-                                    variant="secondary"
-                                    onClick={() => setCurrentStep((prev) => prev - 1)}
-                                    disabled={currentStep === 1} // Disable when on the first step
-                                    className="me-2" // Adds space between buttons
-                                >
-                                    Previous
-                                </Button>
+                                {showPreviousButton && ( // Conditionally render the "Previous" button
+                                    <Button
+                                        variant="secondary"
+                                        onClick={() => setCurrentStep((prev) => prev - 1)}
+                                        disabled={currentStep === 1} // Disable when on the first step
+                                        className="me-2" // Adds space between buttons
+                                    >
+                                        Previous
+                                    </Button>
+                                )}
 
                                 {!complete && (
                                     <Button
