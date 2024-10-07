@@ -110,15 +110,7 @@ const DonationForm = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formStudentNumber">
-                  <Form.Label>Student Number</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="studentNumber"
-                    value={formData.studentNumber}
-                    onChange={handleInputChange}
-                  />
-                </Form.Group>
+              
 
                 <Form.Group controlId="formEventOptions">
                   <Form.Label>Select Event/s</Form.Label>
