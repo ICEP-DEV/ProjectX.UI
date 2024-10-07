@@ -10,6 +10,7 @@ import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
 import DonationForm from './components/DonationForm';
+import Logged from './components/Logged';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />}/>
+        <Route path="/logged" element={<Logged />}/>
       </Routes>
 
       {/* footer */}

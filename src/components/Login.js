@@ -18,6 +18,11 @@ const Login = () => {
   const [signUpLoading, setSignUpLoading] = useState(false);
 
   // Sign In Form States
+  // State for managing logged-in status
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [userDetails, setUserDetails] = useState(null);
+// States for form inputs
+
   const [loginStudentNum, setLoginStudentNum] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -93,7 +98,7 @@ const Login = () => {
       console.log(data);
       
       //const response = await registerAlumnus(data);
-      const response = await axios.post(`https://localhost:44391/api/Alumnus/Registration/Registration`, data)
+      const response = await axios.post(`http://localhost:5214/api/Alumnus/Registration/Registration`, data)
       setSignUpSuccess('Registration successful! Please log in.');
       // Optionally, switch to Sign In mode
       setSignUpMode(false);
@@ -106,9 +111,9 @@ const Login = () => {
       console.error('Registration Error:', error.response || error.message || error);
 
       if (error.response && error.response.data && error.response.data.message) {
-        setSignUpError(error.response.data.message);
+        setSignUpError(error.response.data);
       } else {
-        setSignUpError('Registration failed. Please try again.');
+        setSignUpError(error.response.data);
       }
     } finally {
       setSignUpLoading(false);
@@ -138,23 +143,24 @@ const Login = () => {
 
     try {
       console.log(loginData);
-      const response = await axios.post(`https://localhost:44391/api/Alumnus/Login/Login`, loginData)
-
+     const response = await axios.post(`http://localhost:5214/api/Alumnus/Login/Login`, loginData);
       console.log('Login Response:', response);
+
         // Display user details in the console
       console.log('User Details:', response.data.user);
-      // Assuming the response contains a token and user info
-      // Example:
-      // localStorage.setItem('authToken', response.data.token);
-      // localStorage.setItem('userRole', isAdmin ? 'admin' : 'alumni');
+
+      // Update the logged-in status
+      setIsLoggedIn(true);
+      setUserDetails(response.data);
+
       // Redirect to dashboard
-      navigate('/dashboard'); // Ensure that '/dashboard' is a valid route
+      navigate('/logged'); // Ensure that '/dashboard' is a valid route
     } catch (error) {
       console.error('Login Error:', error);
       if (error.response && error.response.data && error.response.data.message) {
         setLoginError(error.response.data.message);
       } else {
-        setLoginError('Login failed. Please check your credentials.');
+        setLoginError(error.response.data);
       }
     } finally {
       setLoginLoading(false);
