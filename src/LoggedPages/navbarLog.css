@@ -1,0 +1,368 @@
+.sticky-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  
+  .sticky-wrapper.is-sticky .navbarr {
+    background-color: var(--secondary-color);
+    transition: 1s;
+  }
+  
+  /* Default state (non-sticky) */
+  .navbarr .heading-color {
+    color: #3d8dca; /* Replace 'initial' with your original color if different */
+    font-size: 1em; /* Replace '1em' with your original font size */
+    transition: font-size .5s, color .5s; /* Smooth transition for both properties */
+  }
+  
+  .sticky-wrapper.is-sticky .navbarr .heading-color {
+    color: white;
+    font-size: 1.3em;
+    transition: 1s;
+  }
+  
+  /* Default state (non-sticky) for the text and icon */
+  .navbarr .heading-color,
+  .navbarr .bi-mortarboard {
+    color: white; /* Replace 'initial' with your original color if different */
+    font-size: 1em; /* Replace '1em' with your original font size */
+    transition: font-size 1s, color 1s; /* Smooth transition for both properties */
+  }
+  
+  /* Initially hide the image */
+  .navbarr .tut-logo {
+    display: none;
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Show the image and hide the text when sticky */
+  .sticky-wrapper.is-sticky .navbarr .heading-color,
+  .sticky-wrapper.is-sticky .navbarr .bi-mortarboard {
+    display: none;
+  }
+  
+  .sticky-wrapper.is-sticky .navbarr .tut-logo {
+    display: inline; /* Ensure the image is displayed */
+    width: 300px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+ 
+  .navbarr {
+    background:  linear-gradient(15deg, #005596 0%, #ce1127 100%);
+    border-bottom: 1px solid rgba(128, 208, 199, 0.35);
+    z-index: 9;
+    
+  }
+  
+  .navbar-brand,
+  .navbar-brand:hover {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-weight-bold);
+    display: block;
+  }
+  
+  .navbar-brand span {
+    font-family: var(--title-font-family);
+  }
+  
+  .navbar-expand-lgg .navbar-nav .nav-link {
+    border-radius: var(--border-radius-large);
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  
+  
+  .navbar-nav .nav-link {
+    display: inline-block;
+    color: var(--white-color);
+    font-family: var(--title-font-family); 
+    font-size: var(--menu-font-size);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .navbar-nav .nav-link.active, 
+  .navbar-nav .nav-link:hover {
+    color: var(--border-color);
+  }
+  
+  .navbarr .dropdown-menu {
+    background: var(--white-color);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+    border: 0;
+    display: inherit;
+    opacity: 0;
+    min-width: 9rem;
+    margin-top: 20px;
+    padding: 13px 0 10px 0;
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  
+  .navbarr .dropdown-menu::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 15px solid var(--white-color);
+    position: absolute;
+    top: -10px;
+    left: 10px;
+  }
+  
+  .navbarr .dropdown-item {
+    display: inline-block;
+    color: var(--p-bg-color);
+    font-family: var(--title-font-family); 
+    font-size: var(--menu-font-size);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  
+  .navbarr .dropdown-item.active, 
+  .navbarr.dropdown-item:active,
+  .navbarr .dropdown-item:focus, 
+  .navbarr .dropdown-item:hover {
+    background: transparent;
+    color: var(--primary-color);
+  }
+  
+  .navbarr .dropdown-toggle::after {
+    content: "\f282";
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-size: var(--copyright-font-size);
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    left: 2px;
+    border: 0;
+  }
+  
+  @media screen and (min-width: 992px) {
+    .navbarr .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      margin-top: 0;
+      pointer-events: auto;
+    }
+    
+  }
+
+
+  .navbarr .login-add-space p {
+    color: white; /* Replace 'initial' with your original color if different */
+    font-size: 1em; /* Replace '1em' with your original font size */
+    margin-left: 10px;
+    transition: font-size 1s, color 1s; /* Smooth transition for both properties */
+  }
+  
+  .sticky-wrapper.is-sticky .navbarr .login-add-space p {
+    color: white;
+    font-size: 1.2em; /* Adjust this value to your desired larger font size */
+  }
+  
+  .navbar-icon {
+    background: var(--white-color);
+    border-radius: var(--border-radius-large);
+    display: inline-block;
+    font-size: var(--h5-font-size);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-icon:hover {
+    background: var(--primary-color);
+    color: var(--white-color);
+  }
+  
+  .navbar-toggler {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    width: 30px;
+    height: 35px;
+    outline: none;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background: transparent;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before,
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transition: top 300ms 50ms ease, -webkit-transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+    transition: top 300ms 50ms ease, transform 300ms 350ms ease, -webkit-transform 300ms 350ms ease;
+    top: 0;
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+    transform: rotate(45deg);
+  }
+  
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+    transform: rotate(-45deg);
+  }
+  
+  .navbar-toggler .navbar-toggler-icon {
+    background: var(--white-color);
+    transition: background 10ms 300ms ease;
+    display: block;
+    width: 30px;
+    height: 2px;
+    position: relative;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon:before,
+  .navbar-toggler .navbar-toggler-icon:after {
+    transition: top 300ms 350ms ease, -webkit-transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+    transition: top 300ms 350ms ease, transform 300ms 50ms ease, -webkit-transform 300ms 50ms ease;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: var(--white-color);
+    width: 30px;
+    height: 2px;
+    content: '';
+  }
+  
+  .navbar-toggler .navbar-toggler-icon::before {
+    top: -8px;
+  }
+  
+  .navbar-toggler .navbar-toggler-icon::after {
+    top: 8px;
+  }
+  
+
+
+
+#navbarr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    border-bottom: 2px solid rgba(128, 208, 199, 0.35);
+}
+
+.homepage-bgg {
+    background-color: transparent; /* Transparent navbar by default */
+    border-bottom: none;
+}
+
+.navbar-scrolled {
+    background-color: hsl(202, 73%, 28%); /* Solid blue background when scrolled */
+    border-bottom: 1px solid rgba(128, 208, 199, 0.35);
+    padding: 10px 0; /* Adjust padding when scrolled */
+}
+
+/* Initially hide the TUT logo */
+.navbarr .tut-logo {
+    display: none;
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Show the logo and hide the text when scrolled */
+.navbar-scrolled .tut-logo {
+    display: inline-block;
+    width: 320px; /* Adjust the width of the logo when scrolled */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar-scrolled .heading-color,
+.navbar-scrolled .bi-mortarboard {
+    display: none; /* Hide the text and icon when scrolled */
+}
+
+.nav-link {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.nav-link:hover {
+    color: #008cba; /* Change text color on hover */
+    text-decoration: none; /* Remove underline */
+}
+
+.heading-colorr {
+    color: white; /* Change text color to white */
+    font-size: 23px;
+    margin-right: -90px;
+    
+}
+
+.graduation-iconn {
+    
+    font-size: 2.0rem; /* Example size, adjust as needed */
+    margin-right: 5px; /* Optional: ensure space between the icon and text */
+}
+
+
+
+
+
+
+/* For small screens */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .navbar-collapse.show {
+    display: flex; /* Show when toggled */
+  }
+
+  .navbar-toggler {
+    display: block; /* Show the hamburger button */
+  }
+
+  .nav-link {
+    padding: 10px 0;
+    width: 100%; /* Full width for links */
+    text-align: center;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .navbar .tut-logo {
+    width: 30px;
+  }
+
+  .navbar-scrolled .tut-logo {
+    width: 150px;
+  }
+}
