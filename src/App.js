@@ -10,15 +10,14 @@ import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
 import DonationForm from './components/DonationForm';
-import Logged from './components/Logged';
+import Logged from './LoggedPages/Logged';
 
 
 function App() {
   const location = useLocation();
 
   // Define paths where the NavBar should not appear
-  const hideNavBar = location.pathname === '/login';
-
+  const hideNavBar = location.pathname === '/login' ||  location.pathname === '/logged';
   return (
     <div className="App">
 

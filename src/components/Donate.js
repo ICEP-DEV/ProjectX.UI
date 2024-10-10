@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Donate.css';
+import NavBar from './NavBar';
 
 const Donate = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Donate = () => {
     }, [smoothS]);
 
     const handleDonateClick = () => {
-        navigate('/DonationForm');
+        navigate('/donationForm');
         window.scrollTo(0, 0);
     };
 
@@ -40,7 +41,9 @@ const Donate = () => {
     };
 
     return (
+        
         <div>
+            <NavBar/>
             <div className='hero-section'>
                 <Container className="donation-journey">
                     <Row>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import Footer from './Footer'; // Import the Footer component
 import './DonationForm.css'; // Import the CSS file
-
+import axios from 'axios';
 
 const DonationForm = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +18,8 @@ const DonationForm = () => {
       fashionShow: false,
     },
   });
+
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -37,27 +39,38 @@ const DonationForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    window.alert('Thank you for your submission! We will get back to you soon.');
-    setFormData({
-      name: '',
-      surname: '',
-      phone: '',
-      email: '',
-      studentNumber: '',
-      eventOptions: {
-        galaDinner: false,
-        ictOrientation: false,
-        humanitiesAwards: false,
-        fashionShow: false,
-      },
-    });
+    try {
+      // Send form data to the API
+      const response = await axios.post('http://localhost:5214/api/Guest/CaptureDonation/CaptureDonation', formData);
+      window.alert('Thank you for your submission! We will get back to you soon.');
+
+      // Clear the form fields
+      setFormData({
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+        studentNumber: '',
+        eventOptions: {
+          galaDinner: false,
+          ictOrientation: false,
+          humanitiesAwards: false,
+          fashionShow: false,
+        },
+      });
+      setSubmitError('');
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      setSubmitError('Error submitting the form. Please try again later.');
+    }
   };
   
   return (
     
     <div>
+      
       {/* Form Section */}
       <div className='hero-section d-flex justify-content-center align-items-center'>
       <Container className="mt-2">
@@ -110,15 +123,7 @@ const DonationForm = () => {
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formStudentNumber">
-                  <Form.Label>Student Number</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="studentNumber"
-                    value={formData.studentNumber}
-                    onChange={handleInputChange}
-                  />
-                </Form.Group>
+              
 
                 <Form.Group controlId="formEventOptions">
                   <Form.Label>Select Event/s</Form.Label>
