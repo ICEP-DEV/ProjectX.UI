@@ -5,61 +5,57 @@
     left: 0;
   }
   
-  .sticky-wrapper.is-sticky .navbar {
+  .sticky-wrapper.is-sticky .navbarr {
     background-color: var(--secondary-color);
     transition: 1s;
   }
   
   /* Default state (non-sticky) */
-  .navbar .heading-color {
+  .navbarr .heading-color {
     color: #3d8dca; /* Replace 'initial' with your original color if different */
     font-size: 1em; /* Replace '1em' with your original font size */
     transition: font-size .5s, color .5s; /* Smooth transition for both properties */
   }
   
-  .sticky-wrapper.is-sticky .navbar .heading-color {
+  .sticky-wrapper.is-sticky .navbarr .heading-color {
     color: white;
     font-size: 1.3em;
     transition: 1s;
   }
   
   /* Default state (non-sticky) for the text and icon */
-  .navbar .heading-color,
-  .navbar .bi-mortarboard {
+  .navbarr .heading-color,
+  .navbarr .bi-mortarboard {
     color: white; /* Replace 'initial' with your original color if different */
     font-size: 1em; /* Replace '1em' with your original font size */
     transition: font-size 1s, color 1s; /* Smooth transition for both properties */
   }
   
   /* Initially hide the image */
-  .navbar .tut-logo {
+  .navbarr .tut-logo {
     display: none;
     width: 50px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
   }
   
   /* Show the image and hide the text when sticky */
-  .sticky-wrapper.is-sticky .navbar .heading-color,
-  .sticky-wrapper.is-sticky .navbar .bi-mortarboard {
+  .sticky-wrapper.is-sticky .navbarr .heading-color,
+  .sticky-wrapper.is-sticky .navbarr .bi-mortarboard {
     display: none;
   }
   
-  .sticky-wrapper.is-sticky .navbar .tut-logo {
+  .sticky-wrapper.is-sticky .navbarr .tut-logo {
     display: inline; /* Ensure the image is displayed */
     width: 300px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
   }
   
-  .aspace
-  {
-      font-size: 20px;
-      color: #fdb913;
-  }
-  
-  .navbar {
-    background: transparent;
+ 
+  .navbarr {
+    background:  linear-gradient(15deg, #005596 0%, #ce1127 100%);
     border-bottom: 1px solid rgba(128, 208, 199, 0.35);
     z-index: 9;
+    
   }
   
   .navbar-brand,
@@ -73,7 +69,7 @@
     font-family: var(--title-font-family);
   }
   
-  .navbar-expand-lg .navbar-nav .nav-link {
+  .navbar-expand-lgg .navbar-nav .nav-link {
     border-radius: var(--border-radius-large);
     margin: 10px;
     padding: 10px;
@@ -99,7 +95,7 @@
     color: var(--border-color);
   }
   
-  .navbar .dropdown-menu {
+  .navbarr .dropdown-menu {
     background: var(--white-color);
     box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
     border: 0;
@@ -112,7 +108,7 @@
     pointer-events: none;
   }
   
-  .navbar .dropdown-menu::before {
+  .navbarr .dropdown-menu::before {
     content: "";
     width: 0;
     height: 0;
@@ -124,7 +120,7 @@
     left: 10px;
   }
   
-  .navbar .dropdown-item {
+  .navbarr .dropdown-item {
     display: inline-block;
     color: var(--p-bg-color);
     font-family: var(--title-font-family); 
@@ -135,15 +131,15 @@
     position: relative;
   }
   
-  .navbar .dropdown-item.active, 
-  .navbar .dropdown-item:active,
-  .navbar .dropdown-item:focus, 
-  .navbar .dropdown-item:hover {
+  .navbarr .dropdown-item.active, 
+  .navbarr.dropdown-item:active,
+  .navbarr .dropdown-item:focus, 
+  .navbarr .dropdown-item:hover {
     background: transparent;
     color: var(--primary-color);
   }
   
-  .navbar .dropdown-toggle::after {
+  .navbarr .dropdown-toggle::after {
     content: "\f282";
     display: inline-block;
     font-family: bootstrap-icons !important;
@@ -162,21 +158,23 @@
   }
   
   @media screen and (min-width: 992px) {
-    .navbar .dropdown:hover .dropdown-menu {
+    .navbarr .dropdown:hover .dropdown-menu {
       opacity: 1;
       margin-top: 0;
       pointer-events: auto;
     }
     
   }
-  .navbar .login-add-space p {
+
+
+  .navbarr .login-add-space p {
     color: white; /* Replace 'initial' with your original color if different */
     font-size: 1em; /* Replace '1em' with your original font size */
     margin-left: 10px;
     transition: font-size 1s, color 1s; /* Smooth transition for both properties */
   }
   
-  .sticky-wrapper.is-sticky .navbar .login-add-space p {
+  .sticky-wrapper.is-sticky .navbarr .login-add-space p {
     color: white;
     font-size: 1.2em; /* Adjust this value to your desired larger font size */
   }
@@ -267,7 +265,7 @@
 
 
 
-#navbar {
+#navbarr {
     position: fixed;
     top: 0;
     left: 0;
@@ -277,7 +275,7 @@
     border-bottom: 2px solid rgba(128, 208, 199, 0.35);
 }
 
-.homepage-bg {
+.homepage-bgg {
     background-color: transparent; /* Transparent navbar by default */
     border-bottom: none;
 }
@@ -289,7 +287,7 @@
 }
 
 /* Initially hide the TUT logo */
-.navbar .tut-logo {
+.navbarr .tut-logo {
     display: none;
     width: 50px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
@@ -315,6 +313,22 @@
     color: #008cba; /* Change text color on hover */
     text-decoration: none; /* Remove underline */
 }
+
+.heading-colorr {
+    color: white; /* Change text color to white */
+    font-size: 23px;
+    margin-right: -90px;
+    
+}
+
+.graduation-iconn {
+    
+    font-size: 2.0rem; /* Example size, adjust as needed */
+    margin-right: 5px; /* Optional: ensure space between the icon and text */
+}
+
+
+
 
 
 

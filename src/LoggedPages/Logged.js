@@ -1,125 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './homepage.css';
-import NavBar from '../components/NavBar';
+import './Logged.css';
 import Footer from '../components/Footer';
+import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 
 // Import images
 import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
-import graduationImage from '../images/5.jpg';
-import graduationImage1 from '../images/tut_graduate.jpg';
-import graduationImage2 from '../images/2.JPG';
-import graduationImage3 from '../images/1.jpg';
-import graduationImage4 from '../images/6.jpeg';
-import graduationImage5 from '../images/3.png';
-import graduationImage6 from '../images/4.jpeg';
+import graduationImage from '../images/tut_graduate.jpg';
 import faqGraphic from '../images/faq_graphic.jpg';
 
-const backgroundImages = [
-  graduationImage,
-  graduationImage1,
-  graduationImage2,
-  graduationImage3,
-  graduationImage4,
-  graduationImage5,
-  graduationImage6,
-];
-
-// Corresponding text information for each slide
-const slideTexts = [
-  {
-    title: "Graduation",
-    description: "The time has finally come for the 2024 Second Semester group of graduates.",
-    link: "https://www.youtube.com/live/aZCSDU_fskM?si=Lkrj-K0I_z7ibReQ"
-  },
-  {
-    title: "Plug A Graduate",
-    description: "Catch PLUG-A-GRADUATE with Polelo N Madisa on the Ground Breaker Show tonight",
-    link: "https://tutfm962.co.za/"
-  },
-  {
-    title: "Celebration",
-    description: "We are thrilled to announce the release of 𝑶𝒖𝒓 𝑩𝒆𝒂𝒕 alumni profiling magazine, 𝑽𝒐𝒍 8 𝑰𝒔𝒔𝒖𝒆 2!",
-    link: "https://heyzine.com/flip-book/ba71bd51a3.html#page/1"
-
-  },
-  {
-    title: "Connect with Alumni",
-    description: "Reconnect with old friends and expand your professional network.",
-    link: "https://www.linkedin.com/in/tut-alumni-44bb19244/"
-  },
-  {
-    title: "Continued Learning",
-    description: "Take advantage of workshops and resources available to alumni.",
-    link: "https://www.youtube.com/live/aZCSDU_fskM?si=Lkrj-K0I_z7ibReQ"
-  },
-  {
-    title: "Stay Updated",
-    description: "Stay informed about upcoming events and opportunities. 𝒀𝒐𝒖'𝒓𝒆 𝒄𝒐𝒓𝒅𝒊𝒂𝒍𝒍𝒚 𝒊𝒏𝒗𝒊𝒕𝒆𝒅 𝒕𝒐 𝒕𝒉𝒆 𝑻𝑼𝑻 𝑷𝒓𝒆𝒕𝒐𝒓𝒊𝒂 𝑭𝒖𝒏𝒅𝒓𝒂𝒊𝒔𝒊𝒏𝒈 𝑮𝒐𝒍𝒇 𝑫𝒂𝒚 𝒂𝒕 𝒕𝒉𝒆 𝒑𝒓𝒆𝒔𝒕𝒊𝒈𝒊𝒐𝒖𝒔 𝑾𝒐𝒐𝒅𝒉𝒊𝒍𝒍 𝑮𝒐𝒍𝒇 𝑬𝒔𝒕𝒂𝒕𝒆 𝒂𝒏𝒅 𝑪𝒐𝒖𝒏𝒕𝒓𝒚 𝑪𝒍𝒖𝒃.",
-    link: "https://docs.google.com/forms/d/1j5O_VVKmhI4hkn1X4p3pHCIlkkNf2Qk9N9KcmoRt-rM/viewform?edit_requested=true"
- 
-  },
-  {
-    title: "Community Support",
-    description: "Get involved with our alumni community and support future graduates.",
-    link: "https://tut.devman.co.za/Devman/online/findme/"
-  },
-];
-
-const HomePage = () => {
-  const sibanda = useLocation();
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Slideshow function to switch images
+const Logged = () => {
+  const smoothS = useLocation();
+  
+  // Simulate login by setting 'isLoggedIn' to true in localStorage
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); 
-
-    return () => clearInterval(interval);
+    localStorage.setItem('isLoggedIn', 'true'); // Set login status to true
   }, []);
 
-// Smooth scrolling function
-const scrollToDiv = (element, navHeight) => {
-  const offsetTop = element.offsetTop;
-  const totalScroll = offsetTop - navHeight;
+  // Smooth scrolling function
+  const scrollToDiv = (element, navHeight) => {
+    const offsetTop = element.offsetTop;
+    const totalScroll = offsetTop - navHeight;
 
-  window.scrollTo({
+    window.scrollTo({
       top: totalScroll,
       behavior: 'smooth',
-  });
-};
+    });
+  };
 
-// Handle smooth scrolling when navigating with hashes
-useEffect(() => {
-  const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-  
-  // If there's a hash in the URL, scroll to the corresponding section
-  if (sibanda.hash) {
-      const targetElement = document.querySelector(sibanda.hash);
+  useEffect(() => {
+    const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+
+    if (smoothS.hash) {
+      const targetElement = document.querySelector(smoothS.hash);
       if (targetElement) {
-          scrollToDiv(targetElement, headerHeight);
+        scrollToDiv(targetElement, headerHeight);
       }
-  }
+    }
 
-  // Smooth scroll for internal navbar links
-  const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
-  smoothScrollLinks.forEach(link => {
+    const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
+    smoothScrollLinks.forEach((link) => {
       link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-              scrollToDiv(targetElement, headerHeight);
-          }
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          scrollToDiv(targetElement, headerHeight);
+        }
       });
-  });
+    });
 
-    // Scroll event for timeline activation
     const onScroll = () => {
       const isScrollIntoView = (elem) => {
         const docViewTop = window.scrollY;
@@ -134,7 +66,8 @@ useEffect(() => {
         }
 
         const mainTimelineContainer = document.querySelector('#vertical-scrollable-timeline');
-        const mainTimelineContainerBottom = mainTimelineContainer.getBoundingClientRect().bottom - window.innerHeight * 0.5;
+        const mainTimelineContainerBottom =
+          mainTimelineContainer.getBoundingClientRect().bottom - window.innerHeight * 0.5;
         const innerElement = mainTimelineContainer.querySelector('.inner');
         if (innerElement) {
           innerElement.style.height = `${mainTimelineContainerBottom}px`;
@@ -147,91 +80,93 @@ useEffect(() => {
 
     window.addEventListener('scroll', onScroll);
 
-        // Cleanup event listeners on component unmount
-        return () => {
-          smoothScrollLinks.forEach(link => {
-              link.removeEventListener('click', function () {});
-          });
-      };
-  }, [sibanda]);
+    return () => {
+      smoothScrollLinks.forEach((link) => {
+        link.removeEventListener('click', function () {});
+      });
+    };
+  }, [smoothS]);
 
-    return (
+  return (
     <div>
-      <main>
-        {/* Search Start */}
-        <section
-          className="hero-section  justify-content-center align-items-center"
-          id="section_1"
-        >
-<div className="container">
-  <div className="row">
-    <div className="col-lg-8 col-12 mx-auto">
-      <h1 className="text-white text-center">
-        Connect. Inspire. Celebrate.
-      </h1>
-      <h6 className="text-center mb-4">A Hub for TUT Graduates</h6>
-    </div>
-  </div>
-</div>
+      {/* Add NavBar component here */}
+      <NavbarLogged />
 
-          
-       
-  <div className="container" >
-    <div className="row justify-content-center">
-      <div className="col-lg-15 col-20">
-        <div className="custom-block custom-block-overlay" style={{ zIndex: 10 }}>
-          <div className="d-flex flex-column h-100 ">
-            {/* Slideshow */}
-            <img
-              src={backgroundImages[currentIndex]}
-              className="custom-block-image img-fluid"
-              alt="Graduation Slideshow"
-            />
-            <div className="custom-block-overlay-text"style={{ textAlign: "center", marginTop: 200 }}>
-              <h5 className="text-white mb-2" style={{ textAlign: "center"  }}>
-                {slideTexts[currentIndex].title}
-              </h5>
-              <p className="text-white">
-                {slideTexts[currentIndex].description}
-              </p>
-              <div>
-                <Link
-                  to={slideTexts[currentIndex].link}
-                  className="btn custom-btn mt-2 mt-lg-3"
-                >
-                  Learn More
-                </Link>
+      <main>
+        {/* Hero Section */}
+        <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-12 mx-auto text-center"></div>
+              <div className="col-lg-8 col-12 mx-auto">
+                <h1 className="text-white text-center">Connect. Inspire. Celebrate.</h1>
+                <h6 className="text-center">A Hub for TUT Graduates</h6>
               </div>
             </div>
-            <div style={{ backgroundColor: 'black', marginTop: 10, zIndex: 10}}>
-            <div className="social-share d-flex  moving-text" >
-  <p className="text-white me-4 " >Follow Us @:</p>
-  <ul className="social-icon">
-    <li className="social-icon-item">
-      <a href="https://x.com/TUTalumni" className="social-icon-link bi-twitter"></a>
-    </li>
-    <li className="social-icon-item">
-      <a href="https://www.facebook.com/TUTAlumni" className="social-icon-link bi-facebook"></a>
-    </li>
-    <li className="social-icon-item">
-      <a href="https://www.instagram.com/tutalumni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon-link bi-instagram"></a>
-    </li>
-  </ul>
-  </div>
-</div>
-
-            <div className="section-overlay"></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
+        {/* Advertising Div Start */}
+        <section className="featured-section">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-4 col-12 mb-4 mb-lg-0">
+                <div className="custom-block bg-white shadow-lg">
+                    <div className="d-flex">
+                      <div>
+                        <h5 className="mb-2">Alumni Community</h5>
+                        <p className="mb-0">
+                          Welcome to the Alumni Workspace—where you can connect with fellow graduates, explore career
+                          opportunities, and celebrate the achievements of our university community.
+                          <br />
+                          <br />
+                        </p>
+                      </div>
+                    </div>
+                    <img src={aluminiCommunityImage} className="custom-block-image img-fluid" alt="" />
+                  
+                </div>
+              </div>
+
+              <div className="col-lg-6 col-12">
+                <div className="custom-block custom-block-overlay">
+                  <div className="d-flex flex-column h-100">
+                    <img src={graduationImage} className="custom-block-image img-fluid" alt="" />
+                    <div className="custom-block-overlay-text d-flex">
+                      <div>
+                        <h5 className="text-white mb-2">Graduation</h5>
+                        <p className="text-white">The time has finally come for the 2025 group of graduates.</p>
+                        <Link to="/topics-detail" className="btn custom-btn mt-2 mt-lg-3">
+                          Learn More
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="social-share d-flex">
+                      <p className="text-white me-4">Share:</p>
+                      <ul className="social-icon">
+                        <li className="social-icon-item">
+                          <a href="#" className="social-icon-link bi-twitter"></a>
+                        </li>
+                        <li className="social-icon-item">
+                          <a href="#" className="social-icon-link bi-facebook"></a>
+                        </li>
+                        <li className="social-icon-item">
+                          <a href="#" className="social-icon-link bi-pinterest"></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="section-overlay"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Advertising Div End */}
 
-                {/* What Is Alumini Space Start */}
-                <section className="timeline-section section-padding" id="section_2">
+        {/* What Is Alumini Space Start */}
+        <section className="timeline-section section-padding" id="section_2">
                     <div className="section-overlay"></div>
 
                     <div className="container">
@@ -430,4 +365,4 @@ useEffect(() => {
   );
 };
 
-export default HomePage;
+export default Logged;
