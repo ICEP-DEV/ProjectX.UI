@@ -54,22 +54,47 @@
   border-color: transparent;
 }
 
+/* Footer Links Styling */
 .site-footer-links {
-  padding-left: 0;
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove extra padding */
+  margin: 0;
+  text-align: left; /* Align links to the left */
 }
 
 .site-footer-link-item {
-  display: block;
-  list-style: none;
-  line-height: normal;
+  margin-bottom: 10px; /* Add space between links */
 }
 
 .site-footer-link {
-  color: var(--secondary-color);
-  font-size: var(--copyright-font-size);
-  font-weight: var(--font-weight-medium);
-  line-height: normal;
+  text-decoration: none;
+  color: #000; /* Adjust color as needed */
+  font-size: 0.9rem; /* Adjust font size */
+  display: block; /* Ensure links are block elements to align vertically */
 }
+
+/* Heading Styling */
+.site-footer-title {
+  text-align: left; /* Align the heading with the content */
+  margin-bottom: 1rem; /* Space between heading and links */
+}
+
+
+
+/* Paragraph Text Alignment */
+p.text-white {
+  margin-bottom: 0.5rem; /* Space between paragraphs */
+  text-align: left; /* Ensure the paragraph is aligned left */
+  color: #fff; /* Text color */
+  display: block; /* Make paragraph a block element */
+}
+
+/* Container Padding Adjustments */
+.col-lg-3, .col-md-4 {
+  padding-left: 0; /* Ensure the content starts directly beneath the headings */
+  padding-right: 0;
+}
+
 
 .copyright-text {
   font-size: var(--copyright-font-size);
@@ -78,5 +103,11 @@
 .graduation-icon {
   font-size: 7rem; /* Adjust this value to make the icon bigger or smaller */
   color: #141313; /* Set the color of the icon */
+}
+.container2{
+  padding-left: 0; /* Ensure the container starts from the left */
+  margin-left: 0; /* Remove any left margin */
+  width: 100%; /* Ensure the footer takes the full width */
+
 }
 
