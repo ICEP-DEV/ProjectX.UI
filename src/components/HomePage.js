@@ -97,9 +97,6 @@ useEffect(() => {
                 <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-8 col-12 mx-auto text-center">
-                              
-                            </div>
                             <div className="col-lg-8 col-12 mx-auto">
                                 <h1 className="text-white text-center">Connect. Inspire. Celebrate.</h1>
                                 <h6 className="text-center">A Hub for TUT Graduates</h6>
@@ -377,8 +374,9 @@ useEffect(() => {
                     </div>
                 </section>
                 {/* Contact Us End */}
+                <Footer/>
             </main>
-            <Footer/>
+            
         </div>
     );
 };

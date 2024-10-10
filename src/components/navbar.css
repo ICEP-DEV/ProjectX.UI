@@ -318,40 +318,37 @@
 
 
 
-
-
-/* Show the hamburger menu on small screens */
+/* For small screens */
 @media (max-width: 768px) {
-    .navbar-toggler {
-        display: block; /* Show the toggle button */
-    }
+  .navbar-collapse {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+  }
 
-    .navbar-collapse {
-        display: none; /* Initially hidden */
-        transition: max-height 0.3s ease;
-        max-height: 0;
-        overflow: hidden;
-    }
+  .navbar-collapse.show {
+    display: flex; /* Show when toggled */
+  }
 
-    .navbar-collapse.show {
-        display: block;
-        max-height: 400px; /* Adjust this as needed */
-    }
+  .navbar-toggler {
+    display: block; /* Show the hamburger button */
+  }
 
-    .nav-link {
-        padding: 10px 0;
-        width: 100%; /* Full width for links on small screens */
-        text-align: center; /* Center-align the nav links */
-    }
+  .nav-link {
+    padding: 10px 0;
+    width: 100%; /* Full width for links */
+    text-align: center;
+  }
 }
 
 /* For very small screens */
 @media (max-width: 480px) {
-    .navbar .tut-logo {
-        width: 30px;
-    }
+  .navbar .tut-logo {
+    width: 30px;
+  }
 
-    .navbar-scrolled .tut-logo {
-        width: 150px;
-    }
+  .navbar-scrolled .tut-logo {
+    width: 150px;
+  }
 }

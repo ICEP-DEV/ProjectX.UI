@@ -4,7 +4,6 @@ import { Link as ScrollLink,animateScroll as scroll } from 'react-scroll'; // Fo
 import { Link, useLocation,useNavigate } from 'react-router-dom'; // Import useLocation for route check
 import './navbar.css';
 import tutLogo from '../images/tut logo.png'; // Update path as needed
-import axios from "axios";
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
