@@ -1,34 +1,26 @@
+/* Footer Background */
 .site-footer {
-  border-bottom: 10px solid var(--secondary-color);
-  position: relative;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); /* Keep the gradient when scrolled */
+  border-bottom: 1px solid rgba(128, 208, 199, 0.35); /* Border at the bottom */
+  padding: 20px 0; /* Decrease the vertical padding */
 }
 
-.site-footer::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 200px 200px;
-  border-color: transparent transparent var(--secondary-color) transparent;
-  pointer-events: none;
-}
-
+/* Footer Title Color */
 .site-footer-title {
-  color: var(--primary-color); 
+  color: var(--primary-color);
+  font-size: 1.2rem; /* Adjust the font size as needed */
 }
 
+/* Dropdown Menu Styles */
 .site-footer .dropdown-menu {
-  padding: 0;
+  padding: 0; /* Reset padding */
 }
 
 .site-footer .dropdown-item {
   color: var(--p-color);
-  font-size: var(--menu-font-size);
+  font-size: 0.8rem; /* Decrease font size */
   font-weight: var(--font-weight-medium);
-  padding: 4px 18px;
+  padding: 4px 10px; /* Decrease padding */
 }
 
 .site-footer .dropdown-item:hover {
@@ -37,11 +29,11 @@
 }
 
 .site-footer .dropdown-menu li:first-child .dropdown-item {
-  padding-top: 10px;
+  padding-top: 5px; /* Decrease top padding */
 }
 
 .site-footer .dropdown-menu li:last-child .dropdown-item {
-  padding-bottom: 12px;
+  padding-bottom: 5px; /* Decrease bottom padding */
 }
 
 .site-footer .dropdown-toggle {
@@ -63,23 +55,21 @@
 }
 
 .site-footer-link-item {
-  margin-bottom: 10px; /* Add space between links */
+  margin-bottom: 5px; /* Decrease space between links */
 }
 
 .site-footer-link {
   text-decoration: none;
   color: #000; /* Adjust color as needed */
-  font-size: 0.9rem; /* Adjust font size */
+  font-size: 0.8rem; /* Decrease font size */
   display: block; /* Ensure links are block elements to align vertically */
 }
 
 /* Heading Styling */
 .site-footer-title {
   text-align: left; /* Align the heading with the content */
-  margin-bottom: 1rem; /* Space between heading and links */
+  margin-bottom: 0.5rem; /* Decrease space between heading and links */
 }
-
-
 
 /* Paragraph Text Alignment */
 p.text-white {
@@ -90,24 +80,25 @@ p.text-white {
 }
 
 /* Container Padding Adjustments */
-.col-lg-3, .col-md-4 {
+.col-lg-3,
+.col-md-4 {
   padding-left: 0; /* Ensure the content starts directly beneath the headings */
   padding-right: 0;
 }
 
-
 .copyright-text {
   font-size: var(--copyright-font-size);
+  font-size: 0.8rem; /* Decrease font size for copyright text */
 }
 
 .graduation-icon {
-  font-size: 7rem; /* Adjust this value to make the icon bigger or smaller */
+  font-size: 5rem; /* Adjust this value to make the icon smaller */
   color: #141313; /* Set the color of the icon */
 }
-.container2{
+
+/* Container for Footer */
+.container2 {
   padding-left: 0; /* Ensure the container starts from the left */
   margin-left: 0; /* Remove any left margin */
   width: 100%; /* Ensure the footer takes the full width */
-
 }
-
