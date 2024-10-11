@@ -82,7 +82,7 @@ const Confirmation = () => {
                 </Form.Group>
 
                 <Form.Group controlId="formSurname">
-                  <Form.Label>Fisrt Name</Form.Label>
+                  <Form.Label>First Name</Form.Label>
                   <Form.Control
                     type="text"
                     name="surname"
@@ -114,8 +114,6 @@ const Confirmation = () => {
                   />
                 </Form.Group>
 
-              
-
                 <Form.Group controlId="formEmail">
                   <Form.Label>LinkedIn</Form.Label>
                   <Form.Control
@@ -128,7 +126,7 @@ const Confirmation = () => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className="mt-3">
-                  Confirm
+                  Confirm Profile
                 </Button>
               </Form>
             </div>

@@ -45,16 +45,19 @@ function NavBar() {
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
-        <Navbar.Brand href="#section_1">
-          <i className="bi bi-mortarboard"></i>
-          <span className="heading-color">
-            Alumini<sup className="aspace"> Space</sup>
-          </span>
-          <img src={tutLogo} alt="Tut Logo" className="tut-logo" />
+         {/* Only TUT Logo appears */}
+         <Navbar.Brand href="#section_1">
+           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
 
+      {/* Hamburger Toggle for mobile */}
+          <Navbar.Toggle aria-controls="navbarNav" />
+
         <Navbar.Toggle aria-controls="navbarNav" />
-        <Navbar.Collapse id="navbarNav">
+       
+         {/* Collapsible Nav content */}
+         <Navbar.Collapse id="navbarNav">
+          
           <Nav className="ms-lg-5 me-lg-auto">
              {/* If we're on the donate page, link back to the homepage */}
              {location.pathname === '/donate'  || location.pathname === '/donationForm' ?  (

@@ -43,7 +43,6 @@ const slideTexts = [
     title: "Celebration",
     description: "We are thrilled to announce the release of 𝑶𝒖𝒓 𝑩𝒆𝒂𝒕 alumni profiling magazine, 𝑽𝒐𝒍 8 𝑰𝒔𝒔𝒖𝒆 2!",
     link: "https://heyzine.com/flip-book/ba71bd51a3.html#page/1"
-
   },
   {
     title: "Connect with Alumni",
@@ -59,7 +58,6 @@ const slideTexts = [
     title: "Stay Updated",
     description: "Stay informed about upcoming events and opportunities. 𝒀𝒐𝒖'𝒓𝒆 𝒄𝒐𝒓𝒅𝒊𝒂𝒍𝒍𝒚 𝒊𝒏𝒗𝒊𝒕𝒆𝒅 𝒕𝒐 𝒕𝒉𝒆 𝑻𝑼𝑻 𝑷𝒓𝒆𝒕𝒐𝒓𝒊𝒂 𝑭𝒖𝒏𝒅𝒓𝒂𝒊𝒔𝒊𝒏𝒈 𝑮𝒐𝒍𝒇 𝑫𝒂𝒚 𝒂𝒕 𝒕𝒉𝒆 𝒑𝒓𝒆𝒔𝒕𝒊𝒈𝒊𝒐𝒖𝒔 𝑾𝒐𝒐𝒅𝒉𝒊𝒍𝒍 𝑮𝒐𝒍𝒇 𝑬𝒔𝒕𝒂𝒕𝒆 𝒂𝒏𝒅 𝑪𝒐𝒖𝒏𝒕𝒓𝒚 𝑪𝒍𝒖𝒃.",
     link: "https://docs.google.com/forms/d/1j5O_VVKmhI4hkn1X4p3pHCIlkkNf2Qk9N9KcmoRt-rM/viewform?edit_requested=true"
- 
   },
   {
     title: "Community Support",
@@ -83,41 +81,41 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
 
-// Smooth scrolling function
-const scrollToDiv = (element, navHeight) => {
-  const offsetTop = element.offsetTop;
-  const totalScroll = offsetTop - navHeight;
+  // Smooth scrolling function
+  const scrollToDiv = (element, navHeight) => {
+    const offsetTop = element.offsetTop;
+    const totalScroll = offsetTop - navHeight;
 
-  window.scrollTo({
-      top: totalScroll,
-      behavior: 'smooth',
-  });
-};
+    window.scrollTo({
+        top: totalScroll,
+        behavior: 'smooth',
+    });
+  };
 
-// Handle smooth scrolling when navigating with hashes
-useEffect(() => {
-  const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
-  
-  // If there's a hash in the URL, scroll to the corresponding section
-  if (sibanda.hash) {
-      const targetElement = document.querySelector(sibanda.hash);
-      if (targetElement) {
-          scrollToDiv(targetElement, headerHeight);
-      }
-  }
+  // Handle smooth scrolling when navigating with hashes
+  useEffect(() => {
+    const headerHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+    
+    // If there's a hash in the URL, scroll to the corresponding section
+    if (sibanda.hash) {
+        const targetElement = document.querySelector(sibanda.hash);
+        if (targetElement) {
+            scrollToDiv(targetElement, headerHeight);
+        }
+    }
 
-  // Smooth scroll for internal navbar links
-  const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
-  smoothScrollLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-              scrollToDiv(targetElement, headerHeight);
-          }
-      });
-  });
+    // Smooth scroll for internal navbar links
+    const smoothScrollLinks = document.querySelectorAll('.smoothscroll');
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                scrollToDiv(targetElement, headerHeight);
+            }
+        });
+    });
 
     // Scroll event for timeline activation
     const onScroll = () => {
@@ -147,86 +145,77 @@ useEffect(() => {
 
     window.addEventListener('scroll', onScroll);
 
-        // Cleanup event listeners on component unmount
-        return () => {
-          smoothScrollLinks.forEach(link => {
-              link.removeEventListener('click', function () {});
-          });
-      };
+    // Cleanup event listeners on component unmount
+    return () => {
+      smoothScrollLinks.forEach(link => {
+          link.removeEventListener('click', function () {});
+      });
+    };
   }, [sibanda]);
 
-    return (
+  return (
     <div>
       <main>
         {/* Search Start */}
         <section
-          className="hero-section  justify-content-center align-items-center"
+           className="justify-content-center align-items-center"
           id="section_1"
         >
-<div className="container">
-  <div className="row">
-    <div className="col-lg-8 col-12 mx-auto">
-      <h1 className="text-white text-center">
-        Connect. Inspire. Celebrate.
-      </h1>
-      <h6 className="text-center mb-4">A Hub for TUT Graduates</h6>
-    </div>
-  </div>
-</div>
-
-          
-       
-  <div className="container" >
-    <div className="row justify-content-center">
-      <div className="col-lg-15 col-20">
-        <div className="custom-block custom-block-overlay" style={{ zIndex: 10 }}>
-          <div className="d-flex flex-column h-100 ">
-            {/* Slideshow */}
-            <img
-              src={backgroundImages[currentIndex]}
-              className="custom-block-image img-fluid"
-              alt="Graduation Slideshow"
-            />
-            <div className="custom-block-overlay-text"style={{ textAlign: "center", marginTop: 200 }}>
-              <h5 className="text-white mb-2" style={{ textAlign: "center"  }}>
-                {slideTexts[currentIndex].title}
-              </h5>
-              <p className="text-white">
-                {slideTexts[currentIndex].description}
-              </p>
-              <div>
-                <Link
-                  to={slideTexts[currentIndex].link}
-                  className="btn custom-btn mt-2 mt-lg-3"
-                >
-                  Learn More
-                </Link>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-12 mx-auto">
+                <h2 className="custom-h2 text-center">
+                  Connect. Inspire. Celebrate.
+                </h2>
+                <h6 className="text-center mb-4 custom h6 bold">A Hub for TUT Graduates</h6>
               </div>
             </div>
-            <div style={{ backgroundColor: 'black', marginTop: 10, zIndex: 10}}>
-            <div className="social-share d-flex  moving-text" >
-  <p className="text-white me-4 " >Follow Us @:</p>
-  <ul className="social-icon">
-    <li className="social-icon-item">
-      <a href="https://x.com/TUTalumni" className="social-icon-link bi-twitter"></a>
-    </li>
-    <li className="social-icon-item">
-      <a href="https://www.facebook.com/TUTAlumni" className="social-icon-link bi-facebook"></a>
-    </li>
-    <li className="social-icon-item">
-      <a href="https://www.instagram.com/tutalumni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon-link bi-instagram"></a>
-    </li>
-  </ul>
-  </div>
-</div>
-
-            <div className="section-overlay"></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+          <div className="full-screen-section">
+            <div className="custom-block custom-block-overlay">
+              <div className="d-flex flex-column h-100">
+                {/* Slideshow */}
+                <img
+                  src={backgroundImages[currentIndex]}
+                  className="custom-block-image img-fluid"
+                  alt="Graduation Slideshow"
+                />
+                <div className="custom-block-overlay-text">
+                  <h5 className="text-white mb-2 text-center">
+                    {slideTexts[currentIndex].title}
+                  </h5>
+                  <p className="text-white text-center">
+                    {slideTexts[currentIndex].description}
+                  </p>
+                  <div className="text-center">
+                    <Link
+                      to={slideTexts[currentIndex].link}
+                      className="btn custom-btn mt-2 mt-lg-3"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+                <div className="social-share d-flex moving-text">
+                  <p className="text-white me-4">Follow Us @:</p>
+                  <ul className="social-icon">
+                    <li className="social-icon-item">
+                      <a href="https://x.com/TUTalumni" className="social-icon-link bi-twitter"></a>
+                    </li>
+                    <li className="social-icon-item">
+                      <a href="https://www.facebook.com/TUTAlumni" className="social-icon-link bi-facebook"></a>
+                    </li>
+                    <li className="social-icon-item">
+                      <a href="https://www.instagram.com/tutalumni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon-link bi-instagram"></a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="section-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Advertising Div End */}
 
