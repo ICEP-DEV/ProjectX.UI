@@ -21,7 +21,7 @@
 /* Line between steps */
 .step-item:not(:first-child)::before {
   content: '';
-  background-color: #e2e8f0; /* Default line color */
+  background-color:#374151; /* Default line color */
   position: absolute;
   width: 220%; /* Static width for the line */
   height: 3px;
@@ -53,7 +53,7 @@
   margin: 5px 0;
   white-space: nowrap; /* Prevent line breaks */
   overflow: hidden;
-  color: rgb(245, 195, 195);
+  color:  #0284c7;;
   text-overflow: ellipsis; /* Add ellipsis if it's too long */
 }
 
@@ -82,7 +82,7 @@
 
 /* Active Step Text */
 .active p{
-  color: white;
+  color: red;
 }
 
 /* Connecting Line for Complete Steps */

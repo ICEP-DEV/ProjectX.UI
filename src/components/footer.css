@@ -58,9 +58,9 @@
   margin-bottom: 5px; /* Decrease space between links */
 }
 
-.site-footer-link {
+.site-footer-linkf {
   text-decoration: none;
-  color: #000; /* Adjust color as needed */
+  color: white; /* Adjust color as needed */
   font-size: 0.8rem; /* Decrease font size */
   display: block; /* Ensure links are block elements to align vertically */
 }
@@ -84,6 +84,7 @@ p.text-white {
 .col-md-4 {
   padding-left: 0; /* Ensure the content starts directly beneath the headings */
   padding-right: 0;
+  margin-top: 5px;
 }
 
 .copyright-text {
@@ -93,7 +94,7 @@ p.text-white {
 
 .graduation-icon {
   font-size: 5rem; /* Adjust this value to make the icon smaller */
-  color: #141313; /* Set the color of the icon */
+  color: white; /* Set the color of the icon */
 }
 
 /* Container for Footer */

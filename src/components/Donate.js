@@ -44,13 +44,12 @@ const Donate = () => {
         
         <div>
             <NavBar/>
-            <div className='hero-section'>
+            <div className>
                 <Container className="donation-journey">
                     <Row>
                         <Col lg={12} className="mx-auto">
                             {/* Add the heading at the top left side */}
-                            <h3 className="text-left mb-4">Donation Journey</h3> 
-
+                            <h3 className="text-left mb-4" style={{ color: '#0284c7' }}>Donation Journey</h3>
                             <div className="step-container"> 
                                 {steps.map((step, i) => (
                                     <div
@@ -99,7 +98,7 @@ const Donate = () => {
                     </Row>
 
                     <Row>
-                        <Col md={12} className="text-center mt-5" ref={donateButtonRef}> {/* Add ref to the Col */}
+                        <Col md={12} className="text-center mt-2" ref={donateButtonRef}> {/* Add ref to the Col */}
                             <div className="donation-info">
                                 <h2>Your Little Help Will Make a Big Impact</h2>
                                 <p>Click below for donation form:</p>

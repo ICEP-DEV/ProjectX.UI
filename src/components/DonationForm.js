@@ -72,7 +72,7 @@ const DonationForm = () => {
     <div>
       
       {/* Form Section */}
-      <div className='hero-section d-flex justify-content-center align-items-center'>
+      <div className=' d-flex justify-content-center align-items-center'>
       <Container className="mt-2">
         <Row>
           <Col md={12}>
