@@ -11,6 +11,7 @@ import Login from './components/Login';
 import NavBar from './components/NavBar';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
+import ConfirmProfile from './components/ConfirmProfile';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/ConfirmProfile" element={<ConfirmProfile />} />
         <Route path="/donate" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />}/>
         <Route path="/logged" element={<Logged />}/>

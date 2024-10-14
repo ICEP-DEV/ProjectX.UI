@@ -45,49 +45,46 @@ function NavBar() {
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
-         {/* Only TUT Logo appears */}
-         <Navbar.Brand href="#section_1">
-           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
+        {/* Only TUT Logo appears */}
+        <Navbar.Brand href="#section_1">
+          <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
 
-      {/* Hamburger Toggle for mobile */}
-          <Navbar.Toggle aria-controls="navbarNav" />
-
+        {/* Hamburger Toggle for mobile */}
         <Navbar.Toggle aria-controls="navbarNav" />
-       
-         {/* Collapsible Nav content */}
-         <Navbar.Collapse id="navbarNav">
-          
-          <Nav className="ms-lg-5 me-lg-auto">
-             {/* If we're on the donate page, link back to the homepage */}
-             {location.pathname === '/donate'  || location.pathname === '/donationForm' ?  (
+
+        {/* Collapsible Nav content */}
+        <Navbar.Collapse id="navbarNav">
+          <Nav className="ms-lg-5 me-lg-auto nav-links"> {/* Added custom class */}
+            {/* If we're on the donate page, link back to the homepage */}
+            {location.pathname === '/donate' || location.pathname === '/donationForm' ? (
               <>
-                <Nav.Link as={Link} to="/#section_1">
+                <Nav.Link as={Link} to="/#section_1" className="mx-3">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to="/#section_2">
+                <Nav.Link as={Link} to="/#section_2" className="mx-3">
                   What Is Alumni Space?
                 </Nav.Link>
-                <Nav.Link as={Link} to="/#section_3">
+                <Nav.Link as={Link} to="/#section_3" className="mx-3">
                   FAQs
                 </Nav.Link>
-                <Nav.Link as={Link} to="/#section_4">
+                <Nav.Link as={Link} to="/#section_4" className="mx-3">
                   Contact Us
                 </Nav.Link>
               </>
             ) : (
               <>
                 {/* If we're already on the homepage, use smooth scroll */}
-                <ScrollLink to="section_1" smooth={true} duration={200} className="nav-link">
+                <ScrollLink to="section_1" smooth={true} duration={200} className="nav-link mx-3">
                   Home
                 </ScrollLink>
-                <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link">
+                <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link mx-3">
                   What Is Alumni Space?
                 </ScrollLink>
-                <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link">
+                <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link mx-3">
                   FAQs
                 </ScrollLink>
-                <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link">
+                <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link mx-3">
                   Contact Us
                 </ScrollLink>
               </>
@@ -106,6 +103,17 @@ function NavBar() {
               <p>Login</p>
             </Link>
           </div>
+
+          {/* For routing to ConfirmProfile */}
+<div className="d-none d-lg-block">
+  <Link to="/ConfirmProfile" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
+</div>
+<div className="login-add-space">
+  <Link to="/ConfirmProfile">
+    <p>Confirm Profile</p>
+  </Link>
+</div>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
