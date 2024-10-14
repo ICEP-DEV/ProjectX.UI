@@ -211,7 +211,7 @@ const HomePage = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="section-overlay"></div>
+                {/* <div className="section-overlay"></div> */}
               </div>
             </div>
           </div>
