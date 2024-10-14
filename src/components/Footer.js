@@ -4,9 +4,9 @@ import './footer.css'; // Make sure to create or update this CSS file
 
 const Footer = () => {
     return (
-        <footer className="site-footer section-padding">
-            <div className="container2">
-                <div className="row">
+        <footer className="site-footer">
+            <div className="container2" className="row">
+                
                     <div className="col-lg-3 col-12 mb-4 pb-2">
                         <Link className="navbar-brand mb-2" to="/">
                             <i className="bi bi-mortarboard-fill graduation-icon"></i>
@@ -35,9 +35,10 @@ const Footer = () => {
                             <a href="mailto:info@company.com" className="site-footer-linkf">alumnispace@tut.ac.za</a>
                         </p>
                     </div>
-                </div>
-            </div>
-        </footer>
+                    </div>
+                    </footer>
+            
+        
     );
 };
 

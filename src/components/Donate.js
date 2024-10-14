@@ -38,78 +38,74 @@ const Donate = () => {
         setComplete(true);
         setShowPreviousButton(false); // Hide the "Previous" button when Finish is clicked
         donateButtonRef.current.scrollIntoView({ behavior: 'smooth' }); // Scroll to donate button
+        navigate('/donationForm'); // Redirect to donation form page
     };
 
     return (
-        
         <div>
             <NavBar/>
-            <div className>
-                <Container className="donation-journey">
-                    <Row>
-                        <Col lg={12} className="mx-auto">
-                            {/* Add the heading at the top left side */}
-                            <h3 className="text-left mb-4" style={{ color: '#0284c7' }}>Donation Journey</h3>
-                            <div className="step-container"> 
-                                {steps.map((step, i) => (
-                                    <div
-                                        key={i}
-                                        className={`step-item ${currentStep === i + 1 ? "active" : ""} ${
-                                            i + 1 < currentStep || complete ? "complete" : ""
-                                        }`}
-                                    >
-                                        <div className="step">
-                                            {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
-                                        </div>
-                                        <h2 className="text-gray-500">{step.title}</h2>
-                                        <p className="text-gray-500">{step.description}</p>
+            <Container className="donation-journey">
+                <Row>
+                    <Col md={12}>
+                        <h3 className="text-center mb-4">Donation</h3>
+                    </Col>
+                </Row>  
+                <Row>
+                    <Col md={12} className="text-center mt-2" ref={donateButtonRef}> 
+                        <div className="donation-info">
+                            <p>
+                                Thank you for your donation. We would like to extend our sincere gratitude to you for your generous donations and contributions made to our Institution, which will immensely contribute towards achieving the academic success and implementation plans of teaching, research, and learnership robustness.
+                            </p>
+                        </div>
+                    </Col>
+                </Row>  
+                <Row>
+                    <Col lg={12} className="mx-auto">
+                        <div className="step-container">
+                            {steps.map((step, i) => (
+                                <div
+                                    key={i}
+                                    className={`step-item ${currentStep === i + 1 ? "active" : ""} ${i + 1 < currentStep || complete ? "complete" : ""}`}
+                                >
+                                    <div className="step">
+                                        {i + 1 < currentStep || complete ? <TiTick size={24} /> : i + 1}
                                     </div>
-                                ))}
-                            </div>
-
-                            <div className="step-buttons"> {/* Container for buttons */} 
-                                {showPreviousButton && ( // Conditionally render the "Previous" button
-                                    <Button
-                                        variant="secondary"
-                                        onClick={() => setCurrentStep((prev) => prev - 1)}
-                                        disabled={currentStep === 1} // Disable when on the first step
-                                        className="me-2" // Adds space between buttons
-                                    >
-                                        Previous
-                                    </Button>
-                                )}
-
-                                {!complete && (
-                                    <Button
-                                        variant="primary"
-                                        onClick={() => {
-                                            if (currentStep === steps.length) {
-                                                handleFinishClick(); // Scroll to donate button
-                                            } else {
-                                                setCurrentStep((prev) => prev + 1);
-                                            }
-                                        }}
-                                    >
-                                        {currentStep === steps.length ? "Finish" : "Next"}
-                                    </Button>
-                                )}
-                            </div>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col md={12} className="text-center mt-2" ref={donateButtonRef}> {/* Add ref to the Col */}
-                            <div className="donation-info">
-                                <h2>Your Little Help Will Make a Big Impact</h2>
-                                <p>Click below for donation form:</p>
-                                <Button variant="secondary" onClick={handleDonateClick}>Donate Here</Button>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-
-            <Footer />
+                                    <h2 className="text-gray-500">{step.title}</h2>
+                                    <p className="text-gray-500">{step.description}</p>
+                                </div>
+                            ))}
+                        </div>
+    
+                        <div className="step-buttons"> 
+                            {showPreviousButton && (
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => setCurrentStep((prev) => prev - 1)}
+                                    disabled={currentStep === 1}
+                                    className="me-2"
+                                >
+                                    Previous
+                                </Button>
+                            )}
+    
+                            {!complete && (
+                                <Button
+                                    variant="primary"
+                                    onClick={() => {
+                                        if (currentStep === steps.length) {
+                                            handleFinishClick(); 
+                                        } else {
+                                            setCurrentStep((prev) => prev + 1);
+                                        }
+                                    }}
+                                >
+                                    {currentStep === steps.length ? "Donate" : "Next"}
+                                </Button>
+                            )}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };
