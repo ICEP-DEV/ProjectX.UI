@@ -8,7 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 // Import images
 import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
 import graduationImage from '../images/tut_graduate.jpg';
-import faqGraphic from '../images/faq_graphic.jpg';
+// import faqGraphic from '../images/faq_graphic.jpg';
 
 const Logged = () => {
   const smoothS = useLocation();
