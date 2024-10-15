@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './footer.css'; // Ensure this CSS file is updated with the styles below
-import logo from '/ICEP Projects/Project 5/ProjectX.UI/src/images/aslogo.png'
+import logo from '../images/aslogo.png';
 
 const Footer = () => {
     return (

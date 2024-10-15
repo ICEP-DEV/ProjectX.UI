@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
-import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
+import SlideShow from '../components/SlideShow'; // Adjust the path as needed
+
 
 // Import images
-import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
+
 import graduationImage from '../images/5.jpg';
 import graduationImage1 from '../images/tut_graduate.jpg';
 import graduationImage2 from '../images/2.JPG';
@@ -27,60 +28,11 @@ const backgroundImages = [
   graduationImage6,
 ];
 
-// Corresponding text information for each slide
-const slideTexts = [
-  {
-    title: "Graduation",
-    description: "The time has finally come for the 2024 Second Semester group of graduates.",
-    link: "https://www.youtube.com/live/aZCSDU_fskM?si=Lkrj-K0I_z7ibReQ"
-  },
-  {
-    title: "Plug A Graduate",
-    description: "Catch PLUG-A-GRADUATE with Polelo N Madisa on the Ground Breaker Show tonight",
-    link: "https://tutfm962.co.za/"
-  },
-  {
-    title: "Celebration",
-    description: "We are thrilled to announce the release of 𝑶𝒖𝒓 𝑩𝒆𝒂𝒕 alumni profiling magazine, 𝑽𝒐𝒍 8 𝑰𝒔𝒔𝒖𝒆 2!",
-    link: "https://heyzine.com/flip-book/ba71bd51a3.html#page/1"
-  },
-  {
-    title: "Connect with Alumni",
-    description: "Reconnect with old friends and expand your professional network.",
-    link: "https://www.linkedin.com/in/tut-alumni-44bb19244/"
-  },
-  {
-    title: "Continued Learning",
-    description: "Take advantage of workshops and resources available to alumni.",
-    link: "https://www.youtube.com/live/aZCSDU_fskM?si=Lkrj-K0I_z7ibReQ"
-  },
-  {
-    title: "Stay Updated",
-    description: "Stay informed about upcoming events and opportunities. 𝒀𝒐𝒖'𝒓𝒆 𝒄𝒐𝒓𝒅𝒊𝒂𝒍𝒍𝒚 𝒊𝒏𝒗𝒊𝒕𝒆𝒅 𝒕𝒐 𝒕𝒉𝒆 𝑻𝑼𝑻 𝑷𝒓𝒆𝒕𝒐𝒓𝒊𝒂 𝑭𝒖𝒏𝒅𝒓𝒂𝒊𝒔𝒊𝒏𝒈 𝑮𝒐𝒍𝒇 𝑫𝒂𝒚 𝒂𝒕 𝒕𝒉𝒆 𝒑𝒓𝒆𝒔𝒕𝒊𝒈𝒊𝒐𝒖𝒔 𝑾𝒐𝒐𝒅𝒉𝒊𝒍𝒍 𝑮𝒐𝒍𝒇 𝑬𝒔𝒕𝒂𝒕𝒆 𝒂𝒏𝒅 𝑪𝒐𝒖𝒏𝒕𝒓𝒚 𝑪𝒍𝒖𝒃.",
-    link: "https://docs.google.com/forms/d/1j5O_VVKmhI4hkn1X4p3pHCIlkkNf2Qk9N9KcmoRt-rM/viewform?edit_requested=true"
-  },
-  {
-    title: "Community Support",
-    description: "Get involved with our alumni community and support future graduates.",
-    link: "https://tut.devman.co.za/Devman/online/findme/"
-  },
-];
 
 const HomePage = () => {
   const sibanda = useLocation();
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Slideshow function to switch images
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); 
-
-    return () => clearInterval(interval);
-  }, []);
-
+  
   // Smooth scrolling function
   const scrollToDiv = (element, navHeight) => {
     const offsetTop = element.offsetTop;
@@ -162,7 +114,7 @@ const HomePage = () => {
           id="section_1"
         >
           <div className="container">
-            <div className="row">
+            <div className="row  margin-top-custom">
               <div className="col-lg-8 col-12 mx-auto">
                 <h2 className="custom-h2 text-center">
                   Connect. Inspire. Celebrate.
@@ -172,49 +124,9 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="full-screen-section">
-            <div className="custom-block custom-block-overlay">
-              <div className="d-flex flex-column h-100">
-                {/* Slideshow */}
-                <img
-                  src={backgroundImages[currentIndex]}
-                  className="custom-block-image img-fluid"
-                  alt="Graduation Slideshow"
-                />
-                <div className="custom-block-overlay-text">
-                  <h5 className="text-white mb-2 text-center">
-                    {slideTexts[currentIndex].title}
-                  </h5>
-                  <p className="text-white text-center">
-                    {slideTexts[currentIndex].description}
-                  </p>
-                  <div className="text-center">
-                    <Link
-                      to={slideTexts[currentIndex].link}
-                      className="btn custom-btn mt-2 mt-lg-3"
-                    >
-                      Learn More
-                    </Link>
-                  </div>
-                </div>
-                <div className="social-share d-flex moving-text">
-                  <p className="text-white me-4">Follow Us @:</p>
-                  <ul className="social-icon">
-                    <li className="social-icon-item">
-                      <a href="https://x.com/TUTalumni" className="social-icon-link bi-twitter"></a>
-                    </li>
-                    <li className="social-icon-item">
-                      <a href="https://www.facebook.com/TUTAlumni" className="social-icon-link bi-facebook"></a>
-                    </li>
-                    <li className="social-icon-item">
-                      <a href="https://www.instagram.com/tutalumni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-icon-link bi-instagram"></a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="section-overlay"></div>
-              </div>
-            </div>
-          </div>
+          <SlideShow />
+
+          
         </section>
 
         {/* Advertising Div End */}
