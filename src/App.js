@@ -19,7 +19,7 @@ function App() {
   // Define paths where the NavBar should not appear
   const hideNavBar = location.pathname === '/login' ||  location.pathname === '/logged';
   return (
-    <div className="App">
+    <div>
 
       {/* Conditionally render NavBar */}
       {!hideNavBar && <NavBar />}
