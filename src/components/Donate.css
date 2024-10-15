@@ -5,6 +5,7 @@
   align-items: flex-start; /* Align circles and lines at the top */
   margin-bottom: 20px; /* Spacing below the steps */
   position: relative;
+  
 }
 
 /* Step Item Styling */
@@ -45,6 +46,7 @@
   color: white;
   margin-bottom: 10px; /* Space between circle and text */
   position: relative;
+  
 }
 
 /* Step Title Styling */
@@ -64,6 +66,8 @@
   margin-top: 5px; /* Small spacing above description */
   max-width: 6rem; /* Limit width to keep things aligned */
   text-align: center;
+  text-align: left;
+  margin-left:22px;
 }
 /* Active Step */
 .active .step {
@@ -72,7 +76,7 @@
 
 /* Complete Step */
 .complete .step {
-  background-color: #f9e509; /* green-600 */
+  background-color: #0284c7; /* green-600 */
 }
 
 /* Complete Step Text */
@@ -82,18 +86,21 @@
 
 /* Active Step Text */
 .active p{
-  color: red;
+  color: rgb(245, 0, 0);
+  text-align: left;
+  margin-left:22px;
 }
 
 /* Connecting Line for Complete Steps */
 .complete:not(:first-child)::before {
-  background-color: #f9e509; /* yellow- for completed steps */
+  background-color: #0284c7; /* yellow- for completed steps */
 }
 
 /* Active Step Line */
 .active:not(:first-child)::before {
-  background-color: #f9e509; /* sky-600 */
+  background-color: #0284c7; /* sky-600 */
 }
+
 
 /* Donation journey */
 .donation-journey { 
@@ -117,35 +124,47 @@
   border-radius: 5px;
   color: white;
   background-color: azure; 
+  
 }
 
 /* Donation Information Styles */
 .donation-info {
-  background-color: #f5f5f5;
-  padding: 2px; /* Adjust padding for a smaller look */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 420px; /* Set a maximum width */
-  margin: 10px auto; /* Center the box and add some margin */
-  text-align: center; /* Center text inside the box */
+  padding: 2px 10px; /* Add padding for better appearance */
+  display: inline-block; /* Allows the box to fit the text horizontally */
+  max-width: 100%; /* Ensure the box doesn't exceed the screen width */
+  margin: 10px auto; /* Center the box */
+  text-align: justify; /* Center text inside the box */
   color: white;
+  text-align: left;
+  margin-left: 100px;
+  
 }
+
 
 .donation-journey h3 {
   margin-top: 0px; /* Add top margin if needed */
-  font-size: 1.5rem; /* Adjust the font size as needed */
-  color: rgb(252, 242, 242);
-  padding-right:1040px ;
+  font-size: 3rem; /* Adjust the font size as needed */
+  color:  #0284c7;
   margin-bottom: 20px;
+  text-align: center;
+  
+
 }
 
 
 /* Next Step button Styles */
 .btn-primary,
 .btn-secondary {
-  background-color: red;
-  border-color: red;
+  background: linear-gradient(15deg,  #ce1127 0%,  #003883 100% );
   border-radius: 50px;
+  width: 150px; /* Set a specific width */
+  height: 50px; /* Set a specific height */
+  padding: 10px 20px; /* Adjust padding for consistent size */
+  display: inline-block;
+  text-align: center;
+  line-height: 30px; /* Adjust line-height to center text vertically */
+  margin-top: -20px;
+  margin-bottom: 50px;
 }
 
 /* Responsive design adjustments */
