@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './footer.css'; // Ensure this CSS file is updated with the styles below
-import logo from '/ICEP Projects/Project 5/ProjectX.UI/src/images/aslogo.png'
+import logo from '../images/aslogo.png';
 
 const Footer = () => {
     return (
@@ -37,7 +37,7 @@ const Footer = () => {
                     </div>
 
                                         {/* Links Section */}
-                                        <div className="col-lg-3 col-md-6 col-12 mb-4" id='links'>
+                         <div className="col-lg-3 col-md-6 col-12 mb-4" id='links'>
                         <h6 className="site-footer-title mb-3">Where To Find Us</h6>
                         <ul className="site-footer-links">
                             <li className="site-footer-link-item">

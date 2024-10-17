@@ -47,62 +47,54 @@
 body{padding-top: 100px;
 }
 
+
 /* Media Queries for Responsive Design */
 
-/* Small devices (mobiles, up to 575px) */
-@media (max-width: 575px) {
-  #navbar {
-    padding: 8px 0; /* Reduce padding for smaller screens */
-  }
-
-  .navbar .tut-logo {
-    width: 40px; /* Reduce logo size for mobile */
-  }
-
-  .navbar .heading-color,
-  .navbar .bi-mortarboard {
-    font-size: 0.9em; /* Reduce text size for mobile */
-  }
-
-  .nav-link {
-    display: none; /* Hide the nav links by default on mobile */
-  }
-
-  /* Show the hamburger menu on small screens */
+/* Hamburger menu for mobile screens */
+@media (max-width: 992px) {
   .navbar-toggler {
-    display: block;
-    padding: 0.25rem 0.5rem;
-    font-size: 1.25rem;
+    border: none;
+    outline: none;
   }
 
   .navbar-toggler-icon {
-    width: 1.2rem; /* Adjust size for visibility */
-    height: 1.2rem;
+    color: #000; /* Customize as needed */
   }
 
-  .navbar-icon.bi-person {
-    font-size: 1.2rem; /* Reduce size of the login icon */
-  }
-
-  .login-add-space p {
-    font-size: 0.85em; /* Reduce login text size */
-  }
-
-  /* When the navbar is collapsed (when hamburger is clicked) */
   .navbar-collapse {
-    display: none; /* Collapse the navbar content by default */
+    background-color:  hsl(216, 70%, 37%); /* Background for the expanded menu */
+    padding: 10px;
   }
 
-  .navbar-collapse.show {
-    display: block; /* Show the navbar when the hamburger menu is opened */
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
   }
 }
+
+
+@media (max-width: 992px) {
+  .login-add-space p {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+
 
 /* Medium devices (tablets, 576px to 768px) */
 @media (min-width: 576px) and (max-width: 768px) {
   #navbar {
     padding: 9px 0; /* Slightly reduce padding for tablets */
-  }
+  } 
 
   .navbar .tut-logo {
     width: 45px; /* Adjust logo size for tablets */
@@ -155,3 +147,46 @@ body{padding-top: 100px;
 .nav-links .nav-link {
   margin: 0 15px; /* Optional margin for links */
 }
+
+
+/* Mobile-specific adjustments (screens smaller than 992px) */
+@media (max-width: 992px) {
+  .navbar .navbar-brand img {
+    width: 160px; /* Smaller logo for mobile */
+  }
+
+  .navbar .nav-link {
+    font-size: 14px;
+    padding: 30px;
+    width: 100%; /* Full-width links on mobile */
+  }
+
+  .navbar-collapse {
+    background-color: #0f79e4; /* Blue background on mobile collapse */
+  }
+
+  .navbar-toggler {
+    border: none; /* Remove border on the toggle button */
+  }
+
+  .navbar-toggler-icon {
+    color: #fff; /* Ensure the icon is visible */
+  }
+  
+  .login-add-space {
+    margin-top: 10px;
+    text-align: left; /* Center the login link for mobile */
+    width: 50%; /* Full width for better visibility */
+  }
+
+  .login-add-space p {
+    margin: 80; /* Remove default paragraph margin */
+    color: white; /* Ensure text is visible on blue background */
+  }
+  
+
+  .navbar-icon.bi-person {
+    font-size: 24px; /* Ensure icons scale well on mobile */
+  }
+}
+

@@ -294,7 +294,7 @@
 }
 
 /* Show the logo and hide the text when scrolled */
-.navbar-scrolled .tut-logo {
+.navbarr-scrolled .tut-logo {
     display: inline-block;
     width: 320px; /* Adjust the width of the logo when scrolled */
     height: auto; /* Maintain aspect ratio */
@@ -327,42 +327,3 @@
     margin-right: 5px; /* Optional: ensure space between the icon and text */
 }
 
-
-
-
-
-
-/* For small screens */
-@media (max-width: 768px) {
-  .navbar-collapse {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20px;
-  }
-
-  .navbar-collapse.show {
-    display: flex; /* Show when toggled */
-  }
-
-  .navbar-toggler {
-    display: block; /* Show the hamburger button */
-  }
-
-  .nav-link {
-    padding: 10px 0;
-    width: 100%; /* Full width for links */
-    text-align: center;
-  }
-}
-
-/* For very small screens */
-@media (max-width: 480px) {
-  .navbar .tut-logo {
-    width: 30px;
-  }
-
-  .navbar-scrolled .tut-logo {
-    width: 150px;
-  }
-}

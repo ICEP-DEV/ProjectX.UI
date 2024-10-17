@@ -12,13 +12,18 @@ import NavBar from './components/NavBar';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
 import ConfirmProfile from './components/ConfirmProfile';
+import ForgotPassword from './components/ForgotPassword';
+import Signup from './components/Signup';
+import ResetPassword from './components/ResetPassword';
+
 
 
 function App() {
   const location = useLocation();
 
   // Define paths where the NavBar should not appear
-  const hideNavBar = location.pathname === '/login' ||  location.pathname === '/logged';
+  const hideNavBar = location.pathname === '/login' ||  location.pathname === '/logged' ||
+  location.pathname === '/forgot-password' || location.pathname === '/signup';
   return (
     <div>
 
@@ -32,6 +37,9 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />}/>
         <Route path="/logged" element={<Logged />}/>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/resetpassword" element={<ResetPassword/>} />
       </Routes>
 
       {/* footer */}

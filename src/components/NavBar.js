@@ -35,13 +35,11 @@ function NavBar() {
     setIsLoggedIn(loggedIn === 'true'); // Set login state based on storage value
   }, []);
 
-  useEffect(() => {
-    console.log("Login Status: ", isLoggedIn); // Debugging: check if the state is updating
-  }, [isLoggedIn]);
-
+  
   return (
     <Navbar
       id="navbar"
+      expand="lg" // Ensure that the navbar is collapsible on small screens
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
@@ -105,14 +103,14 @@ function NavBar() {
           </div>
 
           {/* For routing to ConfirmProfile */}
-<div className="d-none d-lg-block">
-  <Link to="/ConfirmProfile" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
-</div>
-<div className="login-add-space">
-  <Link to="/ConfirmProfile">
-    <p>Confirm Profile</p>
-  </Link>
-</div>
+         <div className="d-none d-lg-block">
+           <Link to="/ConfirmProfile" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
+         </div>
+        <div className="login-add-space">
+           <Link to="/ConfirmProfile">
+            <p>Confirm Profile</p>
+           </Link>
+        </div>
 
         </Navbar.Collapse>
       </Container>
