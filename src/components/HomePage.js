@@ -113,16 +113,18 @@ const HomePage = () => {
            className="justify-content-center align-items-center"
           id="section_1"
         >
+        {/* Hero Section */}
+        <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
           <div className="container">
-            <div className="row  margin-top-custom">
+            <div className="row">
+              <div className="col-lg-8 col-12 mx-auto text-center"></div>
               <div className="col-lg-8 col-12 mx-auto">
-                <h2 className="custom-h2 text-center">
-                  Connect. Inspire. Celebrate.
-                </h2>
-                <h6 className="text-center mb-4 custom h6 bold">A Hub for TUT Graduates</h6>
+                <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
+                <h6 className="text-center">A Hub for TUT Graduates</h6>
               </div>
             </div>
           </div>
+        </section>
 
           <SlideShow />
 

@@ -6,6 +6,7 @@
   aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
   margin: auto; /* Center the slideshow */
   overflow: hidden; /* Hide overflow */
+  margin-top: 30px;
 }
 
 .slideshow-slide {

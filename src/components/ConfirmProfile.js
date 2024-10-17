@@ -1,9 +1,10 @@
 import { useState } from "react";
 import './ConfirmProfile.css';
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export default function ConfirmProfile() {
   const [image, setImage] = useState(null);
+  const navigate = useNavigate(); // Initialize the navigate hook
 
   // Handle file upload and preview
   const handleFileChange = (event) => {
@@ -15,6 +16,13 @@ export default function ConfirmProfile() {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Handle form submission and navigate to logged.js
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here, you can add any validation or form processing logic
+    navigate('/Logged'); // Navigate to the logged.js page
   };
 
   return (
@@ -60,7 +68,7 @@ export default function ConfirmProfile() {
           </div>
 
           {/* Form for user details */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
                 <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="stuno">
@@ -121,16 +129,63 @@ export default function ConfirmProfile() {
                   placeholder="Enter campus"
                 />
               </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
+                  Faculty <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="campus"
+                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                  placeholder="Enter campus"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
+                  Course <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="campus"
+                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                  placeholder="Enter campus"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
+                  Graduation Year <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="campus"
+                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                  placeholder="Enter campus"
+                />
+              </div>
+
+              <div>
+                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
+                 Alumni Linkedin Link <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="campus"
+                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                  placeholder="Enter campus"
+                />
+              </div>
             </div>
 
             <div className="mt-6 space-y-5">
-            <button
-            type="submit"
-            className="btn w-full text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)]"
-            >
-            Confirm
-            </button>
-
+              <button
+                type="submit"
+                className="btn w-full text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)]"
+              >
+                Confirm
+              </button>
             </div>
           </form>
         </div>
