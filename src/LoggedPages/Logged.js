@@ -99,7 +99,7 @@ const Logged = () => {
             <div className="row">
               <div className="col-lg-8 col-12 mx-auto text-center"></div>
               <div className="col-lg-8 col-12 mx-auto">
-                <h1 className="text-white text-center">Connect. Inspire. Celebrate.</h1>
+                <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
                 <h6 className="text-center">A Hub for TUT Graduates</h6>
               </div>
             </div>
@@ -108,7 +108,7 @@ const Logged = () => {
 
         {/* Advertising Div Start */}
         <section className="featured-section">
-          <div className="container">
+          <div className="containerli">
             <div className="row justify-content-center">
               <div className="col-lg-4 col-12 mb-4 mb-lg-0">
                 <div className="custom-block bg-white shadow-lg">
