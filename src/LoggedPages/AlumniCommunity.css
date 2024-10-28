@@ -1,0 +1,33 @@
+.alumni-community {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.search-bar {
+  width: calc(100% - 80px); /* 40px on each side */
+  padding: 15px;
+  border-radius: 25px; /* Rounded edges */
+  border: 2px solid gray; /* Gray border */
+  background-color: white; /* White background */
+  font-size: 16px;
+}
+
+.icons {
+  margin-left: -30px; /* Overlapping icons with the search bar */
+}
+
+.search-icon,
+.filter-icon {
+  font-size: 20px;
+  margin: 0 10px; /* Space between icons */
+  cursor: pointer;
+}
