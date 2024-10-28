@@ -327,3 +327,19 @@
     margin-right: 5px; /* Optional: ensure space between the icon and text */
 }
 
+.custom-faculty-title{
+  color: black;
+}
+
+.custom-faculty-title:hover{
+  color: #F9A826;
+}
+
+/* navbarLog.css */
+.nav-link-spacing {
+  margin-right: 30px; /* Adjust the value as needed */
+}
+
+.spacing{
+  margin-right: 30px; 
+}
