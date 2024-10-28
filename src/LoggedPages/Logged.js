@@ -6,6 +6,7 @@ import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 
+
 // Import images
 import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
 import graduationImage from '../images/tut_graduate.jpg';
@@ -101,6 +102,7 @@ const Logged = () => {
               <div className="col-lg-8 col-12 mx-auto">
                 <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
                 <h6 className="text-center">A Hub for TUT Graduates</h6>
+              
               </div>
             </div>
           </div>
