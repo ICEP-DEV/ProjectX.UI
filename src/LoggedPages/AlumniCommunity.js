@@ -1,18 +1,17 @@
 import React from 'react';
-import NavbarLogged from './NavbarLogged';
 import Footer from '../components/Footer';
-import { FaSearch, FaFilter } from 'react-icons/fa';
-import './SearchPage.css'; // Importing the CSS file for styles
+import NavbarLogged from './NavbarLogged';
+import './AlumniCommunity.css'; // Import the CSS file for styles
 
-const SearchPage = () => {
+const AlumniCommunity = () => {
   return (
-    <div className="search-page">
+    <div className="alumni-community">
       <NavbarLogged />
       <div className="search-container">
-        <div className="search-bar">
-          <FaSearch className="icon search-icon" />
-          <input type="text" placeholder="Search..." className="search-input" />
-          <FaFilter className="icon filter-icon" />
+        <input type="text" className="search-bar" placeholder="Search..." />
+        <div className="icons">
+          <i className="search-icon bi bi-search"></i>
+          <i className="filter-icon bi bi-funnel"></i>
         </div>
       </div>
       <Footer />
@@ -20,5 +19,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
-
+export default AlumniCommunity;
