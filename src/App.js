@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
@@ -15,18 +15,17 @@ import ConfirmProfile from './components/ConfirmProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
-
-
+import News from './components/News'; // Corrected component name to uppercase
 
 function App() {
   const location = useLocation();
 
   // Define paths where the NavBar should not appear
-  const hideNavBar = location.pathname === '/login' ||  location.pathname === '/logged' ||
-  location.pathname === '/forgot-password' || location.pathname === '/signup';
+  const hideNavBar = location.pathname === '/login' || location.pathname === '/logged' ||
+                     location.pathname === '/forgot-password' || location.pathname === '/signup';
+
   return (
     <div>
-
       {/* Conditionally render NavBar */}
       {!hideNavBar && <NavBar />}
 
@@ -35,15 +34,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/ConfirmProfile" element={<ConfirmProfile />} />
         <Route path="/donate" element={<Donate />} />
-        <Route path="/DonationForm" element={<DonationForm />}/>
-        <Route path="/logged" element={<Logged />}/>
+        <Route path="/DonationForm" element={<DonationForm />} />
+        <Route path="/logged" element={<Logged />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/resetpassword" element={<ResetPassword/>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
+        <Route path="/news" element={<News />} /> {/* Corrected component name here as well */}
       </Routes>
 
-      {/* footer */}
-
+      {/* Footer */}
     </div>
   );
 }

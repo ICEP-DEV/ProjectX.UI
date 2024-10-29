@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
-import Footer from '../components/Footer';
+import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
-import SlideShow from '../components/SlideShow'; // Adjust the path as needed
+import SlideShow from './SlideShow'; // Adjust the path as needed
 
 
 // Import images

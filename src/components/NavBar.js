@@ -102,7 +102,7 @@ function NavBar() {
             </Link>
           </div>
 
-          {/* For routing to ConfirmProfile */}
+          {/* For routing to ConfirmProfile 
          <div className="d-none d-lg-block">
            <Link to="/ConfirmProfile" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
          </div>
@@ -110,8 +110,17 @@ function NavBar() {
            <Link to="/ConfirmProfile">
             <p>Confirm Profile</p>
            </Link>
+        </div>*/}
+        
+{/* For routing to Events */}
+<div className="d-none d-lg-block">
+           <Link to="/news" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
+         </div>
+        <div className="login-add-space">
+           <Link to="/news">
+            <p>news</p>
+           </Link>
         </div>
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

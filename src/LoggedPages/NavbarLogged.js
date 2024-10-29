@@ -60,7 +60,7 @@ function NavbarLogged() {
                Job Opportunies
             </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/news">News</Nav.Link>
+            {/* <Nav.Link as={Link} to="/news">News</Nav.Link> */}
             <Nav.Link as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
 
