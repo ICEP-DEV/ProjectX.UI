@@ -16,6 +16,7 @@ import ForgotPassword from './components/ForgotPassword';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
 import News from './components/News'; // Corrected component name to uppercase
+import AlumniCommunity from './LoggedPages/AlumniCommunity';
 
 function App() {
   const location = useLocation();
@@ -37,9 +38,9 @@ function App() {
         <Route path="/DonationForm" element={<DonationForm />} />
         <Route path="/logged" element={<Logged />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/resetpassword" element={<ResetPassword />} />
-        <Route path="/news" element={<News />} /> {/* Corrected component name here as well */}
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/resetpassword" element={<ResetPassword/>} />
+        <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
       </Routes>
 
       {/* Footer */}

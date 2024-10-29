@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 export default function ConfirmProfile() {
   const [image, setImage] = useState(null);
   const navigate = useNavigate(); // Initialize the navigate hook
+  const [currentStep, setCurrentStep] = useState(1); // State for current form section
 
   // Handle file upload and preview
   const handleFileChange = (event) => {
@@ -24,6 +25,10 @@ export default function ConfirmProfile() {
     // Here, you can add any validation or form processing logic
     navigate('/Logged'); // Navigate to the logged.js page
   };
+
+    // Handlers for navigation between sections
+    const nextStep = () => setCurrentStep((prev) => prev + 1);
+    const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   return (
     <section className="bg-gray-900 text-gray-100">
@@ -69,124 +74,130 @@ export default function ConfirmProfile() {
 
           {/* Form for user details */}
           <form onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="stuno">
-                  Student Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="stuno"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter student number"
-                />
+            {/* Section 1 */}
+            {currentStep === 1 && (
+              <div className="space-y-4">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="stuno">
+                    Student Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="stuno"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    placeholder="Enter student number"
+                    readOnly
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
+                    First Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    placeholder="Enter first name"
+                    readOnly
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="surname">
+                    Last Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="surname"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    placeholder="Enter last name"
+                    readOnly
+                  />
+                </div>
+                <button type="button" onClick={nextStep} className="btn w-full text-white mt-4">
+                  Next
+                </button>
+              </div>
+            )}
+
+            {/* Section 2 */}
+            {currentStep === 2 && (
+              <div className="space-y-4">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="email">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    placeholder="Enter email address"
+                    readOnly
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
+                    Campus <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="campus"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    readOnly
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="faculty">
+                    Faculty <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="faculty"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    readOnly
+                  />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+                  <button type="button" onClick={prevStep} className="btn text-white" style={{ marginRight: 'auto' }}>
+                    Back
+                  </button>
+                  <button type="button" onClick={nextStep} className="btn text-white" style={{ marginLeft: 'auto' }}>
+                    Next
+                  </button>
+                </div>
+
+              </div>
+            )}
+
+            {/* Section 3 */}
+            {currentStep === 3 && (
+              <div className="space-y-4">
+                <div>
+                  <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="linkedin">
+                    Alumni Linkedin Link <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="linkedin"
+                    className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    placeholder="Linkedin Link"
+                  />
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+                <button type="button" onClick={prevStep} className="btn text-white" style={{ marginRight: 'auto' }}>
+                  Back
+                </button>
+                <button type="submit" className="btn text-white" style={{ marginLeft: 'auto' }}>
+                  Confirm
+                </button>
               </div>
 
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
-                  First Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter first name"
-                />
               </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="surname">
-                  Last Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="surname"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter last name"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="email">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter email address"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                  Campus <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="campus"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter campus"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                  Faculty <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="campus"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter campus"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                  Course <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="campus"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter campus"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                  Graduation Year <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="campus"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter campus"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                 Alumni Linkedin Link <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="campus"
-                  className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                  placeholder="Enter campus"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6 space-y-5">
-              <button
-                type="submit"
-                className="btn w-full text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)]"
-              >
-                Confirm
-              </button>
-            </div>
+            )}
           </form>
         </div>
       </div>
