@@ -41,6 +41,8 @@ function App() {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/resetpassword" element={<ResetPassword/>} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
+        <Route path="/news" element={<News/>} />
+
       </Routes>
 
       {/* Footer */}
