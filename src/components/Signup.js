@@ -30,7 +30,7 @@ const Signup = () => {
     if (!emailRegex.test(email)) {
       setSignUpError('Please enter a valid email address.');
       setSignUpSuccess('');
-      return;
+      return signUpSuccess;
     }
 
     if (password !== confirmPassword) {
@@ -70,14 +70,14 @@ const Signup = () => {
         setPassword('');
         setConfirmPassword('');
 
-        navigate("/logged"); // Navigate to the next page
+        navigate("/ConfirmProfile"); // Navigate to the next page
 
       } catch (error) {
         console.error('Registration Error:', error);
 
         if (error.response) {
           // If the error has a response, check for the data and message
-          const serverMessage = error.response.data?.message || 'An error occurred during registration.';
+          const serverMessage = error.response.data;
           setSignUpError(serverMessage);
         } else if (error.message) {
           // Handle other network or request errors
@@ -103,6 +103,16 @@ const Signup = () => {
         {/* Sign Up Form */}
         <form onSubmit={handleSignUp} className="sign-up-formss">
   <h2 className="titless">Sign up</h2>
+            {signUpError && (
+                <div className="alert alert-danger" role="alert">
+                  {signUpError}
+                </div>
+              )}
+              {signUpSuccess && (
+                <div className="alert alert-success" role="alert">
+                  {signUpSuccess}
+                </div>
+              )}
   <div className="input-fieldss">
     <i className="fas fa-user"></i>
     <input
@@ -114,17 +124,17 @@ const Signup = () => {
   </div>
   <div className="input-fieldss">
     <i className="fas fa-envelope"></i>
-    <input 
-      type="email" 
-      placeholder="Email" 
-      value={email} 
+    <input
+      type="email"
+      placeholder="Email"
+      value={email}
       onChange={(e) => setEmail(e.target.value)}
     />
   </div>
   <div className="input-fieldss">
     <i className="fas fa-lock"></i>
-    <input 
-      type="password" 
+    <input
+      type="password"
       placeholder="Password" 
       value={password} 
       onChange={(e) => setPassword(e.target.value)}

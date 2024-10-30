@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
+import NavbarLogged from './LoggedPages/NavbarLogged';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
 import ConfirmProfile from './components/ConfirmProfile';
@@ -21,14 +22,15 @@ import AlumniCommunity from './LoggedPages/AlumniCommunity';
 function App() {
   const location = useLocation();
 
-  // Define paths where the NavBar should not appear
-  const hideNavBar = location.pathname === '/login' || location.pathname === '/logged' ||
-                     location.pathname === '/forgot-password' || location.pathname === '/signup';
+  // Define paths for displaying NavBar and NavbarLogged
+  const showNavBar = location.pathname === '/login' || location.pathname === '/forgot-password' || location.pathname === '/signup';
+  const showNavbarLogged = location.pathname === '/' || location.pathname === '/';
 
   return (
     <div>
-      {/* Conditionally render NavBar */}
-      {!hideNavBar && <NavBar />}
+      {/* Conditionally render NavBar or NavbarLogged */}
+      {showNavBar && <NavBar />}
+      {showNavbarLogged && <NavbarLogged />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -38,11 +40,10 @@ function App() {
         <Route path="/DonationForm" element={<DonationForm />} />
         <Route path="/logged" element={<Logged />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signup" element={<Signup/>} />
-        <Route path="/resetpassword" element={<ResetPassword/>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
-        <Route path="/news" element={<News/>} />
-
+        <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
       </Routes>
 
       {/* Footer */}

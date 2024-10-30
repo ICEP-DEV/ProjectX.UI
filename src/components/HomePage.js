@@ -5,6 +5,7 @@ import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 import SlideShow from './SlideShow'; // Adjust the path as needed
+import Donate from './Donate'; // Adjust the path as needed
 
 
 // Import images
@@ -110,9 +111,7 @@ const HomePage = () => {
       <main>
         {/* Search Start */}
         <section
-           className="justify-content-center align-items-center"
-          id="section_1"
-        >
+           className="justify-content-center align-items-center"id="section_1" >
         {/* Hero Section */}
         <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
           <div className="container">
@@ -192,9 +191,13 @@ const HomePage = () => {
                 </section>
                 {/* What Is Alumini Space End */}
 
+      <section id='section_3' style={{ marginTop: '100px' }}>
+          <Donate />
+      </section>
+                
 
   {/* FAQs Start */}
-     <section className="faq-section section-padding" id="section_3">
+     <section className="faq-section section-padding" id="section_4">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-12">
@@ -287,7 +290,7 @@ const HomePage = () => {
 
 
                 {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg" id="section_4">
+                <section className="contact-section section-padding section-bg" id="section_5">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-12 text-center">

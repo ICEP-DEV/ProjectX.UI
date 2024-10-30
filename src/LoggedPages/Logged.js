@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Logged.css';
 import Footer from '../components/Footer';
+import Donate from '../components/Donate';
 import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
@@ -225,10 +226,11 @@ const Logged = () => {
                     </div>
                 </section>
                 {/* What Is Alumini Space End */}
+      
 
 
   {/* FAQs Start */}
-     <section className="faq-section section-padding" id="section_3">
+     <section className="faq-section section-padding" id="section_4">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-12">
@@ -321,7 +323,7 @@ const Logged = () => {
 
 
                 {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg" id="section_4">
+                <section className="contact-section section-padding section-bg" id="section_5">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-12 text-center">
@@ -361,6 +363,10 @@ const Logged = () => {
                     </div>
                 </section>
                 {/* Contact Us End */}
+
+                <section id='section_3' style={{ marginTop: '100px' }}>
+                  <Donate />
+              </section>
       </main>
       <Footer />
     </div>
