@@ -84,7 +84,7 @@
     font-size: var(--menu-font-size);
     font-weight: var(--font-weight-medium);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    
     position: relative;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -337,9 +337,19 @@
 
 /* navbarLog.css */
 .nav-link-spacing {
-  margin-right: 30px; /* Adjust the value as needed */
+  margin-right: 15px; /* Adjust the value as needed */
+
 }
 
-.spacing{
-  margin-right: 30px; 
+.nav-link-spacing1 {
+ 
+  margin-left: 15px;
 }
+
+.nav-link.active, .nav-dropdown-item.active {
+
+  color: #007bff; /* Change color for active links */
+}
+
+
+

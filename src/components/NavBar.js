@@ -3,7 +3,9 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link as ScrollLink } from 'react-scroll'; // For smooth scrolling on same-page sections
 import { Link, useLocation, useNavigate } from 'react-router-dom'; // For page navigation
 import './navbar.css';
+import '../LoggedPages/navbarLog.css';
 import tutLogo from '../images/tut logo.png'; // Update path as needed
+
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,44 +55,26 @@ function NavBar() {
 
         {/* Collapsible Nav content */}
         <Navbar.Collapse id="navbarNav">
-          <Nav className="ms-lg-5 me-lg-auto nav-links"> {/* Added custom class */}
-            {/* If we're on the donate page, link back to the homepage */}
-            {location.pathname === '/donate' || location.pathname === '/donationForm' ? (
-              <>
-                <Nav.Link as={Link} to="/#section_1" className="mx-3">
-                  Home
-                </Nav.Link>
-                <Nav.Link as={Link} to="/#section_2" className="mx-3">
-                  What Is Alumni Space?
-                </Nav.Link>
-                <Nav.Link as={Link} to="/#section_3" className="mx-3">
-                  FAQs
-                </Nav.Link>
-                <Nav.Link as={Link} to="/#section_4" className="mx-3">
-                  Contact Us
-                </Nav.Link>
-              </>
-            ) : (
-              <>
-                {/* If we're already on the homepage, use smooth scroll */}
-                <ScrollLink to="section_1" smooth={true} duration={200} className="nav-link mx-3">
-                  Home
-                </ScrollLink>
-                <ScrollLink to="section_2" smooth={true} duration={200} className="nav-link mx-3">
-                  What Is Alumni Space?
-                </ScrollLink>
-                <ScrollLink to="section_3" smooth={true} duration={200} className="nav-link mx-3">
-                  FAQs
-                </ScrollLink>
-                <ScrollLink to="section_4" smooth={true} duration={200} className="nav-link mx-3">
-                  Contact Us
-                </ScrollLink>
-              </>
-            )}
+        <Nav className="ms-lg-5 me-lg-auto nav-links">
+  {/* Added custom class */}
+  {/* If we're already on the homepage, use smooth scroll */}
+  <ScrollLink to="section_1" smooth={true} duration={200} offset={-100} className="nav-link mx-3">
+    Home
+  </ScrollLink>
+  <ScrollLink to="section_2" smooth={true} duration={200} offset={-50} className="nav-link mx-3">
+    What Is Alumni Space?
+  </ScrollLink>
+  <ScrollLink to="section_3" smooth={true} duration={200} offset={-150} className="nav-link mx-3">
+    Donate
+  </ScrollLink>
+  <ScrollLink to="section_4" smooth={true} duration={200} offset={-50} className="nav-link mx-3">
+    FAQs
+  </ScrollLink>
+  <ScrollLink to="section_5" smooth={true} duration={200} offset={-70} className="nav-link mx-3">
+    Contact Us
+  </ScrollLink>
+</Nav>
 
-            {/* Link for external page routing (use Link) */}
-            <Nav.Link onClick={handleDonateNavigation}>Donate</Nav.Link>
-          </Nav>
 
           {/* For routing to other pages (use Link) */}
           <div className="d-none d-lg-block">
@@ -102,25 +86,15 @@ function NavBar() {
             </Link>
           </div>
 
-          {/* For routing to ConfirmProfile 
-         <div className="d-none d-lg-block">
-           <Link to="/ConfirmProfile" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
-         </div>
-        <div className="login-add-space">
-           <Link to="/ConfirmProfile">
-            <p>Confirm Profile</p>
-           </Link>
-        </div>*/}
-        
-{/* For routing to Events */}
-<div className="d-none d-lg-block">
-           <Link to="/news" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
-         </div>
-        <div className="login-add-space">
-           <Link to="/news">
-            <p>news</p>
-           </Link>
-        </div>
+          {/* For routing to Events */}
+          <div className="d-none d-lg-block">
+            <Link to="/news" className="navbar-icon bi-person" title="Click here to confirm your profile"></Link>
+          </div>
+          <div className="login-add-space">
+            <Link to="/news">
+              <p>news</p>
+            </Link>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

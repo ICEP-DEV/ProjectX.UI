@@ -1,33 +1,166 @@
-.alumni-community {
+.alumni-community { 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  width: 100%;
 }
 
 .search-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
+  background-color: #f1f1f1;
+  border-radius: 50px;
+  padding: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 30px;
 }
 
 .search-bar {
-  width: calc(100% - 80px); /* 40px on each side */
-  padding: 15px;
-  border-radius: 25px; /* Rounded edges */
-  border: 2px solid gray; /* Gray border */
-  background-color: white; /* White background */
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px 0 0 50px;
   font-size: 16px;
+  outline: none;
 }
 
-.icons {
-  margin-left: -30px; /* Overlapping icons with the search bar */
-}
-
-.search-icon,
-.filter-icon {
+.search-icon {
+  margin-left: 15px;
+  margin-right: 15px;
   font-size: 20px;
-  margin: 0 10px; /* Space between icons */
-  cursor: pointer;
+  color: #e3243c;
 }
+
+.search-button {
+  background-color: #e3243c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.search-button:hover {
+  background-color: darkred;
+}
+
+.results-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 40px 30px 40px;
+  border-radius: 30px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.results-container h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.filter-results {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.fr-add-space
+{
+  margin-left: 10px;
+}
+
+.alumni-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.alumni-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;  
+  margin-right: 15px;
+  border: 2px solid white;
+  object-fit: cover; /* Ensures the image covers the area without distorting */
+}
+
+.alumni-info .label {
+  font-weight: bold;
+  color: #e3243c;
+  margin-right: 5px;
+}
+
+.alumni-info span {
+  font-size: 15px; /* Further reduce the font size of the name and surname */
+}
+
+.alumni-info p {
+  margin: 0; /* Remove default margin to reduce spacing */
+  line-height: 1.5; /* Set a smaller line height */
+  font-size: 14px; /* Reduce font size */
+}
+
+.view-alumni {
+  margin-left: auto;
+  color: #30ffec;  
+  font-size: 10px;
+  text-decoration: none;
+  margin-right: 20px;
+  margin-top: 60px;
+}
+
+.view-alumni:hover
+{
+  color: #fe4f67;
+}
+
+.surname-white {
+  color: white;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust as needed */
+}
+
+.graduation-hat-icon {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  animation: rotate 1s linear infinite; /* Rotation animation */
+}
+
+/* Keyframes for rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
