@@ -1,34 +1,74 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './ConfirmProfile.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 export default function ConfirmProfile() {
-  const [image, setImage] = useState(null);
-  const navigate = useNavigate(); // Initialize the navigate hook
-  const [currentStep, setCurrentStep] = useState(1); // State for current form section
+  const [profile, setProfile] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    campus: '',
+    faculty: '',
+    linkedinProfile: '',
+    profilePicture: ''
+  });
 
-  // Handle file upload and preview
-  const handleFileChange = (event) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+  const navigate = useNavigate();
+  const [currentStep, setCurrentStep] = useState(1);
+
+  // Fetch profile when the component mounts
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch("http://localhost:5214/api/Alumnus/GetAlumnusProfile", {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include' // Include cookies in the request
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProfile({
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            campus: data.campus,
+            faculty: data.faculty,
+            linkedinProfile: data.linkedinProfile,
+            profilePicture: data.profilePicture
+          });
+        } else if (response.status === 204) {
+          console.log("No content found");
+        } else {
+          console.log("Error fetching profile:", response.statusText);
+        }
+      } catch (error) {
+        console.error("There was an error fetching the profile:", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  // Handlers for navigation between sections
+  const nextStep = () => setCurrentStep((prev) => prev + 1);
+  const prevStep = () => setCurrentStep((prev) => prev - 1);
+
+  // Handle LinkedIn input change
+  const handleLinkedInChange = (e) => {
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      linkedinProfile: e.target.value
+    }));
   };
 
   // Handle form submission and navigate to logged.js
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here, you can add any validation or form processing logic
-    navigate('/Logged'); // Navigate to the logged.js page
+    navigate('/Logged');
   };
-
-    // Handlers for navigation between sections
-    const nextStep = () => setCurrentStep((prev) => prev + 1);
-    const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   return (
     <section className="bg-gray-900 text-gray-100">
@@ -39,32 +79,9 @@ export default function ConfirmProfile() {
           {/* Circular User Icon */}
           <div className="flex flex-col items-center">
             <label htmlFor="file-upload" className="relative cursor-pointer mb-4">
-              <input
-                id="file-upload"
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleFileChange}
-              />
               <div className="w-28 h-28 rounded-full overflow-hidden flex items-center justify-center bg-indigo-600 transition-transform duration-300 hover:scale-110">
-                {image ? (
-                  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <div
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        borderRadius: '50%',
-                        border: '4px solid transparent',
-                        borderTopColor: 'purple',
-                        animation: 'spin 2s linear infinite',
-                        boxShadow: '0 0 20px rgba(128, 0, 128, 0.8), 0 0 30px rgba(128, 0, 128, 0.6)',
-                      }}
-                    />
-                    <img src={image} alt="User" className="w-full h-full object-cover" />
-                  </div>
+                {profile.profilePicture ? (
+                  <img src={profile.profilePicture} alt="User" className="w-full h-full object-cover" />
                 ) : (
                   <span className="text-white text-3xl">👤</span>
                 )}
@@ -85,7 +102,7 @@ export default function ConfirmProfile() {
                     type="text"
                     id="stuno"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Enter student number"
+                    placeholder="Student number"
                     readOnly
                   />
                 </div>
@@ -98,7 +115,8 @@ export default function ConfirmProfile() {
                     type="text"
                     id="name"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Enter first name"
+                    placeholder="First name"
+                    value={profile.firstName}
                     readOnly
                   />
                 </div>
@@ -111,7 +129,8 @@ export default function ConfirmProfile() {
                     type="text"
                     id="surname"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Enter last name"
+                    placeholder="Last name"
+                    value={profile.lastName}
                     readOnly
                   />
                 </div>
@@ -132,7 +151,8 @@ export default function ConfirmProfile() {
                     type="email"
                     id="email"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Enter email address"
+                    placeholder="Email address"
+                    value={profile.email}
                     readOnly
                   />
                 </div>
@@ -145,6 +165,7 @@ export default function ConfirmProfile() {
                     type="text"
                     id="campus"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    value={profile.campus}
                     readOnly
                   />
                 </div>
@@ -157,6 +178,7 @@ export default function ConfirmProfile() {
                     type="text"
                     id="faculty"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
+                    value={profile.faculty}
                     readOnly
                   />
                 </div>
@@ -168,7 +190,6 @@ export default function ConfirmProfile() {
                     Next
                   </button>
                 </div>
-
               </div>
             )}
 
@@ -183,35 +204,25 @@ export default function ConfirmProfile() {
                     type="text"
                     id="linkedin"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Linkedin Link"
+                    placeholder="LinkedIn Link"
+                    value={profile.linkedinProfile}
+                    onChange={handleLinkedInChange}
                   />
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
-                <button type="button" onClick={prevStep} className="btn text-white" style={{ marginRight: 'auto' }}>
-                  Back
-                </button>
-                <button type="submit" className="btn text-white" style={{ marginLeft: 'auto' }}>
-                  Confirm
-                </button>
-              </div>
-
+                  <button type="button" onClick={prevStep} className="btn text-white" style={{ marginRight: 'auto' }}>
+                    Back
+                  </button>
+                  <button type="submit" className="btn text-white" style={{ marginLeft: 'auto' }}>
+                    Confirm
+                  </button>
+                </div>
               </div>
             )}
           </form>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }
