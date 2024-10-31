@@ -46,53 +46,35 @@
 /* Carousel with horizontal scroll */
 .carousel {
     display: flex;
+    align-items: center;
+    gap: 80px;
     overflow-x: auto;
-    scroll-behavior: smooth;
     padding: 20px;
-    gap: 30px;
-}
+  }
 
-/* Arrow icons with absolute positioning */
-.arrow-icon {
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color:#0066cc;
-    border-radius: 50%;
-    padding: 5px;
-}
-
-.arrow-icon:first-of-type {
-    left: 10px;
-}
-
-.arrow-icon:last-of-type {
-    right: 10px;
-}
-
-.arrow-icon:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
 
 /* Event card */
 .event-card {
-    background-color: white;
-    color: black;
-    min-width: 80px;
-    border-radius: 10px;
+    flex: 0 0 350px; /* Set a fixed width */
+    height: 450px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
+    
+  }
 
-.event-card img {
+  .event-card img {
     width: 100%;
-    height: 150px;
+    height: 60%;
     object-fit: cover;
-}
+    border-radius: 4px;
+  }
 
 .event-card h3 {
     font-size: 1.2rem;
@@ -109,11 +91,12 @@
     display: flex;
     justify-content: space-around;
     padding: 10px;
+    gap: 50px;
 }
 
 .rsvp-button,
 .volunteer-button {
-    background-color: #0066cc;
+    background: linear-gradient(15deg, #ce1127 0%, #003883 100%);
     color: white;
     border: none;
     border-radius: 5px;
@@ -151,10 +134,11 @@
 
 /* Increased height and width for the calendar */
 .react-calendar {
-  border: none;
+  border: 1px solid #999;
+  box-shadow: 20px 15px 20px 30px rgba(88, 86, 86, 0.1);
   font-family: Arial, sans-serif;
   background: white;
-  border-radius: 10px;
+  border-radius: 1px;
   padding: 20px; /* Increased padding for better spacing */
   color: black;
   width: 100%; /* Full width of the parent container */
@@ -164,6 +148,9 @@
 
 /* Style for calendar day tiles */
 .react-calendar__month-view__days__day {
+    border: 1px solid #999;
+    box-shadow: 20px 15px 20px 30px rgba(196, 194, 194, 0.1);
+    border-radius: 5px;
   width: 60px; /* Increased width of day tiles */
   height: 60px; /* Increased height of day tiles */
   display: flex; /* Use flexbox for centering content */
@@ -173,15 +160,15 @@
 
 /* Keep the active tile color */
 .react-calendar__tile--active {
-  background: #004c99 !important;
-  color: white !important;
+background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
+color: white !important;
 }
 
 /* Style for event dot */
 .event-dot {
   width: 6px;
   height: 6px;
-  background-color: #004c99;
+  background-color: #fdb913;
   border-radius: 50%;
   margin: auto;
   position: relative;
@@ -201,7 +188,7 @@
 }
 
 /* Pop up css */
-.popup {
+.popup { 
   position: fixed;
   top: 0;
   left: 0;
