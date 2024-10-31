@@ -44,6 +44,8 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
+        <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
+        <Route path="/news" element={<News/>} />
       </Routes>
 
       {/* Footer */}
