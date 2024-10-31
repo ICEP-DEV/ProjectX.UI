@@ -60,7 +60,10 @@ const Signup = () => {
       };
       try {
         console.log(data);
-        const response = await axios.post(`http://localhost:5214/api/Alumnus/Registration/Registration`, data);
+        const response = await axios.post("http://localhost:5214/api/Alumnus/Registration/Registration", data, {
+          withCredentials: true,
+      });
+      
         setSignUpSuccess('Registration successful! Please log in.');
         setSignUpMode(false);
 
@@ -151,8 +154,8 @@ const Signup = () => {
   </div>
 
   {/* Submit the form */}
-  <button type="submit" className="anchorss transition-linkss">
-    Sign Up
+  <button type="submit" className="anchorss transition-linkss"  disabled={signUpLoading}>
+    {signUpLoading ? 'Loading...' : 'Sign Up'}
   </button>
 
 

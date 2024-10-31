@@ -18,6 +18,7 @@ import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
 import News from './components/News'; // Corrected component name to uppercase
 import AlumniCommunity from './LoggedPages/AlumniCommunity';
+import Arts from './LoggedPages/Arts';
 
 function App() {
   const location = useLocation();
@@ -45,6 +46,8 @@ function App() {
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
         <Route path="/news" element={<News />} />
+        <Route path="/arts" element={<Arts />} />
+        
       </Routes>
 
       {/* Footer */}
