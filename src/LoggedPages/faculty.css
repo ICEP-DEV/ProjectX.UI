@@ -1,0 +1,126 @@
+.centered-titleZ {
+    padding: 10px 0px;
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    width: 100%;
+    margin-left: 360px;
+    color: #003883;
+  }
+  
+  .containerZ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-container-wrapperZ,
+  .image-container-wrapperZ {
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .text-containerZ {
+    font-size: 1rem;
+    line-height: 1.6;
+    column-width: 300px; /* Adjusts column width to encourage longer sentences */
+    column-gap: 40px; /* Adds more space between columns */
+    width: 100%;
+    max-width: 1100px; /* Increases the maximum width for longer line lengths */
+    margin-right: auto;
+  }
+  
+  .image-containerZ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .image-containerZ img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 8px;
+  }
+  
+  .visionZ {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    max-width: 1100px;
+  
+  }
+  
+  .visionZ h3 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #003883;
+  }
+  
+  .visionZ p {
+    text-align: left;
+    margin-left: 20px;
+    text-indent: -20px;
+    padding-left: 20px;
+    max-width: 100%;
+  }
+  
+  
+  .download-buttonZ {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 60px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .centered-titleZ {
+        font-size: 3rem; /* Slightly reduce font size */
+        margin-left: 0; /* Center-align for medium screens */
+        text-align: center;
+      }
+
+    .text-containerZ {
+      column-width: auto; /* Returns to single column for smaller screens */
+      padding: 10px;
+    }
+    .visionZ {
+      padding: 0 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .containerZ {
+      flex-direction: column;
+    }
+    .text-container-wrapperZ,
+    .image-container-wrapperZ {
+      max-width: 100%;
+      padding: 10px;
+    }
+    .text-containerZ {
+      padding: 0 10px;
+      font-size: 0.9rem;
+    }
+    .visionZ p {
+      margin-left: 0;
+      text-indent: 0;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .text-containerZ {
+      font-size: 0.85rem;
+      padding: 0 8px;
+    }
+    .visionZ {
+      padding: 0 8px;
+    }
+  }
+  
