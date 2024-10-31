@@ -124,7 +124,7 @@ function News() {
             <p>{popupEvent.description}</p>
             <p><strong>Time:</strong> {popupEvent.time}</p>
             <p><strong>Venue:</strong> {popupEvent.venue}</p>
-            <button onClick={() => setPopupEvent(null)}>Close</button>
+            <button onClick={() => setPopupEvent(null)}>Confirm</button>
           </div>
         </div>
       )}
