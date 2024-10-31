@@ -37,8 +37,7 @@ function NavbarLogged() {
         <Navbar.Collapse id="navbarNav">
           <Nav className="mx-auto justify-content-center"> {/* Center the nav items */}
             <Nav.Link className={`nav-link-spacing mx-2 ${isActive('/logged')}`} as={Link} to="/logged">Home</Nav.Link>
-            <Nav.Link className={`nav-link-spacing mx-2 ${isActive('/alumni')}`} as={Link} to="/alumni">Alumni Community</Nav.Link>
-            <Nav.Link className={`nav-link-spacing mx-2 ${isActive('/news')}`} as={Link} to="/news">News</Nav.Link>
+            <Nav.Link className={`nav-link-spacing mx-2 ${isActive('/alumni')}`} as={Link} to="/alumni">Alumni Community</Nav.Link>            
           </Nav>
 
           <span className="heading-colorr ms-auto">

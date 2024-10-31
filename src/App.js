@@ -23,8 +23,8 @@ function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
-  const showNavBar = location.pathname === '/login' || location.pathname === '/forgot-password' || location.pathname === '/signup';
-  const showNavbarLogged = location.pathname === '/' || location.pathname === '/';
+  const showNavBar = location.pathname === '/login' || location.pathname === '/forgot-password' || location.pathname === '/signup' || location.pathname === '/';
+  const showNavbarLogged = location.pathname === '/news' ;
 
   return (
     <div>
@@ -44,6 +44,7 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
+        <Route path="/news" element={<News />} />
       </Routes>
 
       {/* Footer */}

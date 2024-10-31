@@ -35,7 +35,7 @@
 }
 
 .search-button {
-  background-color: #e3243c;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -46,7 +46,8 @@
 }
 
 .search-button:hover {
-  background-color: darkred;
+  background: linear-gradient(15deg, #ce1127 0%, #005596 100%); 
+  transition: 1s;
 }
 
 .results-container {
