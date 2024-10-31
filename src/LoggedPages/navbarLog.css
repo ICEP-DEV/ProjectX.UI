@@ -351,5 +351,8 @@
   color: #007bff; /* Change color for active links */
 }
 
-
+.news-donate-add-space
+{
+  margin-right: 20px;
+}
 

@@ -106,6 +106,7 @@ const Donate = () => {
                     </Col>
                 </Row>
             </Container>
+            <Footer/>
         </div>
     );
 };

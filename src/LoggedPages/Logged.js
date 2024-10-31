@@ -364,9 +364,6 @@ const Logged = () => {
                 </section>
                 {/* Contact Us End */}
 
-                <section id='section_3' style={{ marginTop: '100px' }}>
-                  <Donate />
-              </section>
       </main>
       <Footer />
     </div>

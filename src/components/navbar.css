@@ -38,6 +38,35 @@
   color: #008cba;
 }
 
+.donate-pulse {
+  background-color: #0e508e;
+  padding: 15px 20px;
+
+  border-radius: 5px; /* Optional: rounded corners */
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+.fix-donate-color
+{
+  color: white; /* Optional: make the text stand out */
+}
+
+
 .login-add-space p {
   color: white;
   margin: 0;
@@ -188,5 +217,11 @@ body{padding-top: 100px;
   .navbar-icon.bi-person {
     font-size: 24px; /* Ensure icons scale well on mobile */
   }
+}
+
+.nav-link.active {
+  color: #fdb913 !important; /* Highlight color for active tab */
+  font-weight: bold;
+  border-bottom: 2px solid #fdb913; /* Optional: underline active tab */
 }
 

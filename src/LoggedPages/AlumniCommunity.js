@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
-import NavbarLoggedLinks from './NavbarLoggedLinks';
+
 import './AlumniCommunity.css';
 
 // Import images directly
@@ -52,7 +52,7 @@ const AlumniCommunity = () => {
 
   return (
     <div className="alumni-community">
-      <NavbarLoggedLinks />
+    
 
       <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
           <div className="container">

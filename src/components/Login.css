@@ -18,7 +18,7 @@ input {
   border-radius: 20px;
   box-shadow: 20px 15px 20px 30px rgba(0,0,0,0.1);
   margin-left: 650px;
-  
+  margin-top: 110px;
   
 }
 
@@ -31,6 +31,13 @@ input {
   
  
 }
+
+.bi-arrow-left
+{
+  font-size: 30px; 
+}
+
+
 
 
 .titless{
