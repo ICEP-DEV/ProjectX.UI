@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import './ConfirmProfile.css';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 export default function ConfirmProfile() {
   const [profile, setProfile] = useState({
+    alumnusId:'',
     firstName: '',
     lastName: '',
-    email: '',
+    graduationYear: '',
     campus: '',
     faculty: '',
     linkedinProfile: '',
@@ -15,54 +17,76 @@ export default function ConfirmProfile() {
 
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
-
-  // Fetch profile when the component mounts
+  const [signUpLoading, setSignUpLoading] = useState(false);
+  const [studentNum, setStudentNum] = useState('');
+  // Fetch the profile data when the component loads
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await fetch("http://localhost:5214/api/Alumnus/GetAlumnusProfile", {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include' // Include cookies in the request
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          setProfile({
-            firstName: data.firstName,
-            lastName: data.lastName,
-            email: data.email,
-            campus: data.campus,
-            faculty: data.faculty,
-            linkedinProfile: data.linkedinProfile,
-            profilePicture: data.profilePicture
-          });
-        } else if (response.status === 204) {
-          console.log("No content found");
-        } else {
-          console.log("Error fetching profile:", response.statusText);
-        }
-      } catch (error) {
-        console.error("There was an error fetching the profile:", error);
-      }
-    };
-
     fetchProfile();
-  }, []);
+  }, []); 
+
+  const fetchProfile = async () => {
+    try {
+      const response = await fetch("http://localhost:5214/api/Alumnus/GetAlumnusProfile/GetAlumnusProfile", {
+        method: "GET",
+        credentials: 'include' // Include cookies in the request
+      });
+      console.log("Response status:", response.status); // Check status
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched data:", data); // Log data to verify it
+        setProfile({
+          alumnusId:data.alumnusId,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          graduationYear: data.graduationYear,
+          campus: data.campus,
+          faculty: data.faculty,
+          linkedinProfile: data.linkedinProfile,
+          profilePicture: data.profilePicture
+        });
+        
+      } else if (response.status === 204) {
+        console.log("No content found");
+      } else {
+        console.log("Error fetching profile:", response.statusText);
+      }
+    } catch (error) {
+      console.error("There was an error fetching the profile:", error);
+    }
+  };
+  
 
   // Handlers for navigation between sections
   const nextStep = () => setCurrentStep((prev) => prev + 1);
   const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   // Handle LinkedIn input change
-  const handleLinkedInChange = (e) => {
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      linkedinProfile: e.target.value
-    }));
+  const handleLinkedInChange = async (e) => {
+    const updatedProfile = {
+      ...profile,
+      linkedinProfile: e.target.value,
+    };
+    setProfile(updatedProfile);
+
+    const data = {
+      studentNum: updatedProfile.alumnusId,
+      linkedinProfile: updatedProfile.linkedinProfile,
+    };
+
+    try {
+      console.log(data);
+      const response = await axios.post(
+        `http://localhost:5214/api/Alumnus/UpdateProfile/UpdateProfile`,
+        data
+      );
+      alert("Profile updated!");
+    } catch (error) {
+      console.error('Profile Error:', error);
+    } finally {
+      setSignUpLoading(false);
+    }
   };
+
 
   // Handle form submission and navigate to logged.js
   const handleSubmit = (event) => {
@@ -80,11 +104,11 @@ export default function ConfirmProfile() {
           <div className="flex flex-col items-center">
             <label htmlFor="file-upload" className="relative cursor-pointer mb-4">
               <div className="w-28 h-28 rounded-full overflow-hidden flex items-center justify-center bg-indigo-600 transition-transform duration-300 hover:scale-110">
-                {profile.profilePicture ? (
+                {/* {profile.profilePicture ? ( 
                   <img src={profile.profilePicture} alt="User" className="w-full h-full object-cover" />
-                ) : (
+                ) : */}( 
                   <span className="text-white text-3xl">👤</span>
-                )}
+                )
               </div>
             </label>
           </div>
@@ -96,20 +120,21 @@ export default function ConfirmProfile() {
               <div className="space-y-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="stuno">
-                    Student Number <span className="text-red-500">*</span>
+                    Student Number 
                   </label>
                   <input
                     type="text"
                     id="stuno"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
                     placeholder="Student number"
+                    value={profile.alumnusId}
                     readOnly
                   />
                 </div>
 
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="name">
-                    First Name <span className="text-red-500">*</span>
+                    First Name 
                   </label>
                   <input
                     type="text"
@@ -123,7 +148,7 @@ export default function ConfirmProfile() {
 
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="surname">
-                    Last Name <span className="text-red-500">*</span>
+                    Last Name 
                   </label>
                   <input
                     type="text"
@@ -145,21 +170,21 @@ export default function ConfirmProfile() {
               <div className="space-y-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="email">
-                    Email <span className="text-red-500">*</span>
+                    Graduation Year 
                   </label>
                   <input
                     type="email"
                     id="email"
                     className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-                    placeholder="Email address"
-                    value={profile.email}
+                    placeholder="Graduation year"
+                    value={profile.graduationYear}
                     readOnly
                   />
                 </div>
 
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="campus">
-                    Campus <span className="text-red-500">*</span>
+                    Campus 
                   </label>
                   <input
                     type="text"
@@ -172,7 +197,7 @@ export default function ConfirmProfile() {
 
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="faculty">
-                    Faculty <span className="text-red-500">*</span>
+                    Faculty 
                   </label>
                   <input
                     type="text"
@@ -198,7 +223,7 @@ export default function ConfirmProfile() {
               <div className="space-y-4">
                 <div>
                   <label className="mb-1 block text-sm font-medium text-indigo-200/65" htmlFor="linkedin">
-                    Alumni Linkedin Link <span className="text-red-500">*</span>
+                    Alumni Linkedin Link 
                   </label>
                   <input
                     type="text"
@@ -214,8 +239,8 @@ export default function ConfirmProfile() {
                   <button type="button" onClick={prevStep} className="btn text-white" style={{ marginRight: 'auto' }}>
                     Back
                   </button>
-                  <button type="submit" className="btn text-white" style={{ marginLeft: 'auto' }}>
-                    Confirm
+                  <button type="submit" className="btn text-white" style={{ marginLeft: 'auto' }} disabled={signUpLoading}>
+                   {signUpLoading ? 'Loading...' : 'Confirm'}
                   </button>
                 </div>
               </div>
@@ -226,3 +251,4 @@ export default function ConfirmProfile() {
     </section>
   );
 }
+
