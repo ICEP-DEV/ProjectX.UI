@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './news.css';
 import { Calendar } from 'react-calendar';
 import Footer from './Footer';
@@ -9,6 +10,7 @@ import image3 from '../images/image3.jpg';
 import image4 from '../images/image4.jpeg';
 
 function News() {
+  const navigate = useNavigate();
   const events = [
     {
       img: image1,
@@ -79,6 +81,10 @@ function News() {
     }
   };
 
+  const handleVolunteerClick = () => {
+    navigate('/volunteer');
+  };
+
   return (
     <div className="events-container">
       <header className="header">
@@ -92,7 +98,7 @@ function News() {
             <p>{event.description}</p>
             <div className="buttons">
               <button className="rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
-              <button className="volunteer-button">Volunteer</button>
+              <button className="volunteer-button" onClick={handleVolunteerClick}>Volunteer</button>
             </div>
           </div>
         ))}
@@ -129,7 +135,7 @@ function News() {
         </div>
       )}
 
-      {/* <Footer /> */}
+      <Footer /> 
     </div>
   );
 }

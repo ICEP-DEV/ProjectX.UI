@@ -19,13 +19,14 @@ import ResetPassword from './components/ResetPassword';
 import News from './components/News'; // Corrected component name to uppercase
 import AlumniCommunity from './LoggedPages/AlumniCommunity';
 import Arts from './LoggedPages/Arts';
+import Volunteer from './components/Volunteer';
 
 function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
   const showNavBar = location.pathname === '/login' || location.pathname === '/forgot-password' || location.pathname === '/signup' || location.pathname === '/' || location.pathname === '/resetpassword';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer';
 
   return (
     <div>
@@ -47,6 +48,7 @@ function App() {
         <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
         <Route path="/news" element={<News />} />
         <Route path="/arts" element={<Arts />} />
+        <Route path="/volunteer" element={<Volunteer />} />
         
       </Routes>
 

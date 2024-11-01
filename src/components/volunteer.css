@@ -1,0 +1,74 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  
+  .about-section, .vision-section {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 215px;
+    /* margin-right: -200px; */
+  }
+  
+  
+  /* First section: Image on left, text on right */
+  .about-section {
+    flex-direction: row;
+  }
+  
+  /* Second section: Image on right, text on left */
+  .vision-section {
+    flex-direction: row-reverse;
+  }
+  
+  .section-content {
+    flex: 1;
+    text-align: left; /* Align text to the left */
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .section-image {
+    flex: 1;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .see-portfolio {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .about-section, .vision-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .section-content, .section-image {
+      flex: 0 0 100%; /* Make each element take 100% width */
+    }
+  
+    .section-content {
+      margin: 0; /* Remove margins on smaller screens */
+    }
+  }
