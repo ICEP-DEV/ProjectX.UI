@@ -56,6 +56,12 @@
     text-decoration: none;
     border-radius: 5px;
   }
+  .radio-label {
+    color: #7d7d7d; /* Light greyish color */
+    font-weight: 500;
+  }
+  
+  
   
   /* Media query for smaller screens */
   @media (max-width: 768px) {

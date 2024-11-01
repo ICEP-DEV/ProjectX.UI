@@ -1,29 +1,60 @@
 import React from 'react';
 import './volunteer.css'; // Import the CSS file for styling
 import image2 from '../images/image2.jpg'; // Adjust the path as necessary
-// import image2 from '../images/image2.jpg';
+import image1 from '../images/image1.jpg';
 
 function Volunteer() {
   return (
     <div className="about-page">
-      <div className="about-section">
-        <h2 className="section-title">About Treact</h2>
-        <p className="section-description">
-          We are a modern design agency. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <a href="#" className="see-portfolio">See Portfolio</a>
-        {/* Display the imported image */}
-        <img src={image2} alt="Image 1" className="section-image" />
-      </div>
+     <div className="about-section"> 
+  {/* <h2 className="section-title">Benefits</h2> */}
+  <p className="section-description">
+    Tax relief eligibility<br />
+    Recognition on the campaign webpage.<br />
+    Publicity highlighting your company's commitment to social responsibility and positive community impact through all the campaign communication platforms.
+  </p>
 
-      <div className="vision-section">
-        <h2 className="section-title">Our Vision</h2>
-        <p className="section-description">
-          We aim to disrupt the design space. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        {/* You can import another image similarly if needed */}
-        <img src={image2} alt="Image 2" className="section-image" />
-      </div>
+  {/* Display the imported image */}
+  <img src={image1} alt="Image 1" className="section-image" />
+</div>
+
+
+<div className="vision-section">
+  {/* <h2 className="section-title">Ways to volunteer</h2> */}
+ 
+
+  <form>
+    <label>
+      <input type="radio" name="volunteerOption" value="mentor" />
+      Be a mentor
+    </label>
+    <br />
+
+    <label>
+      <input type="radio" name="volunteerOption" value="tutor" />
+      Be a tutor
+    </label>
+    <br />
+
+    <label>
+      <input type="radio" name="volunteerOption" value="motivationalSpeaker" />
+      Be a motivational Speaker
+    </label>
+    <br />
+
+    <label>
+      <input type="radio" name="volunteerOption" value="mc" />
+      Be an MC
+    </label>
+  </form>
+
+  {/* Display the imported image */}
+  <img src={image2} alt="Image 2" className="section-image" />
+</div>
+
+
+      <a href="#" className="see-portfolio">Volunteer Now</a>
+
     </div>
   );
 }
