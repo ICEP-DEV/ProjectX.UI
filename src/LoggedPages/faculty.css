@@ -123,4 +123,38 @@
       padding: 0 8px;
     }
   }
+
+  .contact-details {
+    background-color: #f0f0f0;
+    padding: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+  
+  }
+  
+  .contact-details h3 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #003883;
+  }
+  
+  .contact-details-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; 
+  }
+  
+  .dean,
+  .secretary {
+    width: 45%; 
+  }
+  
+  .dean p,
+  .secretary p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+    color: black;
+    font-size: 1.1rem;
+  }
   
