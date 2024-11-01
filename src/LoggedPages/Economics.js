@@ -4,16 +4,16 @@ import Footer from '../components/Footer';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
 
-const Arts = () => {
+const Economics = () => {
   return (
     <div className="arts">
       <NavbarLogged />
-      <h1 className="centered-titleZ"><strong>Faculty of Arts and Design</strong></h1>
+      <h1 className="centered-titleZ"><strong>Faculty of Economics and Finance</strong></h1>
 
       <div className="containerZ">
         <div className="row justify-content-between align-items-start">
           
-          {/* Text Container */}
+         
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
@@ -28,25 +28,32 @@ const Arts = () => {
                 <br /><br />
                 The TUT programmes also keep abreast with international trends and global influences.
               </p>
-              <a href="https://www.tut.ac.za/media/docs/Arts%20and%20Design_Prospectus_2024.pdf" target="_blank" rel="noopener noreferrer">
-                <button className="btn btn-primaryZ download-buttonZ">Download Faculty of Arts and Design Prospectus</button>
+              <a href="https://www.tut.ac.za/media/docs/Economics%20and%20Finance_Prospectus_2024.pdf" target="_blank" rel="noopener noreferrer">
+                <button className="btn btn-primaryZ download-buttonZ">Download Faculty of Economics and Finance Prospectus</button>
               </a>
             </div>
           </div>
 
-          {/* Image and Vision Container */}
+         
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
               <img src={arts} alt="Artsp" className="img-fluid rounded" />
               <div className="visionZ">
                 <h3>VISION</h3>
-                <p>&bull; To be a competitive Faculty of Arts and Design that nurtures creativity, innovation, and cultural understanding.</p>
+                <p>&bull; A people's university that makes knowledge work.</p>
                 <h3>MISSION</h3>
-                <p>&bull; Developing and stimulating the artistic potential and abilities of our students through relevant, recognised, and career-focused programmes.</p>
-                <p>&bull; Engaging in research and innovation.</p>
-                <p>&bull; Encouraging and recognising artistic outputs.</p>
-                <p>&bull; Utilizing and developing technology towards artistic expression.</p>
-                <p>&bull; Contributing to culture-led social, economic, and physical regeneration.</p>
+                <p>&bull; We advance social and economic transformation through relevant curricula, impactful research and engagement, quality learning experiences, dedicated staff and an enabling environment.</p>
+                <h3>VALUE STATEMENTS</h3>
+                <p>&bull; Integrity</p>
+                <p>We will always act honestly, ethically and professionally.</p>
+                <p>&bull; Care</p>
+                <p>We will treat everyone with dignity and respect and green our environment.</p>
+                <p>&bull; Diversity, Inclusion and Equity</p>
+                <p>We will embrace diversity, foster inclusivity and promote equity.</p>
+                <p>&bull; Excellence</p>
+                <p>We will constantly innovate, solve problems and aim to improve ourselves and others.</p>
+                <p>&bull;  Accountability</p>
+                <p>We are answerable to each other and will act in the best interest of the university at all times.</p>
               </div>
             </div>
           </div>
@@ -59,16 +66,16 @@ const Arts = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Prof N Moodley-Diar - BA(Fine Art) (UKZN), MA (Art History) (cum laude) (UKZN), UPGCE (cum laude) (UKZN), PhD (Art History) (UKZN), MBA (Haaga-Helia)</p>
-      <p><br></br><b>Assistant Registrar: </b> AE van Wyk<br></br></p>
-      <p><b>Office:</b> Building 22, Room G120, Arts Campus</p>
+      <p><b>Executive Dean and Interim:</b> Prof MP Mashigo - BA (ED) (Vista), DLitt et Phil (Economics) (UJ) </p>
+      <p><br></br><b>Acting Assistant Dean: </b> Dr KN Motubatse - BCom (Hons) (Accounting) (Unisa), M Tech (Internal Auditing) (TUT), MCom (Auditing) (Unisa), PhD (Administration) (UL)<br></br></p>
     </div>
 
     <div className="secretary">
-      <p><b>Acring Executive Secretary:</b> Mr O Legwase</p>
-      <p><b>Telephone Number:</b> 012 382 6132</p>
-      <p><b>E-mail address:</b> legwaseo@tut.ac.za</p>
-      <p><b>Office:</b> Building 5, Room G15, Arts Campus</p>
+      <p><b>Campus Rector:</b> Dr Elikanah Lumadi </p>
+      <p><b>Telephone Number:</b> 012 382 0693/0530</p>
+      <p><b>E-mail address:</b> mashigomp@tut.ac.za</p><br></br>
+      <p><b>Assistant Registrar:</b> T Lebese</p>
+      <p><b>Office:</b> Building 1, Room G06B, Ga-Rankuwa Campus</p>
     </div>
    </div>
   </div>
@@ -78,4 +85,4 @@ const Arts = () => {
   );
 };
 
-export default Arts;
+export default Economics;

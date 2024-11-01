@@ -191,9 +191,6 @@ const HomePage = () => {
                 </section>
                 {/* What Is Alumini Space End */}
 
-      <section id='section_3' style={{ marginTop: '100px' }}>
-          <Donate />
-      </section>
                 
 
   {/* FAQs Start */}
