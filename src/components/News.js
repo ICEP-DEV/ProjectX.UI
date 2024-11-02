@@ -86,6 +86,7 @@ function News() {
   };
 
   return (
+    <div>
     <div className="events-container">
       <header className="header">
         <h1>EVENTS</h1>
@@ -134,7 +135,7 @@ function News() {
           </div>
         </div>
       )}
-
+</div>
       <Footer /> 
     </div>
   );
