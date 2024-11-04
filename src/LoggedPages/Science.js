@@ -4,16 +4,16 @@ import Footer from '../components/Footer';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
 
-const Economics = () => {
+const Humanities = () => {
   return (
     <div className="arts">
       <NavbarLogged />
-      <h1 className="centered-titleZ"><strong>Faculty of Economics and Finance</strong></h1>
+      <h1 className="centered-titleZ"><strong>Faculty of Science </strong></h1>
 
       <div className="containerZ">
         <div className="row justify-content-between align-items-start">
           
-         
+          {/* Text Container */}
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
@@ -28,13 +28,13 @@ const Economics = () => {
                 <br /><br />
                 The TUT programmes also keep abreast with international trends and global influences.
               </p>
-              <a href="https://www.tut.ac.za/media/docs/Economics%20and%20Finance_Prospectus_2024.pdf" target="_blank" rel="noopener noreferrer">
-                <button className="btn btn-primaryZ download-buttonZ">Download Faculty of Economics and Finance Prospectus</button>
+              <a href="https://www.tut.ac.za/media/docs/Science_2024.pdf" target="_blank" rel="noopener noreferrer">
+                <button className="btn btn-primaryZ download-buttonZ">Download Faculty of Science Prospectus</button>
               </a>
             </div>
           </div>
 
-         
+          {/* Image and Vision Container */}
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
               <img src={arts} alt="Artsp" className="img-fluid rounded" />
@@ -54,6 +54,7 @@ const Economics = () => {
                 <p>We will constantly innovate, solve problems and aim to improve ourselves and others.</p>
                 <p>&bull;  Accountability</p>
                 <p>We are answerable to each other and will act in the best interest of the university at all times.</p>
+                
               </div>
             </div>
           </div>
@@ -66,16 +67,20 @@ const Economics = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean and Interim:</b> Prof MP Mashigo - BA (ED) (Vista), DLitt et Phil (Economics) (UJ) </p>
-      <p><br></br><b>Acting Assistant Dean: </b> Dr KN Motubatse - BCom (Hons) (Accounting) (Unisa), M Tech (Internal Auditing) (TUT), MCom (Auditing) (Unisa), PhD (Administration) (UL)<br></br></p>
+      <p><b>Executive Dean:</b> Prof N Mokgalaka - DTech (Chemistry), MBA (Education Management)  (Haaga-Helia University of Applied Sciences) (Finland)</p>
+      <p><br></br><b>Assistant Dean (Research, Innovation and Engagement): </b> Prof Y Paul - PhD (Sport Sciences) (UP) <br></br></p>
+      <br></br><p><b>Acting Assistant Dean (Teaching, Learning and Technology): </b> Prof Y Havenga - M Cur (Psychiatric Nursing) (UJ), D Cur (Nursing) (UJ) </p>
+      
     </div>
 
     <div className="secretary">
-      <p><b>Campus Rector:</b> Dr Elikanah Lumadi </p>
-      <p><b>Telephone Number:</b> 012 382 0693/0530</p>
-      <p><b>E-mail address:</b> mashigomp@tut.ac.za</p><br></br>
-      <br></br><p><b>Assistant Registrar:</b> T Lebese</p>
-      <p><b>Office:</b> Building 1, Room G06B, Ga-Rankuwa Campus</p>
+      <p><b>Executive Secretary:</b>MML Malatja</p>
+      <p><b>Telephone Number:</b> 012 382 6209/6208</p>
+      <p><b>Office:</b>Building 1, Room 1-121A, Arcadia Campus</p><br></br>
+      <br></br><p><b> Acting Assistant Registrar:</b> J Mokonyane</p>
+      <p><b>Telephone number: </b>012 382 6248</p>
+      <p><b>Office: </b> Building 1, Room G14, Arcadia Campus</p>
+      
     </div>
    </div>
   </div>
@@ -85,4 +90,4 @@ const Economics = () => {
   );
 };
 
-export default Economics;
+export default Humanities;

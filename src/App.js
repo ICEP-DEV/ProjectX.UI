@@ -21,6 +21,10 @@ import AlumniCommunity from './LoggedPages/AlumniCommunity';
 import Arts from './LoggedPages/Arts';
 import Economics from './LoggedPages/Economics';
 import Engineering from './LoggedPages/Engineering';
+import Humanities from './LoggedPages/Humanities';
+import ICT from './LoggedPages/ICT';
+import Management from './LoggedPages/Management';
+import Science from './LoggedPages/Science';
 
 function App() {
   const location = useLocation();
@@ -51,7 +55,10 @@ function App() {
         <Route path="/arts" element={<Arts />} />
         <Route path="/economics" element={<Economics/>} />
         <Route path="/engineering" element={<Engineering/>} />
-        
+        <Route path="/humanities" element={<Humanities/>} />
+        <Route path="ict" element={<ICT/>} />
+        <Route path="management" element={<Management/>} />
+        <Route path="science" element={<Science/>} />
       </Routes>
 
       {/* Footer */}

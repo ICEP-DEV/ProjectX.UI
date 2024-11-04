@@ -80,7 +80,7 @@ const Engineering = () => {
       <p><b>Telephone Number:</b> 012 382-5328</p>
       <p><b>E-mail address:</b> Khumalotbt@tut.ac.za</p>
       <p><b>Office:</b> Building 3, Room 622B, Pretoria Campus</p><br></br>
-      <p><b>Assistant Registrar:</b> Dr MJ Pieterse</p>
+      <br></br><p><b>Assistant Registrar:</b> Dr MJ Pieterse</p>
       <p><b>Office:</b> Dinokeng Building, Room G125, Pretoria Campus</p>
     </div>
    </div>

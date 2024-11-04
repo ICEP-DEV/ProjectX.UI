@@ -2,17 +2,19 @@
 .site-footer {
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
   color: white;
-  padding: 20px 0;
+  padding: 0px 0;
+ 
 }
 
 .site-footer-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .site-footer-links {
   list-style-type: none;
   padding: 0;
+  
 }
 
 .site-footer-link-item {
@@ -26,7 +28,7 @@
 }
 
 .site-footer-linkf:hover {
-  color: #ff6219;
+  color:  #e6b012; 
 }
 
 /* Flexbox or Grid for side-by-side layout */
@@ -86,4 +88,49 @@
 .graduation-icon {
   font-size: 2.5rem;
   color: white;
+  margin-left: 300px;
+  margin-top: 40px;
 }
+
+.social-iconss{
+  display: inline-block;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-size: 2rem; 
+}
+.social-iconss:hover {
+  color: #e6b012; 
+  transform: scale(1.2); 
+}
+
+#linksss {
+  transform: translateX(-150px); 
+  
+}
+
+.footer-copyright {
+  font-size: 16px;
+  color: #aaa;
+  margin-top: 20px;
+  padding-top: 30px;
+  margin-right: 500px;
+}
+
+.container22 {
+  padding-top: 50px; 
+}
+
+.privacy-policy {
+  margin-left: 20px; 
+  color: #aaa; 
+  cursor: pointer; 
+}
+
+
+
+
+
+
+
+
