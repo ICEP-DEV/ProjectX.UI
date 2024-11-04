@@ -50,18 +50,6 @@ const Humanities = () => {
                 <p><li>enerating, integrating and applying ICT knowledge to stimulate socio-economic development.</li></p>
                 <p><li>Partnering communities in ICT-enabled sustainable development.</li></p>
                 <p><li>Being student-centred and quality-driven in all our endeavours.</li></p>
-                <h3>GENERAL FACULTY RULES - </h3>
-                <p>At the Faculty of ICT the following rules apply:</p>
-                <p>&bull;  A student may repeat any subject offered in any of the qualifications at the Faculty of Information and
-                          Communication Technology only twice.</p>
-                <p>&bull;  Students must complete all subjects before registering for Industry Exposure IIIB. Students with only one
-                          subject outstanding may be allowed to register for Industry Exposure IIIB, with the approval of the Head
-                           of Department.</p>
-                <p>&bull; A student must complete a qualification at the learning site where he/she was accepted and is registered. A
-                         transfer between sites will only be considered if the student follows the following process: A formal request
-                         must be submitted to the Academic manager/Head of the Department on the current learning site by the
-                         second Friday in October (to be considered for a transfer in January of the following year). The request
-                         must contain the reasons for the transfer.</p>
                 
               </div>
             </div>
