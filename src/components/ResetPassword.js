@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Login.css"; // Import the same CSS file as the Login component
 
 const PasswordReset = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,7 +13,7 @@ const PasswordReset = () => {
   const [signUpSuccess, setSignUpSuccess] = useState('');
   const [signUpLoading, setSignUpLoading] = useState(false);
 
-  const handleReset = async(e) => {
+  const handleReset = async (e) => {
     e.preventDefault();
 
     if (!email || !password || !confirmPassword) {
@@ -77,88 +77,71 @@ const PasswordReset = () => {
   };
 
   return (
-    <div className="bg-light py-3 py-md-5">
-      <div className="container">
-        <div className="row justify-content-md-center">
-          <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
-            <div className="bg-white p-4 p-md-5 rounded shadow-sm">
-              <div className="row">
-                <div className="col-12">
-                <Link to="/" className="anchorss transition-linkss">
-                  <i className="bi bi-arrow-left"></i> {/* Use the desired icon here */}
-                </Link>
-                  <div className="mb-5">
-                    <h2 className="h3"> Change password</h2>
-                    <h3 className="fs-6 fw-normal text-secondary m-0">
-                      Enter the details below
-                    </h3>
-                  </div>
-                </div>
+    <div>
+      <div className="containerss">
+        <Link to="/login" className="back-button">Back</Link>
+
+        <div className="forms-containerss">
+          <form onSubmit={handleReset} className="sign-in-formss">
+            <h2 className="titless">Change Password</h2>
+            <h3 className="fs-6 fw-normal text-secondary m-0">Enter the details below</h3>
+
+            {signUpError && (
+              <div className="alert alert-danger" role="alert">
+                {signUpError}
               </div>
+            )}
+            {signUpSuccess && (
+              <div className="alert alert-success" role="alert">
+                {signUpSuccess}
+              </div>
+            )}
 
-              {signUpError && (
-                <div className="alert alert-danger" role="alert">
-                  {signUpError}
-                </div>
-              )}
-              {signUpSuccess && (
-                <div className="alert alert-success" role="alert">
-                  {signUpSuccess}
-                </div>
-              )}
-
-              <form onSubmit={handleReset}>
-                <div className="row gy-3 gy-md-4 overflow-hidden">
-                  <div className="col-12">
-                    <input
-                      type="email"
-                      className="form-control"
-                      placeholder="Email Address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="col-12">
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="New Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="col-12">
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Confirm Password"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="col-12">
-                    <div className="d-grid">
-                      <button
-                        className="btn btn-lg"
-                        type="submit"
-                        style={{
-                          background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)',
-                          color: '#fff',
-                          border: 'none',
-                        }}
-                        disabled={signUpLoading}
-                      >
-                        {signUpLoading ? 'Loading...' : 'Change Password'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+            <div className="input-fieldss">
+              <i className="fas fa-envelope"></i>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
-          </div>
+            <div className="input-fieldss">
+              <i className="fas fa-lock"></i>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="New Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-fieldss">
+              <i className="fas fa-lock"></i>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="d-grid">
+              <button
+                className="rounded-button" // Change class name to 'rounded-button'
+                type="submit"
+                disabled={signUpLoading}
+              >
+                {signUpLoading ? 'Loading...' : 'Change Password'}
+              </button>
+            </div>
+
+          </form>
         </div>
       </div>
     </div>
