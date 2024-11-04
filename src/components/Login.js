@@ -82,8 +82,7 @@ const Login = () => {
               </Link>
             </p>
 
-            {/* Uncomment if social platforms are needed
-            <p className="social-textss">Our social platforms</p>
+         {/*<p className="social-textss">Connect with us </p>
             <div className="social-mediass">
               <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
                 <i className="fab fa-facebook-f"></i>
