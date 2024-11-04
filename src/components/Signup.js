@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+
 const Signup = () => {
   const [signUpMode, setSignUpMode] = useState(false);
-   // Sign Up Form States
-   const [studentNum, setStudentNum] = useState('');
-   const [email, setEmail] = useState('');
-   const [password, setPassword] = useState('');
-   const [confirmPassword, setConfirmPassword] = useState('');
-   const [itsPin, setItsPin] = useState();
-   const [signUpError, setSignUpError] = useState('');
-   const [signUpSuccess, setSignUpSuccess] = useState('');
-   const [signUpLoading, setSignUpLoading] = useState(false);
+  // Sign Up Form States
+  const [studentNum, setStudentNum] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [itsPin, setItsPin] = useState();
+  const [signUpError, setSignUpError] = useState('');
+  const [signUpSuccess, setSignUpSuccess] = useState('');
+  const [signUpLoading, setSignUpLoading] = useState(false);
   const navigate = useNavigate(); // useNavigate for programmatic navigation
 
   // Function to handle the sign up button click
@@ -62,8 +63,8 @@ const Signup = () => {
         console.log(data);
         const response = await axios.post("http://localhost:5214/api/Alumnus/Registration/Registration", data, {
           withCredentials: true,
-      });
-      
+        });
+        
         setSignUpSuccess('Registration successful! Please log in.');
         setSignUpMode(false);
 
@@ -102,70 +103,71 @@ const Signup = () => {
     <div className="containerss">
       <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}></div>
 
+      <Link to="/login" className="back-button">Back</Link> {/* Back button added here */}
+
       <div className="forms-containerss">
         {/* Sign Up Form */}
         <form onSubmit={handleSignUp} className="sign-up-formss">
-  <h2 className="titless">Sign up</h2>
-            {signUpError && (
-                <div className="alert alert-danger" role="alert">
-                  {signUpError}
-                </div>
-              )}
-              {signUpSuccess && (
-                <div className="alert alert-success" role="alert">
-                  {signUpSuccess}
-                </div>
-              )}
-  <div className="input-fieldss">
-    <i className="fas fa-user"></i>
-    <input
-      type="text"
-      placeholder="Student number"
-      value={studentNum}
-      onChange={(e) => setStudentNum(e.target.value)}
-    />
-  </div>
-  <div className="input-fieldss">
-    <i className="fas fa-envelope"></i>
-    <input
-      type="email"
-      placeholder="Email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-  </div>
-  <div className="input-fieldss">
-    <i className="fas fa-lock"></i>
-    <input
-      type="password"
-      placeholder="Password" 
-      value={password} 
-      onChange={(e) => setPassword(e.target.value)}
-    />
-  </div>
-  <div className="input-fieldss">
-    <i className="fas fa-lock"></i>
-    <input 
-      type="password" 
-      placeholder="Confirm Password" 
-      value={confirmPassword} 
-      onChange={(e) => setConfirmPassword(e.target.value)}
-    />
-  </div>
+          <h2 className="titless">Sign up</h2>
+          {signUpError && (
+            <div className="alert alert-danger" role="alert">
+              {signUpError}
+            </div>
+          )}
+          {signUpSuccess && (
+            <div className="alert alert-success" role="alert">
+              {signUpSuccess}
+            </div>
+          )}
+          <div className="input-fieldss">
+            <i className="fas fa-user"></i>
+            <input
+              type="text"
+              placeholder="Student number"
+              value={studentNum}
+              onChange={(e) => setStudentNum(e.target.value)}
+            />
+          </div>
+          <div className="input-fieldss">
+            <i className="fas fa-envelope"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="input-fieldss">
+            <i className="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="input-fieldss">
+            <i className="fas fa-lock"></i>
+            <input 
+              type="password" 
+              placeholder="Confirm Password" 
+              value={confirmPassword} 
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
 
-  {/* Submit the form */}
-  <button type="submit" className="anchorss transition-linkss"  disabled={signUpLoading}>
-    {signUpLoading ? 'Loading...' : 'Sign Up'}
-  </button>
-
+          {/* Submit the form */}
+          <button type="submit" className="anchorss transition-linkss" disabled={signUpLoading}>
+            {signUpLoading ? 'Loading...' : 'Sign Up'}
+          </button>
 
           {/* New paragraph with "Sign up" link */}
-          <p className="dont-have-account">
+          {/* <p className="dont-have-account">
             Already have an account?{" "}
             <Link to="/login" className="signup-link">
               Login
             </Link>
-          </p>
+          </p> */}
         </form>
       </div>
     </div>

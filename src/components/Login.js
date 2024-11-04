@@ -2,27 +2,21 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
-
-
 const Login = () => {
   const [isAdmin, setIsAdmin] = useState(false);
- 
 
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
   };
 
-  
   return (
     <div>
-    
-    <div className= "containerss">
+      <div className="containerss">
+        <Link to="/" className="back-button">Back</Link> {/* Back button added here */}
 
-      <div className="forms-containerss">
-
+        <div className="forms-containerss">
           {/* Sign In Form */}
           <form action="#" className="sign-in-formss">
-            
             <h2 className="titless">Hi, Welcome Back!</h2>
 
             {/* Radio buttons for Alumni and Admin */}
@@ -80,16 +74,16 @@ const Login = () => {
               Login
             </Link>
 
-
-             {/* New paragraph with "Sign up" link */}
-             <p className="dont-have-account">
-             Don't have an account?{" "}
-             <Link to="/signup" className="signup-link">
-             Sign up
-             </Link>
+            {/* New paragraph with "Sign up" link */}
+            <p className="dont-have-account">
+              Don't have an account?{" "}
+              <Link to="/signup" className="signup-link">
+                Sign up
+              </Link>
             </p>
 
-         {/*<p className="social-textss">Our social platforms</p>
+            {/* Uncomment if social platforms are needed
+            <p className="social-textss">Our social platforms</p>
             <div className="social-mediass">
               <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
                 <i className="fab fa-facebook-f"></i>
@@ -103,14 +97,11 @@ const Login = () => {
               <div className="social-iconss" onClick={() => window.open('https://www.linkedin.com/school/tshwane-university-of-technology/', '_blank')}>
                 <i className="fab fa-linkedin-in"></i>
               </div>
-            </div> */}
-
-
+            </div>
+            */}
           </form>
-          
+        </div>
       </div>
-      
-    </div>
     </div>
   );
 };

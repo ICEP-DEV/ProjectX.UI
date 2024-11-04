@@ -85,8 +85,8 @@ const PasswordReset = () => {
               <div className="row">
                 <div className="col-12">
                 <Link to="/" className="anchorss transition-linkss">
-      <i className="bi bi-arrow-left"></i> {/* Use the desired icon here */}
-    </Link>
+                  <i className="bi bi-arrow-left"></i> {/* Use the desired icon here */}
+                </Link>
                   <div className="mb-5">
                     <h2 className="h3"> Change password</h2>
                     <h3 className="fs-6 fw-normal text-secondary m-0">

@@ -17,9 +17,7 @@ input {
   background:#fff;
   border-radius: 20px;
   box-shadow: 20px 15px 20px 30px rgba(0,0,0,0.1);
-  margin-left: 650px;
-  margin-top: 110px;
-  
+  margin-left: 650px;  
 }
 
 .forms-containerss {
@@ -194,4 +192,24 @@ input {
   padding: 5rem 5rem; /* Add padding */
   place-items: justify;
   align-items: center;
+}
+
+.back-button {
+  display: inline-block; /* Allows for padding and margin */
+  background: linear-gradient(15deg, #ce1127 0%, #003883 100%);
+  border: none;
+  border-radius: 25px; /* Adjust as needed for rounding */
+  color: #fff;
+  padding: 10px 20px; /* Adjust padding for size */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Make the text bold */
+  margin-top: 20px; /* Space above the button */
+  margin-left: 40px; /* Space above the button */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.back-button:hover {
+  background: linear-gradient(15deg, #003883 0%, #ce1127 100%); /* Reverse gradient on hover */
 }
