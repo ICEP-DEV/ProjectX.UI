@@ -97,9 +97,18 @@ function NavbarLogged() {
            
           </Nav>
 
-          <span className="heading-colorr">
-            <i className="bi bi-mortarboard-fill graduation-iconn"></i>&nbsp; Alumni
-          </span>
+          <div className="d-none d-lg-block">
+          <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout"></Link>
+
+
+          </div>
+          <div className="login-add-space ">
+            <Link to="/">
+              <p>Logout</p>
+            </Link>
+          </div>
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

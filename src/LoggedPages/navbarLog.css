@@ -357,3 +357,15 @@
   margin-right: 20px;
 }
 
+.graduation-iconn
+{
+  margin-left: 30px;
+}
+
+.logout-icon {
+  font-size: 21px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -70,6 +70,7 @@
 .login-add-space p {
   color: white;
   margin: 0;
+  margin-left: 10px;
 }
 
 /* For navb ar to be directly on top with a bit of space between it and the content*/
