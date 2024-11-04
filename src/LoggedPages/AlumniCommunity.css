@@ -191,3 +191,147 @@
   font-size: 11px;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease; /* Transition for fading */
+}
+
+.modal-overlay.fade-in {
+  opacity: 1; /* Fully visible */
+}
+
+.modal-overlay.fade-out {
+  opacity: 0; /* Fully invisible */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 650px; /* Fixed width */
+  height: 600px; /* Fixed height */
+  overflow: hidden; /* Ensure no overflow */
+}
+
+.modal-inner {
+  display: flex;
+  height: 100%; /* Fill the modal height */
+}
+
+.modal-photo-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alumni-name {
+  position: absolute;
+  top: 0px; /* Position above the photo */
+  color: #000; /* Color of the name */
+  font-weight: bold;
+  font-size: 32px; /* Adjust font size as needed */
+}
+
+.modal-photo {
+  width: 230px; /* Set photo width */
+  height: 230px; /* Set photo height */
+  border-radius: 50%; /* Circular frame */
+  object-fit: cover; /* Cover the area of the circular frame */
+  border: 5px solid #007bff; /* Optional: add border to photo */
+  
+}
+
+.modal-info {
+  flex: 1;
+  padding-left: 20px; /* Space between photo and info */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the text vertically */
+}
+
+.overall-name
+{
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.ap-color
+{
+  color: #df1616;
+}
+
+.ap-color-course
+{
+  font-size: 16px;
+  color: #df1616;
+}
+.ap-course
+{
+  font-size: 16px;
+}
+
+
+.linkedin-icon-link {
+  color: #0077b5; /* LinkedIn brand color */
+  font-size: 34px; /* Adjust icon size as needed */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* Ensures proper alignment if in a flex container */
+  align-items: center; /* Vertically centers the icon */
+  
+}
+
+.linkedin-icon-link:hover
+{
+  color: #ffab14;
+}
+
+.ap-linkedIn
+{
+  margin-top: 30px;
+}
+
+.ap-space-course
+{
+  margin-top: 10px;
+}
+
+
+.ap-year {
+  font-size: 30px; /* Adjust if needed */
+  display: flex; /* Use flexbox for horizontal alignment */
+}
+
+.ap-year-digit {
+  background-color: #ffab14;
+  color: white;
+  padding: 5px 10px; /* Add some padding around each digit */
+  margin: 0 2px; /* Add margin for spacing between digits */
+  border-radius: 5px; /* Optional: add some border radius for rounded corners */
+}
+
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
