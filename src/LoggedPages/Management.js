@@ -67,9 +67,9 @@ const Humanities = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Dr AE Nesamvuni - MBA (TUT), MBA (Education Management) (Haaga-Helia), PhD (NWU), LLB (Unisa)</p>
-      <p><br></br><b>Assistant Dean : </b> Prof NN Tshipala - D Tech (Adventure Tourism Management) (TUT), PGCHE (UP), MBA (Education Management) (Haaga Helia) <br></br></p>
-      <br></br><p><b>Associate Dean :</b> Prof EM Rankhumise - M Tech (Business Administration) (TSA), D Tech (Public Management) (TUT) </p>
+      <p><b>Executive Dean:</b> Dr AE Nesamvuni </p>
+      <p><br></br><b>Assistant Dean : </b> Prof NN Tshipala  <br></br></p>
+      <br></br><p><b>Associate Dean :</b> Prof EM Rankhumise  </p>
       
     </div>
 
@@ -80,7 +80,7 @@ const Humanities = () => {
       <p><b>Office:</b> Building 30, Room 288, Pretoria Campus</p><br></br>
       <br></br><p><b>Assistant Registrar:</b> R van Wyk</p>
       <p><b>Office: </b> Dinokeng Building, Room G119, Pretoria Campus</p>
-      <br></br><p><b>Assistant Registrar (eMalahleni Campus): </b> Prof MJ Maleka - D Litt et Phil (Sociology) (Unisa)</p>
+      <br></br><p><b>Assistant Registrar (eMalahleni Campus): </b> Prof MJ Maleka</p>
       
     </div>
    </div>

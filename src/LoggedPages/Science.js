@@ -67,9 +67,9 @@ const Humanities = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Prof N Mokgalaka - DTech (Chemistry), MBA (Education Management)  (Haaga-Helia University of Applied Sciences) (Finland)</p>
-      <p><br></br><b>Assistant Dean (Research, Innovation and Engagement): </b> Prof Y Paul - PhD (Sport Sciences) (UP) <br></br></p>
-      <br></br><p><b>Acting Assistant Dean (Teaching, Learning and Technology): </b> Prof Y Havenga - M Cur (Psychiatric Nursing) (UJ), D Cur (Nursing) (UJ) </p>
+      <p><b>Executive Dean:</b> Prof N Mokgalaka </p>
+      <p><br></br><b>Assistant Dean (Research, Innovation and Engagement): </b> Prof Y Paul <br></br></p>
+      <br></br><p><b>Acting Assistant Dean (Teaching, Learning and Technology): </b> Prof Y Havenga  </p>
       
     </div>
 

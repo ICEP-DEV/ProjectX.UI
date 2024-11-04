@@ -63,9 +63,9 @@ const Humanities = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Dr EA van Wyk - BSc (Hons) (Computer Science) (Unisa), M Tech (Information Technology) (Tech Pta), PhD (Information Systems) (Unisa)</p>
-      <p><br></br><b>Assistant Dean (Postgraduate Studies, Research and Innovation): </b> Dr AB Pretorius - BSc (Hons) (Information Systems) (Unisa), MBL (Unisa), D Tech (Business Information Systems) (TUT)<br></br></p>
-      <br></br><p><b>Acting Assistant Dean :</b> Dr DP du Plessis - BML (UFS), MIT (UP), PhD (IT) (NWU) </p>
+      <p><b>Executive Dean:</b> Dr EA van Wyk </p>
+      <p><br></br><b>Assistant Dean (Postgraduate Studies, Research and Innovation): </b> Dr AB Pretorius<br></br></p>
+      <br></br><p><b>Acting Assistant Dean :</b> Dr DP du Plessis  </p>
       
     </div>
 

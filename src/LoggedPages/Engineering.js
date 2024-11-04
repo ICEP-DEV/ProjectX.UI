@@ -69,10 +69,10 @@ const Engineering = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Dr MG Kanakana-Katumba - MBA (NMMU), DPhil (Engineering Management) (UP) </p>
-      <p><br></br><b>Assistant Dean (Research and Innovation): </b> Dr MB Shongwe - PhD (Engineering) (Metallurgy) (Wits)<br></br></p>
-      <p><br></br><b>Assistant Dean (Special Projects and WIL): </b> Dr SJ Jacobs - D Tech (Engineering) (Electrical) (TUT)<br></br></p>
-      <p><br></br><b>Assistant Dean (Teaching and Learning): </b>Prof MC Khoathane - D Tech (Polymer Technology) (TUT) <br></br></p>
+      <p><b>Executive Dean:</b> Dr MG Kanakana-Katumba  </p>
+      <p><br></br><b>Assistant Dean (Research and Innovation): </b> Dr MB Shongwe <br></br></p>
+      <p><br></br><b>Assistant Dean (Special Projects and WIL): </b> Dr SJ Jacobs <br></br></p>
+      <p><br></br><b>Assistant Dean (Teaching and Learning): </b>Prof MC Khoathane <br></br></p>
     </div>
 
     <div className="secretary">

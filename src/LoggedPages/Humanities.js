@@ -68,9 +68,9 @@ const Humanities = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Prof MH Maserumule - D Lit et Phil (Unisa) </p>
-      <p><br></br><b>Assistant Dean (Postgraduate Studies, Research and Innovation): </b> Prof T de Jager - DEd (Unisa)<br></br></p>
-      <p><br></br><b>Assistant Dean (Teaching and Learnng): </b> Prof HB Dondolo - PhD (Marketing Management) (NWU) <br></br></p>
+      <p><b>Executive Dean:</b> Prof MH Maserumule </p>
+      <p><br></br><b>Assistant Dean (Postgraduate Studies, Research and Innovation): </b> Prof T de Jager <br></br></p>
+      <p><br></br><b>Assistant Dean (Teaching and Learnng): </b> Prof HB Dondolo <br></br></p>
       <br></br><p><b>Assistant Registrar:</b> Mr JM Moshime</p>
       <p><b>Telephone Number:</b> 012 382 9037</p>
       <p><b>E-mail address:</b> moshimejm@tut.ac.za</p>

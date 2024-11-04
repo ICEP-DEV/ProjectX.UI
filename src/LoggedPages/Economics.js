@@ -66,8 +66,8 @@ const Economics = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean and Interim:</b> Prof MP Mashigo - BA (ED) (Vista), DLitt et Phil (Economics) (UJ) </p>
-      <p><br></br><b>Acting Assistant Dean: </b> Dr KN Motubatse - BCom (Hons) (Accounting) (Unisa), M Tech (Internal Auditing) (TUT), MCom (Auditing) (Unisa), PhD (Administration) (UL)<br></br></p>
+      <p><b>Executive Dean and Interim:</b> Prof MP Mashigo </p>
+      <p><br></br><b>Acting Assistant Dean: </b> Dr KN Motubatse <br></br></p>
     </div>
 
     <div className="secretary">

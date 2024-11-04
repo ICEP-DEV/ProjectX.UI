@@ -59,7 +59,7 @@ const Arts = () => {
   
      <div className="contact-details-container">
     <div className="dean">
-      <p><b>Executive Dean:</b> Prof N Moodley-Diar - BA(Fine Art) (UKZN), MA (Art History) (cum laude) (UKZN), UPGCE (cum laude) (UKZN), PhD (Art History) (UKZN), MBA (Haaga-Helia)</p>
+      <p><b>Executive Dean:</b> Prof N Moodley-Diar</p>
       <p><br></br><b>Assistant Registrar: </b> AE van Wyk<br></br></p>
       <p><b>Office:</b> Building 22, Room G120, Arts Campus</p>
     </div>
