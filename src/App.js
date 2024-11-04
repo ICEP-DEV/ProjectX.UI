@@ -24,7 +24,7 @@ function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
-  const showNavBar = location.pathname === '/login' || location.pathname === '/forgot-password' || location.pathname === '/signup' || location.pathname === '/' || location.pathname === '/resetpassword';
+  const showNavBar = location.pathname === '/' ;
   const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni';
 
   return (

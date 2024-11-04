@@ -3,19 +3,17 @@ import Footer from '../components/Footer';
 
 import './AlumniCommunity.css';
 
-// Import images directly
 import Image1 from './SearchBarDemoImages/formal photo.jpg';
 import Image2 from './SearchBarDemoImages/1.jpg';
 import Image3 from './SearchBarDemoImages/2.png';
-import GraduationHatIcon from './SearchBarDemoImages/aslogo.png'; // Import the graduation hat icon
+import GraduationHatIcon from './SearchBarDemoImages/aslogo.png';
 
 const AlumniCommunity = () => {
-  // Alumni data array with specific image imports
+  // Alumni data array with specific image imports, courses, and fixed graduation years
   const alumniData = [
-    { photo: Image1, name: 'Tshiamo', surname: 'Matiza' },
-    { photo: Image2, name: 'Tshiamo', surname: 'Madukadzhi' },
-    { photo: Image3, name: 'Tshiamo', surname: 'Mazibuko' },
-    
+    { photo: Image1, name: 'Tshiamo', surname: 'Matiza', course: 'Computer Science', yearGraduated: 2021 },
+    { photo: Image2, name: 'Tshiamo', surname: 'Madukadzhi', course: 'Informatics', yearGraduated: 2022 },
+    { photo: Image3, name: 'Tshiamo', surname: 'Mazibuko', course: 'Information Technology', yearGraduated: 2023 },
     // Add more alumni as needed
   ];
 
@@ -26,25 +24,25 @@ const AlumniCommunity = () => {
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchInput(value);
-    setLoading(true); // Start loading animation
+    setLoading(true);
 
     setFilteredAlumni(
       alumniData.filter((alumni) =>
         alumni.name.toLowerCase().includes(value.toLowerCase()) ||
-        alumni.surname.toLowerCase().includes(value.toLowerCase())
+        alumni.surname.toLowerCase().includes(value.toLowerCase()) ||
+        alumni.course.toLowerCase().includes(value.toLowerCase()) ||
+        alumni.yearGraduated.toString().includes(value)
       )
     );
 
-    // Stop loading after a short delay (simulate loading time)
     setTimeout(() => {
       setLoading(false);
-    }, 500); // Adjust this timeout as needed
+    }, 500);
   };
 
-  // Function to highlight matching text
   const highlightText = (text, search) => {
-    if (!search) return text; // Return original text if no search input
-    const regex = new RegExp(`(${search})`, 'gi'); // Create a regex to match search input
+    if (!search) return text;
+    const regex = new RegExp(`(${search})`, 'gi');
     return text.split(regex).map((part, index) => 
       regex.test(part) ? <span key={index} style={{ color: '#30ffec' }}>{part}</span> : part
     );
@@ -52,33 +50,33 @@ const AlumniCommunity = () => {
 
   return (
     <div className="alumni-community">
-    
-
       <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-12 mx-auto text-center"></div>
-              <div className="col-lg-8 col-12 mx-auto">
-                <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
-                <h6 className="text-center">A Hub for TUT Graduates</h6>
-              </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-12 mx-auto text-center"></div>
+            <div className="col-lg-8 col-12 mx-auto">
+              <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
+              <h6 className="text-center">A Hub for TUT Graduates</h6>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       <div className="search-container">
-        <i className="search-icon bi bi-search"></i>
-        <input 
-          type="text" 
-          className="search-bar" 
-          placeholder="Search Alumnus..." 
-          value={searchInput} 
-          onChange={handleSearch} 
-        />
-        <button className="search-button">Search</button>
-      </div>
+  <i className="search-icon bi bi-search"></i>
+  <input 
+    type="text" 
+    className="search-bar" 
+    placeholder="Search Alumnus by Name, Surname, Course, or Year Graduated..." 
+    value={searchInput} 
+    onChange={handleSearch} 
+  />
+  <i className="filter-icon bi bi-funnel"></i> {/* Filter icon on the right */}
+  <button className="search-button">Search</button>
+</div>
 
-      {(loading || searchInput) && ( // Show loading animation or results-container based on state
+
+      {(loading || searchInput) && (
         <div className="results-container">
           {loading ? (
             <div className="loading-animation">
@@ -92,9 +90,6 @@ const AlumniCommunity = () => {
             <>
               <div className="results-header">
                 <h3>Results Found ({filteredAlumni.length})</h3>
-                <div className="filter-results">
-                  <i className="bi bi-funnel"></i><span className='fr-add-space'>Filter Results</span>
-                </div>
               </div>
               {filteredAlumni.map((alumni, index) => (
                 <div key={index} className="alumni-card">
@@ -108,8 +103,19 @@ const AlumniCommunity = () => {
                       <span className="label">Surname: </span> 
                       <span style={{ color: 'white' }}>{highlightText(alumni.surname, searchInput)}</span>
                     </p>
+                    <p>
+                      <span className="label">Course: </span> 
+                      <span style={{ color: 'white' }}>{highlightText(alumni.course, searchInput)}</span>
+                    </p>
+                    <p>
+                      <span className="label">Year Graduated: </span> 
+                      <span style={{ color: 'white' }}>{highlightText(alumni.yearGraduated.toString(), searchInput)}</span>
+                    </p>
                   </div>
-                  <a href="#" className="view-alumni">> View Alumni</a>
+                  <a href="#" className="view-alumni">
+                    <i className="fas fa-chevron-right"></i><span className='view-alumni-add-space'>View Alumni</span>
+                  </a>
+
                 </div>
               ))}
             </>

@@ -34,6 +34,27 @@
   color: #e3243c;
 }
 
+.filter-icon {
+
+  background-color: #ffffff;
+  height: 44px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.2rem; /* Adjust icon size */
+  color: #e3243c; /* Icon color */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-icon:hover
+{
+  transition: 0.5s;
+  color: #ffab14;
+  
+}
+
 .search-button {
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
   color: white;
@@ -163,5 +184,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+.view-alumni-add-space
+{
+  margin-left: 10px;
+  font-size: 11px;
 }
 
