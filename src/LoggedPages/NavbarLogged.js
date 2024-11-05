@@ -10,9 +10,9 @@ function NavbarLogged() {
   const [selectedAboutOption, setSelectedAboutOption] = useState('About Us');
   const [displayText, setDisplayText] = useState('Logout');
   const [isFading, setIsFading] = useState(false);
-  const [iconPosition, setIconPosition] = useState(0); // Position of the icon
+  const [iconPosition, setIconPosition] = useState(0);
   const location = useLocation();
-  const textRef = useRef(null); // Reference to the text span
+  const textRef = useRef(null);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
@@ -25,27 +25,40 @@ function NavbarLogged() {
 
   const fadeDuration = 1000; // 1 second fade duration
 
+  // Define texts and their corresponding display durations
+  const texts = [
+    { text: 'Logout', duration: 5000 },       // 5 seconds
+    { text: 'Welcome back', duration: 5000 }, // 5 seconds
+    { text: 'T Matiza', duration: 10000 },     // 10 seconds
+  ];
+
   useEffect(() => {
+    let currentIndex = 0;
+
     const cycleText = () => {
       setIsFading(true); // Start fading out
 
       setTimeout(() => {
-        setDisplayText((prevText) => {
-          if (prevText === 'Logout') return 'Welcome back';
-          if (prevText === 'Welcome back') return 'T Matiza';
-          return 'Logout';
-        });
+        currentIndex = (currentIndex + 1) % texts.length; // Cycle through texts
+        setDisplayText(texts[currentIndex].text);
         setIsFading(false); // Start fading in
       }, fadeDuration); // Wait for fade-out to finish
 
+      // Adjust timing based on the displayed text
+      const displayDuration = texts[currentIndex].duration; // Get duration for current text
+
       setTimeout(() => {
         setIsFading(true); // Start fading out again
-      }, fadeDuration + (displayText === 'Logout' ? 4000 : displayText === 'Welcome back' ? 8000 : 1000)); // Adjust timings
+      }, fadeDuration + displayDuration); // Wait for the display duration plus fade out
     };
 
-    const interval = setInterval(cycleText, 1000 + fadeDuration * 2); // Cycle every 4 seconds plus fade duration
+    // Start cycling text on mount
+    cycleText();
+
+    // Interval for cycling text
+    const interval = setInterval(cycleText, fadeDuration + texts[currentIndex].duration);
     return () => clearInterval(interval);
-  }, [displayText]);
+  }, []);
 
   useEffect(() => {
     const updateIconPosition = () => {
@@ -57,11 +70,11 @@ function NavbarLogged() {
       }
     };
 
-    updateIconPosition(); // Update position on initial load
-    window.addEventListener('resize', updateIconPosition); // Update position on window resize
+    updateIconPosition();
+    window.addEventListener('resize', updateIconPosition);
 
     return () => {
-      window.removeEventListener('resize', updateIconPosition); // Cleanup
+      window.removeEventListener('resize', updateIconPosition);
     };
   }, [displayText]);
 
