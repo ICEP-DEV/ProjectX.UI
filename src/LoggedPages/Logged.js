@@ -175,7 +175,7 @@ const Logged = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 text-center">
-                                <h2 className="text-white mb-4">What Is Alumni Space?</h2>
+                                <h2 className="text-white mb-4"  >What Is Alumni Space?</h2>
                             </div>
                             <div className="col-lg-10 col-12 mx-auto">
                                 <div className="timeline-container">
@@ -185,7 +185,7 @@ const Logged = () => {
                                         </div>
 
                                         <li>
-                                            <h4 className="text-white mb-3">Career Advancement and Networking</h4>
+                                            <h4 className="text-white mb-3" id = "ss">Career Advancement and Networking</h4>
                                             <p className="text-white">
                                                 The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth.
                                             </p>

@@ -89,6 +89,7 @@ https://templatemo.com/tm-590-topic-listing
   
   h4 {
     font-size: var(--h4-font-size);
+    
   }
   
   h5 {
@@ -138,8 +139,8 @@ https://templatemo.com/tm-590-topic-listing
     SECTION               
   -----------------------------------------*/
   .section-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   
   .section-bg {
