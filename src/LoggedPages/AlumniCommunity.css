@@ -335,3 +335,130 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 90%; /* Adjust width as needed */
+  max-width: 800px; /* Maximum width for larger screens */
+  max-height: 80vh; /* Maximum height */
+  overflow-y: auto; /* Scrollbar for overflow */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 24px;
+  color: #333;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: #999;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.modal-fields-container {
+  display: grid; /* Use grid for layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 10px; /* Space between fields */
+  margin-bottom: 20px; /* Space below fields */
+}
+
+.modal-input,
+.modal-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.modal-input.filled,
+.modal-select.filled {
+  border-color: #30ffec; /* Change border color when filled */
+}
+
+.search-modal-button {
+  background-color: #30ffec;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-modal-button:hover {
+  background-color: #28a745;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.slide-down {
+  animation: slideDown 0.5s forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, -100%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, -100%);
+  }
+}
