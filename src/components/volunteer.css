@@ -41,6 +41,7 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  margin-top: 50px;
 }
 
 .section {
@@ -75,9 +76,12 @@ ul li input[type="radio"] {
   padding: 10px 20px;
   cursor: pointer;
   display: block;
-  margin: 40px auto 100px auto; /* Center horizontally and add spacing */
-  width: fit-content; /* Ensures button width fits the text */
+  /* margin: 40px auto 100px auto; Center horizontally and add spacing */ 
+  /* width: fit-content; Ensures button width fits the text */
   text-align: center;
+  margin-top: 140px;
+  margin-left: 600px;
+  margin-bottom: 40px;
 }
 
 .volunteer-btn:hover {
