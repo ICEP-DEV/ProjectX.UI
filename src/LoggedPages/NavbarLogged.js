@@ -1,9 +1,6 @@
-// NavbarLogged.js
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { Link as ScrollLink } from 'react-scroll';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
 
@@ -11,7 +8,11 @@ function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
   const [selectedAboutOption, setSelectedAboutOption] = useState('About Us');
+  const [displayText, setDisplayText] = useState('Logout');
+  const [isFading, setIsFading] = useState(false);
+  const [iconPosition, setIconPosition] = useState(0); // Position of the icon
   const location = useLocation();
+  const textRef = useRef(null); // Reference to the text span
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
@@ -21,6 +22,48 @@ function NavbarLogged() {
   useEffect(() => {
     console.log("Login Status: ", isLoggedIn);
   }, [isLoggedIn]);
+
+  const fadeDuration = 1000; // 1 second fade duration
+
+  useEffect(() => {
+    const cycleText = () => {
+      setIsFading(true); // Start fading out
+
+      setTimeout(() => {
+        setDisplayText((prevText) => {
+          if (prevText === 'Logout') return 'Welcome back';
+          if (prevText === 'Welcome back') return 'T Matiza';
+          return 'Logout';
+        });
+        setIsFading(false); // Start fading in
+      }, fadeDuration); // Wait for fade-out to finish
+
+      setTimeout(() => {
+        setIsFading(true); // Start fading out again
+      }, fadeDuration + (displayText === 'Logout' ? 4000 : displayText === 'Welcome back' ? 8000 : 1000)); // Adjust timings
+    };
+
+    const interval = setInterval(cycleText, 1000 + fadeDuration * 2); // Cycle every 4 seconds plus fade duration
+    return () => clearInterval(interval);
+  }, [displayText]);
+
+  useEffect(() => {
+    const updateIconPosition = () => {
+      if (textRef.current) {
+        const textWidth = textRef.current.offsetWidth;
+        const logoutIconWidth = 50; // Adjust this to the actual width of the icon if necessary
+        const newPosition = textWidth + logoutIconWidth + 10; // Add some spacing
+        setIconPosition(newPosition);
+      }
+    };
+
+    updateIconPosition(); // Update position on initial load
+    window.addEventListener('resize', updateIconPosition); // Update position on window resize
+
+    return () => {
+      window.removeEventListener('resize', updateIconPosition); // Cleanup
+    };
+  }, [displayText]);
 
   const handleScroll = () => {
     const sections = ['section_1', 'section_2', 'section_3', 'section_4', 'section_5'];
@@ -70,45 +113,41 @@ function NavbarLogged() {
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto">
-
-          <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/logged">Home</Nav.Link>     
-
-
+            <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/logged">Home</Nav.Link>
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/alumni' ? 'active' : ''}`} as={Link} to="/alumni">Alumni Community</Nav.Link>
 
             <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
               <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
-                <NavDropdown.Item as={Link} to="/arts" className={location.pathname === '/arts' ? 'active' : ''}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/economics" className={location.pathname === '/economics' ? 'active' : ''}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/engineering" className={location.pathname === '/engineering' ? 'active' : ''}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/humanities" className={location.pathname === '/humanities' ? 'active' : ''}>FACULTY OF HUMANITIES</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/ict" className={location.pathname === '/ict' ? 'active' : ''}>FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/management" className={location.pathname === '/management' ? 'active' : ''}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
+                {/* Faculties Links */}
+                <NavDropdown.Item as={Link} to="/arts">FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
+                {/* Other faculties here */}
               </NavDropdown>
 
-              <NavDropdown.Item as={Link} to="/job-opportunities" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/job-opportunities">Job Opportunities</NavDropdown.Item>
             </NavDropdown>
 
             <span className='news-donate-add-space'>
-                <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/news">Events</Nav.Link>               
+              <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/news">Events</Nav.Link>
             </span>
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
-           
           </Nav>
 
           <div className="d-none d-lg-block">
-          <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout"></Link>
-
-
+            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease' }}></Link>
           </div>
-          <div className="login-add-space ">
+          <div className="login-add-space">
             <Link to="/">
-              <p>Logout</p>
+              <p>
+                <span
+                  ref={textRef} // Attach ref here to measure text width
+                  className={`toggle-text ${isFading ? 'fade-out' : 'fade-in'}`}
+                  style={{ transition: `opacity ${fadeDuration}ms`, opacity: isFading ? 0 : 1 }}
+                >
+                  {displayText}
+                </span>
+              </p>
             </Link>
           </div>
-
-
         </Navbar.Collapse>
       </Container>
     </Navbar>
