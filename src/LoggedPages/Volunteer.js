@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; 
 import './volunteer.css';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 
 const Volunteer = () => {
   const [showPopup, setShowPopup] = useState(false);

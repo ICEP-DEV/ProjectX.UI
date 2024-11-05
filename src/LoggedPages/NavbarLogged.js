@@ -90,9 +90,19 @@ function NavbarLogged() {
               <NavDropdown.Item as={Link} to="/job-opportunities" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
             </NavDropdown>
 
-            <span className='news-donate-add-space'>
+              {/* News Dropdown */}
+            <NavDropdown title="News" id="news-dropdown" className="spacing">
+            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>Latest News</NavDropdown.Item>
+
+            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>Events</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>Magazine</NavDropdown.Item>
+            </NavDropdown>
+
+          {/* End News Dropdown */}
+
+            {/* <span className='news-donate-add-space'>
                 <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/news">Events</Nav.Link>               
-            </span>
+            </span> */}
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
            
           </Nav>
