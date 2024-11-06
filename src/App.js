@@ -16,10 +16,10 @@ import ConfirmProfile from './components/ConfirmProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
-import News from './components/News'; // Corrected component name to uppercase
+import News from './LoggedPages/News'; // Corrected component name to uppercase
 import AlumniCommunity from './LoggedPages/AlumniCommunity';
 import Arts from './LoggedPages/Arts';
-import Volunteer from './components/Volunteer';
+import Volunteer from './LoggedPages/Volunteer';
 import Economics from './LoggedPages/Economics';
 import Engineering from './LoggedPages/Engineering';
 import Humanities from './LoggedPages/Humanities';

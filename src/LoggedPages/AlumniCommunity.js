@@ -21,6 +21,15 @@ const AlumniCommunity = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalAnimation, setModalAnimation] = useState('');
 
+  // New state for the filter fields
+  const [studentNumber, setStudentNumber] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [course, setCourse] = useState('');
+  const [faculty, setFaculty] = useState('');
+  const [campus, setCampus] = useState('');
+  const [graduationYear, setGraduationYear] = useState('');
+
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchInput(value);
@@ -48,8 +57,7 @@ const AlumniCommunity = () => {
     );
   };
 
-  const handleFilterIconClick = (alumni) => {
-    setSelectedAlumni(alumni);
+  const handleFilterIconClick = () => {
     setModalAnimation('fade-in slide-down'); // Start fade-in and slide-down animation
     setModalVisible(true);
   };
@@ -58,9 +66,13 @@ const AlumniCommunity = () => {
     setModalAnimation('slide-up fade-out'); // Start slide-up and fade-out animation
     setTimeout(() => {
       setModalVisible(false);
-      setSelectedAlumni(null);
       setModalAnimation(''); // Reset animation state
     }, 300); // Match this with the fade-out animation duration
+  };
+
+  // Handle changes for filter fields
+  const handleSearchFields = () => {
+    // You can implement the filtering logic here based on the entered data
   };
 
   return (
@@ -86,9 +98,85 @@ const AlumniCommunity = () => {
           value={searchInput} 
           onChange={handleSearch} 
         />
-        <i className="filter-icon bi bi-funnel"></i>
+        <i className="filter-icon bi bi-funnel" onClick={handleFilterIconClick}></i>
         <button className="search-button">Search</button>
       </div>
+
+      {modalVisible && (
+        <div className={`modal ${modalAnimation}`}>
+          <div className="modal-header">
+            <h1 className="modal-title">Search For Alumni</h1>
+            <span className="close-icon" onClick={closeModal}>&times;</span>
+          </div>
+          <div className="modal-body">
+            <div className="modal-fields-container">
+              <input 
+                type="text" 
+                placeholder="Student Number" 
+                className={`modal-input ${studentNumber ? 'filled' : ''}`} 
+                value={studentNumber} 
+                onChange={(e) => setStudentNumber(e.target.value)} 
+              />
+              <input 
+                type="text" 
+                placeholder="Name" 
+                className={`modal-input ${name ? 'filled' : ''}`} 
+                value={name} 
+                onChange={(e) => setName(e.target.value)} 
+              />
+              <input 
+                type="text" 
+                placeholder="Surname" 
+                className={`modal-input ${surname ? 'filled' : ''}`} 
+                value={surname} 
+                onChange={(e) => setSurname(e.target.value)} 
+              />
+              <select 
+                className={`modal-select ${course ? 'filled' : ''}`} 
+                value={course} 
+                onChange={(e) => setCourse(e.target.value)}
+              >
+                <option value="">Course</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Informatics">Informatics</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Multi Media">Multi Media</option>
+              </select>
+              <select 
+                className={`modal-select ${faculty ? 'filled' : ''}`} 
+                value={faculty} 
+                onChange={(e) => setFaculty(e.target.value)}
+              >
+                <option value="">Faculty</option>
+                <option value="ICT">ICT</option>
+                <option value="Humanities">Humanities</option>
+              </select>
+              <select 
+                className={`modal-select ${campus ? 'filled' : ''}`} 
+                value={campus} 
+                onChange={(e) => setCampus(e.target.value)}
+              >
+                <option value="">Campus</option>
+                <option value="Soshanguve South Campus">Soshanguve South Campus</option>
+                <option value="Soshanguve North Campus">Soshanguve North Campus</option>
+                <option value="Arcadia Campus">Arcadia Campus</option>
+                <option value="Main Campus">Main Campus</option>
+              </select>
+              <select 
+                className={`modal-select ${graduationYear ? 'filled' : ''}`} 
+                value={graduationYear} 
+                onChange={(e) => setGraduationYear(e.target.value)}
+              >
+                <option value="">Graduation Year</option>
+                {[...Array(new Date().getFullYear() - 2002)].map((_, index) => (
+                  <option key={index} value={2003 + index}>{2003 + index}</option>
+                ))}
+              </select>
+            </div>
+            <button className="search-modal-button">Search</button>
+          </div>
+        </div>
+      )}
 
       {(loading || searchInput) && (
         <div className="results-container">
@@ -119,59 +207,16 @@ const AlumniCommunity = () => {
                     </p>
                     <p>
                       <span className="label">Year Graduated: </span> 
-                      <span style={{ color: 'white' }}>{highlightText(alumni.yearGraduated.toString(), searchInput)}</span>
+                      <span style={{ color: 'white' }}>{highlightText(alumni.yearGraduated, searchInput)}</span>
                     </p>
                   </div>
-                  <a href="#" className="view-alumni" onClick={() => handleFilterIconClick(alumni)}>
-                    <i className="fas fa-chevron-right"></i><span className='view-alumni-add-space'>View Alumni</span>
-                  </a>
                 </div>
               ))}
             </>
           )}
         </div>
       )}
-
-      {modalVisible && selectedAlumni && (
-        <div className={`modal-overlay ${modalAnimation}`} onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-inner">
-              <div className="modal-photo-container">
-                <div className="alumni-name">Alumnus Profile</div>
-                <img src={selectedAlumni.photo} alt={`${selectedAlumni.name} ${selectedAlumni.surname}`} className="modal-photo" />
-                <div className='ap-space-course'>
-                <p><strong className='ap-color-course '>Course:</strong> <strong className='ap-course'>{selectedAlumni.course}</strong></p>
-                </div>
-                
-                
-              </div>
-
-              
-              <div className="modal-info">
-              <div className="overall-name">Overview</div>
-                <p><strong className='ap-color'>Name:</strong> {selectedAlumni.name}</p>
-                <p><strong className='ap-color'>Surname:</strong> {selectedAlumni.surname}</p>
-                <p><strong className='ap-color'>Faculty:</strong> ICT</p>
-                <p><strong className='ap-color'>Student Number:</strong> 221306520</p>
-                <p><strong className='ap-color'>Email:</strong> tmatiza19@gmail.com</p>
-                
-                <p><strong className='ap-color'>Class Of:</strong> </p>
-                <div className="ap-year">
-                {selectedAlumni.yearGraduated.toString().split('').map((digit, index) => (
-                  <span key={index} className="ap-year-digit">{digit}</span>
-                ))}
-              </div>
-              <p className='ap-linkedIn'>
-                  <a href="https://www.linkedin.com/in/tshiamo-matiza-3685a42a5" target="_blank" rel="noopener noreferrer" className="linkedin-icon-link">
-                    <i className="fab fa-linkedin"></i> {/* LinkedIn icon */}
-                  </a>
-                </p>
-              </div>
-            </div>
-            <button onClick={closeModal} className="close-button">Close</button>
-          </div>
-        </div>
-      )}
+    
     </div>
   );
 };
