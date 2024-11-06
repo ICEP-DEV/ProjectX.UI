@@ -83,70 +83,71 @@ function News() {
 
   return (
     <div>
-         <section className="explore-section section-padding" id="section_1">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 text-center">
-              <h2 className="mb-4">Latest News</h2>
-            </div>
-          </div>
-        </div>
+        <section className="explore-section section-padding" id="section_1n">
+  <div className="container">
+    <div className="row">
+      <div className="col-12 text-center">
+        <h2 className="mb-4">Latest News</h2>
+      </div>
+    </div>
+  </div>
 
-        <div className="container-fluid">
-          <div className="row">
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
-              {["ICT", "Humanities", "Arts and Design", "Music", "Education"].map((topic, index) => (
-                <li className="nav-item" role="presentation" key={index}>
-                  <button
-                    className={`nav-link ${index === 0 ? 'active' : ''}`}
-                    id={`${topic.toLowerCase()}-tab`.replace(/\s/g,'')}
-                    data-bs-toggle="tab"
-                    data-bs-target={`#${topic.toLowerCase()}-tab-pane`.replace(/\s/g,'')}
-                    type="button"
-                    role="tab"
-                    aria-controls={`${topic.toLowerCase()}-tab-pane`.replace(/\s/g,'')}
-                    aria-selected={index === 0 ? 'true' : 'false'}
-                  >
-                    {topic}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+  <div className="container-fluid">
+    <div className="row">
+      <ul className="nav nav-tabs" id="myTab" role="tablist">
+        {["ICT", "Humanities", "Arts and Design", "Science", "General"].map((topic, index) => (
+          <li className="nav-item" role="presentation" key={index}>
+            <button
+              className={`nav-link ${index === 0 ? 'active' : ''}`}
+              id={`${topic.toLowerCase()}-tab`.replace(/\s/g, '')}
+              data-bs-toggle="tab"
+              data-bs-target={`#${topic.toLowerCase()}-tab-pane`.replace(/\s/g, '')}
+              type="button"
+              role="tab"
+              aria-controls={`${topic.toLowerCase()}-tab-pane`.replace(/\s/g, '')}
+              aria-selected={index === 0 ? 'true' : 'false'}
+            >
+              {topic}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="tab-content" id="myTabContent">
-                {/* Tab Pane for Design */}
-                <div className="tab-pane fade show active" id="ict-tab-pane" role="tabpanel" aria-labelledby="ict-tab" tabIndex="0">
-                  <div className="row">
-                    {[
-                      { title: "The Faculty of ICT introduced high school students to farming technology innovations.", description: "The Tshwane University of Technology’s Faculty of ICT introduced learners at two focus schools to smart farming and intelligent systems, which are important in today’s technology driven world...", badge: "14", imgSrc: "images/topics/undraw_Remote_design_team_re_urdx.png" },
-                      { title: "The Faculty of ICT’s Hacker Society highlights challenges faced by young women in tech.", description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South. The initiative shines a spotlight on the underrepresentation of women in the tech industry...", badge: "75", imgSrc: "images/topics/undraw_Redesign_feedback_re_jvm0.png" },
-                      { title: "A Swiss-based research organization has made a significant donation to the Faculty of ICT", description: "The Tshwane University of Technology (TUT)’s Faculty of Information and Communication Technology (FoICT) has received a significant donation of computing equipment from CERN, the renowned Switzerland-based research organisation...", badge: "100", imgSrc: "images/topics/colleagues-working-cozy-office-medium-shot.png" }
-                    ].map((item, idx) => (
-                      <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                        <div className="custom-block bg-white shadow-lg">
-                          <a href="topics-detail.html">
-                            <div className="d-flex">
-                              <div>
-                                <h5 className="mb-2">{item.title}</h5>
-                                <p className="description-text mb-0">{item.description}</p>
-                              </div>
-                              <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
-                            </div>
-                            {/* <img src={item.imgSrc} className="custom-block-image img-fluid" alt={item.title} /> */}
-                          </a>
+  <div className="container">
+    <div className="row">
+      <div className="col-12">
+        <div className="tab-content" id="myTabContent">
+
+          {/* Tab Pane for ICT */}
+          <div className="tab-pane fade show active" id="ict-tab-pane" role="tabpanel" aria-labelledby="ict-tab" tabIndex="0">
+            <div className="row">
+              {[
+                { title: "The Faculty of ICT introduced high school students to farming technology innovations.", subDescription: "Published: 5 November 2024, by Kgothatso Monono",  description: "The Tshwane University of Technology’s Faculty of ICT introduced learners at two focus schools to smart farming and intelligent systems, which are important in today’s technology-driven world...", badge: "1", imgSrc: "images/topics/undraw_Remote_design_team_re_urdx.png" },
+                { title: "The Faculty of ICT’s Hacker Society highlights challenges faced by young women in tech.", subDescription: "Published: 5 November 2024, by .", description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South. The initiative shines a spotlight on the underrepresentation of women in the tech industry...", badge: "2", imgSrc: "images/topics/undraw_Redesign_feedback_re_jvm0.png" },
+                { title: "A Swiss-based research organization has made a significant donation to the Faculty of ICT", subDescription: "Published: 5 November 2024, by ", description: "The Tshwane University of Technology (TUT)’s Faculty of Information and Communication Technology (FoICT) has received a significant donation of computing equipment from CERN, the renowned Switzerland-based research organisation...", badge: "3", imgSrc: "images/topics/colleagues-working-cozy-office-medium-shot.png" }
+              ].map((item, idx) => (
+                <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                  <div className="custom-block bg-white shadow-lg">
+                    <a href="topics-detail.html">
+                      <div className="d-flex">
+                        <div>
+                          <h5 className="mb-2">{item.title}</h5>
+                          <p className="sub-description mb-1">{item.subDescription}</p> {/* Sub-description added here */}
+                          <p className="description-text mb-0">{item.description}</p>
                         </div>
+                        <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
                       </div>
-                    ))}
+                    </a>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Tab Pane for Marketing */}
-                <div className="tab-pane fade" id="humanities-tab-pane" role="tabpanel" aria-labelledby="humanities-tab" tabIndex="0">
+           {/* Tab Pane for Humanities */}
+           <div className="tab-pane fade" id="humanities-tab-pane" role="tabpanel" aria-labelledby="humanities-tab" tabIndex="0">
                   <div className="row">
                     {[
                       { title: "Advertising", description: "Lorem Ipsum dolor sit amet consectetur", badge: "30", imgSrc: "images/topics/undraw_online_ad_re_ol62.png" },
@@ -171,7 +172,7 @@ function News() {
                   </div>
                 </div>
 
-                {/* Tab Pane for Finance */}
+                {/* Tab Pane for Arts and Design */}
                 <div className="tab-pane fade" id="artsanddesign-tab-pane" role="tabpanel" aria-labelledby="artsanddesign-tab" tabIndex="0">
                   <div className="row">
                     {[
@@ -196,8 +197,8 @@ function News() {
                   </div>
                 </div>
 
-                {/* Tab Pane for Music */}
-                <div className="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabIndex="0">
+                {/* Tab Pane for Science */}
+                <div className="tab-pane fade" id="science-tab-pane" role="tabpanel" aria-labelledby="science-tab" tabIndex="0">
                   <div className="row">
                     {[
                       { title: "Concert", description: "Lorem Ipsum dolor sit amet consectetur", badge: "20", imgSrc: "images/topics/undraw_Music_re_d3b2.png" }
@@ -220,8 +221,8 @@ function News() {
                   </div>
                 </div>
 
-                {/* Tab Pane for Education */}
-                <div className="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabIndex="0">
+                {/* Tab Pane for General */}
+                <div className="tab-pane fade" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
                   <div className="row">
                     {[
                       { title: "Web Development Course", description: "Lorem Ipsum dolor sit amet consectetur", badge: "40", imgSrc: "images/topics/undraw_Education_re_hqfq.png" }
@@ -248,8 +249,9 @@ function News() {
           </div>
         </div>
       </section>
+
       
-         {/* <section className='events' id= 'section_2'> */}
+   <section className='events' id= 'section_2n'> 
       <div className="events-container">
         <header className="header">
           <h1>EVENTS</h1>
@@ -299,7 +301,13 @@ function News() {
           </div>
         )}
       </div>
+  </section>
 
+  {/* Magazine Section==================== */}
+  <section className='magazine' id='section_3n'>
+
+
+  </section>
 
       <Footer />
     </div>
