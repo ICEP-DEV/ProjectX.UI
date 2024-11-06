@@ -146,7 +146,7 @@ function NavbarLogged() {
           </Nav>
 
           <div className="d-none d-lg-block">
-            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease' }}></Link>
+            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease', color: '#005596' }}></Link>
           </div>
           <div className="login-add-space">
             <Link to="/">

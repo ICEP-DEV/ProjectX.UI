@@ -26,6 +26,8 @@ import Humanities from './LoggedPages/Humanities';
 import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
+import Dashboard from './Admin/Dashboard';
+import RegisteredAlumni from './Admin/AlumniTable';
 
 function App() {
   const location = useLocation();
@@ -51,7 +53,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
-        <Route path="/admin" element={<div>Admin Page</div>} /> {/* Add Admin Page route as needed */}
+        <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
         <Route path="/news" element={<News />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
@@ -61,6 +63,7 @@ function App() {
         <Route path="ict" element={<ICT/>} />
         <Route path="management" element={<Management/>} />
         <Route path="science" element={<Science/>} />
+        <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
       </Routes>
 
       {/* Footer */}

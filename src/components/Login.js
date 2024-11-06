@@ -70,7 +70,10 @@ const Login = () => {
               Forgot Password?
             </Link>
 
-            <Link to="/logged" className="anchorss transition-linkss">
+            <Link
+              to={isAdmin ? "/admin" : "/logged"}
+              className="anchorss transition-linkss"
+            >
               Login
             </Link>
 
