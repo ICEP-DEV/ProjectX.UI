@@ -1,2 +1,2 @@
-# Alumini-Project
-ICEP Alumini Project
+# Alumni-Project
+ICEP Alumni Project
