@@ -17,16 +17,15 @@ const Humanities = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+              Tshwane University of Technology's (TUT) Faculty of Information and Communication Technology (FoICT) launched its Alumni Chapter on June 15, 2023. The event brought together approximately 200 esteemed alumni from diverse ICT fields, including Computer Science, Computer Systems Engineering, Information Technology, Informatics, and Multimedia Computing.
                 <br /><br />
-                Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
+                The FoICT Alumni Chapter aims to foster a strong network of graduates, support career advancement and knowledge sharing, and enhance the University's mission of making knowledge work.
                 <br /><br />
-                The diploma programmes lay solid foundations for you to enter the world of work confidently and competently.
+                As the only higher education institution in Southern Africa with a dedicated Faculty of Information and Communication Technology, TUT occupies a unique position in specializing in various ICT areas.
                 <br /><br />
-                The TUT programmes also keep abreast with international trends and global influences.
+                The chapter's establishment promises to strengthen industry connections, encourage collaboration and innovation, and provide opportunities for mentorship and professional growth.
+                <br></br><br></br>
+                TUT's FoICT Alumni Chapter is poised to become a vibrant hub for ICT professionals, shaping the future of the industry.
               </p>
               <a href="https://www.tut.ac.za/media/docs/ICT_Prospectus_2024.pdf" target="_blank" rel="noopener noreferrer">
                 <button className="btn btn-primaryZ download-buttonZ">Download Faculty of ICT Prospectus</button>

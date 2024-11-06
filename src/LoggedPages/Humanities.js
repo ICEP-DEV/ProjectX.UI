@@ -17,16 +17,15 @@ const Humanities = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+              The Faculty of Humanities at Tshwane University of Technology celebrated a significant milestone on September 8, 2023, with the official launch of its Alumni Chapter. This momentous occasion brought together over 150 esteemed alumni from diverse fields.
                 <br /><br />
-                Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
+                The gathering included representatives from journalism, law, teaching, public relations, government, and the South African Police Services. The Faculty Alumni Chapter aims to prepare graduates for the dynamic workforce and entrepreneurship, support strategic university initiatives, and foster lifelong connections between alumni, students, and the university.
                 <br /><br />
-                The diploma programmes lay solid foundations for you to enter the world of work confidently and competently.
+                Through mentorship, networking, career guidance, and collaborative projects, the Alumni Chapter will empower Humanities graduates to achieve their full potential. By uniting alumni, industry, and academia, this chapter paves the way for innovative collaborations and shapes the future of Humanities professionals.
                 <br /><br />
-                The TUT programmes also keep abreast with international trends and global influences.
+                The launch marked a new era of partnership and growth for the Faculty of Humanities, its alumni, and the university. As the chapter grows, it will continue to support the university's mission and foster a community of passionate, dedicated, and successful Humanities graduates.
+                <br></br>
+                <br></br>This faculty encompasses the departments of Education, Public Affairs, Journalism, Law, and Language Practice. The Bachelor of Education (BEd) offers options across Foundation, Intermediate, and Senior Phase Teaching, while diplomas cover fields like Journalism, Law, and Policing. Graduates can pursue advanced diplomas, master’s, and doctoral studies, especially in areas like public administration, journalism, and educational leadership, shaping careers in public service, communication, and education.
               </p>
               <a href="https://www.tut.ac.za/media/docs/Humanities_Prospectus_%202024.pdf" target="_blank" rel="noopener noreferrer">
                 <button className="btn btn-primaryZ download-buttonZ">Download Faculty of Humanities Prospectus</button>

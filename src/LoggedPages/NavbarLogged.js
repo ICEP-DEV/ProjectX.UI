@@ -133,10 +133,15 @@ function NavbarLogged() {
               <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
                 {/* Faculties Links */}
                 <NavDropdown.Item as={Link} to="/arts">FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
-                {/* Other faculties here */}
+                <NavDropdown.Item as={Link} to="/economics">FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/engineering">FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/humanities">FACULTY OF HUMANITIES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/ict">FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/management">FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/science"> FACULTY OF SCIENCE</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown.Item as={Link} to="/job-opportunities">Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/job">Job Opportunities</NavDropdown.Item>
             </NavDropdown>
 
             <span className='news-donate-add-space'>

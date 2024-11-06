@@ -17,10 +17,7 @@ const Humanities = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+                This faculty includes departments like Human Resource Management, Marketing, and Sport Management, alongside fields in Tourism and Public Administration. Programs start with diplomas, advancing through degrees to master’s and doctoral levels. The curriculum combines business acumen with sector-specific skills, preparing students for roles in management, marketing, event planning, and public service, catering to diverse career paths within business and government.
                 <br /><br />
                 Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
                 <br /><br />

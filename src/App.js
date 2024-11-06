@@ -26,6 +26,8 @@ import Humanities from './LoggedPages/Humanities';
 import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
+import Jobs from './LoggedPages/Jobs';
+import JobsHumanities from './LoggedPages/JobsHumanities';
 
 function App() {
   const location = useLocation();
@@ -58,9 +60,12 @@ function App() {
         <Route path="/economics" element={<Economics/>} />
         <Route path="/engineering" element={<Engineering/>} />
         <Route path="/humanities" element={<Humanities/>} />
-        <Route path="ict" element={<ICT/>} />
-        <Route path="management" element={<Management/>} />
-        <Route path="science" element={<Science/>} />
+        <Route path="/ict" element={<ICT/>} />
+        <Route path="/management" element={<Management/>} />
+        <Route path="/science" element={<Science/>} />
+        <Route path="/job" element={<Jobs/>} />
+        <Route path="/jobs-humanities" element={<JobsHumanities/>} />
+
       </Routes>
 
       {/* Footer */}

@@ -24,10 +24,10 @@
   .text-containerZ {
     font-size: 1rem;
     line-height: 1.6;
-    column-width: 300px; /* Adjusts column width to encourage longer sentences */
-    column-gap: 40px; /* Adds more space between columns */
+    column-width: 300px; 
+    column-gap: 40px; 
     width: 100%;
-    max-width: 1100px; /* Increases the maximum width for longer line lengths */
+    max-width: 1100px; 
     margin-right: auto;
   }
   
