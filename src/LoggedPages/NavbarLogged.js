@@ -140,7 +140,7 @@ function NavbarLogged() {
                 <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown.Item as={Link} to="/job-opportunities" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
             </NavDropdown>
 
 
