@@ -87,7 +87,7 @@ function News() {
   <div className="container">
     <div className="row">
       <div className="col-12 text-center">
-        <h2 className="mb-4">Latest News</h2>
+        <h2 className="mb-4">News</h2>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@ function News() {
   <div className="container-fluid">
     <div className="row">
       <ul className="nav nav-tabs" id="myTab" role="tablist">
-        {["ICT", "Humanities", "Arts and Design", "Science", "General"].map((topic, index) => (
+        {["General", "Humanities", "Arts and Design", "Science"].map((topic, index) => (
           <li className="nav-item" role="presentation" key={index}>
             <button
               className={`nav-link ${index === 0 ? 'active' : ''}`}
@@ -121,23 +121,25 @@ function News() {
         <div className="tab-content" id="myTabContent">
 
           {/* Tab Pane for ICT */}
-          <div className="tab-pane fade show active" id="ict-tab-pane" role="tabpanel" aria-labelledby="ict-tab" tabIndex="0">
+          <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
             <div className="row">
               {[
-                { title: "The Faculty of ICT introduced high school students to farming technology innovations.", subDescription: "Published: 5 November 2024, by Kgothatso Monono",  description: "The Tshwane University of Technology’s Faculty of ICT introduced learners at two focus schools to smart farming and intelligent systems, which are important in today’s technology-driven world...", badge: "1", imgSrc: "images/topics/undraw_Remote_design_team_re_urdx.png" },
-                { title: "The Faculty of ICT’s Hacker Society highlights challenges faced by young women in tech.", subDescription: "Published: 5 November 2024, by .", description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South. The initiative shines a spotlight on the underrepresentation of women in the tech industry...", badge: "2", imgSrc: "images/topics/undraw_Redesign_feedback_re_jvm0.png" },
-                { title: "A Swiss-based research organization has made a significant donation to the Faculty of ICT", subDescription: "Published: 5 November 2024, by ", description: "The Tshwane University of Technology (TUT)’s Faculty of Information and Communication Technology (FoICT) has received a significant donation of computing equipment from CERN, the renowned Switzerland-based research organisation...", badge: "3", imgSrc: "images/topics/colleagues-working-cozy-office-medium-shot.png" }
+                { title: "Structured Master’s makes performing technologies and collaboration look easy!.", subDescription: "Published: 6 November 2024, by Kgothatso Monono",  description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.", badge: "1", imgSrc: "images/news1"},
+                { title: "The Faculty of ICT’s Hacker Society highlights challenges faced by young women in tech.", subDescription: "Published: 5 November 2024", description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South. The initiative shines a spotlight on the underrepresentation of women in the tech industry...", badge: "2", imgSrc: "images/topics/undraw_Redesign_feedback_re_jvm0.png" },
+                { title: "TUT to celebrate academic stars at prestigious awards ceremony", subDescription: "Published: 5 November 2024", description: "On 13 November 2024, triumph and excellence will be the palpable in the air at the Tshwane University of Technology (TUT) Academic Excellence Awards as the university gears up to recognise exceptional academic staff who have exceeded an already high benchmark in the areas of research, teaching, innovation and service excellence. The event will take place at The Maslow, Time Square in Pretoria....", badge: "3", imgSrc: "images/topics/colleagues-working-cozy-office-medium-shot.png" },
+                { title: "Faculty of ICT hosts tech innovation workshop", subDescription: "Published: 5 November 2024", description: "The Faculty of ICT organized a workshop focused on tech innovations in artificial intelligence and machine learning for university students.", badge: "4", imgSrc: "images/topics/undraw_ai_brain_re_le72.png" }
               ].map((item, idx) => (
                 <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
                   <div className="custom-block bg-white shadow-lg">
-                    <a href="topics-detail.html">
+                    <a href="#">
                       <div className="d-flex">
                         <div>
                           <h5 className="mb-2">{item.title}</h5>
-                          <p className="sub-description mb-1">{item.subDescription}</p> {/* Sub-description added here */}
+                          <p className="sub-description mb-1">{item.subDescription}</p>
                           <p className="description-text mb-0">{item.description}</p>
                         </div>
                         <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
+                      
                       </div>
                     </a>
                   </div>
@@ -156,7 +158,7 @@ function News() {
                     ].map((item, idx) => (
                       <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
                         <div className="custom-block bg-white shadow-lg">
-                          <a href="topics-detail.html">
+                          <a href="https://www.tut.ac.za/latest-news/413-faculty-of-icts-hacker-society-puts-spotlight-on-challenges-faced-by-young-women-in-tech">
                             <div className="d-flex">
                               <div>
                                 <h5 className="mb-2">{item.title}</h5>
