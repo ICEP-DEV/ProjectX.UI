@@ -17,14 +17,12 @@ const Engineering = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+              The Chapter was launched on 25 November 2022 with Alumni from TUT, former technikons, academia and industry partners. At least 100+ people attended the event at Pretoria campus. The launch was graced with the exhibition of the latest innovations and mock-ups from FEBE, including the award-winning TUT Sunchaser Solar car.
                 <br /><br />
-                Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
+                The Alumni proposed the partnerships with TUT on the establishment of training centres within communities, similarly to Itireleng Training Centre situated at the Vaal, south-east of Gauteng province. The interim’s steering committee was nominated from the people that attended the launch event.
                 <br /><br />
-                The diploma programmes lay solid foundations for you to enter the world of work confidently and competently.
+                With departments in Chemical, Civil, Electrical, Industrial, and Mechanical Engineering, the Faculty of Engineering and the Built Environment provides a hands-on approach to technical education.
+                <br></br> <br></br>Students can pursue diplomas in specialties like Building Science, Geomatics, and Industrial Design, leading to degrees in engineering technology. From diplomas to doctoral degrees, these programs emphasize industry alignment, preparing graduates for roles in consulting, design, construction, and project management in engineering.
                 <br /><br />
                 The TUT programmes also keep abreast with international trends and global influences.
               </p>

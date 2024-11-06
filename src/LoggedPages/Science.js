@@ -17,10 +17,8 @@ const Humanities = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+                Departments in this faculty cover Agriculture, Environmental Sciences, Health Sciences, and Industrial Chemistry. Programs range from diplomas to bachelor’s degrees, with advanced opportunities in applied sciences. Courses like Biotechnology, Radiography, Environmental Health, and Veterinary Technology align with high-demand industries, providing pathways for research and field-specific roles, with graduates well-prepared for sectors like healthcare, environmental protection, and agricultural innovation.
+                Each faculty is structured to provide practical experience and professional growth, with an academic progression that supports career advancement in both South African and global markets.
                 <br /><br />
                 Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
                 <br /><br />

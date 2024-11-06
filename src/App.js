@@ -16,16 +16,18 @@ import ConfirmProfile from './components/ConfirmProfile';
 import ForgotPassword from './components/ForgotPassword';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
-import News from './components/News'; // Corrected component name to uppercase
+import News from './LoggedPages/News'; // Corrected component name to uppercase
 import AlumniCommunity from './LoggedPages/AlumniCommunity';
 import Arts from './LoggedPages/Arts';
-import Volunteer from './components/Volunteer';
+import Volunteer from './LoggedPages/Volunteer';
 import Economics from './LoggedPages/Economics';
 import Engineering from './LoggedPages/Engineering';
 import Humanities from './LoggedPages/Humanities';
 import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
+import Jobs from './LoggedPages/Jobs';
+import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 
@@ -63,7 +65,6 @@ function App() {
         <Route path="ict" element={<ICT/>} />
         <Route path="management" element={<Management/>} />
         <Route path="science" element={<Science/>} />
-        <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
       </Routes>
 
       {/* Footer */}
