@@ -2,8 +2,9 @@
 .site-footer {
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
   color: white;
-  padding: 0px 0;
- 
+  padding: -10px 0;
+  padding-top: 10px;
+  
 }
 
 .site-footer-title {
@@ -13,7 +14,7 @@
 
 .site-footer-links {
   list-style-type: none;
-  padding: 0;
+  padding: 0px;
   
 }
 
@@ -112,13 +113,14 @@
 .footer-copyright {
   font-size: 16px;
   color: #aaa;
-  margin-top: 20px;
+  margin-top: -30px;
   padding-top: 30px;
   margin-right: 500px;
 }
 
 .container22 {
-  padding-top: 50px; 
+  padding-bottom: -30px; 
+  margin-top: 10px;
 }
 
 .privacy-policy {
@@ -126,6 +128,9 @@
   color: #aaa; 
   cursor: pointer; 
 }
+
+
+
 
 
 

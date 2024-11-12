@@ -17,10 +17,7 @@ const Economics = () => {
           <div className="col-md-5 text-container-wrapperZ"> 
             <div className="text-containerZ">
               <p>
-                The Faculty of Arts & Design boasts five departments, namely Fine & Studio Arts,
-                Interior Design, Design Studies (Fashion Design & Technology and Jewellery Design & Manufacture), 
-                Performing Arts (Dance, Music, Theatre Arts (Performer), Theatre Arts (Technical)), 
-                and Visual Communication (Commercial Photography, Integrated Communication Design, and Motion Picture Production).
+              This faculty includes departments like Accounting, Economics, Financial Management, and Public Finance, all geared towards the demands of South Africa’s financial sectors. Career-focused pathways start with diplomas and progress to advanced diplomas, postgraduate diplomas, and master’s degrees, enabling students to specialize in areas such as auditing, financial planning, and economics consultancy. With a mix of practical and theoretical instruction, programs emphasize professional readiness for roles in both private and public sectors.
                 <br /><br />
                 Our programme qualification mix is locally relevant and internationally competitive. All programmes have career-focused progression possibilities – from diploma at entry-level, to advanced diplomas, postgraduate diplomas, master’s and doctoral degrees.
                 <br /><br />

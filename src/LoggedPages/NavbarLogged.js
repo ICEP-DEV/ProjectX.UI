@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
 
@@ -13,6 +13,14 @@ function NavbarLogged() {
   const [iconPosition, setIconPosition] = useState(0);
   const location = useLocation();
   const textRef = useRef(null);
+  // const navigate = useNavigate();
+   // Scroll to the specified section
+   const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
@@ -116,6 +124,10 @@ function NavbarLogged() {
     { label: 'Contact Us', section: 'section_5' },
   ];
 
+  // const handleEventsClick = () => {
+  //   navigate('/news#section_2n'); // Navigate to the Events section
+  // };
+
   return (
     <Navbar id="navbarr" className="navbarr navbar-expand-lg navbar-light homepage-bgg">
       <Container>
@@ -129,24 +141,50 @@ function NavbarLogged() {
             <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/logged">Home</Nav.Link>
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/alumni' ? 'active' : ''}`} as={Link} to="/alumni">Alumni Community</Nav.Link>
 
-            <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
+             <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
               <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
-                {/* Faculties Links */}
-                <NavDropdown.Item as={Link} to="/arts">FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
-                {/* Other faculties here */}
+                <NavDropdown.Item as={Link} to="/arts" className={location.pathname === '/arts' ? 'active' : ''}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/economics" className={location.pathname === '/economics' ? 'active' : ''}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/engineering" className={location.pathname === '/engineering' ? 'active' : ''}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/humanities" className={location.pathname === '/humanities' ? 'active' : ''}>FACULTY OF HUMANITIES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/ict" className={location.pathname === '/ict' ? 'active' : ''}>FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/management" className={location.pathname === '/management' ? 'active' : ''}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown.Item as={Link} to="/job-opportunities">Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
             </NavDropdown>
 
-            <span className='news-donate-add-space'>
-              <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/news">Events</Nav.Link>
-            </span>
+
+              {/* News Dropdown */}
+            <NavDropdown title="News" id="news-dropdown" className="spacing">
+            <NavDropdown.Item as={Link} to="/news#section_1n" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
+           <NavDropdown.Item
+  href="#section_2n"
+  onClick={(e) => {
+    e.preventDefault();
+    const eventsSection = document.getElementById('section_2n');
+    if (eventsSection) {
+      eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }}
+  className={location.pathname === '/news' ? 'active' : ''}
+>
+  Events
+</NavDropdown.Item>
+
+            </NavDropdown>
+
+          {/* End News Dropdown */}
+
+            {/* <span className='news-donate-add-space'>
+                <Nav.Link className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`} as={Link} to="/news">Events</Nav.Link>               
+            </span> */}
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
 
           <div className="d-none d-lg-block">
-            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease' }}></Link>
+            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease', color: '#005596' }}></Link>
           </div>
           <div className="login-add-space">
             <Link to="/">

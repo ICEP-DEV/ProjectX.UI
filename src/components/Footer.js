@@ -5,7 +5,7 @@ import logo from '../images/aslogo.png';
 
 const Footer = () => {
     return (
-        <footer className="site-footer">
+        <footer className="site-footer ss">
             <div className="container22">
                 <div className="row footer-row">
                     <div className="col-lg-3 col-12 mb-4 pb-2">
@@ -13,7 +13,7 @@ const Footer = () => {
                             <img 
                                 src={logo} 
                                 alt="Logo"
-                                style={{ width: '110px', height: '110px' }} 
+                                style={{ width: '105px', height: '105px' }} 
                                 className="graduation-icon"
                             />
                         </Link>
@@ -24,13 +24,13 @@ const Footer = () => {
                         <h6 className="site-footer-title mb-3">Quick Links</h6>
                         <ul className="site-footer-links">
                             <li className="site-footer-link-item">
-                                <Link to="#section_2" className="site-footer-linkf">About Us</Link>
+                                <Link to="/logged#section_2" className="site-footer-linkf">About Us</Link>
                             </li>
                             <li className="site-footer-link-item">
                                 <Link to="/donate" className="site-footer-linkf">Donate</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <Link to="#section_4" className="site-footer-linkf">FAQs</Link>
+                                <Link to="/logged#section_4" className="site-footer-linkf">FAQs</Link>
                             </li>
                         </ul>
                     </div>
