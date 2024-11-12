@@ -1,4 +1,3 @@
-
 /*---------------------------------------
   TOPICS              
 -----------------------------------------*/
@@ -203,6 +202,7 @@ blockquote {
   color: gray !important;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  margin-left: -10px;
 }
 
 .explore-section .sub-description {
@@ -367,7 +367,7 @@ blockquote {
   }
 
 /* Style for calendar day tiles */
-.react-calendar__month-view__days__day {
+.react-calendar_month-viewdays_day {
     border: 1px solid #999;
     box-shadow: 20px 15px 20px 30px rgba(196, 194, 194, 0.1);
     border-radius: 5px;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
 
@@ -13,6 +13,14 @@ function NavbarLogged() {
   const [iconPosition, setIconPosition] = useState(0);
   const location = useLocation();
   const textRef = useRef(null);
+  // const navigate = useNavigate();
+   // Scroll to the specified section
+   const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
@@ -116,6 +124,10 @@ function NavbarLogged() {
     { label: 'Contact Us', section: 'section_5' },
   ];
 
+  // const handleEventsClick = () => {
+  //   navigate('/news#section_2n'); // Navigate to the Events section
+  // };
+
   return (
     <Navbar id="navbarr" className="navbarr navbar-expand-lg navbar-light homepage-bgg">
       <Container>
@@ -147,8 +159,20 @@ function NavbarLogged() {
               {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing">
             <NavDropdown.Item as={Link} to="/news#section_1n" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/news#section_2n" className={location.pathname === '/news' ? 'active' : ''}>Events</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/news#section_3n" className={location.pathname === '/news' ? 'active' : ''}>Magazine</NavDropdown.Item>
+           <NavDropdown.Item
+  href="#section_2n"
+  onClick={(e) => {
+    e.preventDefault();
+    const eventsSection = document.getElementById('section_2n');
+    if (eventsSection) {
+      eventsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }}
+  className={location.pathname === '/news' ? 'active' : ''}
+>
+  Events
+</NavDropdown.Item>
+
             </NavDropdown>
 
           {/* End News Dropdown */}
