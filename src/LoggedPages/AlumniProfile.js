@@ -1,33 +1,21 @@
-// AlumniProfile.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AlumniProfile.css';
 
-const AlumniProfile = ({ selectedAlumni, onClose }) => {
-  if (!selectedAlumni) return null; // Hide component if no alumni is selected
-
-  const { photo, name, surname, course, yearGraduated, faculty, studNum, email } = selectedAlumni;
+const AlumniProfile = ({ alumni, isVisible, onClose }) => {
+  if (!alumni) return null;
 
   return (
-    <div className="alumni-profile">
-      <h2>Alumni Profile</h2>
-      <div className="profile-overview">
-        <img src={photo} alt={`${name} ${surname}`} className="profile-photo" />
-        <div className="profile-info">
-          <p><strong>Name:</strong> {name}</p>
-          <p><strong>Surname:</strong> {surname}</p>
-          <p><strong>Faculty:</strong> {faculty || 'ICT'}</p>
-          <p><strong>StudNum:</strong> {studNum || '221190987'}</p>
-          <p><strong>Email:</strong> {email || 'example@gmail.com'}</p>
-          <p><strong>Course:</strong> {course}</p>
-          <div className="graduation-year">
-            <strong>Class of:</strong> 
-            {[...yearGraduated.toString()].map((digit, index) => (
-              <span key={index} className="year-digit">{digit}</span>
-            ))}
-          </div>
+    <div className={`alumni-modal ${isVisible ? 'fade-in' : 'fade-out'}`}>
+      <div className="alumni-modal-content">
+        <span className="close-icon" onClick={onClose}>&times;</span>
+        <img src={alumni.photo} alt={`${alumni.name} ${alumni.surname}`} className="alumni-modal-photo" />
+        <div className="alumni-modal-info">
+          <h2>{alumni.name} {alumni.surname}</h2>
+          <p><strong>Student Number:</strong> {alumni.stuno}</p>
+          <p><strong>Course:</strong> {alumni.course}</p>
+          <p><strong>Year Graduated:</strong> {alumni.yearGraduated}</p>
         </div>
       </div>
-      <button className="close-button" onClick={onClose}>Close</button>
     </div>
   );
 };
