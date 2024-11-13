@@ -1,3 +1,80 @@
+/* Your existing styles */
+
+/* New styles from Code 2 to create the wave effect */
+/* body.alumni-community-page {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgb(22, 43, 196) 68%, rgba(255,25,25,1) 98%);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+} */
+
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 0%;
+  }
+  50% {
+      background-position: 100% 100%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+      transform: translateX(1);
+  }
+
+  25% {
+      transform: translateX(-25%);
+  }
+
+  50% {
+      transform: translateX(-50%);
+  }
+
+  75% {
+      transform: translateX(-25%);
+  }
+
+  100% {
+      transform: translateX(1);
+  }
+}
+
+/* Add any other styles you need */
+
+
 .alumni-community { 
   display: flex;
   flex-direction: column;
@@ -5,6 +82,87 @@
   padding: 20px;
   width: 100%;
 }
+
+/* Modal Styling */
+.profilemodel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.profilemodel-container {
+  display: flex;
+  background: white;
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profilemodel-photo {
+  width: 40%;
+  padding: 20px;
+}
+
+.profilemodel-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.profilemodel-details {
+  width: 60%;
+  padding: 20px;
+}
+
+.profilemodel-details h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profilemodel-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.close-modal {
+  background: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.close-modal:hover {
+  background: #d32f2f;
+}
+
+
+/* AlumniCommunity.css */
+.alumni-community-page {
+  position: relative;
+}
+
+.alumni-community-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  background: #f0f0f0; /* Or the wave background styles */
+  z-index: -1; /* Ensure background is behind content */
+}
+
 
 .search-container {
   display: flex;
@@ -53,6 +211,14 @@
   transition: 0.5s;
   color: #ffab14;
   
+}
+
+.ac-hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 5%; /* Margin at the top to push the section slightly down */
 }
 
 .search-button {
@@ -251,8 +417,7 @@
   height: 230px; /* Set photo height */
   border-radius: 50%; /* Circular frame */
   object-fit: cover; /* Cover the area of the circular frame */
-  border: 5px solid #007bff; /* Optional: add border to photo */
-  
+  border: 5px solid #007bff; /* Optional: add border to photo */  
 }
 
 .modal-info {
@@ -348,9 +513,9 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 90%; /* Adjust width as needed */
+  width: 60%; /* Adjust width as needed */
   max-width: 800px; /* Maximum width for larger screens */
-  max-height: 80vh; /* Maximum height */
+  max-height: 60vh; /* Maximum height */
   overflow-y: auto; /* Scrollbar for overflow */
 }
 
@@ -394,11 +559,11 @@
 
 .modal-input.filled,
 .modal-select.filled {
-  border-color: #30ffec; /* Change border color when filled */
+  border-color: #F9A826; /* Change border color when filled */
 }
 
 .search-modal-button {
-  background-color: #30ffec;
+  background:  linear-gradient(15deg, #005596 0%, #ce1127 100%);
   color: white;
   border: none;
   padding: 10px;
@@ -407,7 +572,8 @@
 }
 
 .search-modal-button:hover {
-  background-color: #28a745;
+  background:  linear-gradient(15deg, #ce1127 0%, #005596 100%);
+  transition: 0.5s;
 }
 
 /* Animations */

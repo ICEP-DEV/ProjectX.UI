@@ -1,68 +1,53 @@
-/* AlumniProfile.css */
+.alumni-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
 
-.alumni-profile {
-    background-color: #3b0357;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .alumni-profile h2 {
-    text-align: left;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
-  
-  .profile-overview {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-right: 20px;
-    border: 2px solid #ffffff;
-  }
-  
-  .profile-info {
-    color: #ffffff;
-  }
-  
-  .profile-info p {
-    margin: 5px 0;
-  }
-  
-  .graduation-year {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .year-digit {
-    background-color: #f39c12;
-    color: #3b0357;
-    font-weight: bold;
-    margin: 0 2px;
-    padding: 5px 10px;
-    border-radius: 4px;
-  }
-  
-  .close-button {
-    background-color: #f39c12;
-    color: #3b0357;
-    font-weight: bold;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    display: block;
-  }
-  
+.alumni-modal.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.alumni-modal.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alumni-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.alumni-modal-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.alumni-modal-info {
+  font-size: 16px;
+}
