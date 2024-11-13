@@ -17,15 +17,13 @@ const Dashboard = () => {
         { title: 'Volunteers', value: 120 }
     ];
 
-    
-
     return (
         <Box display="flex">
             <NavbarLogged />
             <Sidebar />
             <Box flex="1" ml="200px" p={3}>
                 <TopCards data={cardData}/>
-                
+
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
                     <TrackAlumni />

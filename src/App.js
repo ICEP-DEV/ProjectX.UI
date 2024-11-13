@@ -30,6 +30,7 @@ import Jobs from './LoggedPages/Jobs';
 import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
+import UploadContent  from "./Admin/Upload";
 
 function App() {
   const location = useLocation();
@@ -68,6 +69,7 @@ function App() {
         <Route path="/jobs-humanities" element={<JobsHumanities/>} />
         <Route path="/science" element={<Science/>} />
         <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
+        <Route path="/upload" element={<UploadContent/>} />
       </Routes>
 
       {/* Footer */}

@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavbarLogged from './NavbarLogged';
 import { Box } from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
-import TopCards from '../Admin/TopCards'
+
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
@@ -36,7 +36,7 @@ const UserTable = () => {
                     Registered Alumni
                 </Typography>
             <Paper>
-                
+
                 <TableContainer>
                     <Table>
                     <TableHead>
