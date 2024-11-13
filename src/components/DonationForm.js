@@ -66,11 +66,11 @@ const DonationForm = () => {
       setSubmitError('Error submitting the form. Please try again later.');
     }
   };
-  
+
   return (
-    
+
     <div>
-      
+
       {/* Form Section */}
       <div className=' d-flex justify-content-center align-items-center'>
       <Container className="mt-2">
@@ -123,7 +123,7 @@ const DonationForm = () => {
                   />
                 </Form.Group>
 
-              
+
 
                 <Form.Group controlId="formEventOptions">
                   <Form.Label>Select Event/s</Form.Label>

@@ -18,7 +18,6 @@ const UpcomingEvents = ({ data = eventData }) => {
                 <Typography variant="h6" color="#003883" gutterBottom>
                     Upcoming Events
                 </Typography>
-                
                 <List>
                     {data.map((item, index) => (
                         <ListItem key={index}>
@@ -27,7 +26,7 @@ const UpcomingEvents = ({ data = eventData }) => {
                                     {item.icon}
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText 
+                            <ListItemText
                                 primary={item.name}
                                 secondary={item.date}
                             />
