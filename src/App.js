@@ -30,13 +30,14 @@ import Jobs from './LoggedPages/Jobs';
 import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
+import Events from './LoggedPages/Events';
 
 function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
   const showNavBar =  location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events';
 
   return (
     <div>
@@ -57,6 +58,7 @@ function App() {
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
         <Route path="/news" element={<News />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/economics" element={<Economics/>} />
