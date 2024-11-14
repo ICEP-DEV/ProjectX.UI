@@ -160,7 +160,11 @@ const AlumniCommunity = () => {
             <h2>{selectedAlumni.name} {selectedAlumni.surname}</h2>
             <p><strong>Course:</strong> {selectedAlumni.course}</p>
             <p><strong>Year Graduated:</strong> {selectedAlumni.yearGraduated}</p>
+            <p><strong>Student Number:</strong> {selectedAlumni.stuno}</p>            
             <p><strong>Student Number:</strong> {selectedAlumni.stuno}</p>
+            <p><strong>Faculty:</strong> ICT</p>
+            <p><strong>Campus:</strong> Soshanguve South</p>
+            <p><strong>Year Completed:</strong> 2025</p>
             <button onClick={closePModal} className="close-modal">Close</button>
           </div>
         </div>

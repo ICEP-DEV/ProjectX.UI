@@ -406,7 +406,7 @@ body {
   position: absolute; /* Fix positioning */
   z-index: 10;
   object-fit: cover;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 }
 
 /* Rotating animation */
@@ -421,10 +421,9 @@ body {
 
 /* Progress bar style */
 .progress-bar {
-  width: 100%;
-  margin: 50px 0;
+  width: 100%;  
   position: absolute;
-  bottom: 90px; /* Adjusted the vertical position */
+  bottom: 70px; /* Adjusted the vertical position */
   left: 50%;
   transform: translateX(-50%);  /* Center the progress bar */
   z-index: 10;
