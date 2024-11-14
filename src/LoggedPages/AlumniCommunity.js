@@ -151,25 +151,36 @@ const AlumniCommunity = () => {
       </div>
 
       {pModalVisible && selectedAlumni && (
-      <div className="profilemodel">
-        <div className="profilemodel-container">
-          <div className="profilemodel-photo">
-            <img src={selectedAlumni.photo} alt={`${selectedAlumni.name} ${selectedAlumni.surname}`} />
-          </div>
-          <div className="profilemodel-details">
-            <h2>{selectedAlumni.name} {selectedAlumni.surname}</h2>
-            <p><strong>Course:</strong> {selectedAlumni.course}</p>
-            <p><strong>Year Graduated:</strong> {selectedAlumni.yearGraduated}</p>
-            <p><strong>Student Number:</strong> {selectedAlumni.stuno}</p>            
-            <p><strong>Student Number:</strong> {selectedAlumni.stuno}</p>
-            <p><strong>Faculty:</strong> ICT</p>
-            <p><strong>Campus:</strong> Soshanguve South</p>
-            <p><strong>Year Completed:</strong> 2025</p>
-            <button onClick={closePModal} className="close-modal">Close</button>
+        <div className="profilemodel">
+          <div className="profilemodel-container">
+            <div className="profilemodel-photo">
+              <img src={selectedAlumni.photo} alt={`${selectedAlumni.name} ${selectedAlumni.surname}`} />
+              <p className="start-year">Began 
+                <span className="start-year-began">2</span>
+                <span className="start-year-began">0</span>
+                <span className="start-year-began">2</span>
+                <span className="start-year-began">1</span>
+              </p>
+
+              <a href="https://www.linkedin.com/in/tshiamo-matiza-3685a42a5" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin linked-in-icon"></i>
+              </a>
+            </div>
+            <div className="profilemodel-details">
+              <h2>{selectedAlumni.name} {selectedAlumni.surname}</h2>
+              <p><strong>Course:</strong> {selectedAlumni.course}</p>
+              <p><strong>Year Graduated:</strong> {selectedAlumni.yearGraduated}</p>
+              <p><strong>Student Number:</strong> {selectedAlumni.stuno}</p>            
+              <p><strong>Faculty:</strong> ICT</p>
+              <p><strong>Campus:</strong> Soshanguve South</p>
+              <p><strong>Year Completed:</strong> 2025</p>
+              <button onClick={closePModal} className="close-modal">Close</button>
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
+
+
 
       {modalVisible && (
         <div className={`modal ${modalAnimation}`}>
