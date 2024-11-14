@@ -132,10 +132,10 @@ function News() {
                     {magazines.map((item, idx) => (
                       <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
                         <div className="custom-block bg-white shadow-lg">
-                          <a href={item.link} target="_blank" rel="noopener noreferrer" className='magimg'>
+                          <a href={item.link} target="_blank" rel="noopener noreferrer">
                             <div className="d-flex">
                               <div>
-                                <img src={item.img} alt={`Magazine edition ${item.badge}`} style={{ width: "280px", height: "350px", margin: "0 0 0 -10px" }} />
+                                <img src={item.img} alt={`Magazine edition ${item.badge}`} className='magimg'/>
                                 <p className="description-text mb-0">{item.description}</p>
                               </div>
                             </div>
