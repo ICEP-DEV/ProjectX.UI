@@ -14,7 +14,7 @@ const Volunteer = () => {
   };
 
   return (
-    <div>
+    <div className="volunteer-container">
       <div className="content">
         <div className="section ways-to-volunteer">
           <h3>Ways to volunteer:</h3>

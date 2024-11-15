@@ -406,6 +406,7 @@ body {
   position: absolute; /* Fix positioning */
   z-index: 10;
   object-fit: cover;
+  margin-bottom: 90px;
 }
 
 /* Rotating animation */
@@ -420,10 +421,9 @@ body {
 
 /* Progress bar style */
 .progress-bar {
-  width: 80%;
-  height: 5px;
+  width: 100%;  
   position: absolute;
-  bottom: 90px; /* Adjusted the vertical position */
+  bottom: 70px; /* Adjusted the vertical position */
   left: 50%;
   transform: translateX(-50%);  /* Center the progress bar */
   z-index: 10;
@@ -451,6 +451,29 @@ body {
   cursor: pointer;
   color: white;
 }
+
+.time-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.current-time,
+.duration {
+  color: #ffffff;
+}
+
+
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 /* Button spacing */
 .controls-container ion-icon {
@@ -520,6 +543,7 @@ body {
 .tranding-slide-text br {
   line-height: 1.6; /* Ensures breaks don't disrupt text flow */
 }
+
 
 
 
