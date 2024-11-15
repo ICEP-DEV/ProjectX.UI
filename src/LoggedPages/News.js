@@ -11,6 +11,7 @@ import news4 from '../images/news4.jpg';
 import mag1 from '../images/mag1.jpg';
 import mag2 from '../images/mag2.jpg';
 import mag3 from '../images/mag3.jpg';
+import mag4 from '../images/mag4.jpg';
 
 function News() {
   const navigate = useNavigate();
@@ -65,6 +66,13 @@ function News() {
       img: mag3,
       link: "https://heitatut.co.za/Vol16no4/#page=1",
     },
+    {
+      description: "At TUT, embracing diversity means valuing and respecting the unique identities, cultures, and perspectives that shape our vibrant community. It’s about creating a space where everyone feels seen, heard, and empowered to contribute",
+      badge: "4",
+      img: mag4,
+      link: "https://heitatut.co.za/Vol16no6/#page=1",
+    },
+    
   ];
 
   return (
@@ -100,7 +108,7 @@ function News() {
           </div>
         </div>
 
-        <div className="container">
+         <div className="container">
           <div className="row">
             <div className="col-12">
               <div className="tab-content" id="myTabContent">
@@ -149,7 +157,7 @@ function News() {
               </div>
             </div>
           </div>
-        </div>
+        </div> 
      
 
       <Footer />
