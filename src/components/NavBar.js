@@ -90,7 +90,7 @@ function NavBar() {
               Contact Us
             </ScrollLink>
             <a
-              href="https://tut.devman.co.za/Devman/online/giving/"
+              href="/donate"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link mx-3 donate-pulse"

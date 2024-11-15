@@ -1,5 +1,6 @@
 // Dashboard.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Box ,Grid} from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
 import TopCards from '../Admin/TopCards';
@@ -10,19 +11,39 @@ import PerFaculty from './PerFaculty';
 import TrackAlumni from './TrackAlumni';
 
 const Dashboard = () => {
-    const cardData = [
-        { title: 'Registered Alumni', value: 1200 },
-        { title: 'Donors', value: 80 },
-        { title: 'Attendees', value: '45K' },
-        { title: 'Volunteers', value: 120 }
-    ];
+    const [cardData, setCardData] = useState([
+        { title: 'Registered Alumni', value: 0 },
+        { title: 'Donors', value: 0 },
+        { title: 'Attendees', value: 0},
+        { title: 'Volunteers', value: 0 }
+      ]);
+
+      useEffect(() => {
+        const fetchAlumniCount = async () => {
+          try {
+            const response = await axios.get('http://localhost:5214/api/Admin/CountAlumni/CountAlumni');
+            const alumniCount = response.data;
+            console.log(alumniCount);
+            // Update the cardData array with the fetched alumni count
+            setCardData((prevCardData) =>
+              prevCardData.map((card) =>
+                card.title === 'Registered Alumni' ? { ...card, value: alumniCount } : card
+              )
+            );
+          } catch (error) {
+            console.error('Error fetching alumni count:', error);
+          }
+        };
+    
+        fetchAlumniCount();
+      }, []);
 
     return (
         <Box display="flex">
             <NavbarLogged />
             <Sidebar />
             <Box flex="1" ml="200px" p={3}>
-                <TopCards data={cardData}/>
+                <TopCards data={cardData} />
 
                 <Grid container spacing={3}>
                     <Grid item xs={6}>

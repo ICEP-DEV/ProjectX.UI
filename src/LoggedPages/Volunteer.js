@@ -14,7 +14,8 @@ const Volunteer = () => {
   };
 
   return (
-    <div>
+   
+     <div className="volunteer-container">
       <div className="content">
         <div className="section ways-to-volunteer">
           <h3>Ways to volunteer:</h3>
@@ -36,6 +37,7 @@ const Volunteer = () => {
               <label htmlFor="mc">Be an MC</label>
             </li>
           </ul>
+          
           <button className="volunteer-btn" onClick={handleButtonClick}>Volunteer Now</button>
         </div>
 
@@ -49,6 +51,7 @@ const Volunteer = () => {
             </li>
           </ul>
         </div>
+        
 
         {showPopup && (
           <div className="popup">
@@ -58,9 +61,12 @@ const Volunteer = () => {
             </div>
           </div>
         )}
+
       </div>
-      <Footer />
+      <Footer/>
     </div>
+    
+   
   );
 };
 

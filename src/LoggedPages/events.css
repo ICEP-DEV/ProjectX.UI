@@ -110,18 +110,20 @@
     background-color: #004c99;
 }
 
-/* Calendar CSS */
-
-/* Adjust calendar container to fit smaller screens and center */
+/* Calendar container */
 .calendar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
-  padding: 10px; /* Decreased padding */
+  color: #fff;
+  padding: 10px;
   border-radius: 10px;
-  max-width: 90%; /* Ensure it fits well on various screens */
-  margin: 0 auto;
+  margin: 20px auto;
+  max-width: 90%;
+}
+
+.calendar-container h2 {
+  color: #000;
 }
 
 .calendar-content {
@@ -130,68 +132,54 @@
   justify-content: center;
 }
 
-/* Change calendar heading color to white */
-.calendar-container h2 {
-  color: black; /* Ensure h2 inside .calendar-container is white */
-}
-
-/* Increased height and width for the calendar */
+/* Calendar styling */
 .react-calendar {
-    border: 1px solid #999;
-    box-shadow: 10px 10px 20px rgba(88, 86, 86, 0.1);
-    font-family: Arial, sans-serif;
-    background: white;
-    border-radius: 10px;
-    padding: 10px; /* Decreased padding */
-    color: black;
-    width: 100%; /* Full width of the parent container */
-    max-width: 700px; /* Adjusted width */
-    height: 450px; /* Reduced fixed height */
-  }
-
-/* Style for calendar day tiles */
-.react-calendar_month-viewdays_day {
-    border: 1px solid #999;
-    box-shadow: 20px 15px 20px 30px rgba(196, 194, 194, 0.1);
-    border-radius: 5px;
-  width: 60px; /* Increased width of day tiles */
-  height: 60px; /* Increased height of day tiles */
-  display: flex; /* Use flexbox for centering content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  border: 1px solid #999;
+  box-shadow: 10px 10px 20px rgba(88, 86, 86, 0.1);
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 1200px;
+  width: 100%;
 }
 
-/* Keep the active tile color */
+.react-calendar__tile {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
 .react-calendar__tile--active {
-background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
-color: white !important;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
+  color: #fff !important;
 }
 
-/* Style for event dot */
+/* Event dot indicator */
 .event-dot {
   width: 6px;
   height: 6px;
   background-color: #fdb913;
   border-radius: 50%;
-  margin: auto;
   position: relative;
   top: 3px;
 }
 
-/* Style for event tooltip */
+/* Tooltip for events */
 .event-tooltip {
   position: absolute;
   bottom: -10px;
   background: #333;
-  color: white;
+  color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.9rem;
-  white-space: nowrap;
 }
 
-/* Pop up css */
-.popup { 
+/* Popup styling */
+.popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -201,13 +189,39 @@ color: white !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's on top */
+  z-index: 1000;
 }
 
 .popup-content {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  width: 300px; /* Set a fixed width for the popup */
+  width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .react-calendar__tile {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+  }
+
+  .header h1 {
+      font-size: 1.5rem;
+  }
+
+  .event-card {
+      width: 280px;
+      height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .react-calendar__tile {
+      width: 40px;
+      height: 40px;
+      font-size: 0.9rem;
+  }
 }

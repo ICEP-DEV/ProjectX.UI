@@ -54,7 +54,7 @@ const PasswordReset = () => {
       };
       try {
         console.log(data);
-        const response = await axios.post(`http://localhost:5214/api/Alumnus/ResetPassword/ResetPassword`, data);
+        const response = await axios.put(`http://localhost:5214/api/Alumnus/ResetPassword/ResetPassword`, data);
         alert("Password reset was successful!");
 
         setEmail('');
