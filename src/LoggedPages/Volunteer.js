@@ -20,7 +20,8 @@ const Volunteer = () => {
   };
 
   return (
-    <div className="volunteer-container">
+   
+     <div className="volunteer-container">
       <div className="content">
         <div className="section ways-to-volunteer">
           <h3>Volunteer for a role:</h3>
@@ -38,6 +39,7 @@ const Volunteer = () => {
               </li>
             ))}
           </ul>
+          
           <button className="volunteer-btn" onClick={handleButtonClick}>Volunteer Now</button>
         </div>
 
@@ -49,6 +51,7 @@ const Volunteer = () => {
             <li>Publicity highlighting your commitment to community impact.</li>
           </ul>
         </div>
+        
 
         {showPopup && (
           <div className="popup">
@@ -58,9 +61,12 @@ const Volunteer = () => {
             </div>
           </div>
         )}
+
       </div>
-      <Footer />
+      <Footer/>
     </div>
+    
+   
   );
 };
 
