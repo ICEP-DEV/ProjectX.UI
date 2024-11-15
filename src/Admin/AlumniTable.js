@@ -73,7 +73,7 @@ const UserTable = () => {
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[5, 10, 20]}
+                    rowsPerPageOptions={[10, 20, 30]}
                     component="div"
                     count={users.length}
                     rowsPerPage={rowsPerPage}

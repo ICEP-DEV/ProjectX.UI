@@ -31,6 +31,7 @@ import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import UploadContent  from "./Admin/Upload";
+import UploadEvents  from "./Admin/UploadEvents";
 
 function App() {
   const location = useLocation();
@@ -70,6 +71,7 @@ function App() {
         <Route path="/science" element={<Science/>} />
         <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
         <Route path="/upload" element={<UploadContent/>} />
+        <Route path="/uploadEvents" element={<UploadEvents/>} />
       </Routes>
 
       {/* Footer */}
