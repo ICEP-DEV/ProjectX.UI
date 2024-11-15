@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       textElement.innerHTML = `
         <b>${data.title}</b> - <b>${data.location} – ${data.date}</b><br><br>
         ${data.description}<br><br>
-        <b>${data.date} • ENGLISH • SOUTH AFRICA • COMEDY INTERVIEWS</b>
+        <b>${data.date} • ENGLISH • SOUTH AFRICA • RECORDINGS</b>
       `;
       slide.appendChild(textElement);
 
@@ -166,30 +166,57 @@ document.addEventListener("DOMContentLoaded", () => {
   // Slide data for Guest section
   const guestSlideData = [
     {
-      title: "Dr. Tshiamo Matiza’s 3rd Annual Legacy Lecture",
-      description: "On October 11, Dr. Tlou Cholo, renowned anti-apartheid activist, delivered his 3rd Annual Legacy Lecture...",
-      date: "11 October 2024",
-      location: "Freedom Park, Pretoria",
-      audioSrc: './radio podcast/Best of Oatile Jacob.mp3',
+      title: "Dr. Linda Mayer’s guidance for carrer success",
+      description: "On the Ground Breaker Show this past Wednesday, October 2nd, 2024, we took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
+      date: "2 October 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: './radio podcast/Dr Linda Meyer.mp3',
       imageSrc: './radio photos/op.png',
     },
         // Add data for other slides
         {
-          title: "Slide 2 Title",
-          description: "Description for Slide 2...",
-          date: "Date for Slide 2",
-          location: "Location for Slide 2",
-          audioSrc: './radio podcast/slide2-audio.mp3',
+          title: "Mrs Nokuthula Makhanya",
+          description: "Last night on the Ground Breaker Show, PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity, Nokuthula inspired listeners with her journey of resilience, adaptability, and a passion for workplaces.",
+          date: "5 October 2024",
+          location: "Pretoria, Soshanguve",
+          audioSrc: './radio podcast/Nokuthula Makhanya.mp3',
           imageSrc: './radio photos/slide2-img.png',
         },
 
             // Add data for other slides
     {
-      title: "Slide 3 Title",
-      description: "Description for Slide 3...",
-      date: "Date for Slide 3",
+      title: "Mr Oupa Segalwe",
+      description: "Earlier, you caught PLUG-A-GRADUATE with Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe, the Head of Communication and Stakeholder Relations at the South African Weather Service. Mr. Segalwe shared insights from his new book, Lucas Mangope: A Life – Unpacking the Biography and the Journey to Publication. An interesting fact: he previously worked for TUT FM between 2003 and 2004.",
+      date: "12 October 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: './radio podcast/Oupa Segalwe.mp3',
+      imageSrc: './radio photos/slide2-img.png',
+    },
+
+    {
+      title: "Mr Obakeng Aubrey Moeketsi",
+      description: "Earlier this month, listeners tuned in for a special live broadcast of the popular weekly show, Plug-A-Graduate, hosted by Obakeng Aubrey Moeketsi, straight from the Tshwane University of Technology Pretoria Campus on Friday, June 7th. On TUT FM 96.2, we brought you a dynamic event with industry experts and seasoned entrepreneurs, sharing practical skills and insights on how to achieve greatness.",
+      date: "03 November 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: './radio podcast/Obakeng Aubrey Moeketsi.m4a',
+      imageSrc: './radio photos/slide2-img.png',
+    },
+
+    {
+      title: "Mrs Reabetswe Dire",
+      description: "Ealier on today’s insightful episode of Plug-A-Graduate on the Ground Breaker Show, host Obakeng Mooketsi, also known as OBK, had the pleasure of welcoming Reabetswe Dire, the CEO of Edenvinne. They dove deep into how to transform your academic knowledge into a source of income. Whether you’re a fresh graduate or looking to leverage your qualifications for entrepreneurial success, this conversation was packed with actionable tips to guide you on your career journey.",
+      date: "19 November 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: './radio podcast/Rearabetswe Dire.mp3',
+      imageSrc: './radio photos/slide2-img.png',
+    },
+
+    {
+      title: "Mr Shalate Davhana",
+      description: "The show discussed how it became a game-changer for recent graduates, seasoned job seekers, and aspiring entrepreneurs navigating the competitive job market. In our pilot episode, we welcomed esteemed guests: Mrs. Kedibone Mahapa, TUT FM 96.2 Station Manager; Dr. Roelien Brink, Director of Cooperative Education; and Shalate, Manager of Alumni Relations and Fundraising.",
+      date: "15 November 2024",
       location: "Location for Slide 2",
-      audioSrc: './radio podcast/slide2-audio.mp3',
+      audioSrc: './radio podcast/Shalate Davhana.mp3',
       imageSrc: './radio photos/slide2-img.png',
     },
   ];

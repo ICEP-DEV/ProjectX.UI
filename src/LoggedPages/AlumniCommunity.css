@@ -131,7 +131,13 @@
   border-radius: 3px;
   margin: 0 1px; /* Optional: spacing between digits */
   font-size: 35px;
- 
+  cursor: pointer;
+}
+
+.start-year-began:hover
+{
+  padding: 4px 8px;
+  transition: 0.5s;
 }
 
 .start-year {
