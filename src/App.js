@@ -27,12 +27,13 @@ import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
 import Jobs from './LoggedPages/Jobs';
-import JobsHumanities from './LoggedPages/JobsHumanities';
+import JobsCategory from './LoggedPages/JobsCategory';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import Events from './LoggedPages/Events';
 import UploadContent  from "./Admin/Upload";
 import UploadEvents  from "./Admin/UploadEvents";
+import UploadJobs from './Admin/UploadJobs';
 
 function App() {
   const location = useLocation();
@@ -69,11 +70,12 @@ function App() {
         <Route path="/ict" element={<ICT/>} />
         <Route path="/management" element={<Management/>} />
         <Route path="/job" element={<Jobs/>} />
-        <Route path="/jobs-humanities" element={<JobsHumanities/>} />
+        <Route path="/jobs/:faculty" element={<JobsCategory />} />
         <Route path="/science" element={<Science/>} />
         <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
         <Route path="/upload" element={<UploadContent/>} />
         <Route path="/uploadEvents" element={<UploadEvents/>} />
+        <Route path="/jobs" element={<UploadJobs/>} />
       </Routes>
 
       {/* Footer */}

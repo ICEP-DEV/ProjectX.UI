@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import axios from 'axios';
 import NavbarLogged from './NavbarLogged';
-import { Box } from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
 import { Form, Button } from 'react-bootstrap';
+
 
 const UploadEvents = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     date: '',
-    time: '', 
+    time: '',
     venue: '',
-    link: '',
-    media: null
+    volunteerRoles: [''],
+    media: null,
+     // Initial volunteer role field
   });
 
   const [submitError, setSubmitError] = useState('');
@@ -44,6 +45,24 @@ const UploadEvents = () => {
     });
   };
 
+  // Handle volunteer roles change
+  const handleVolunteerRoleChange = (index, value) => {
+    const newRoles = [...formData.volunteerRoles];
+    newRoles[index] = value;
+    setFormData({ ...formData, volunteerRoles: newRoles });
+  };
+
+  // Add a new volunteer role field
+  const addVolunteerRole = () => {
+    setFormData({ ...formData, volunteerRoles: [...formData.volunteerRoles, ''] });
+  };
+
+  // Remove a volunteer role field
+  const removeVolunteerRole = (index) => {
+    const newRoles = formData.volunteerRoles.filter((_, i) => i !== index);
+    setFormData({ ...formData, volunteerRoles: newRoles });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -57,10 +76,11 @@ const UploadEvents = () => {
         title: '',
         description: '',
         date: '',
-        time: '', 
+        time: '',
         venue: '',
-        link: '',
-        media: null 
+        volunteerRoles: [''],
+        media: null
+        
       });
       setSubmitError('');
     } catch (error) {
@@ -78,8 +98,8 @@ const UploadEvents = () => {
           Upload Event
         </Typography>
         <Box display="flex" justifyContent="center" mt={8}>
-          <Card style={{ minWidth: 500, maxWidth: 600, minHeight: 530, maxHeight: 600 }}>
-            <CardContent>
+          <Card style={{ minWidth: 500, maxWidth: 600}}>
+            <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}> {/* Scrollable Content */}
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formName">
                   <Form.Label>Title</Form.Label>
@@ -135,17 +155,30 @@ const UploadEvents = () => {
                     required
                   />
                 </Form.Group>
-                
-                <Form.Group controlId="formLink">
-                  <Form.Label>Link (Optional)</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="link"
-                    value={formData.link}
-                    onChange={handleTextChange}
-                  />
-                </Form.Group>
 
+
+                <Form.Group controlId="formVolunteerRoles">
+                  <Form.Label>Volunteer Roles</Form.Label>
+                  {formData.volunteerRoles.map((role, index) => (
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+                      <Form.Control
+                        type="text"
+                        value={role}
+                        onChange={(e) => handleVolunteerRoleChange(index, e.target.value)}
+                        placeholder="Enter a role (e.g., waiter, camera operator)"
+                        required
+                      />
+                      {index > 0 && (
+                        <Button variant="danger" onClick={() => removeVolunteerRole(index)} style={{ marginLeft: '8px' }}>
+                          Remove
+                        </Button>
+                      )}
+                    </div>
+                  ))}
+                  <Button variant="secondary" onClick={addVolunteerRole} className="mt-2">
+                    Add Another Role
+                  </Button>
+                </Form.Group>
                 <Form.Group controlId="formMedia">
                   <Form.Label>Media</Form.Label>
                   <Form.Control
@@ -157,8 +190,10 @@ const UploadEvents = () => {
                   />
                 </Form.Group>
 
+                
+
                 <Button variant="primary" type="submit" className="mt-3">
-                  Submit
+                  Upload
                 </Button>
               </Form>
             </CardContent>

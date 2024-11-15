@@ -140,6 +140,42 @@ const UploadContent = () => {
                         </CardContent>
                     </Card>
                 </Grid>
+                <Grid item xs={4}>
+                    <Card style={{ maxWidth: 400,  marginLeft: '30px',height:300 }}>
+                        <CardContent>
+                            <Typography variant="h6" color="#003883" gutterBottom>
+                                Magazines
+                            </Typography>
+                            <List> 
+                                <ListItem >
+                                    <ListItemIcon>
+                                        <CheckBoxRounded/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={'Text'} 
+                                    />
+                                </ListItem>
+                                <ListItem >
+                                    <ListItemIcon>
+                                        <CheckBoxRounded/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={'Images'} 
+                                    />
+                                </ListItem>
+                                <ListItem >
+                                    <ListItemIcon>
+                                        <CheckBoxRounded/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={'mp3,mp4'} 
+                                    />
+                                </ListItem>
+                            </List>
+                            <Button style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color:"#fff" }}>Upload</Button>
+                        </CardContent>
+                    </Card>
+                </Grid>
 
             </Grid>
             </Box>
