@@ -53,6 +53,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/ConfirmProfile" element={<ConfirmProfile />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/donateUnLogged" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />} />
         <Route path="/logged" element={<Logged />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
