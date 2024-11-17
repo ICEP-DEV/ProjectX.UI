@@ -40,7 +40,7 @@ function App() {
 
   // Define paths for displaying NavBar and NavbarLogged
   const showNavBar =  location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage';
 
   return (
     <div>

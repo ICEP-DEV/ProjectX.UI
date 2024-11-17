@@ -1,26 +1,96 @@
-var TrandingSlider = new Swiper('.tranding-slider', {
-  effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  loop: true,
-  slidesPerView: 'auto',
-  coverflowEffect: {
-    rotate: 0,
-    stretch: 0,
-    depth: 100,
-    modifier: 2.5,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize Cards with Video and Play Button
+  const cards = document.querySelectorAll('.card');
 
-document.addEventListener("DOMContentLoaded", () => {
+  cards.forEach(card => {
+    // Add the video
+    const video = document.createElement('video');
+    video.src = './radio photos/Short Video.mp4';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.position = 'absolute';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.objectFit = 'cover';
+    video.style.zIndex = '1';
+    video.style.display = 'none'; // initially hide the video
+    card.appendChild(video);
+
+    let hoverTimeout;
+
+    // Play the video on hover with a delay
+    card.addEventListener('mouseenter', () => {
+      hoverTimeout = setTimeout(() => {
+        video.style.display = 'block'; // Show the video
+        video.play(); // Play the video
+      }, 2000); // 2-second delay
+    });
+
+    // Pause the video, hide it, and clear the delay when hover ends
+    card.addEventListener('mouseleave', () => {
+      clearTimeout(hoverTimeout); // Cancel the timeout if it hasn't executed yet
+      video.style.display = 'none'; // Hide the video
+      video.pause(); // Pause the video
+      video.currentTime = 0; // Reset to the beginning
+    });
+
+    // Add the play button
+    const playButton = document.createElement('div');
+    playButton.style.position = 'absolute';
+    playButton.style.bottom = '10px';
+    playButton.style.right = '10px';
+    playButton.style.width = '50px';
+    playButton.style.height = '50px';
+    playButton.style.borderRadius = '50%';
+    playButton.style.background = 'linear-gradient(to bottom, #005596, #ce1127)';
+    playButton.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+    playButton.style.display = 'flex';
+    playButton.style.justifyContent = 'center';
+    playButton.style.alignItems = 'center';
+    playButton.style.cursor = 'pointer';
+    playButton.style.zIndex = '2';
+
+    // Add the play icon
+    const playIcon = document.createElement('i');
+    playIcon.style.width = '0';
+    playIcon.style.height = '0';
+    playIcon.style.borderLeft = '15px solid white';
+    playIcon.style.borderTop = '10px solid transparent';
+    playIcon.style.borderBottom = '10px solid transparent';
+    playButton.appendChild(playIcon);
+
+    // Add redirection functionality
+    playButton.addEventListener('click', () => {
+      window.location.href = 'https://www.youtube.com/watch?v=csquC7HfazE'; // Replace with the desired URL
+    });
+
+    card.appendChild(playButton);
+  });
+
+  // Initialize Swiper for Tranding Slider
+  var TrandingSlider = new Swiper('.tranding-slider', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2.5,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+
+  // Initialize Slides for Tranding Slider
   function initializeSlides(sectionId, slideData) {
     const section = document.querySelector(`#${sectionId}`);
     const slides = section.querySelectorAll('.swiper-slide.tranding-slide');
@@ -171,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "2 October 2024",
       location: "Pretoria, Soshanguve",
       audioSrc: './radio podcast/Dr Linda Meyer.mp3',
-      imageSrc: './radio photos/op.png',
+      imageSrc: './radio photos/fm logo.png',
     },
         // Add data for other slides
         {
@@ -180,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
           date: "5 October 2024",
           location: "Pretoria, Soshanguve",
           audioSrc: './radio podcast/Nokuthula Makhanya.mp3',
-          imageSrc: './radio photos/slide2-img.png',
+          imageSrc: './radio photos/fm logo.png',
         },
 
             // Add data for other slides
@@ -190,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "12 October 2024",
       location: "Pretoria, Soshanguve",
       audioSrc: './radio podcast/Oupa Segalwe.mp3',
-      imageSrc: './radio photos/slide2-img.png',
+      imageSrc: './radio photos/fm logo.png',
     },
 
     {
@@ -199,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "03 November 2024",
       location: "Pretoria, Soshanguve",
       audioSrc: './radio podcast/Obakeng Aubrey Moeketsi.m4a',
-      imageSrc: './radio photos/slide2-img.png',
+      imageSrc: './radio photos/fm logo.png',
     },
 
     {
@@ -208,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "19 November 2024",
       location: "Pretoria, Soshanguve",
       audioSrc: './radio podcast/Rearabetswe Dire.mp3',
-      imageSrc: './radio photos/slide2-img.png',
+      imageSrc: './radio photos/fm logo.png',
     },
 
     {
@@ -217,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "15 November 2024",
       location: "Location for Slide 2",
       audioSrc: './radio podcast/Shalate Davhana.mp3',
-      imageSrc: './radio photos/slide2-img.png',
+      imageSrc: './radio photos/fm logo.png',
     },
   ];
 
@@ -229,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "15 September 2024",
       location: "TUT Campus Auditorium",
       audioSrc: './radio podcast/alumni-audio.mp3',
-      imageSrc: './radio photos/alumni-img.png',
+      imageSrc: './radio photos/fm logo.png',
     },
         // Add data for other slides
         {
@@ -238,10 +308,13 @@ document.addEventListener("DOMContentLoaded", () => {
           date: "Date for Slide 2",
           location: "Location for Slide 2",
           audioSrc: './radio podcast/slide2-audio.mp3',
-          imageSrc: './radio photos/slide2-img.png',
+          imageSrc: './radio photos/fm logo.png',
         },
   ];
 
   initializeSlides("tranding", guestSlideData);   // Guest section
   initializeSlides("alumni", alumniSlideData);    // Alumni section
+
+  
 });
+
