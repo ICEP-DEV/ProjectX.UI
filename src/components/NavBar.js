@@ -22,7 +22,7 @@ function NavBar() {
   }, []);
 
   const handleDonateNavigation = () => {
-    navigate('/donate');
+    navigate('/donateUnLogged');
     window.scrollTo(0, 0);
   };
 
@@ -90,7 +90,7 @@ function NavBar() {
               Contact Us
             </ScrollLink>
             <a
-              href="/DonateUnLogged"
+              href="/donateUnLogged"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link mx-3 donate-pulse"

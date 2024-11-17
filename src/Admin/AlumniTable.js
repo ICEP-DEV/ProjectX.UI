@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavbarLogged from './NavbarLogged';
 import { Box } from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
-import TopCards from '../Admin/TopCards'
+
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
@@ -36,7 +36,7 @@ const UserTable = () => {
                     Registered Alumni
                 </Typography>
             <Paper>
-                
+
                 <TableContainer>
                     <Table>
                     <TableHead>
@@ -73,7 +73,7 @@ const UserTable = () => {
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[5, 10, 20]}
+                    rowsPerPageOptions={[10, 20, 30]}
                     component="div"
                     count={users.length}
                     rowsPerPage={rowsPerPage}

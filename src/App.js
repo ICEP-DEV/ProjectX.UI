@@ -27,16 +27,20 @@ import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
 import Jobs from './LoggedPages/Jobs';
-import JobsHumanities from './LoggedPages/JobsHumanities';
+import JobsCategory from './LoggedPages/JobsCategory';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
+import Events from './LoggedPages/Events';
+import UploadContent  from "./Admin/Upload";
+import UploadEvents  from "./Admin/UploadEvents";
+import UploadJobs from './Admin/UploadJobs';
 
 function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
   const showNavBar =  location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events';
 
   return (
     <div>
@@ -58,6 +62,7 @@ function App() {
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
         <Route path="/news" element={<News />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/economics" element={<Economics/>} />
@@ -66,9 +71,12 @@ function App() {
         <Route path="/ict" element={<ICT/>} />
         <Route path="/management" element={<Management/>} />
         <Route path="/job" element={<Jobs/>} />
-        <Route path="/jobs-humanities" element={<JobsHumanities/>} />
+        <Route path="/jobs/:faculty" element={<JobsCategory />} />
         <Route path="/science" element={<Science/>} />
         <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
+        <Route path="/upload" element={<UploadContent/>} />
+        <Route path="/uploadEvents" element={<UploadEvents/>} />
+        <Route path="/jobs" element={<UploadJobs/>} />
       </Routes>
 
       {/* Footer */}

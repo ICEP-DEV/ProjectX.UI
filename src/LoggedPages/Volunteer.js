@@ -1,12 +1,18 @@
 import React, { useState } from 'react'; 
 import './volunteer.css';
 import Footer from '../components/Footer';
+import { useLocation } from 'react-router-dom';
 
 const Volunteer = () => {
+  const { state } = useLocation();
+  const roles = state?.roles || [];
   const [showPopup, setShowPopup] = useState(false);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   const handleButtonClick = () => {
-    setShowPopup(true); // Show the popup when the button is clicked
+    if (selectedRole) {
+      setShowPopup(true); // Show the popup when the button is clicked
+    }
   };
 
   const handleClosePopup = () => {
@@ -14,28 +20,26 @@ const Volunteer = () => {
   };
 
   return (
-    <div>
+   
+     <div className="volunteer-container">
       <div className="content">
         <div className="section ways-to-volunteer">
-          <h3>Ways to volunteer:</h3>
+          <h3>Volunteer for a role:</h3>
           <ul>
-            <li>
-              <input type="radio" name="volunteer" id="mentor" />
-              <label htmlFor="mentor">Be a mentor</label>
-            </li>
-            <li>
-              <input type="radio" name="volunteer" id="tutor" />
-              <label htmlFor="tutor">Be a tutor</label>
-            </li>
-            <li>
-              <input type="radio" name="volunteer" id="speaker" />
-              <label htmlFor="speaker">Be a motivational speaker</label>
-            </li>
-            <li>
-              <input type="radio" name="volunteer" id="mc" />
-              <label htmlFor="mc">Be an MC</label>
-            </li>
+            {roles.map((role, index) => (
+              <li key={index}>
+                <input
+                  type="radio"
+                  name="volunteer"
+                  id={role}
+                  value={role}
+                  onChange={() => setSelectedRole(role)}
+                />
+                <label htmlFor={role}>{role}</label>
+              </li>
+            ))}
           </ul>
+          
           <button className="volunteer-btn" onClick={handleButtonClick}>Volunteer Now</button>
         </div>
 
@@ -44,24 +48,27 @@ const Volunteer = () => {
           <ul>
             <li>Tax relief eligibility</li>
             <li>Recognition on the campaign webpage</li>
-            <li>
-              Publicity highlighting your company’s commitment to social responsibility and positive community impact through all the campaign communication platforms.
-            </li>
+            <li>Publicity highlighting your commitment to community impact.</li>
           </ul>
         </div>
+        
 
         {showPopup && (
           <div className="popup">
             <div className="popup-content">
-              <p>Thank you for choosing to volunteer! We will reach out to you soon.</p>
+              <p>Thank you for volunteering as a {selectedRole}! We will reach out to you soon.</p>
               <button onClick={handleClosePopup} className="close-popup-btn">Close</button>
             </div>
           </div>
         )}
+
       </div>
-      <Footer />
+      <Footer/>
     </div>
+    
+   
   );
 };
 
 export default Volunteer;
+

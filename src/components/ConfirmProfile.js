@@ -75,7 +75,7 @@ export default function ConfirmProfile() {
 
     try {
       console.log(data);
-      const response = await axios.post(
+      const response = await axios.put(
         `http://localhost:5214/api/Alumnus/UpdateProfile/UpdateProfile`,
         data
       );

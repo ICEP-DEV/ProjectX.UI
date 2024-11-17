@@ -4,6 +4,7 @@
   color: white;
   padding: 50px 0;
   position: relative;
+  margin-bottom: 50;
 }
 
 .overlay {
@@ -11,40 +12,27 @@
   padding: 30px;
 }
 
-.progress-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
-  color: white;
-}
 
-.step {
+.step{
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
 }
 
-.icon {
+.icon{
   font-size: 24px;
 }
 
-.progress-line {
-  height: 3px;
-  width: 100px;
-  background-color: #ffcc00; /* Progress line color */
-}
 
-.content {
+.content{
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   margin-top: 50px;
 }
 
-.section {
+.section{
   width: 40%;
 }
 
@@ -81,7 +69,7 @@ ul li input[type="radio"] {
   text-align: center;
   margin-top: 140px;
   margin-left: 600px;
-  margin-bottom: 40px;
+  margin-bottom: 120px;
 }
 
 .volunteer-btn:hover {
@@ -128,7 +116,7 @@ ul li input[type="radio"] {
 }
 
 
-/* Media query for smaller screens */
+/* Media query adjustments for smaller screens */
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
@@ -140,8 +128,19 @@ ul li input[type="radio"] {
     margin-bottom: 30px;
   }
 
-  .progress-bar {
-    flex-direction: column;
-    gap: 10px;
+  .volunteer-btn {
+    margin: 40px auto; /* Centered on smaller screens */
   }
+}
+
+/* Footer styling to ensure it's flush with the bottom */
+footer {
+  margin: 90;
+  padding: 0;
+  
+}
+
+body{
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

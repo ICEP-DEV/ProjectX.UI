@@ -33,7 +33,10 @@ const Jobs = () => {
             </div>
             <div className="col-md-3 text-center">
               <img src={image2} alt="Job 2" className="d-block w-100 portrait-image" />
-              <button className="btn btn-primary mt-2">ICT</button>
+              <Link to="/jobs/ICT">
+                <button className="btn btn-primary mt-2">ICT</button>
+              </Link>
+
             </div>
             <div className="col-md-3 text-center">
               <img src={image3} alt="Job 3" className="d-block w-100 portrait-image" />
