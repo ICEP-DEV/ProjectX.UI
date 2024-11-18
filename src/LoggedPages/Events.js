@@ -1,48 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Calendar } from 'react-calendar';
 import './events.css';
+import axios from 'axios';
 
-import image1 from '../images/image1.jpg';
-import image2 from '../images/image2.jpg';
-import image3 from '../images/image3.jpg';
-import image4 from '../images/image4.jpeg';
 import Footer from '../components/Footer';
-
-const eventsData = [
-  {
-    img: image1,
-    title: "Gala Dinner",
-    description: "The TUT Gala Dinner is a prestigious event celebrating academic excellence.",
-    time: "6:00 AM",
-    venue: "Main Hall, TUT",
-    date: new Date('2024-11-04'),
-  },
-  {
-    img: image2,
-    title: "ICT Academic Awards",
-    description: "The TUT ICT Academic Awards celebrate outstanding achievements.",
-    time: "5:00 PM",
-    venue: "Auditorium, TUT",
-    date: new Date('2024-11-15'),
-  },
-  {
-    img: image3,
-    title: "Humanities Orientation",
-    description: "The TUT Humanities First-Year Orientation welcomes new students.",
-    time: "9:00 AM",
-    venue: "Lecture Hall 1, TUT",
-    date: new Date('2024-11-20'),
-  },
-  {
-    img: image4,
-    title: "TUT Sports Awards",
-    description: "The TUT Choir showcases a diverse repertoire.",
-    time: "7:00 PM",
-    venue: "Sports Complex, TUT",
-    date: new Date('2024-11-30'),
-  }
-];
 
 function Events() {
   const navigate = useNavigate();
@@ -50,14 +12,28 @@ function Events() {
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [popupEvent, setPopupEvent] = useState(null);
   const calendarRef = useRef(null);
+  const [eventsData, setEvents] = useState([]);
+
+  // Fetch events on component mount
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("http://localhost:5214/api/Alumnus/GetEvent/GetEvents");
+        setEvents(response.data);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
+    };
+    fetchEvents();
+  }, []);
 
   const handleDayClick = (date) => {
-    const event = eventsData.find(event => event.date.toDateString() === date.toDateString());
+    const event = eventsData.find(event => new Date(event.date).toDateString() === date.toDateString());
     setPopupEvent(event || null);
   };
 
   const handleDayHover = (date) => {
-    const event = eventsData.find(event => event.date.toDateString() === date.toDateString());
+    const event = eventsData.find(event => new Date(event.date).toDateString() === date.toDateString());
     setHoveredEvent(event ? event.title : null);
   };
 
@@ -66,7 +42,7 @@ function Events() {
   };
 
   const tileContent = ({ date, view }) => {
-    const hasEvent = eventsData.some(event => event.date.toDateString() === date.toDateString());
+    const hasEvent = eventsData.some(event => new Date(event.date).toDateString() === date.toDateString());
     return view === 'month' && hasEvent ? <div className="event-dot" /> : null;
   };
 
@@ -77,9 +53,10 @@ function Events() {
     }
   };
 
-  const handleVolunteerClick = () => {
-    navigate('/volunteer');
+  const handleVolunteerClick = (roles) => {
+    navigate('/volunteer', { state: { roles } });
   };
+  
 
   return (
     <div>
@@ -90,12 +67,13 @@ function Events() {
         <div className="carousel">
           {eventsData.map((event, index) => (
             <div className="event-card" key={index}>
-              <img src={event.img} alt={event.title} />
+              <img src={`data:image/jpeg;base64,${event.media}`} alt="Event Media" />
               <h3>{event.title}</h3>
               <p>{event.description}</p>
               <div className="buttons">
                 <button className="rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
-                <button className="volunteer-button" onClick={handleVolunteerClick}>Volunteer</button>
+                <button className="volunteer-button" onClick={() => handleVolunteerClick(event.volunteerRoles)}>Volunteer</button>
+
               </div>
             </div>
           ))}
@@ -131,10 +109,9 @@ function Events() {
             </div>
           </div>
         )}
-        </div>
-        <Footer/>
       </div>
-   
+      <Footer/>
+    </div>
   );
 }
 
