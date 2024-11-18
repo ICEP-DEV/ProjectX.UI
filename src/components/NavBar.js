@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link as ScrollLink } from 'react-scroll';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import '../LoggedPages/navbarLog.css';
 import tutLogo from '../images/tut logo.png';
@@ -10,7 +9,6 @@ function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState('home'); // State for active tab
-  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,20 +19,20 @@ function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleDonateNavigation = () => {
-    navigate('/donate');
-    window.scrollTo(0, 0);
+  const handleTabClick = (tabName, section) => {
+    setActiveTab(tabName);
+    if (window.location.pathname !== '/') {
+      navigate('/');
+    }
+    setTimeout(() => {
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100); // Delay to ensure the navigation has completed
   };
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
-
-  // Function to set the active tab
-  const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
-  };
 
   return (
     <Navbar
@@ -43,54 +41,38 @@ function NavBar() {
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
-        <Navbar.Brand href="#section_1">
+        <Navbar.Brand onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto nav-links">
-            <ScrollLink 
-              to="section_1" 
-              smooth={true} 
-              duration={200} 
-              offset={-100} 
-              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('home')}
+            <span
+              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`}
+              onClick={() => handleTabClick('home', 'section_1')}
             >
               Home
-            </ScrollLink>
-            <ScrollLink 
-              to="section_2" 
-              smooth={true} 
-              duration={200} 
-              offset={-50} 
-              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('about')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+              onClick={() => handleTabClick('about', 'section_2')}
             >
               What Is Alumni Space?
-            </ScrollLink>
-            <ScrollLink 
-              to="section_4" 
-              smooth={true} 
-              duration={200} 
-              offset={-50} 
-              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('faqs')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
               FAQs
-            </ScrollLink>
-            <ScrollLink 
-              to="section_5" 
-              smooth={true} 
-              duration={200} 
-              offset={-70} 
-              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('contact')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
+              onClick={() => handleTabClick('contact', 'section_5')}
             >
               Contact Us
-            </ScrollLink>
+            </span>
             <a
-              href="/donate"
+              href="/donateUnLogged"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-link mx-3 donate-pulse"

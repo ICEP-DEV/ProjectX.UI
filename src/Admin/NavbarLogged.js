@@ -12,7 +12,7 @@ function NavbarLogged() {
   const fadeDuration = 1000;
   const texts = [
     { text: 'Welcome back', duration: 5000 },
-    { text: 'Mr. Maluleke', duration: 5000 },
+    { text: 'Mr. Chauke', duration: 5000 },
     { text: 'Logout', duration: 10000 },
   ];
 
