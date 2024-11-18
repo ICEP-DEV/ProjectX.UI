@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './App.css'; 
