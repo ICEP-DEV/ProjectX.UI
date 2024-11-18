@@ -21,20 +21,33 @@ function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleDonateNavigation = () => {
-    navigate('/donateUnLogged');
-    window.scrollTo(0, 0);
-  };
-
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  // Function to set the active tab
-  const handleTabClick = (tabName) => {
+  // Function to handle tab navigation
+  const handleTabClick = (tabName, sectionId) => {
     setActiveTab(tabName);
+
+    // If not on the homepage, navigate first
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200); // Ensure smooth scroll after navigation
+    } else {
+      // If on the homepage, scroll directly
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
+
+  // Detect active tab based on location
+  useEffect(() => {
+    if (location.pathname === '/donateUnLogged') {
+      setActiveTab('donate');
+    }
+  }, [location.pathname]);
 
   return (
     <Navbar
@@ -43,60 +56,43 @@ function NavBar() {
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
-        <Navbar.Brand href="#section_1">
+        <Navbar.Brand onClick={() => handleTabClick('home', 'section_1')} style={{ cursor: 'pointer' }}>
           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" />
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto nav-links">
-            <ScrollLink 
-              to="section_1" 
-              smooth={true} 
-              duration={200} 
-              offset={-100} 
-              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('home')}
+            <span
+              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`}
+              onClick={() => handleTabClick('home', 'section_1')}
             >
               Home
-            </ScrollLink>
-            <ScrollLink 
-              to="section_2" 
-              smooth={true} 
-              duration={200} 
-              offset={-50} 
-              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('about')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+              onClick={() => handleTabClick('about', 'section_2')}
             >
               What Is Alumni Space?
-            </ScrollLink>
-            <ScrollLink 
-              to="section_4" 
-              smooth={true} 
-              duration={200} 
-              offset={-50} 
-              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('faqs')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
               FAQs
-            </ScrollLink>
-            <ScrollLink 
-              to="section_5" 
-              smooth={true} 
-              duration={200} 
-              offset={-70} 
-              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`} 
-              onClick={() => handleTabClick('contact')}
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
+              onClick={() => handleTabClick('contact', 'section_5')}
             >
               Contact Us
-            </ScrollLink>
-            <a
-              href="/donateUnLogged"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link mx-3 donate-pulse"
+            </span>
+            <Link
+              to="/donateUnLogged"
+              className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
+              onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>
-            </a>
+            </Link>
           </Nav>
 
           <div className="d-none d-lg-block">

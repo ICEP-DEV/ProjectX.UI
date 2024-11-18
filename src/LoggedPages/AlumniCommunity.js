@@ -20,6 +20,9 @@ const AlumniCommunity = () => {
   const [linkedinModalVisible, setLinkedinModalVisible] = useState(false);
 
 
+    // New state for the LinkedIn click and image display
+    const [imageVisible, setImageVisible] = useState(false);
+
   // Function to open the modal and set the selected alumnus
   const openModal = (alumni) => {
     setSelectedAlumni(alumni);
