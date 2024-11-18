@@ -162,7 +162,6 @@ function NavbarLogged() {
             </NavDropdown>
 
           {/* End News Dropdown */}
-
            
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
