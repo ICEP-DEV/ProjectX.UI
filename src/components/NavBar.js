@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; // Added useLocation
 import './navbar.css';
 import '../LoggedPages/navbarLog.css';
 import tutLogo from '../images/tut logo.png';
@@ -8,8 +8,9 @@ import tutLogo from '../images/tut logo.png';
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeTab, setActiveTab] = useState('home'); // State for active tab
+  const [activeTab, setActiveTab] = useState('home');
   const navigate = useNavigate();
+  const location = useLocation(); // Tracks the current route
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +27,24 @@ function NavBar() {
     }
     setTimeout(() => {
       document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100); // Delay to ensure the navigation has completed
+    }, 100); // Delay to ensure navigation has completed
   };
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
+
+  // Determine active tab based on the current path
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/donateUnLogged':
+        setActiveTab('donate');
+        break;
+      default:
+        setActiveTab('home');
+    }
+  }, [location.pathname]);
 
   return (
     <Navbar
@@ -71,14 +83,12 @@ function NavBar() {
             >
               Contact Us
             </span>
-            <a
-              href="/donateUnLogged"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link mx-3 donate-pulse"
+            <Link
+              to="/donateUnLogged"
+              className={`nav-link mx-3 ${activeTab === 'donate' ? 'active donate-pulse' : ''}`}
             >
-              <span className="fix-donate-color">Donate</span>
-            </a>
+              Donate
+            </Link>
           </Nav>
 
           <div className="d-none d-lg-block">
