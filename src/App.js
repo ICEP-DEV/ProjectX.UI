@@ -27,13 +27,20 @@ import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
 import Jobs from './LoggedPages/Jobs';
-import JobsCategory from './LoggedPages/JobsCategory';
+import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import Events from './LoggedPages/Events';
 import UploadContent  from "./Admin/Upload";
 import UploadEvents  from "./Admin/UploadEvents";
 import UploadJobs from './Admin/UploadJobs';
+import JobsICT from './LoggedPages/JobsICT'; 
+import JobsScience from './LoggedPages/JobsScience';
+import JobsArts from './LoggedPages/JobsArts';
+import JobsEng from './LoggedPages/JobsEng';
+import JobsFinance from './LoggedPages/JobsFinance';
+import JobsManagement from './LoggedPages/JobsManagement';
+import JobsCategory from './LoggedPages/JobsCategory';
 
 function App() {
   const location = useLocation();
@@ -76,6 +83,13 @@ function App() {
         <Route path="/upload" element={<UploadContent/>} />
         <Route path="/uploadEvents" element={<UploadEvents/>} />
         <Route path="/jobs" element={<UploadJobs/>} />
+        <Route path="/jobs-ict" element={<JobsICT/>} />
+        <Route path="/jobs-science" element={<JobsScience/>} />
+        <Route path="/jobs-arts" element={<JobsArts/>} />
+        <Route path="/jobs-eng" element={<JobsEng/>} />
+        <Route path="/jobs-finance" element={<JobsFinance/>} />
+        <Route path="/jobs-management" element={<JobsManagement/>} />
+        <Route path="/jobs-humanities" element={<JobsHumanities/>} />
       </Routes>
 
       {/* Footer */}
