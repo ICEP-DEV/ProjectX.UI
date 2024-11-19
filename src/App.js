@@ -31,6 +31,7 @@ import Jobs from './LoggedPages/Jobs';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import Events from './LoggedPages/Events';
+import RadioPage from './LoggedPages/Radio/RadioPage';
 import UploadContent  from "./Admin/Upload";
 import UploadEvents  from "./Admin/UploadEvents";
 import UploadJobs from './Admin/UploadJobs';
@@ -65,6 +66,7 @@ function App() {
         <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
         <Route path="/news" element={<News/>} />
         <Route path="/events" element={<Events />} />
+        <Route path="/radiopage" element={<RadioPage />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/economics" element={<Economics/>} />
