@@ -5,7 +5,10 @@ import Image2 from './SearchBarDemoImages/1.jpg';
 import Image3 from './SearchBarDemoImages/2.png';
 import GraduationHatIcon from './SearchBarDemoImages/aslogo.png';
 import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
-import ProfilePhoto from './SearchBarDemoImages/formal photo.jpg';
+import ProfilePhoto2 from './SearchBarDemoImages/2.png';
+import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
+import AlumniSpaceLogo from './SearchBarDemoImages/aslogo.png';
+import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
 
 const AlumniCommunity = () => {
   const alumniData = [
@@ -211,9 +214,53 @@ const AlumniCommunity = () => {
       >
         &times;
       </button>
+      
       <div className='linkedin-description'>
           <h5>{selectedAlumni.name} {selectedAlumni.surname}</h5>
-          <p>Intern at Sage.</p>
+          <p>Software Development Intern at Sage, skilled in Java, JavaScript, and full-stack development. Contributing to impactful projects while refining technical and problem-solving skills to deliver innovative solutions.</p>
+
+            {/* Details similar to the LinkedIn profile */}
+            <ul className="linkedin-details">
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={TutLogo} alt="TUT Logo" className="linkedin-icon" />
+              </div>
+              Tshwane University of Technology
+            </li>
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={AlumniSpaceLogo} alt="AlumniSpace Logo" className="linkedin-icon" />
+              </div>
+              AlumniSpace Community
+            </li>
+              <li>Soshanguve, Pretoria, Gauteng, South Africa · <a href="#contact-info">Contact info</a></li>
+              <li>322 connections</li>
+              <li className="mutual-connections">
+                <img src= {ProfilePhoto3} alt="Connection 1" />
+                <img src={ProfilePhoto2} alt="Connection 2" />
+                Smanga Sthembiso Zikalala and Mogau Rakolota are mutual connections
+              </li>
+            </ul>
+
+              {/* Connect, Message, and More buttons */}
+              <div className="linkedin-buttons">
+                <button className="btn-connect">Connect</button>
+                <button className="btn-message">Message</button>
+                <button className="btn-more">More</button>
+              </div>
+
+            {/* "Open to work" section */}
+            <div className="open-to-work">
+              <p>Open to work</p>
+              <p>
+                Business Analyst, System Analyst, Business System Analyst, Junior Business Analyst
+                <br />
+                <span className='linkedIn-adjust-text'>
+                  <a href="https://www.linkedin.com/in/michael-sibanda-64ba42245/">Show details</a>
+                </span>
+                
+              </p>
+            </div>
         </div>
 
     </div>
@@ -323,12 +370,6 @@ const AlumniCommunity = () => {
         <span style={{ color: 'white' }}>
           {highlightText(alumni.yearGraduated.toString(), searchInput)} {/* Only search bar highlight */}
         </span>
-      </p>
-      <p><span className="label">Student Number: </span>
-        <span style={{ color: 'white' }}>
-          {highlightText(alumni.stuno.toString(), searchInput)} {/* Only search bar highlight */}
-        </span>
-        
       </p>
     </div>
     <a href="#" className="view-alumni" onClick={() => openModal(alumni)}>

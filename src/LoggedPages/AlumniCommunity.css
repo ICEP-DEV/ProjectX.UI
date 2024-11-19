@@ -176,16 +176,30 @@
 .linkedin-description
 {
   margin-top: 50px;
+  max-height: 400px; /* Adjust based on modal dimensions */
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+  box-sizing: border-box; /* Ensures padding doesn't affect width/height */
 }
 
-.linkedin-description h5
-{
-   margin-left: 50px;
+/* Optional: Style for the scrollbar */
+.linkedin-description::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
 }
 
-.linkedin-description p
-{
-   margin-left: 50px;
+.linkedin-description::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 4px;
+}
+
+.linkedin-description::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px;
+}
+
+.linkedin-description::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker shade when hovered */
 }
 
 .profilemodel-details p {
@@ -332,6 +346,52 @@
   border: none;
   cursor: pointer;
 }
+
+.linkedin-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.linkedin-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.btn-connect {
+  background-color: #0073b1;
+  color: #fff;
+  border: 1px solid #0073b1;
+}
+
+.btn-connect:hover {
+  background-color: #005582;
+}
+
+.btn-message {
+  background-color: #fff;
+  color: #0073b1;
+  border: 1px solid #0073b1;
+}
+
+.btn-message:hover {
+  background-color: #eef3f8;
+}
+
+.btn-more {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #c4c4c4;
+}
+
+.btn-more:hover {
+  background-color: #f3f3f3;
+}
+
 
 .linkedin-modal {
   position: fixed;
@@ -592,9 +652,96 @@
   
 }
 
+.linkedin-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkedin-details li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
 .linkedin-icon-link:hover
 {
   color: #ffab14;
+}
+
+
+.linkedin-university-item {
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 12px; /* Add spacing between list items */
+}
+
+.linkedin-icon-container {
+  width: 40px; /* Adjust the size of the circular frame */
+  height: 40px;
+  border-radius: 50%; /* Makes the container circular */
+  overflow: hidden; /* Ensures the image stays within the circular frame */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Optional: Add a subtle background */
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.linkedin-icon {
+  width: 100%; /* Make the image fill the circular container */
+  height: 100%; /* Ensure the image maintains its aspect ratio */
+  object-fit: cover; /* Ensure the image covers the frame without distortion */
+}
+
+
+.linkedin-details a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.linkedin-details a:hover {
+  text-decoration: underline;
+}
+
+.mutual-connections {
+  display: flex;
+  align-items: center;
+}
+
+.mutual-connections img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.open-to-work {
+  background-color: #eef3f8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.open-to-work p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.open-to-work a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.open-to-work a:hover {
+  text-decoration: underline;
+}
+
+.linkedIn-adjust-text
+{
+  font-size: 13px;
 }
 
 .ap-linkedIn
