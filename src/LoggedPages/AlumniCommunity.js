@@ -4,6 +4,8 @@ import Image1 from './SearchBarDemoImages/formal photo.jpg';
 import Image2 from './SearchBarDemoImages/1.jpg';
 import Image3 from './SearchBarDemoImages/2.png';
 import GraduationHatIcon from './SearchBarDemoImages/aslogo.png';
+import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
+import ProfilePhoto from './SearchBarDemoImages/formal photo.jpg';
 
 const AlumniCommunity = () => {
   const alumniData = [
@@ -15,6 +17,11 @@ const AlumniCommunity = () => {
   
   const [pModalVisible, setPModalVisible] = useState(false);
   const [selectedAlumni, setSelectedAlumni] = useState(null);
+  const [linkedinModalVisible, setLinkedinModalVisible] = useState(false);
+
+
+    // New state for the LinkedIn click and image display
+    const [imageVisible, setImageVisible] = useState(false);
 
   // Function to open the modal and set the selected alumnus
   const openModal = (alumni) => {
@@ -162,9 +169,13 @@ const AlumniCommunity = () => {
                 <span className="start-year-began">1</span>
               </p>
 
-              <a href="https://www.linkedin.com/in/tshiamo-matiza-3685a42a5" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin linked-in-icon"></i>
-              </a>
+              <button
+              onClick={() => setLinkedinModalVisible(true)}
+              className="linkedin-button"
+            >
+              <i className="fab fa-linkedin linked-in-icon"></i>
+            </button>
+
             </div>
             <div className="profilemodel-details">
               <h2>{selectedAlumni.name} {selectedAlumni.surname}</h2>
@@ -180,6 +191,34 @@ const AlumniCommunity = () => {
         </div>
       )}
 
+
+{linkedinModalVisible && selectedAlumni &&(
+  <div className="linkedin-modal">
+    <div className="linkedin-modal-content">
+      {/* Circular frame with the profile photo */}
+      <div className="profile-photo-container">
+        <img src={selectedAlumni.photo}  alt="Profile" className="profile-photo" />
+      </div>
+
+      {/* Div with the LinkedIn divider image */}
+      <div className="linkedin-modal-image">
+        <img src={LinkedInPhoto} alt="LinkedIn Divider" />
+      </div>
+
+      <button
+        className="close-linkedin-modal"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
+        &times;
+      </button>
+      <div className='linkedin-description'>
+          <h5>{selectedAlumni.name} {selectedAlumni.surname}</h5>
+          <p>Intern at Sage.</p>
+        </div>
+
+    </div>
+  </div>
+)}
 
 
       {modalVisible && (

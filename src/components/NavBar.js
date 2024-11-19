@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import '../LoggedPages/navbarLog.css';
 import tutLogo from '../images/tut logo.png';
@@ -9,6 +10,7 @@ function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState('home'); // State for active tab
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,20 +21,33 @@ function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleTabClick = (tabName, section) => {
-    setActiveTab(tabName);
-    if (window.location.pathname !== '/') {
-      navigate('/');
-    }
-    setTimeout(() => {
-      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100); // Delay to ensure the navigation has completed
-  };
-
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
+
+  // Function to handle tab navigation
+  const handleTabClick = (tabName, sectionId) => {
+    setActiveTab(tabName);
+
+    // If not on the homepage, navigate first
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200); // Ensure smooth scroll after navigation
+    } else {
+      // If on the homepage, scroll directly
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // Detect active tab based on location
+  useEffect(() => {
+    if (location.pathname === '/donateUnLogged') {
+      setActiveTab('donate');
+    }
+  }, [location.pathname]);
 
   return (
     <Navbar
@@ -41,7 +56,7 @@ function NavBar() {
       className={`navbar navbar-expand-lg navbar-light ${isScrolled ? 'navbar-scrolled' : 'homepage-bg'}`}
     >
       <Container>
-        <Navbar.Brand onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+        <Navbar.Brand onClick={() => handleTabClick('home', 'section_1')} style={{ cursor: 'pointer' }}>
           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" />
@@ -71,14 +86,13 @@ function NavBar() {
             >
               Contact Us
             </span>
-            <a
-              href="/donateUnLogged"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link mx-3 donate-pulse"
+            <Link
+              to="/donateUnLogged"
+              className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
+              onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>
-            </a>
+            </Link>
           </Nav>
 
           <div className="d-none d-lg-block">

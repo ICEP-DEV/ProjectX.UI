@@ -1,17 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-// import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import './donateUnLogged.css';
 
 const DonateUnLogged = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const tabId = Math.random().toString(36).substring(2); // Unique identifier for the current tab
+        localStorage.setItem('donatePageTab', tabId);
+
+        const checkTabConflict = () => {
+            const activeTab = localStorage.getItem('donatePageTab');
+            if (activeTab && activeTab !== tabId) {
+                alert('This page is already open in another tab. Redirecting to the homepage.');
+                navigate('/'); // Redirect to the homepage
+            }
+        };
+
+        // Listen for storage changes across tabs
+        const handleStorageChange = (event) => {
+            if (event.key === 'donatePageTab') {
+                checkTabConflict();
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        // Initial check in case another tab is already open
+        checkTabConflict();
+
+        // Cleanup: remove tab ID on page unload
+        const cleanup = () => {
+            if (localStorage.getItem('donatePageTab') === tabId) {
+                localStorage.removeItem('donatePageTab');
+            }
+        };
+
+        window.addEventListener('beforeunload', cleanup);
+
+        return () => {
+            cleanup();
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('beforeunload', cleanup);
+        };
+    }, [navigate]);
+
     return (
         <div>
             <NavBar />
             <Container className="donation-journey">
                 <Row>
                     <Col md={12}>
-                        <h3 className="text-center mb-4">Donation</h3>
+                        <h3 className="text-center mb-4 donation-heading">Donation</h3>
                     </Col>
                 </Row>
                 <Row>
@@ -27,14 +69,15 @@ const DonateUnLogged = () => {
                     <Col lg={12} className="mx-auto text-center">
                         <Button
                             variant="primary"
-                            onClick={() => window.location.href = 'https://tut.devman.co.za/Devman/online/giving/'}
+                            onClick={() =>
+                                (window.location.href = 'https://tut.devman.co.za/Devman/online/giving/')
+                            }
                         >
                             Donate
                         </Button>
                     </Col>
                 </Row>
             </Container>
-            {/* <Footer /> */}
         </div>
     );
 };

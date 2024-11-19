@@ -11,7 +11,7 @@ const UploadJobs = () => {
     faculty: '',
     type: '',
     position: '',
-    location: '',
+    vacancy: '',
     closingdate: '',
     link: ''
   });
@@ -36,7 +36,7 @@ const UploadJobs = () => {
       setFormData({
         faculty: '',
         type: '',
-        position: '',
+        vacancy: '',
         location: '',
         closingdate: '',
         link: ''
@@ -97,12 +97,12 @@ const UploadJobs = () => {
                 </Form.Group>
 
 
-                <Form.Group controlId="formPosition">
-                  <Form.Label>Position</Form.Label>
+                <Form.Group controlId="formVacancy">
+                  <Form.Label>Vacancy</Form.Label>
                   <Form.Control
                     type="text"
-                    name="position"
-                    value={formData.position}
+                    name="vacancy"
+                    value={formData.vacancy}
                     onChange={handleTextChange}
                     required
                   />
