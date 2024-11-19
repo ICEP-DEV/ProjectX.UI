@@ -133,7 +133,7 @@ const PasswordReset = () => {
 
             <div className="d-grid">
               <button
-                className="rounded-button" // Change class name to 'rounded-button'
+                className="rounded-buttonn" // Change class name to 'rounded-button'
                 type="submit"
                 disabled={signUpLoading}
               >
