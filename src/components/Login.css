@@ -15,19 +15,20 @@ input {
   
   max-width: 600px;
   background:#fff;
-  border-radius: 20px;
-  box-shadow: 20px 15px 20px 30px rgba(0,0,0,0.1);
-  margin-left: 650px;  
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  margin: 50px auto; /* Center the container */
+  padding: 20px; /* Add padding for smaller screens */
+  border-radius: 10px; /* Rounded edges for aesthetics */  
 }
 
 .forms-containerss {
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   background-color: #fff;
   margin-top: 10px;
   
- 
 }
 
 .bi-arrow-left
@@ -41,7 +42,8 @@ input {
 .titless{
   font-size: 2.2rem;
   color: #131212;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .input-fieldss {
@@ -49,17 +51,16 @@ input {
   width: 100%;
   background-color: #f0f0f0;
   margin: 10px 0;
-  height: 55px;
-  border-radius: 55px;
+  height: 50px;
+  border-radius: 50px;
   display: grid;
   grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
-  position: relative;
+  padding: 0 10px;
 }
 
 .input-fieldss i {
   text-align: center;
-  line-height: 55px;
+  line-height: 50px;
   color: #acacac;
   font-size: 1.1rem;
 }
@@ -68,8 +69,7 @@ input {
   background: none;
   outline: none;
   border: none;
-  line-height: 1;
-  font-weight: 600;
+  
   font-size: 1.1rem;
   color: #333;
 }
@@ -82,18 +82,22 @@ input {
 
 
 .btnss{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
-  background-color: #5995fd;
+  background: linear-gradient(15deg, #ce1127 0%, #003883 100%);
   border: none;
   outline: none;
-  height: 49px;
-  border-radius: 49px;
+  height: 45px;
+  border-radius: 45px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
-  transition: 0.5s;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
 
 }
 
@@ -169,16 +173,18 @@ input {
   font-size: 12px; /* Optional: adjust the size if needed */
   margin-top: 10px; /* Optional: add some margin to create space */
   display: inline-block; /* Ensures it behaves like a link */
-  margin-left: -270px;
+  text-align: left;
   text-decoration: underline;
+  margin-right: 53%;
 }
 
 
 
 .radio-group {
   display: flex;
-  gap: 25px; /* Adjust the space between the radio buttons */
-  margin-bottom: 20px; /* Add space below the radio group */
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
   color: #131212;
 }
 
@@ -191,10 +197,10 @@ input {
 
 .dont-have-account {
   margin-top: 20px; /* Adjust the value as needed to move it down */
-  font-size: 20px; /* Optional: Adjust the font size */
+  font-size: 1rem; /* Optional: Adjust the font size */
   text-align: center; /* Centers the text */
   color: #131212;
-  place-items: center;
+  
 }
 
 .sign-in-formss {
@@ -228,7 +234,7 @@ input {
   text-align: center;
   text-decoration: none; /* Remove underline */
   font-weight: 600; /* Make the text bold */
-  margin-top: 20px; /* Space above the button */
+  margin-top: 10px; /* Space above the button */
   margin-left: 40px; /* Space above the button */
   cursor: pointer;
   transition: background-color 0.3s ease; /* Smooth hover effect */
@@ -237,3 +243,95 @@ input {
 .back-button:hover {
   background: linear-gradient(15deg, #003883 0%, #ce1127 100%); /* Reverse gradient on hover */
 }
+
+.rounded-buttonn {
+  display: inline-block; /* Ensures button behaves correctly */
+  width: 200px; /* You can adjust the width as needed */
+  background: linear-gradient(15deg, #ce1127 0%, #003883 100%); /* Adjust background if needed */
+  border: none; /* Remove default border */
+  outline: none; /* Remove default outline */
+  height: 49px; /* Maintain height */
+  border-radius: 25px; /* Adjust for rounded edges */
+  color: #fff; /* Text color */
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: 600; /* Font weight */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: 0.5s; /* Transition for hover effects */
+  margin-top: 20px;
+  
+}
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .containerss {
+    margin: 20px auto;
+    padding: 15px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .titless {
+    font-size: 1.8rem;
+  }
+
+  .input-fieldss {
+    height: 45px;
+    padding: 0 8px;
+  }
+
+  .btnss,
+  .anchorss {
+    width: 140px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .radio-group {
+    gap: 10px;
+  }
+
+  .forgot-password-link {
+    font-size: 10px;
+  }
+
+  .dont-have-account {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerss {
+    padding: 10px;
+    width: 90%;
+  }
+
+  .titless {
+    font-size: 1.5rem;
+  }
+
+  .input-fieldss {
+    grid-template-columns: 20% 80%;
+  }
+
+  .btnss,
+  .anchorss {
+    width: 130px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .radio-group {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .forgot-password-link {
+    font-size: 9px;
+  }
+
+  .dont-have-account {
+    font-size: 0.8rem;
+  }
+}
+
