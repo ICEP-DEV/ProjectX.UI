@@ -31,10 +31,12 @@ import Jobs from './LoggedPages/Jobs';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import Events from './LoggedPages/Events';
+import RadioPage from './LoggedPages/Radio/RadioPage';
 import UploadContent  from "./Admin/Upload";
 import UploadEvents  from "./Admin/UploadEvents";
 import UploadJobs from './Admin/UploadJobs';
 import JobsCategory from './LoggedPages/JobsCategory';
+import Popia from './components/Popia';
 import UploadNews from './Admin/UploadNews';
 import Manage from './Admin/Manage';
 
@@ -66,6 +68,7 @@ function App() {
         <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
         <Route path="/news" element={<News/>} />
         <Route path="/events" element={<Events />} />
+        <Route path="/radiopage" element={<RadioPage />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/economics" element={<Economics/>} />
@@ -80,6 +83,15 @@ function App() {
         <Route path="/upload" element={<UploadContent/>} />
         <Route path="/uploadEvents" element={<UploadEvents/>} />
         <Route path="/jobs" element={<UploadJobs/>} />
+        <Route path="/jobs-ict" element={<JobsICT/>} />
+        <Route path="/jobs-science" element={<JobsScience/>} />
+        <Route path="/jobs-arts" element={<JobsArts/>} />
+        <Route path="/jobs-eng" element={<JobsEng/>} />
+        <Route path="/jobs-finance" element={<JobsFinance/>} />
+        <Route path="/jobs-management" element={<JobsManagement/>} />
+        <Route path="/jobs-humanities" element={<JobsHumanities/>} />
+        <Route path="/privacy-policy" element={<Popia/>} />
+        
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/manage" element={<Manage/>} />
       </Routes>
