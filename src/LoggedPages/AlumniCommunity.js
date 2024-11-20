@@ -4,6 +4,11 @@ import Image1 from './SearchBarDemoImages/formal photo.jpg';
 import Image2 from './SearchBarDemoImages/1.jpg';
 import Image3 from './SearchBarDemoImages/2.png';
 import GraduationHatIcon from './SearchBarDemoImages/aslogo.png';
+import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
+import ProfilePhoto2 from './SearchBarDemoImages/2.png';
+import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
+import AlumniSpaceLogo from './SearchBarDemoImages/aslogo.png';
+import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
 
 const AlumniCommunity = () => {
   const alumniData = [
@@ -15,6 +20,8 @@ const AlumniCommunity = () => {
   
   const [pModalVisible, setPModalVisible] = useState(false);
   const [selectedAlumni, setSelectedAlumni] = useState(null);
+  const [linkedinModalVisible, setLinkedinModalVisible] = useState(false);
+
 
   // Function to open the modal and set the selected alumnus
   const openModal = (alumni) => {
@@ -162,9 +169,13 @@ const AlumniCommunity = () => {
                 <span className="start-year-began">1</span>
               </p>
 
-              <a href="https://www.linkedin.com/in/tshiamo-matiza-3685a42a5" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin linked-in-icon"></i>
-              </a>
+              <button
+              onClick={() => setLinkedinModalVisible(true)}
+              className="linkedin-button"
+            >
+              <i className="fab fa-linkedin linked-in-icon"></i>
+            </button>
+
             </div>
             <div className="profilemodel-details">
               <h2>{selectedAlumni.name} {selectedAlumni.surname}</h2>
@@ -180,6 +191,78 @@ const AlumniCommunity = () => {
         </div>
       )}
 
+
+{linkedinModalVisible && selectedAlumni &&(
+  <div className="linkedin-modal">
+    <div className="linkedin-modal-content">
+      {/* Circular frame with the profile photo */}
+      <div className="profile-photo-container">
+        <img src={selectedAlumni.photo}  alt="Profile" className="profile-photo" />
+      </div>
+
+      {/* Div with the LinkedIn divider image */}
+      <div className="linkedin-modal-image">
+        <img src={LinkedInPhoto} alt="LinkedIn Divider" />
+      </div>
+
+      <button
+        className="close-linkedin-modal"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
+        &times;
+      </button>
+      
+      <div className='linkedin-description'>
+          <h5>{selectedAlumni.name} {selectedAlumni.surname}</h5>
+          <p>Software Development Intern at Sage, skilled in Java, JavaScript, and full-stack development. Contributing to impactful projects while refining technical and problem-solving skills to deliver innovative solutions.</p>
+
+            {/* Details similar to the LinkedIn profile */}
+            <ul className="linkedin-details">
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={TutLogo} alt="TUT Logo" className="linkedin-icon" />
+              </div>
+              Tshwane University of Technology
+            </li>
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={AlumniSpaceLogo} alt="AlumniSpace Logo" className="linkedin-icon" />
+              </div>
+              AlumniSpace Community
+            </li>
+              <li>Soshanguve, Pretoria, Gauteng, South Africa · <a href="#contact-info">Contact info</a></li>
+              <li>322 connections</li>
+              <li className="mutual-connections">
+                <img src= {ProfilePhoto3} alt="Connection 1" />
+                <img src={ProfilePhoto2} alt="Connection 2" />
+                Smanga Sthembiso Zikalala and Mogau Rakolota are mutual connections
+              </li>
+            </ul>
+
+              {/* Connect, Message, and More buttons */}
+              <div className="linkedin-buttons">
+                <button className="btn-connect">Connect</button>
+                <button className="btn-message">Message</button>
+                <button className="btn-more">More</button>
+              </div>
+
+            {/* "Open to work" section */}
+            <div className="open-to-work">
+              <p>Open to work</p>
+              <p>
+                Business Analyst, System Analyst, Business System Analyst, Junior Business Analyst
+                <br />
+                <span className='linkedIn-adjust-text'>
+                  <a href="https://www.linkedin.com/in/michael-sibanda-64ba42245/">Show details</a>
+                </span>
+                
+              </p>
+            </div>
+        </div>
+
+    </div>
+  </div>
+)}
 
 
       {modalVisible && (
@@ -284,12 +367,6 @@ const AlumniCommunity = () => {
         <span style={{ color: 'white' }}>
           {highlightText(alumni.yearGraduated.toString(), searchInput)} {/* Only search bar highlight */}
         </span>
-      </p>
-      <p><span className="label">Student Number: </span>
-        <span style={{ color: 'white' }}>
-          {highlightText(alumni.stuno.toString(), searchInput)} {/* Only search bar highlight */}
-        </span>
-        
       </p>
     </div>
     <a href="#" className="view-alumni" onClick={() => openModal(alumni)}>

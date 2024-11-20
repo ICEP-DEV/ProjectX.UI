@@ -1,0 +1,247 @@
+.radio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Video Section */
+.video-container {
+  width: 100%;
+  height: 80vh; /* Adjust to your preference */
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the container without distortion */
+  object-position: center; /* Centers the video within the container */
+}
+
+/* Divider Photo Styling */
+.divider-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text Section Styling */
+.text-section {
+  padding-left: 90px;
+  position: relative;
+  padding-right: 90px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* Light background for contrast */
+}
+
+.text-section h2 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.text-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.text-content.show {
+  max-height: 500px; /* Adjust as necessary */
+  opacity: 1;
+}
+
+.text-content.hide {
+  max-height: 0;
+  opacity: 0;
+}
+
+/* Styling the information icon */
+.info-icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.info-icon {
+  background-color: #ffab14;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.info-icon:hover {
+  background-color: #d28f12;
+}
+
+/* Existing Content Styling */
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-wrapper {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 600px;
+  width: 1000px;
+  touch-action: pan-y; /* Allow vertical scrolling */
+}
+
+.card {
+  position: absolute;
+  width: 420px;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  text-align: left;
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
+  user-select: none; /* Prevent text selection */
+  overflow: hidden;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the entire card */
+}
+
+.card-info {
+  padding: 10px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card.active {
+  animation: pop-in 0.4s ease-in-out;
+}
+
+.card h3 {
+  color: #4a4a8b;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card p {
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+}
+
+.hostedby
+{
+  color: #ffab14;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card-wrapper:active .card {
+  cursor: grabbing;
+  transition: none; /* Disable smooth animation while dragging */
+}
+
+.card-navigation button {
+  background-color: #ffab14;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.card-navigation button:hover {
+  background-color: #f8b705;
+  transform: scale(1.1);
+}
+
+.card-section {
+  margin: 40px 0;
+  position: relative;
+  text-align: center;
+  user-select: none; /* Prevents text selection during swipes */
+}
+
+.card-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+}
+
+.card:hover .card-hover {
+  opacity: 1;
+}
+
+.card-title-heading
+{
+  color: #ffab14;
+}
+
+

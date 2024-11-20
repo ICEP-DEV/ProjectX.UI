@@ -11,6 +11,7 @@
 .site-footer-title {
   font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .site-footer-links {
@@ -40,46 +41,6 @@
   justify-content: space-between;
 }
 
-/* Center phone number and email for smaller screens */
-@media (max-width: 768px) {
-  .footer-row {
-      flex-direction: column;
-      align-items: center;  /* Centers content horizontally */
-  }
-
-  .col-lg-3, .col-md-6 {
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center; /* Center text for smaller screens */
-  }
-
-  .text-white.d-flex {
-      justify-content: center;  /* Ensures the phone and email are centered */
-      margin-bottom: 10px;
-  }
-}
-
-/* Responsive for medium screens */
-@media (min-width: 769px) and (max-width: 992px) {
-  .col-lg-3 {
-      width: 48%;
-  }
-
-  .col-md-6 {
-      width: 48%;
-  }
-}
-
-/* Larger screen layout */
-@media (min-width: 993px) {
-  .col-lg-3 {
-      width: 30%;
-  }
-
-  .col-md-6 {
-      width: 30%;
-  }
-}
 
 /* Optional padding for section */
 .section-padding {
