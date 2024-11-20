@@ -28,21 +28,16 @@ import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
 import Jobs from './LoggedPages/Jobs';
-import JobsHumanities from './LoggedPages/JobsHumanities';
 import Dashboard from './Admin/Dashboard';
 import RegisteredAlumni from './Admin/AlumniTable';
 import Events from './LoggedPages/Events';
+import RadioPage from './LoggedPages/Radio/RadioPage';
 import UploadContent  from "./Admin/Upload";
 import UploadEvents  from "./Admin/UploadEvents";
 import UploadJobs from './Admin/UploadJobs';
-import JobsICT from './LoggedPages/JobsICT'; 
-import JobsScience from './LoggedPages/JobsScience';
-import JobsArts from './LoggedPages/JobsArts';
-import JobsEng from './LoggedPages/JobsEng';
-import JobsFinance from './LoggedPages/JobsFinance';
-import JobsManagement from './LoggedPages/JobsManagement';
 import JobsCategory from './LoggedPages/JobsCategory';
 import Popia from './components/Popia';
+import UploadNews from './Admin/UploadNews';
 
 function App() {
   const location = useLocation();
@@ -70,8 +65,9 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
         <Route path="/admin" element={<Dashboard /> }/>{/* Add Admin Page route as needed */}
-        <Route path="/news" element={<News />} />
+        <Route path="/news" element={<News/>} />
         <Route path="/events" element={<Events />} />
+        <Route path="/radiopage" element={<RadioPage />} />
         <Route path="/arts" element={<Arts />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/economics" element={<Economics/>} />
@@ -95,6 +91,7 @@ function App() {
         <Route path="/jobs-humanities" element={<JobsHumanities/>} />
         <Route path="/privacy-policy" element={<Popia/>} />
         
+        <Route path="/uploadNews" element={<UploadNews/>} />
       </Routes>
 
       {/* Footer */}

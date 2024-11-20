@@ -158,14 +158,15 @@ function NavbarLogged() {
             <NavDropdown title="News" id="news-dropdown" className="spacing">
             <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
-            <NavDropdown.Item 
+            <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Radio Page</NavDropdown.Item>
+            {/* <NavDropdown.Item 
   as="a" 
   href="https://kismettakk.github.io/Responsive-Radio-HTML/" 
   target="_blank" 
   rel="noopener noreferrer"
 >
   Radio Page
-</NavDropdown.Item>
+</NavDropdown.Item> */}
 
             </NavDropdown>
 

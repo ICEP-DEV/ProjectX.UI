@@ -73,7 +73,7 @@ const UploadContent = () => {
                         </List>
                         <Button
                         style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
-                        onClick={() => navigate('/news')}
+                        onClick={() => navigate('/uploadNews')}
                         >
                         Upload
                         </Button>
