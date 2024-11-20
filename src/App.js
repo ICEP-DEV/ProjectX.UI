@@ -42,6 +42,7 @@ import JobsEng from './LoggedPages/JobsEng';
 import JobsFinance from './LoggedPages/JobsFinance';
 import JobsManagement from './LoggedPages/JobsManagement';
 import JobsCategory from './LoggedPages/JobsCategory';
+import Popia from './components/Popia';
 
 function App() {
   const location = useLocation();
@@ -92,6 +93,8 @@ function App() {
         <Route path="/jobs-finance" element={<JobsFinance/>} />
         <Route path="/jobs-management" element={<JobsManagement/>} />
         <Route path="/jobs-humanities" element={<JobsHumanities/>} />
+        <Route path="/privacy-policy" element={<Popia/>} />
+        
       </Routes>
 
       {/* Footer */}
