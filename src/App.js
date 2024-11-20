@@ -36,6 +36,7 @@ import UploadEvents  from "./Admin/UploadEvents";
 import UploadJobs from './Admin/UploadJobs';
 import JobsCategory from './LoggedPages/JobsCategory';
 import UploadNews from './Admin/UploadNews';
+import Manage from './Admin/Manage';
 
 function App() {
   const location = useLocation();
@@ -80,6 +81,7 @@ function App() {
         <Route path="/uploadEvents" element={<UploadEvents/>} />
         <Route path="/jobs" element={<UploadJobs/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
+        <Route path="/manage" element={<Manage/>} />
       </Routes>
 
       {/* Footer */}

@@ -17,9 +17,9 @@ const UploadContent = () => {
           Upload Content
         </Typography>
         
-        <Grid container spacing={3} style={{ marginBottom: '60px' }}>
-                <Grid item xs={4}>
-                    <Card style={{ maxWidth: 400, marginLeft: '30px', height: 300 }}>
+        <Grid container spacing={1} style={{ marginBottom: '60px', marginLeft:'100px' }}>
+                <Grid item xs={5}>
+                    <Card style={{ maxWidth: 500, marginLeft: '30px', height: 300 }}>
                     <CardContent>
                         <Typography variant="h6" color="#003883" gutterBottom>
                         Events
@@ -30,7 +30,7 @@ const UploadContent = () => {
                         <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Pdf, png, jpg" /></ListItem>
                         </List>
                         <Button
-                        style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
+                        style={{ marginLeft: '350px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
                         onClick={() => navigate('/uploadEvents')}
                         >
                         Upload
@@ -39,8 +39,8 @@ const UploadContent = () => {
                     </Card>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <Card style={{ maxWidth: 400, marginLeft: '30px', height: 300 }}>
+                <Grid item xs={5}>
+                    <Card style={{ maxWidth: 500, marginLeft: '30px', height: 300 }}>
                     <CardContent>
                         <Typography variant="h6" color="#003883" gutterBottom>
                         Jobs
@@ -51,7 +51,7 @@ const UploadContent = () => {
                         <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Pdf, png, jpg" /></ListItem>
                         </List>
                         <Button
-                        style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
+                        style={{ marginLeft: '350px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
                         onClick={() => navigate('/jobs')}
                         >
                         Upload
@@ -60,29 +60,10 @@ const UploadContent = () => {
                     </Card>
                 </Grid>
             
-                <Grid item xs={4}>
-                    <Card style={{ maxWidth: 400, marginLeft: '30px', height: 300 }}>
-                    <CardContent>
-                        <Typography variant="h6" color="#003883" gutterBottom>
-                        News
-                        </Typography>
-                        <List>
-                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Posters" /></ListItem>
-                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Links" /></ListItem>
-                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Pdf, png, jpg" /></ListItem>
-                        </List>
-                        <Button
-                        style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
-                        onClick={() => navigate('/uploadNews')}
-                        >
-                        Upload
-                        </Button>
-                    </CardContent>
-                    </Card>
-                </Grid>
+                
             </Grid>
-            <Grid container spacing={3}>
-                <Grid item xs={4}>
+            <Grid container spacing={1} style={{ marginLeft:'100px' }}>
+                {/* <Grid item xs={4}>
                     <Card style={{ maxWidth: 400,  marginLeft: '30px',height:300 }}>
                         <CardContent>
                             <Typography variant="h6" color="#003883" gutterBottom>
@@ -102,10 +83,10 @@ const UploadContent = () => {
                             <Button style={{ marginLeft: '290px', marginBottom: '-250px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color:"#fff" }}>Upload</Button>
                         </CardContent>
                     </Card>
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={4}>
-                    <Card style={{ maxWidth: 400,  marginLeft: '30px',height:300 }}>
+                <Grid item xs={5}>
+                    <Card style={{ maxWidth: 500,  marginLeft: '30px',height:300 }}>
                         <CardContent>
                             <Typography variant="h6" color="#003883" gutterBottom>
                                 Podcasts
@@ -136,44 +117,28 @@ const UploadContent = () => {
                                     />
                                 </ListItem>
                             </List>
-                            <Button style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color:"#fff" }}>Upload</Button>
+                            <Button style={{ marginLeft: '350px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color:"#fff" }}>Upload</Button>
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs={4}>
-                    <Card style={{ maxWidth: 400,  marginLeft: '30px',height:300 }}>
-                        <CardContent>
-                            <Typography variant="h6" color="#003883" gutterBottom>
-                                Magazines
-                            </Typography>
-                            <List> 
-                                <ListItem >
-                                    <ListItemIcon>
-                                        <CheckBoxRounded/>
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={'Text'} 
-                                    />
-                                </ListItem>
-                                <ListItem >
-                                    <ListItemIcon>
-                                        <CheckBoxRounded/>
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={'Images'} 
-                                    />
-                                </ListItem>
-                                <ListItem >
-                                    <ListItemIcon>
-                                        <CheckBoxRounded/>
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={'mp3,mp4'} 
-                                    />
-                                </ListItem>
-                            </List>
-                            <Button style={{ marginLeft: '290px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color:"#fff" }}>Upload</Button>
-                        </CardContent>
+                <Grid item xs={5}>
+                    <Card style={{ maxWidth: 500, marginLeft: '30px', height: 300 }}>
+                    <CardContent>
+                        <Typography variant="h6" color="#003883" gutterBottom>
+                        News and Historical Archives
+                        </Typography>
+                        <List>
+                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Posters" /></ListItem>
+                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Links" /></ListItem>
+                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Pdf, png, jpg" /></ListItem>
+                        </List>
+                        <Button
+                        style={{ marginLeft: '350px', marginBottom: '20px', background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)', color: "#fff" }}
+                        onClick={() => navigate('/uploadNews')}
+                        >
+                        Upload
+                        </Button>
+                    </CardContent>
                     </Card>
                 </Grid>
 
