@@ -28,45 +28,64 @@ const RadioPage = () => {
       title: "Dr Linda Mayer", 
       talks: "Guidance for career success", 
       hostedBy: "Zenzo Matiza", 
-      image: cardImage1 
+      image: cardImage1,
+      description: "On the Ground Breaker Show this past Wednesday...",
+      description2: "We took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
+      date: "2 October 2024",
+      location: "Pretoria, Soshanguve",
     },
     { 
       id: 2, 
       title: "Mrs Nokuthula Makhanya", 
       talks: "Educational strategies", 
       hostedBy: "Mbali Mbele", 
-      image: cardImage2 
+      image: cardImage2,
+      description: "Last night on the Ground Breaker Show...",
+      description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity, Nokuthula inspired listeners with her journey of resilience, adaptability, and a passion for workplaces.",
+      date: "5 October 2024",
+      location: "Pretoria, Soshanguve",
     },
     { 
       id: 3, 
       title: "Mr Oupa Segalwe", 
       talks: "Biography", 
       hostedBy: "Galaletsang Shadi", 
-      image: cardImage3 
+      image: cardImage3,
+      description: "Earlier, you caught PLUG-A-GRADUATE...",
+      date: "12 October 2024",
+      location: "Pretoria, Soshanguve",
     },
     { 
       id: 4, 
       title: "Mr Obakeng Aubrey Moeketsi", 
       talks: "Industry experts share insights", 
       hostedBy: "Mathekga Senyolo", 
-      image: cardImage4 
+      image: cardImage4,
+      description: "Earlier this month, listeners tuned in for a special live broadcast...",
+      date: "03 November 2024",
+      location: "Pretoria, Soshanguve",
     },
     { 
       id: 5, 
       title: "Mrs Reabetswe Dire", 
       talks: "Turning knowledge into income", 
       hostedBy: "Obakeng Mooketsi", 
-      image: cardImage5 
+      image: cardImage5,
+      description: "Earlier on today’s insightful episode of Plug-A-Graduate...",
+      date: "19 November 2024",
+      location: "Pretoria, Soshanguve",
     },
     { 
       id: 6, 
       title: "Mrs Shalate Davhana", 
       talks: "Crime Protection", 
       hostedBy: "Khuthadzo Tshianzi", 
-      image: cardImage6 
+      image: cardImage6,
+      description: "The show discussed how it became a game-changer for recent graduates...",
+      date: "15 November 2024",
+      location: "Pretoria, Soshanguve",
     },
   ];
-  
 
   const handleNext = () => {
     setCurrentCard((prev) => (prev + 1) % cards.length);
@@ -218,10 +237,21 @@ const RadioPage = () => {
       </p>
 
       {hoveredCard === card.id && (
-        <div className="card-hover">
-          <p>{card.moreText}</p>
-        </div>
-      )}
+                <div className="card-hover">
+                  <div className="card-details">
+                    <p ><strong className="hc-para1">{card.title}</strong></p>
+                    <p><strong className="hc-para2">{card.description}</strong></p>
+                    <p><strong className="hc-para4">{card.description2}</strong></p>
+                    <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
+                    <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
+                  </div>
+                  <div className="play-button-container">
+                    <button className="play-button">
+                      <i className="bi bi-play-fill"></i>
+                    </button>
+                  </div>
+                </div>
+        )}
     </div>
   ))}
 </div>
