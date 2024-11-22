@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
 import Vid1 from "./radio video/Plug an Alumni.mp4";
 import Vid2 from "./radio video/Plug a Graduate.mp4";
@@ -12,6 +12,8 @@ import cardImage3 from "./radio photos/photos/3.png";
 import cardImage4 from "./radio photos/photos/4.png";
 import cardImage5 from "./radio photos/photos/5.png";
 import cardImage6 from "./radio photos/photos/6.png";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 
 const RadioPage = () => {
@@ -28,42 +30,84 @@ const RadioPage = () => {
       title: "Dr Linda Mayer", 
       talks: "Guidance for career success", 
       hostedBy: "Zenzo Matiza", 
-      image: cardImage1 
+      image: cardImage1,
+      details: {
+        description: "On the Ground Breaker Show this past Wednesday, October 2nd, 2024, we took a deep dive into diverse fields of study...",
+        date: "2 October 2024",
+        location: "Pretoria, Soshanguve",
+        audioSrc: './radio podcast/Dr Linda Meyer.mp3',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
     { 
       id: 2, 
       title: "Mrs Nokuthula Makhanya", 
       talks: "Educational strategies", 
       hostedBy: "Mbali Mbele", 
-      image: cardImage2 
+      image: cardImage2,
+      details: {
+        description: "Last night on the Ground Breaker Show, PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment...",
+        date: "5 October 2024",
+        location: "Pretoria, Soshanguve",
+        audioSrc: './radio podcast/Nokuthula Makhanya.mp3',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
     { 
       id: 3, 
       title: "Mr Oupa Segalwe", 
       talks: "Biography", 
       hostedBy: "Galaletsang Shadi", 
-      image: cardImage3 
+      image: cardImage3,
+      details: {
+        description: "Earlier, you caught PLUG-A-GRADUATE with Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe...",
+        date: "12 October 2024",
+        location: "Pretoria, Soshanguve",
+        audioSrc: './radio podcast/Oupa Segalwe.mp3',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
     { 
       id: 4, 
       title: "Mr Obakeng Aubrey Moeketsi", 
       talks: "Industry experts share insights", 
       hostedBy: "Mathekga Senyolo", 
-      image: cardImage4 
+      image: cardImage4,
+      details: {
+        description: "Earlier this month, listeners tuned in for a special live broadcast of the popular weekly show, Plug-A-Graduate...",
+        date: "03 November 2024",
+        location: "Pretoria, Soshanguve",
+        audioSrc: './radio podcast/Obakeng Aubrey Moeketsi.m4a',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
     { 
       id: 5, 
       title: "Mrs Reabetswe Dire", 
       talks: "Turning knowledge into income", 
       hostedBy: "Obakeng Mooketsi", 
-      image: cardImage5 
+      image: cardImage5,
+      details: {
+        description: "Earlier on today’s insightful episode of Plug-A-Graduate on the Ground Breaker Show, host Obakeng Mooketsi...",
+        date: "19 November 2024",
+        location: "Pretoria, Soshanguve",
+        audioSrc: './radio podcast/Rearabetswe Dire.mp3',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
     { 
       id: 6, 
       title: "Mrs Shalate Davhana", 
       talks: "Crime Protection", 
       hostedBy: "Khuthadzo Tshianzi", 
-      image: cardImage6 
+      image: cardImage6,
+      details: {
+        description: "The show discussed how it became a game-changer for recent graduates, seasoned job seekers, and aspiring entrepreneurs...",
+        date: "15 November 2024",
+        location: "Location for Slide 2",
+        audioSrc: './radio podcast/Shalate Davhana.mp3',
+        imageSrc: './radio photos/fm logo.png',
+      }
     },
   ];
   
@@ -209,17 +253,35 @@ const RadioPage = () => {
         />
       </div>
 
-      <h3 className="person-name">{card.title}</h3>
-      <p className="position">
-        (<b>Talks:</b> {card.talks})
-      </p>
-      <p className="position2">
-        <span className="hostedby"><b>Hosted By: </b></span>{card.hostedBy}
-      </p>
+      <div className="description-section">
+        <h3 className="person-name">{card.title}</h3>
+        <p className="position">
+            (<b>Talks:</b> {card.talks})
+        </p>
+        <p className="position2">
+            <span className="hostedby"><b>Hosted By: </b></span>{card.hostedBy}
+        </p>
+      </div>
+
 
       {hoveredCard === card.id && (
         <div className="card-hover">
-          <p>{card.moreText}</p>
+                       <p className="position2">
+                    <span span className="hc-d">Date: </span><span className="hc-p">{card.details.date}</span>
+                </p>
+                <p className="location">
+                    <span span className="hc-d">Location: </span><span span className="hc-p">{card.details.location}</span>
+                </p>
+
+          <p><b span className="hc-d">Description:</b> <span span className="hc-p">{card.details.description}</span></p>
+
+            {/* Play button container */}
+            <div className="play-button-container">
+            <button className="play-button">
+                <i className="fa fa-play"></i> {/* Font Awesome play icon */}
+            </button>
+            </div>
+          
         </div>
       )}
     </div>

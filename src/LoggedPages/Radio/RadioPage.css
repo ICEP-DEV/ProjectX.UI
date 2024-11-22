@@ -121,6 +121,7 @@
   height: 600px;
   width: 1000px;
   touch-action: pan-y; /* Allow vertical scrolling */
+  text-align: left;
 }
 
 .card {
@@ -130,7 +131,6 @@
   background: #ffffff;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  text-align: left;
   transition: transform 0.3s ease-in-out, opacity 0.3s;
   user-select: none; /* Prevent text selection */
   overflow: hidden;
@@ -233,6 +233,10 @@
   border-radius: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+  flex-direction: column;  /* Stack elements vertically */
+  gap: 10px;               /* Add space between each element */
+  padding-right: 30px;
+  
 }
 
 .card:hover .card-hover {
@@ -244,4 +248,40 @@
   color: #ffab14;
 }
 
+.hc-p
+{
+  color: #fff;
+  font-size: 15px;
+}
+
+.hc-d
+{
+  color: #fff;
+  font-weight: bold;
+}
+
+.card-hover .play-button-container {
+  position: absolute;
+  bottom: 10px;  /* Position the play button at the bottom */
+  right: 10px;   /* Align it to the right side */
+}
+
+.card-hover .play-button {
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 40%;
+  font-size: 24px;  /* Adjust size of the play icon */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-hover .play-button:hover {
+  background: linear-gradient(30deg,rgba(206, 17, 39, 0.8) 0%, rgba(0, 85, 150, 0.8) 100%);
+}
+
+.card-hover .play-button i {
+  margin: 0;
+}
 
