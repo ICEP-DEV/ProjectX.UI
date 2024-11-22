@@ -12,6 +12,7 @@ import cardImage3 from "./radio photos/photos/3.png";
 import cardImage4 from "./radio photos/photos/4.png";
 import cardImage5 from "./radio photos/photos/5.png";
 import cardImage6 from "./radio photos/photos/6.png";
+import TutLogo from "./radio photos/fm logo.png";
 
 
 const RadioPage = () => {
@@ -21,6 +22,21 @@ const RadioPage = () => {
   const [isTextVisible, setIsTextVisible] = useState(false); // Manage text visibility
   const [hoveredCard, setHoveredCard] = useState(null); // Track hovered card
   const cardWrapperRef = useRef();
+  const handlePlayButtonClick = (id) => {
+    setActivePlayerCard((prev) => (prev === id ? null : id)); // Toggle the audio player
+  };
+  
+  const [activePlayerCard, setActivePlayerCard] = useState(null); // Track card with active audio player
+  const [animationClass, setAnimationClass] = useState(""); // Track animation
+
+  const handleClosePlayer = () => {
+    setAnimationClass("fade-out"); // Trigger fade-out animation
+    setTimeout(() => {
+      setActivePlayerCard(null); // Remove audio player after animation ends
+      setAnimationClass(""); // Reset animation class
+    }, 300); // Match animation duration
+  };
+  
 
   const cards = [
     { 
@@ -41,7 +57,7 @@ const RadioPage = () => {
       hostedBy: "Mbali Mbele", 
       image: cardImage2,
       description: "Last night on the Ground Breaker Show...",
-      description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity, Nokuthula inspired listeners with her journey of resilience, adaptability, and a passion for workplaces.",
+      description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity.",
       date: "5 October 2024",
       location: "Pretoria, Soshanguve",
     },
@@ -227,6 +243,7 @@ const RadioPage = () => {
           className="card-image"
         />
       </div>
+      
 
       <h3 className="person-name">{card.title}</h3>
       <p className="position">
@@ -237,21 +254,72 @@ const RadioPage = () => {
       </p>
 
       {hoveredCard === card.id && (
-                <div className="card-hover">
-                  <div className="card-details">
-                    <p ><strong className="hc-para1">{card.title}</strong></p>
-                    <p><strong className="hc-para2">{card.description}</strong></p>
-                    <p><strong className="hc-para4">{card.description2}</strong></p>
-                    <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
-                    <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
-                  </div>
-                  <div className="play-button-container">
-                    <button className="play-button">
-                      <i className="bi bi-play-fill"></i>
-                    </button>
-                  </div>
-                </div>
-        )}
+  <div className="card-hover">
+    {activePlayerCard === card.id ? ( // Only show the audio player if this card is active
+      <div className={`audio-player ${animationClass}`}>
+        <div className="audio-player-header">
+        <h3>Now Playing</h3>
+
+        <a href="https://tutfm962.co.za/" target="_blank" rel="noopener noreferrer">
+          <img src={TutLogo} alt="TUT Logo" className="tut-logo" />
+        </a>
+    
+    <button className="close-button" onClick={handleClosePlayer}>
+      &times; {/* Close icon */}
+    </button>
+        </div>
+
+          {/* Artist Image */}
+  <div className="audio-player-artist-image-container">
+    {hoveredCard && (
+      <img
+        src={cards.find((card) => card.id === hoveredCard)?.image}
+        alt="Artist"
+        className="audio-player-artist-image"
+      />
+    )}
+  </div>
+
+        <div className="audio-player-song-info">
+          <h3>{card.title}</h3>
+          <p><b>Talks:</b> {card.talks}</p>
+        </div>
+        <div className="audio-player-controls">
+          <button><i className="bi bi-skip-backward-fill"></i></button>
+          <button><i className="bi bi-play-fill"></i></button>
+          <button><i className="bi bi-skip-forward-fill"></i></button>
+        </div>
+        <div className="audio-player-progress">
+          <span>1:50</span>
+          <input type="range" min="0" max="100" value="50" />
+          <span>3:42</span>
+        </div>
+      </div>
+    ) : (
+      <div className="card-details">
+        <p><strong className="hc-para1">{card.title}</strong></p>
+        <p><strong className="hc-para2">{card.description}</strong></p>
+        <p><strong className="hc-para4">{card.description2}</strong></p>
+        <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
+        <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
+        <div className="play-button-container">
+          <button
+            className="play-button"
+            onClick={() => {
+              setActivePlayerCard(card.id);
+              setAnimationClass("fade-in"); // Trigger fade-in animation
+            }}
+          >
+            <i className="bi bi-play-fill"></i>
+          </button>
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
+
+
     </div>
   ))}
 </div>
