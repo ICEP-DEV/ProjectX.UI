@@ -36,7 +36,7 @@ const UpcomingEvents = () => {
                 secondary={
                   <>
                     <Typography variant="body2" color="textSecondary">
-                      Date: {item.date}
+                      Date: { new Date(item.date).toLocaleDateString("en-GB",{ day: "2-digit",month: "long",year: "numeric", })}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
                       Time: {item.time}

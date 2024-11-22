@@ -122,6 +122,7 @@
   height: 600px;
   width: 1000px;
   touch-action: pan-y; /* Allow vertical scrolling */
+  text-align: left;
 }
 
 .card {
@@ -264,6 +265,10 @@
   border-radius: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+  flex-direction: column;  /* Stack elements vertically */
+  gap: 10px;               /* Add space between each element */
+  padding-right: 30px;
+  
 }
 
 .card:hover .card-hover {

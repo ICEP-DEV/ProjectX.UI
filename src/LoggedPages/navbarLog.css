@@ -379,18 +379,25 @@
   transition: opacity 0.5s ease; /* This is to ensure a smooth transition */
 }
 
-@media screen and (max-width: 992px) {
-  .navbarr .navbar-nav {
-    text-align: center;
-    width: 100%;
+
+@media (max-width: 991px) {
+  .homepage-bgg {
+    background-color: #e6f2ff; /* Optional: Adjust for smaller screens */
   }
 
-  .nav-link-spacing,
-  .nav-link-spacing1,
-  .news-donate-add-space {
-    margin: 5px 0; /* Reduce spacing for smaller screens */
+  .navbarr .navbar-collapse {
+    background-color: #154fce; /* Dropdown background color for small screens */
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .navbarr .navbar-nav .nav-link {
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
   }
 }
+
 
 
 

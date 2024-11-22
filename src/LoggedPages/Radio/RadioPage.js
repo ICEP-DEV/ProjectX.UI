@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
 import Vid1 from "./radio video/Plug an Alumni.mp4";
 import Vid2 from "./radio video/Plug a Graduate.mp4";
@@ -243,7 +243,6 @@ const RadioPage = () => {
           className="card-image"
         />
       </div>
-      
 
       <h3 className="person-name">{card.title}</h3>
       <p className="position">
