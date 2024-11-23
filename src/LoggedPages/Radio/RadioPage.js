@@ -14,6 +14,16 @@ import cardImage5 from "./radio photos/photos/5.png";
 import cardImage6 from "./radio photos/photos/6.png";
 import TutLogo from "./radio photos/fm logo.png";
 
+import Audio1 from "./radio podcast/Dr Linda Meyer.mp3";
+import Audio2 from "./radio podcast/Nokuthula Makhanya.mp3";
+import Audio3 from "./radio podcast/Oupa Segalwe.mp3";
+import Audio4 from "./radio podcast/Obakeng Aubrey Moeketsi.m4a";
+import Audio5 from "./radio podcast/Rearabetswe Dire.mp3";
+import Audio6 from "./radio podcast/Shalate Davhana.mp3";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+
 
 const RadioPage = () => {
   const [currentCard, setCurrentCard] = useState(0);
@@ -21,14 +31,29 @@ const RadioPage = () => {
   const [dragDistance, setDragDistance] = useState(0);
   const [isTextVisible, setIsTextVisible] = useState(false); // Manage text visibility
   const [hoveredCard, setHoveredCard] = useState(null); // Track hovered card
-  const cardWrapperRef = useRef();
-  const handlePlayButtonClick = (id) => {
-    setActivePlayerCard((prev) => (prev === id ? null : id)); // Toggle the audio player
-  };
-  
+  const cardWrapperRef = useRef();  
   const [activePlayerCard, setActivePlayerCard] = useState(null); // Track card with active audio player
   const [animationClass, setAnimationClass] = useState(""); // Track animation
+  const [audioProgress, setAudioProgress] = useState(0); // Track the progress of audio
+  const [audioDuration, setAudioDuration] = useState(0); // Track the duration of audio
+  const [isPlaying, setIsPlaying] = useState(false);
 
+  const audioRefs = useRef({}); // Store references to all audio elements
+
+  // Handle play button click for audio
+  const handlePlayButtonClick = (id) => {
+    const audio = audioRefs.current[id];
+    if (audio) {
+      if (isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Handle close player
   const handleClosePlayer = () => {
     setAnimationClass("fade-out"); // Trigger fade-out animation
     setTimeout(() => {
@@ -36,7 +61,49 @@ const RadioPage = () => {
       setAnimationClass(""); // Reset animation class
     }, 300); // Match animation duration
   };
-  
+
+  // Handle forward button click (10 seconds forward)
+  const handleForwardButtonClick = (id) => {
+    if (audioRefs.current[id]) {
+      audioRefs.current[id].currentTime += 10;
+    }
+  };
+
+  // Handle back button click (10 seconds backward)
+  const handleBackButtonClick = (id) => {
+    if (audioRefs.current[id]) {
+      audioRefs.current[id].currentTime -= 10;
+    }
+  };
+
+  // Update audio progress and duration on timeupdate
+  const handleTimeUpdate = (id) => {
+    if (audioRefs.current[id]) {
+      setAudioProgress(audioRefs.current[id].currentTime);
+      setAudioDuration(audioRefs.current[id].duration);
+    }
+  };
+
+  const handleSeek = (e, id) => {
+    const audio = audioRefs.current[id];
+    if (audio) {
+      const progressBar = e.target.getBoundingClientRect();
+      const clickX = e.clientX - progressBar.left;
+      const newTime = (clickX / progressBar.width) * audio.duration;
+      audio.currentTime = newTime;
+      setAudioProgress(newTime);
+    }
+  };
+
+  const formatTime = (time) => {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = Math.floor(time % 60);
+    if (hours > 0) {
+      return `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    }
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
 
   const cards = [
     { 
@@ -49,6 +116,7 @@ const RadioPage = () => {
       description2: "We took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
       date: "2 October 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio1,
     },
     { 
       id: 2, 
@@ -60,6 +128,7 @@ const RadioPage = () => {
       description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity.",
       date: "5 October 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio2,
     },
     { 
       id: 3, 
@@ -67,9 +136,11 @@ const RadioPage = () => {
       talks: "Biography", 
       hostedBy: "Galaletsang Shadi", 
       image: cardImage3,
-      description: "Earlier, you caught PLUG-A-GRADUATE...",
+      description: "Earlier, on PLUG-A-GRADUATE...",
+      description2: "Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe, the Head of Communication and Stakeholder Relations at the South African Weather Service. Mr. Segalwe shared insights from his new book, Lucas Mangope: A Life – Unpacking the Biography and the Journey to Publication.",
       date: "12 October 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio3,
     },
     { 
       id: 4, 
@@ -78,8 +149,10 @@ const RadioPage = () => {
       hostedBy: "Mathekga Senyolo", 
       image: cardImage4,
       description: "Earlier this month, listeners tuned in for a special live broadcast...",
+      description2: "The popular weekly show, Plug-A-Graduate, hosted by Obakeng Aubrey Moeketsi, straight from the Tshwane University of Technology Pretoria Campus on Friday, June 7th. On TUT FM 96.2, we brought you a dynamic event with industry experts and seasoned entrepreneurs.",
       date: "03 November 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio4,
     },
     { 
       id: 5, 
@@ -88,8 +161,10 @@ const RadioPage = () => {
       hostedBy: "Obakeng Mooketsi", 
       image: cardImage5,
       description: "Earlier on today’s insightful episode of Plug-A-Graduate...",
+      description2: "The Ground Breaker Show, hosted Obakeng Mooketsi, also known as OBK, had the pleasure of welcoming Reabetswe Dire, the CEO of Edenvinne. They dove deep into how to transform your academic knowledge into a source of income.",
       date: "19 November 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio5,
     },
     { 
       id: 6, 
@@ -98,8 +173,10 @@ const RadioPage = () => {
       hostedBy: "Khuthadzo Tshianzi", 
       image: cardImage6,
       description: "The show discussed how it became a game-changer for recent graduates...",
+      description2: "Seasoned job seekers, and aspiring entrepreneurs navigating the competitive job market. In our pilot episode, we welcomed esteemed guests: Mrs. Kedibone Mahapa, TUT FM 96.2 Station Manager; Dr. Roelien Brink, Director of Cooperative Education.",
       date: "15 November 2024",
       location: "Pretoria, Soshanguve",
+      audioSrc: Audio6,
     },
   ];
 
@@ -257,42 +334,65 @@ const RadioPage = () => {
     {activePlayerCard === card.id ? ( // Only show the audio player if this card is active
       <div className={`audio-player ${animationClass}`}>
         <div className="audio-player-header">
-        <h3>Now Playing</h3>
+       
 
         <a href="https://tutfm962.co.za/" target="_blank" rel="noopener noreferrer">
           <img src={TutLogo} alt="TUT Logo" className="tut-logo" />
         </a>
-    
+        <h3><span className="hc-np-1">Now Playing</span></h3>
     <button className="close-button" onClick={handleClosePlayer}>
       &times; {/* Close icon */}
     </button>
         </div>
 
           {/* Artist Image */}
-  <div className="audio-player-artist-image-container">
-    {hoveredCard && (
-      <img
-        src={cards.find((card) => card.id === hoveredCard)?.image}
-        alt="Artist"
-        className="audio-player-artist-image"
-      />
-    )}
-  </div>
+        <div className="audio-player-artist-image-container">
+            {hoveredCard && (
+            <img
+                src={cards.find((card) => card.id === hoveredCard)?.image}
+                alt="Artist"
+                className="audio-player-artist-image"
+            />
+            )}
+        </div>
 
-        <div className="audio-player-song-info">
-          <h3>{card.title}</h3>
-          <p><b>Talks:</b> {card.talks}</p>
-        </div>
-        <div className="audio-player-controls">
-          <button><i className="bi bi-skip-backward-fill"></i></button>
-          <button><i className="bi bi-play-fill"></i></button>
-          <button><i className="bi bi-skip-forward-fill"></i></button>
-        </div>
-        <div className="audio-player-progress">
-          <span>1:50</span>
-          <input type="range" min="0" max="100" value="50" />
-          <span>3:42</span>
-        </div>
+            {/* Audio Player */}
+            {activePlayerCard === card.id && (
+                <div className="audio-player1">
+                        <div className="audio-player-song-info">
+                        <h3><span className="hc-np-1">{card.title}</span></h3>
+                        <p><span className="hc-np-1"><b>Talks:</b> {card.talks}</span></p>
+                        </div>
+                  <audio
+                    ref={(ref) => (audioRefs.current[activePlayerCard] = ref)}
+                    src={card.audioSrc}
+                    onTimeUpdate={() => handleTimeUpdate(activePlayerCard)}
+                    onEnded={() => setIsPlaying(false)}
+                    />
+
+                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayerCard)}>
+                      <div
+                        className="progress"
+                        style={{ width: `${(audioProgress / audioDuration) * 100}%` }}
+                      ></div>
+                    </div>
+                    <div className="time-info">
+                      <span>{formatTime(audioProgress)}</span>
+                      <span>{formatTime(audioDuration)}</span>
+                    </div>
+                    <div className="controls">
+                      <button onClick={() => handleBackButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={faBackward} />
+                      </button>
+                      <button onClick={() => handlePlayButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+                      </button>
+                      <button onClick={() => handleForwardButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={faForward} />
+                      </button>
+                    </div>
+                </div>
+              )}
       </div>
     ) : (
       <div className="card-details">

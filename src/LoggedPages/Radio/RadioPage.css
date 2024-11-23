@@ -200,8 +200,8 @@
 
 .play-button-container {
   position: absolute;
-  top: 90%;
-  left: 85%;
+  top: 92%;
+  left: 87%;
   transform: translate(-50%, -50%);
 }
 
@@ -210,8 +210,9 @@
   color: white;
   border: none;
   padding: 15px;
-  border-radius: 40%;
-  font-size: 24px;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 55px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
@@ -266,9 +267,7 @@
   opacity: 0;
   transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
   flex-direction: column;  /* Stack elements vertically */
-  gap: 10px;               /* Add space between each element */
-  padding-right: 30px;
-  
+  gap: 10px;               /* Add space between each element */  
 }
 
 .card:hover .card-hover {
@@ -331,6 +330,20 @@
 }
 
 .audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  border-radius: 15px;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.audio-player1
+{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -451,4 +464,63 @@
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border: 3px solid #ffffff;
+  margin-bottom: 20px;
+}
+
+.hc-np-1
+{
+  color: #fff;
+}
+
+/* Hide default audio controls */
+.audio-player audio {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #555;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #0ff;
+  border-radius: 5px;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: none;
+  border: none;
+  color: #0ff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+button:hover {
+  color: #fff;
 }
