@@ -41,6 +41,16 @@
   background-color: #ffffff; /* Light background for contrast */
 }
 
+.text-section
+{
+  padding-left: 90px;
+  position: relative;
+  padding-right: 90px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* Light background for contrast */
+}
+
 .text-section h2 {
   font-size: 1.8rem;
   color: #222;
@@ -49,6 +59,30 @@
 }
 
 .text-section p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.text-section1
+{
+  padding-left: 90px;
+  position: relative;
+  padding-right: 90px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* Light background for contrast */
+}
+
+.text-section1 h2 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-section1 p {
   font-size: 1.1rem;
   color: #444;
   line-height: 1.6;
@@ -72,18 +106,18 @@
   opacity: 0;
 }
 
-/* Styling the information icon */
 .info-icon-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  left: 50%; /* Positioning at 50% of the container */
+  transform: translateX(-50%); /* Adjusting by half its own width for true centering */
 }
+
 
 .info-icon {
   background-color: #ffab14;
   color: white;
-  border-radius: 50%;
-  width: 40px;
+  border-radius: 20px 20px ;
+  width: 200px;
   height: 40px;
   font-size: 20px;
   text-align: center;
@@ -93,8 +127,29 @@
   transition: background-color 0.3s ease;
 }
 
+/* Animate the chevron icon */
+.chevron-icon {
+  display: inline-block;
+  animation: moveUpDown 2s infinite ease-in-out; /* 2s duration, infinite loop */
+}
+
+/* Define the keyframes for up-and-down motion */
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(-3px); /* Start and end at the initial position */
+  }
+  50% {
+    transform: translateY(1px); /* Move up by 10px at the midpoint */
+  }
+}
+
 .info-icon:hover {
   background-color: #d28f12;
+}
+
+.isTextVisible-container
+{
+  margin-top: 100px;
 }
 
 /* Existing Content Styling */
@@ -131,7 +186,6 @@
   height: auto;
   background: #ffffff;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-
   text-align: left;
   transition: transform 0.3s ease-in-out, opacity 0.3s;
   user-select: none; /* Prevent text selection */
@@ -515,7 +569,7 @@
 button {
   background: none;
   border: none;
-  color: #0ff;
+  color: rgb(255, 255, 255);
   font-size: 20px;
   cursor: pointer;
   transition: color 0.3s;
@@ -523,4 +577,45 @@ button {
 
 button:hover {
   color: #fff;
+}
+
+/* Tooltip container (pop out to the right) */
+.info-icon[data-tooltip]::after {
+  content: attr(data-tooltip); /* Use the tooltip text from the data attribute */
+  position: absolute;
+  top: 50%; /* Align vertically to the middle of the button */
+  left: 100%; /* Position to the right of the button */
+  transform: translateY(-50%) translateX(0); /* Initial position */
+  background-color: rgba(0, 0, 0, 0.8); /* Modern dark background with transparency */
+  color: #fff; /* White text for contrast */
+  padding: 4px 10px; /* Padding for better readability */
+  border-radius: 6px; /* Rounded corners for a modern look */
+  font-size: 13px; /* Adjust font size */
+  white-space: nowrap; /* Prevent wrapping */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent interactions */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade-in/out */
+  margin-left: 10px;
+}
+
+/* Optional: Add an arrow pointing to the button */
+.info-icon[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Center the arrow vertically */
+  left: calc(100% + 2px); /* Position just to the right of the tooltip */
+  transform: translateY(-50%);
+  border-width: 6px; /* Size of the arrow */
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8); /* Match tooltip background */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.info-icon[data-tooltip]:hover::after,
+.info-icon[data-tooltip]:hover::before {
+  opacity: 1; /* Fully visible */
+  transform: translateY(-50%) translateX(8px); /* Move slightly right for pop-out effect */
 }

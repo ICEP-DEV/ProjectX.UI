@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
 import Vid1 from "./radio video/Plug an Alumni.mp4";
 import Vid2 from "./radio video/Plug a Graduate.mp4";
+import Vid3 from "./radio video/Catch up.mp4";
 import divider1 from "./radio photos/Divider 3.png";
 import divider2 from "./radio photos/Divider 2.png";
 import Footer from '../Footer';
@@ -22,7 +23,7 @@ import Audio5 from "./radio podcast/Rearabetswe Dire.mp3";
 import Audio6 from "./radio podcast/Shalate Davhana.mp3";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faBackward, faForward } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faBackward, faForward, faChevronDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 
 
 const RadioPage = () => {
@@ -263,15 +264,16 @@ const RadioPage = () => {
       <img src={divider1} alt="Divider 1" className="divider-photo" />
 
       {/* Text Section 2 */}
-      <div className="text-section">
+      <div className="text-section1">
         <div className="info-icon-container">
           <button
             className="info-icon"
             onClick={toggleTextVisibility} // Toggle text visibility when clicked
           >
-            i
+           <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
           </button>
         </div>
+        <div className="isTextVisible-container">
         <div
           className={`text-content ${isTextVisible ? "show" : "hide"}`} // Add smooth transition classes
         >
@@ -287,6 +289,8 @@ const RadioPage = () => {
             path before you!
           </p>
         </div>
+        </div>
+
       </div>
 
       {/* Card Section */}
@@ -430,6 +434,187 @@ const RadioPage = () => {
           <button onClick={handleNext}>&gt;</button>
         </div>
       </div>
+
+      {/* Divider Photo 2 */}
+      <img src={divider2} alt="Divider 2" className="divider-photo" />
+
+      {/* Video Section */}
+      <div className="video-container">
+        <video src={Vid3} autoPlay loop muted className="radio-video" />
+      </div>
+
+      {/* Divider Photo 1 */}
+      <img src={divider1} alt="Divider 1" className="divider-photo" />
+
+      {/* Text Section 2 */}
+      <div className="text-section1">
+        <div className="info-icon-container">
+          <button
+            className="info-icon"
+            onClick={toggleTextVisibility} // Toggle text visibility when clicked
+           data-tooltip= "What is Catch Up With an Alumni all about?"
+          >
+           <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
+          </button>
+          
+        </div>
+        <div className="isTextVisible-container">
+        <div
+          className={`text-content ${isTextVisible ? "show" : "hide"}`} // Add smooth transition classes
+        >
+          <h2>What is Catch Up With an Alumni all about?</h2>
+          <p>
+            <b>Catch Up with an Alumni</b> is your gateway to reconnecting with inspiring voices from <b>TUT alumni</b>! This platform brings you <i>podcasts</i> and <i>radio recordings</i> where graduates share their unique experiences, valuable insights, and remarkable achievements. In the <b>Podcasts</b> section, dive into engaging conversations and stories that offer a deeper look into their journeys, while the <b>Radio Recordings</b> section features highlights and memorable snippets from live broadcasts on <b>TUT FM</b>. Whether you're seeking <i>motivation</i>, <i>guidance</i>, or a sense of connection, <b>Catch Up with an Alumni</b> is the perfect place to celebrate and learn from the paths paved by those who came before you!
+          </p>
+
+        </div>
+        </div>
+
+      </div>
+
+      {/* Card Section */}
+      <div
+        className="card-section"
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchMove={handleDragMove}
+        onTouchEnd={handleDragEnd}
+      >
+<div className="card-wrapper" ref={cardWrapperRef}>
+  {cards.map((card, index) => (
+    <div
+      key={card.id}
+      className={`card ${index === currentCard ? "active" : ""}`}
+      style={{
+        transform: `translateX(${
+          (index - currentCard) * 120 + (index === currentCard ? dragDistance / 5 : 0)
+        }%)`,
+        opacity: index === currentCard ? 1 : 0.5,
+      }}
+      onMouseEnter={() => handleMouseEnter(card.id)}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="card-image-container">
+        <img
+          src={card.image}
+          alt={card.title}
+          className="card-image"
+        />
+      </div>
+
+      <h3 className="person-name">{card.title}</h3>
+      <p className="position">
+        (<b>Talks:</b> {card.talks})
+      </p>
+      <p className="position2">
+        <span className="hostedby"><b>Hosted By: </b></span>{card.hostedBy}
+      </p>
+
+      {hoveredCard === card.id && (
+  <div className="card-hover">
+    {activePlayerCard === card.id ? ( // Only show the audio player if this card is active
+      <div className={`audio-player ${animationClass}`}>
+        <div className="audio-player-header">
+       
+
+        <a href="https://tutfm962.co.za/" target="_blank" rel="noopener noreferrer">
+          <img src={TutLogo} alt="TUT Logo" className="tut-logo" />
+        </a>
+        <h3><span className="hc-np-1">Now Playing</span></h3>
+    <button className="close-button" onClick={handleClosePlayer}>
+      &times; {/* Close icon */}
+    </button>
+        </div>
+
+          {/* Artist Image */}
+        <div className="audio-player-artist-image-container">
+            {hoveredCard && (
+            <img
+                src={cards.find((card) => card.id === hoveredCard)?.image}
+                alt="Artist"
+                className="audio-player-artist-image"
+            />
+            )}
+        </div>
+
+            {/* Audio Player */}
+            {activePlayerCard === card.id && (
+                <div className="audio-player1">
+                        <div className="audio-player-song-info">
+                        <h3><span className="hc-np-1">{card.title}</span></h3>
+                        <p><span className="hc-np-1"><b>Talks:</b> {card.talks}</span></p>
+                        </div>
+                  <audio
+                    ref={(ref) => (audioRefs.current[activePlayerCard] = ref)}
+                    src={card.audioSrc}
+                    onTimeUpdate={() => handleTimeUpdate(activePlayerCard)}
+                    onEnded={() => setIsPlaying(false)}
+                    />
+
+                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayerCard)}>
+                      <div
+                        className="progress"
+                        style={{ width: `${(audioProgress / audioDuration) * 100}%` }}
+                      ></div>
+                    </div>
+                    <div className="time-info">
+                      <span>{formatTime(audioProgress)}</span>
+                      <span>{formatTime(audioDuration)}</span>
+                    </div>
+                    <div className="controls">
+                      <button onClick={() => handleBackButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={faBackward} />
+                      </button>
+                      <button onClick={() => handlePlayButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
+                      </button>
+                      <button onClick={() => handleForwardButtonClick(activePlayerCard)}>
+                        <FontAwesomeIcon icon={faForward} />
+                      </button>
+                    </div>
+                </div>
+              )}
+      </div>
+    ) : (
+      <div className="card-details">
+        <p><strong className="hc-para1">{card.title}</strong></p>
+        <p><strong className="hc-para2">{card.description}</strong></p>
+        <p><strong className="hc-para4">{card.description2}</strong></p>
+        <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
+        <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
+        <div className="play-button-container">
+          <button
+            className="play-button"
+            onClick={() => {
+              setActivePlayerCard(card.id);
+              setAnimationClass("fade-in"); // Trigger fade-in animation
+            }}
+          >
+            <i className="bi bi-play-fill"></i>
+          </button>
+        </div>
+      </div>
+    )}
+  </div>
+)}
+
+
+
+    </div>
+  ))}
+</div>
+
+
+        {/* Navigation Buttons */}
+        <div className="card-navigation">
+          <button onClick={handlePrev}>&lt;</button>
+          <button onClick={handleNext}>&gt;</button>
+        </div>
+      </div>
+
+      
 
 <Footer />
     </div>
