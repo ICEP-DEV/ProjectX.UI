@@ -1,3 +1,4 @@
+
 .radio-page {
   display: flex;
   flex-direction: column;
@@ -130,10 +131,17 @@
   height: auto;
   background: #ffffff;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+
+  text-align: left;
   transition: transform 0.3s ease-in-out, opacity 0.3s;
   user-select: none; /* Prevent text selection */
   overflow: hidden;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
 .card-image-container {
@@ -188,6 +196,30 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.play-button-container {
+  position: absolute;
+  top: 90%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.play-button {
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 40%;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.play-button:hover {
+  background-color: #ff7f50;
+  transform: scale(1.1);
 }
 
 .card-wrapper:active .card {
@@ -248,40 +280,175 @@
   color: #ffab14;
 }
 
-.hc-p
+.radio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+.video-container video {
+  width: 100%;  
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.hc-para1
+{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 100;
+  
+}
+
+.hc-para2
+{
+  color: #fff;
+  font-size: 17px;
+  font-weight: 100;
+  padding-right: 30px;
+}
+
+.hc-para3
 {
   color: #fff;
   font-size: 15px;
+  font-weight: 100;  
+  padding-right: 30px;
 }
-
-.hc-d
+.hc-para4
 {
   color: #fff;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 100;
+  
 }
 
-.card-hover .play-button-container {
-  position: absolute;
-  bottom: 10px;  /* Position the play button at the bottom */
-  right: 10px;   /* Align it to the right side */
+.card-details
+{
+  text-align: center;
+  padding: 40px;
 }
 
-.card-hover .play-button {
-  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  border-radius: 15px;
   color: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.audio-player-song-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.audio-player-controls {
+  display: flex;
+  justify-content: center;  
+  margin-bottom: 10px;
+}
+
+.audio-player-controls button {
+  background: none;
   border: none;
-  padding: 10px 15px;
-  border-radius: 40%;
-  font-size: 24px;  /* Adjust size of the play icon */
+  color: white;
+  font-size: 24px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.card-hover .play-button:hover {
-  background: linear-gradient(30deg,rgba(206, 17, 39, 0.8) 0%, rgba(0, 85, 150, 0.8) 100%);
+.audio-player-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
-.card-hover .play-button i {
-  margin: 0;
+.audio-player-progress input[type="range"] {
+  flex-grow: 1;
+  background: none;
+  accent-color: white;
 }
 
+/* Fade-in and fade-out animations */
+.audio-player.fade-in {
+  opacity: 0;
+  animation: audio-player-fade-in 0.3s forwards; /* Fade-in animation */
+}
+
+.audio-player.fade-out {
+  opacity: 1;
+  animation: audio-player-fade-out 0.3s forwards; /* Fade-out animation */
+}
+
+@keyframes audio-player-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95); /* Slight zoom-in effect */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes audio-player-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95); /* Slight zoom-out effect */
+  }
+}
+
+/* Close button styling */
+.audio-player .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.audio-player .close-button:hover {
+  color: #ff4d4d; /* Red hover effect */
+}
+
+/* Circular logo styling */
+.tut-logo {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Ensure it is square */
+  border-radius: 50%; /* Makes the image circular */
+  border: 2px solid #fff; /* Optional: Add a white border */
+  position: absolute;
+  top: 20px; /* Position it in the top-right corner */
+  right: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Artist Image Container */
+.audio-player-artist-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* Artist Image Styling */
+.audio-player-artist-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid #ffffff;
+}
