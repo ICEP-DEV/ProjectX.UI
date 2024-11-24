@@ -619,3 +619,144 @@ button:hover {
   opacity: 1; /* Fully visible */
   transform: translateY(-50%) translateX(8px); /* Move slightly right for pop-out effect */
 }
+
+.video-container1 {
+  position: relative;
+  width: 80%;
+  max-width: 80%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.short-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.short-video.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.blurred {
+  filter: blur(10px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: #fff; /* Ensure text is white and visible */
+  z-index: 3; /* Higher than the video */
+  pointer-events: none; /* Makes it non-interactive but visible */
+}
+
+.overlay-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 4; /* Ensure content appears above the blur */
+}
+
+.overlay p {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-right: 20px;
+  z-index: 5; /* Additional assurance */
+}
+
+.view-full-video-btn {
+  flex: none;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  z-index: 5; /* Ensure it is clickable */
+}
+
+.view-full-video-btn:hover {
+  background: white;
+  color: black;
+}
+
+.video-indicators {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.indicator.active {
+  background-color: #000;
+  transform: scale(1.2);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: #000;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #444;
+  transform: scale(1.1);
+}
+
+.nav-button.prev {
+  margin-right: auto;
+}
+
+.nav-button.next {
+  margin-left: auto;
+}
+
+/* Video Indicators */
+.video-indicators {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

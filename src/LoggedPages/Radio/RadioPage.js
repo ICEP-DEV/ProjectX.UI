@@ -13,6 +13,14 @@ import cardImage3 from "./radio photos/photos/3.png";
 import cardImage4 from "./radio photos/photos/4.png";
 import cardImage5 from "./radio photos/photos/5.png";
 import cardImage6 from "./radio photos/photos/6.png";
+
+import cardImage7 from "./radio photos/1.jpg";  // Add your image imports
+import cardImage8 from "./radio photos/2.jpg";
+import cardImage9 from "./radio photos/3.jpg";
+import cardImage10 from "./radio photos/4.jpg";
+import cardImage11 from "./radio photos/5.jpg";
+import cardImage12 from "./radio photos/6.jpg";
+
 import TutLogo from "./radio photos/fm logo.png";
 
 import Audio1 from "./radio podcast/Dr Linda Meyer.mp3";
@@ -22,9 +30,17 @@ import Audio4 from "./radio podcast/Obakeng Aubrey Moeketsi.m4a";
 import Audio5 from "./radio podcast/Rearabetswe Dire.mp3";
 import Audio6 from "./radio podcast/Shalate Davhana.mp3";
 
+import Video1 from "./radio photos/Short Video.mp4";
+import Video2 from "./radio video/Plug a Graduate.mp4";
+import Video3 from "./radio video/Plug a Graduate.mp4";
+import Video4 from "./radio video/Plug a Graduate.mp4";
+import Video5 from "./radio video/Plug a Graduate.mp4";
+import Video6 from "./radio video/Plug a Graduate.mp4";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faBackward, faForward, faChevronDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 
+const videos = [Video1, Video2, Video3, Video4, Video5, Video6];
 
 const RadioPage = () => {
   const [currentCard, setCurrentCard] = useState(0);
@@ -181,6 +197,81 @@ const RadioPage = () => {
     },
   ];
 
+  const cards2 = [
+    { 
+      id: 1, 
+      title: "Mr Mashitishi Benson Phurutsi", 
+      talks: "Website Projects", 
+      hostedBy: "Tshiamo Matiza", 
+      image: cardImage7,
+      description: "On the Ground Breaker Show this past Wednesday...",
+      description2: "We took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
+      date: "2 October 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio1,
+    },
+    { 
+      id: 2, 
+      title: "Mrs Phumla Nonkululeko Msibi", 
+      talks: "Academic Excellence Awards", 
+      hostedBy: "Mbali Mbele", 
+      image: cardImage8,
+      description: "Last night on the Ground Breaker Show...",
+      description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity.",
+      date: "5 October 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio2,
+    },
+    { 
+      id: 3, 
+      title: "Mrs Phaphama Tshisikhawe", 
+      talks: "Academic Tutors", 
+      hostedBy: "Galaletsang Shadi", 
+      image: cardImage9,
+      description: "Earlier, on PLUG-A-GRADUATE...",
+      description2: "Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe, the Head of Communication and Stakeholder Relations at the South African Weather Service. Mr. Segalwe shared insights from his new book, Lucas Mangope: A Life – Unpacking the Biography and the Journey to Publication.",
+      date: "12 October 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio3,
+    },
+    { 
+      id: 4, 
+      title: "Dr Eric Pule", 
+      talks: "Talks Alumni Space", 
+      hostedBy: "Mathekga Senyolo", 
+      image: cardImage10,
+      description: "Earlier this month, listeners tuned in for a special live broadcast...",
+      description2: "The popular weekly show, Plug-A-Graduate, hosted by Obakeng Aubrey Moeketsi, straight from the Tshwane University of Technology Pretoria Campus on Friday, June 7th. On TUT FM 96.2, we brought you a dynamic event with industry experts and seasoned entrepreneurs.",
+      date: "03 November 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio4,
+    },
+    { 
+      id: 5, 
+      title: "Mr Pearl Thulani Ngathi", 
+      talks: "Sports Management Opportunities", 
+      hostedBy: "Obakeng Mooketsi", 
+      image: cardImage11,
+      description: "Earlier on today’s insightful episode of Plug-A-Graduate...",
+      description2: "The Ground Breaker Show, hosted Obakeng Mooketsi, also known as OBK, had the pleasure of welcoming Reabetswe Dire, the CEO of Edenvinne. They dove deep into how to transform your academic knowledge into a source of income.",
+      date: "19 November 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio5,
+    },
+    { 
+      id: 6, 
+      title: "Mrs Hapiness Thema", 
+      talks: "Arts Making Money", 
+      hostedBy: "Khuthadzo Tshianzi", 
+      image: cardImage12,
+      description: "The show discussed how it became a game-changer for recent graduates...",
+      description2: "Seasoned job seekers, and aspiring entrepreneurs navigating the competitive job market. In our pilot episode, we welcomed esteemed guests: Mrs. Kedibone Mahapa, TUT FM 96.2 Station Manager; Dr. Roelien Brink, Director of Cooperative Education.",
+      date: "15 November 2024",
+      location: "Pretoria, Soshanguve",
+      audioSrc: Audio6,
+    },
+  ];
+
   const handleNext = () => {
     setCurrentCard((prev) => (prev + 1) % cards.length);
     setDragDistance(0);
@@ -226,6 +317,51 @@ const RadioPage = () => {
   const handleMouseLeave = () => {
     setHoveredCard(null); // Reset hovered card
   };
+
+  const videoRefs = useRef([]);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+// Play the current video when it becomes active
+useEffect(() => {
+  videoRefs.current.forEach((video, index) => {
+    if (video) {
+      if (index === currentVideoIndex) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0; // Reset other videos
+      }
+    }
+  });
+}, [currentVideoIndex]);
+
+// Change to the next video every 10 seconds
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  }, 10000);
+
+  return () => clearInterval(timer);
+}, []);
+
+const handleVideoHover = (isHovering) => {
+  setIsHovered(isHovering);
+};
+
+
+const goToNextSlide = () => {
+  setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+};
+
+const goToPreviousSlide = () => {
+  setCurrentVideoIndex((prevIndex) =>
+    prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+  );
+};
+
+const handleIndicatorClick = (index) => {
+  setCurrentVideoIndex(index);
+};
 
   return (
     <div className="radio-page">
@@ -483,7 +619,7 @@ const RadioPage = () => {
         onTouchEnd={handleDragEnd}
       >
 <div className="card-wrapper" ref={cardWrapperRef}>
-  {cards.map((card, index) => (
+  {cards2.map((card, index) => (
     <div
       key={card.id}
       className={`card ${index === currentCard ? "active" : ""}`}
@@ -532,7 +668,7 @@ const RadioPage = () => {
         <div className="audio-player-artist-image-container">
             {hoveredCard && (
             <img
-                src={cards.find((card) => card.id === hoveredCard)?.image}
+                src={cards2.find((card) => card.id === hoveredCard)?.image}
                 alt="Artist"
                 className="audio-player-artist-image"
             />
@@ -599,14 +735,9 @@ const RadioPage = () => {
     )}
   </div>
 )}
-
-
-
     </div>
   ))}
 </div>
-
-
         {/* Navigation Buttons */}
         <div className="card-navigation">
           <button onClick={handlePrev}>&lt;</button>
@@ -614,7 +745,94 @@ const RadioPage = () => {
         </div>
       </div>
 
-      
+{/* Divider Photo 2 */}
+ <img src={divider2} alt="Divider 2" className="divider-photo" />
+
+{/* Video Section */}
+<div className="video-container">
+  <video src={Vid3} autoPlay loop muted className="radio-video" />
+</div>
+
+{/* Divider Photo 1 */}
+<img src={divider1} alt="Divider 1" className="divider-photo" />
+
+      {/* Text Section 3 */}
+      <div className="text-section1">
+        <div className="info-icon-container">
+          <button
+            className="info-icon"
+            onClick={toggleTextVisibility} // Toggle text visibility when clicked
+           data-tooltip= "What is Catch Up With an Alumni all about?"
+          >
+           <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
+          </button>
+          
+        </div>
+        <div className="isTextVisible-container">
+        <div
+          className={`text-content ${isTextVisible ? "show" : "hide"}`} // Add smooth transition classes
+        >
+          <h2>What is Catch Up With an Alumni all about?</h2>
+          <p>
+            <b>Catch Up with an Alumni</b> is your gateway to reconnecting with inspiring voices from <b>TUT alumni</b>! This platform brings you <i>podcasts</i> and <i>radio recordings</i> where graduates share their unique experiences, valuable insights, and remarkable achievements. In the <b>Podcasts</b> section, dive into engaging conversations and stories that offer a deeper look into their journeys, while the <b>Radio Recordings</b> section features highlights and memorable snippets from live broadcasts on <b>TUT FM</b>. Whether you're seeking <i>motivation</i>, <i>guidance</i>, or a sense of connection, <b>Catch Up with an Alumni</b> is the perfect place to celebrate and learn from the paths paved by those who came before you!
+          </p>
+
+        </div>
+        </div>
+
+      </div>
+
+      <div
+        className="video-container1"
+        onMouseEnter={() => handleVideoHover(true)}
+        onMouseLeave={() => handleVideoHover(false)}
+      >
+        {videos.map((videoSrc, index) => (
+          <video
+            key={index}
+            ref={(el) => (videoRefs.current[index] = el)}
+            src={videoSrc}
+            className={`short-video ${index === currentVideoIndex ? "active" : ""} ${isHovered ? "blurred" : ""}`}
+            muted
+            loop
+          />
+        ))}
+
+        {isHovered && (
+          <div className="overlay">
+            <div className="overlay-content">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+              <button className="view-full-video-btn">View Full Video</button>
+            </div>
+          </div>
+        )}
+      </div>
+
+           {/* Navigation Buttons */}
+           <div className="navigation-buttons">
+        <button className="nav-button prev" onClick={goToPreviousSlide}>
+          &#8592; Previous
+        </button>
+        <button className="nav-button next" onClick={goToNextSlide}>
+          Next &#8594;
+        </button>
+      </div>
+
+      {/* Video Indicators */}
+      <div className="video-indicators">
+        {videos.map((_, index) => (
+          <div
+            key={index}
+            className={`indicator ${index === currentVideoIndex ? "active" : ""}`}
+            onClick={() => handleIndicatorClick(index)}
+          />
+        ))}
+      </div>
 
 <Footer />
     </div>
