@@ -3,6 +3,7 @@ import "./RadioPage.css";
 import Vid1 from "./radio video/Plug an Alumni.mp4";
 import Vid2 from "./radio video/Plug a Graduate.mp4";
 import Vid3 from "./radio video/Catch up.mp4";
+import Vid4 from "./radio video/Video for.mp4";
 import divider1 from "./radio photos/Divider 3.png";
 import divider2 from "./radio photos/Divider 2.png";
 import Footer from '../Footer';
@@ -32,15 +33,41 @@ import Audio6 from "./radio podcast/Shalate Davhana.mp3";
 
 import Video1 from "./radio photos/Short Video.mp4";
 import Video2 from "./radio video/Plug a Graduate.mp4";
-import Video3 from "./radio video/Plug a Graduate.mp4";
+import Video3 from "./radio photos/Short Video.mp4";
 import Video4 from "./radio video/Plug a Graduate.mp4";
-import Video5 from "./radio video/Plug a Graduate.mp4";
+import Video5 from "./radio photos/Short Video.mp4";
 import Video6 from "./radio video/Plug a Graduate.mp4";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faBackward, faForward, faChevronDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 
-const videos = [Video1, Video2, Video3, Video4, Video5, Video6];
+// Video data including descriptions
+const videoData = [
+  {
+    src: Video1,
+    description: "In this insightful interview on TUTFM, writer Mr. Oupa Segalwe discusses his book Plug-A-Graduate, offering valuable perspectives on the challenges and opportunities for graduates in today’s fast-paced world. Tune in as Mr. Segalwe explores how his book equips young professionals with practical tools and strategies to navigate the transition from university to the workforce.",
+  },
+  {
+    src: Video2,
+    description: "In this inspiring video, we hear from alumni who share their personal stories of growth and achievement since leaving university. Learn how they navigated their careers, faced challenges, and used their education to build successful futures. Whether you're a current student or a recent graduate, this video offers valuable lessons on leveraging your alumni network and staying connected to your roots.",
+  },
+  {
+    src: Video3,
+    description: "In this video, experts discuss the power of alumni networks and how they can open doors for career advancement. Discover the many ways alumni stay engaged with their alma mater, provide mentorship, and create opportunities for students and fellow graduates. If you're looking to build meaningful professional relationships, this is the video for you!",
+  },
+  {
+    src: Video4,
+    description: "Join a group of alumni as they discuss how they successfully navigated career changes, re-skilled, and reinvented themselves. In this session, they share advice on adapting to new industries, overcoming setbacks, and using your alumni community to accelerate career growth. Whether you’re considering a career switch or just starting out, you won’t want to miss these valuable insights.",
+  },
+  {
+    src: Video5,
+    description: "In this heartwarming video, alumni reflect on the importance of giving back to their university through mentorship programs. Hear how they help guide the next generation of students and recent graduates, sharing advice and offering support in everything from career advice to personal development. This video showcases how alumni can make a lasting impact on their communities.",
+  },
+  {
+    src: Video6,
+    description: "Watch inspiring stories from alumni who have turned their passions into successful careers. From entrepreneurship to leadership roles in major corporations, these stories highlight the diverse paths alumni have taken to achieve extraordinary success. Get motivated by real-life examples of how alumni are shaping industries and making a difference in the world.",
+  },
+];
 
 const RadioPage = () => {
   const [currentCard, setCurrentCard] = useState(0);
@@ -338,7 +365,7 @@ useEffect(() => {
 // Change to the next video every 10 seconds
 useEffect(() => {
   const timer = setInterval(() => {
-    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoData.length);
   }, 10000);
 
   return () => clearInterval(timer);
@@ -350,12 +377,12 @@ const handleVideoHover = (isHovering) => {
 
 
 const goToNextSlide = () => {
-  setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoData.length);
 };
 
 const goToPreviousSlide = () => {
   setCurrentVideoIndex((prevIndex) =>
-    prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+    prevIndex === 0 ? videoData.length - 1 : prevIndex - 1
   );
 };
 
@@ -405,6 +432,7 @@ const handleIndicatorClick = (index) => {
           <button
             className="info-icon"
             onClick={toggleTextVisibility} // Toggle text visibility when clicked
+            data-tooltip= "What is Plug a Graduate all about?"
           >
            <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
           </button>
@@ -415,7 +443,7 @@ const handleIndicatorClick = (index) => {
         >
           <h2>What is Plug a Graduate all about?</h2>
           <p>
-            Plug an Alumni is the space to catch up with inspiring voices from our
+            <b>Plug an Alumni</b> is the space to catch up with inspiring voices from our
             TUT alumni! Here, you'll find both podcast and radio recordings where
             graduates share their experiences, insights, and achievements. In the
             Podcasts section, explore in-depth interviews and discussions, while
@@ -588,7 +616,7 @@ const handleIndicatorClick = (index) => {
           <button
             className="info-icon"
             onClick={toggleTextVisibility} // Toggle text visibility when clicked
-           data-tooltip= "What is Catch Up With an Alumni all about?"
+            data-tooltip= "What is Catch Up With an Alumni all about?"
           >
            <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
           </button>
@@ -750,7 +778,7 @@ const handleIndicatorClick = (index) => {
 
 {/* Video Section */}
 <div className="video-container">
-  <video src={Vid3} autoPlay loop muted className="radio-video" />
+  <video src={Vid4} autoPlay loop muted className="radio-video" />
 </div>
 
 {/* Divider Photo 1 */}
@@ -762,7 +790,7 @@ const handleIndicatorClick = (index) => {
           <button
             className="info-icon"
             onClick={toggleTextVisibility} // Toggle text visibility when clicked
-           data-tooltip= "What is Catch Up With an Alumni all about?"
+           data-tooltip= "What is Videos for an Alumni all about?"
           >
            <FontAwesomeIcon icon={faChevronDown} className="chevron-icon"/> About Section
           </button>
@@ -772,9 +800,9 @@ const handleIndicatorClick = (index) => {
         <div
           className={`text-content ${isTextVisible ? "show" : "hide"}`} // Add smooth transition classes
         >
-          <h2>What is Catch Up With an Alumni all about?</h2>
+          <h2>What is Videos for an Alumni all about?</h2>
           <p>
-            <b>Catch Up with an Alumni</b> is your gateway to reconnecting with inspiring voices from <b>TUT alumni</b>! This platform brings you <i>podcasts</i> and <i>radio recordings</i> where graduates share their unique experiences, valuable insights, and remarkable achievements. In the <b>Podcasts</b> section, dive into engaging conversations and stories that offer a deeper look into their journeys, while the <b>Radio Recordings</b> section features highlights and memorable snippets from live broadcasts on <b>TUT FM</b>. Whether you're seeking <i>motivation</i>, <i>guidance</i>, or a sense of connection, <b>Catch Up with an Alumni</b> is the perfect place to celebrate and learn from the paths paved by those who came before you!
+            <b>Videos for an Alumni</b> is your gateway to reconnecting with inspiring voices from <b>TUT alumni</b>! This platform brings you <i>podcasts</i> and <i>radio recordings</i> where graduates share their unique experiences, valuable insights, and remarkable achievements. In the <b>Podcasts</b> section, dive into engaging conversations and stories that offer a deeper look into their journeys, while the <b>Radio Recordings</b> section features highlights and memorable snippets from live broadcasts on <b>TUT FM</b>. Whether you're seeking <i>motivation</i>, <i>guidance</i>, or a sense of connection, <b>Catch Up with an Alumni</b> is the perfect place to celebrate and learn from the paths paved by those who came before you!
           </p>
 
         </div>
@@ -787,11 +815,11 @@ const handleIndicatorClick = (index) => {
         onMouseEnter={() => handleVideoHover(true)}
         onMouseLeave={() => handleVideoHover(false)}
       >
-        {videos.map((videoSrc, index) => (
+        {videoData.map((video, index) => (
           <video
             key={index}
             ref={(el) => (videoRefs.current[index] = el)}
-            src={videoSrc}
+            src={video.src}
             className={`short-video ${index === currentVideoIndex ? "active" : ""} ${isHovered ? "blurred" : ""}`}
             muted
             loop
@@ -801,16 +829,17 @@ const handleIndicatorClick = (index) => {
         {isHovered && (
           <div className="overlay">
             <div className="overlay-content">
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </p>
-              <button className="view-full-video-btn">View Full Video</button>
+              <p>{videoData[currentVideoIndex].description}</p>
+              <button
+                className="view-full-video-btn"
+                onClick={() => window.open('https://www.youtube.com/watch?v=csquC7HfazE&t=2s', '_blank')}
+              >
+                <FontAwesomeIcon icon={faChevronDown} className="chevron-icon" /> View Full Video
+              </button>
             </div>
           </div>
         )}
+
       </div>
 
            {/* Navigation Buttons */}
@@ -825,7 +854,7 @@ const handleIndicatorClick = (index) => {
 
       {/* Video Indicators */}
       <div className="video-indicators">
-        {videos.map((_, index) => (
+        {videoData.map((_, index) => (
           <div
             key={index}
             className={`indicator ${index === currentVideoIndex ? "active" : ""}`}

@@ -114,7 +114,7 @@
 
 
 .info-icon {
-  background-color: #ffab14;
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
   color: white;
   border-radius: 20px 20px ;
   width: 200px;
@@ -663,6 +663,7 @@ button:hover {
   color: #fff; /* Ensure text is white and visible */
   z-index: 3; /* Higher than the video */
   pointer-events: none; /* Makes it non-interactive but visible */
+  
 }
 
 .overlay-content {
@@ -670,6 +671,7 @@ button:hover {
   justify-content: space-between;
   width: 100%;
   z-index: 4; /* Ensure content appears above the blur */
+  padding: 40px;
 }
 
 .overlay p {
@@ -678,24 +680,29 @@ button:hover {
   line-height: 1.5;
   margin-right: 20px;
   z-index: 5; /* Additional assurance */
+  border-right: 1px solid white;
+  color: #fff;
+  opacity: 90%;
+  padding: 30px;
 }
 
 .view-full-video-btn {
   flex: none;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: 2px solid white;
   border-radius: 25px;
   background: transparent;
   color: white;
   font-size: 1rem;
-  cursor: pointer;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-  z-index: 5; /* Ensure it is clickable */
+  z-index: 999; /* Ensure it is clickable */
+  cursor: pointer;
+  pointer-events: auto; /* Allow interactions with the button */
 }
 
 .view-full-video-btn:hover {
-  background: white;
-  color: black;
+  background: #ffab14;
+  color: white;
 }
 
 .video-indicators {
@@ -716,7 +723,7 @@ button:hover {
 }
 
 .indicator.active {
-  background-color: #000;
+  background-color: #ffab14;
   transform: scale(1.2);
 }
 
@@ -733,7 +740,7 @@ button:hover {
   padding: 10px 20px;
   font-size: 1rem;
   color: white;
-  background: #000;
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -741,7 +748,7 @@ button:hover {
 }
 
 .nav-button:hover {
-  background: #444;
+  background: linear-gradient(15deg, rgba(206, 17, 39, 0.8) 0%, rgba(0, 85, 150, 0.8) 100%);
   transform: scale(1.1);
 }
 
@@ -760,3 +767,4 @@ button:hover {
   justify-content: center;
   gap: 10px;
 }
+
