@@ -443,7 +443,7 @@ const handleIndicatorClick = (index) => {
         >
           <h2>What is Plug a Graduate all about?</h2>
           <p>
-            <b>Plug an Alumni</b> is the space to catch up with inspiring voices from our
+            <b>Plug a Graduate</b> is the space to catch up with inspiring voices from our
             TUT alumni! Here, you'll find both podcast and radio recordings where
             graduates share their experiences, insights, and achievements. In the
             Podcasts section, explore in-depth interviews and discussions, while
