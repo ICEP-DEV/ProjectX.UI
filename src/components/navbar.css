@@ -49,6 +49,23 @@
   animation: pulse 3s infinite;
 }
 
+.donate-pulse {
+  padding: 15px 20px;
+
+  border-radius: 5px; /* Optional: rounded corners */
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.donate-pulse-log {
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.9);

@@ -173,7 +173,7 @@ function NavbarLogged() {
 
           {/* End News Dropdown */}
            
-            <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse-log' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
+              <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse-log' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
 
           <div className="d-none d-lg-block">

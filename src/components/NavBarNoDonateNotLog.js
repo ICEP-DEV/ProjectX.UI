@@ -88,7 +88,7 @@ function NavBar() {
             </span>
             <Link
               to="/donateUnLogged"
-              className={`nav-link mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
+              className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>

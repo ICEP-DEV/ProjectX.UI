@@ -11,6 +11,8 @@ import Donate from './components/Donate';
 import Login from './components/Login'; 
 import NavBar from './components/NavBar';
 import NavbarLogged from './LoggedPages/NavbarLogged';
+import NavBarNoDonateLog from './LoggedPages/NavBarNoDonateLog';
+import NavBarNoDonateNotLog from './components/NavBarNoDonateNotLog';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
 import ConfirmProfile from './components/ConfirmProfile';
@@ -44,13 +46,18 @@ function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
-  const showNavBar =  location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/donate' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage';
+  const showNavBar =  location.pathname === '/donateUnLogged';
+  const showNavBarNoDonateLog =  location.pathname === '/donate';
+  const showNavBarNoDonateNotLog = location.pathname === '/';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage';
+
 
   return (
     <div>
       {/* Conditionally render NavBar or NavbarLogged */}
       {showNavBar && <NavBar />}
+      {showNavBarNoDonateNotLog && <NavBarNoDonateNotLog />}
+      {showNavBarNoDonateLog && <NavBarNoDonateLog />}
       {showNavbarLogged && <NavbarLogged />}
 
       <Routes>

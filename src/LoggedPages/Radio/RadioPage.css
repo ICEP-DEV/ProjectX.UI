@@ -622,8 +622,8 @@ button:hover {
 
 .video-container1 {
   position: relative;
-  width: 80%;
-  max-width: 80%;
+  width: 65%;
+  max-width: 90%;
   height: 600px;
   overflow: hidden;
   border-radius: 15px;
