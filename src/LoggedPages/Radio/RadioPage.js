@@ -8,19 +8,19 @@ import divider1 from "./radio photos/Divider 3.png";
 import divider2 from "./radio photos/Divider 2.png";
 import Footer from '../Footer';
 
-import cardImage1 from "./radio photos/photos/2.png";  // Add your image imports
-import cardImage2 from "./radio photos/photos/1.png";
-import cardImage3 from "./radio photos/photos/3.png";
-import cardImage4 from "./radio photos/photos/4.png";
-import cardImage5 from "./radio photos/photos/5.png";
-import cardImage6 from "./radio photos/photos/6.png";
+import cardoImage1 from "./radio photos/photos/2.png";  // Add your image imports
+import cardoImage2 from "./radio photos/photos/1.png";
+import cardoImage3 from "./radio photos/photos/3.png";
+import cardoImage4 from "./radio photos/photos/4.png";
+import cardoImage5 from "./radio photos/photos/5.png";
+import cardoImage6 from "./radio photos/photos/6.png";
 
-import cardImage7 from "./radio photos/1.jpg";  // Add your image imports
-import cardImage8 from "./radio photos/2.jpg";
-import cardImage9 from "./radio photos/3.jpg";
-import cardImage10 from "./radio photos/4.jpg";
-import cardImage11 from "./radio photos/5.jpg";
-import cardImage12 from "./radio photos/6.jpg";
+import cardoImage7 from "./radio photos/1.jpg";  // Add your image imports
+import cardoImage8 from "./radio photos/2.jpg";
+import cardoImage9 from "./radio photos/3.jpg";
+import cardoImage10 from "./radio photos/4.jpg";
+import cardoImage11 from "./radio photos/5.jpg";
+import cardoImage12 from "./radio photos/6.jpg";
 
 import TutLogo from "./radio photos/fm logo.png";
 
@@ -70,13 +70,13 @@ const videoData = [
 ];
 
 const RadioPage = () => {
-  const [currentCard, setCurrentCard] = useState(0);
+  const [currentcardo, setCurrentcardo] = useState(0);
   const [dragStartX, setDragStartX] = useState(null);
   const [dragDistance, setDragDistance] = useState(0);
   const [isTextVisible, setIsTextVisible] = useState(false); // Manage text visibility
-  const [hoveredCard, setHoveredCard] = useState(null); // Track hovered card
-  const cardWrapperRef = useRef();  
-  const [activePlayerCard, setActivePlayerCard] = useState(null); // Track card with active audio player
+  const [hoveredcardo, setHoveredcardo] = useState(null); // Track hovered cardo
+  const cardoWrapperRef = useRef();  
+  const [activePlayercardo, setActivePlayercardo] = useState(null); // Track cardo with active audio player
   const [animationClass, setAnimationClass] = useState(""); // Track animation
   const [audioProgress, setAudioProgress] = useState(0); // Track the progress of audio
   const [audioDuration, setAudioDuration] = useState(0); // Track the duration of audio
@@ -101,7 +101,7 @@ const RadioPage = () => {
   const handleClosePlayer = () => {
     setAnimationClass("fade-out"); // Trigger fade-out animation
     setTimeout(() => {
-      setActivePlayerCard(null); // Remove audio player after animation ends
+      setActivePlayercardo(null); // Remove audio player after animation ends
       setAnimationClass(""); // Reset animation class
     }, 300); // Match animation duration
   };
@@ -149,13 +149,13 @@ const RadioPage = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  const cards = [
+  const cardos = [
     { 
       id: 1, 
       title: "Dr Linda Mayer", 
       talks: "Guidance for career success", 
       hostedBy: "Zenzo Matiza", 
-      image: cardImage1,
+      image: cardoImage1,
       description: "On the Ground Breaker Show this past Wednesday...",
       description2: "We took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
       date: "2 October 2024",
@@ -167,7 +167,7 @@ const RadioPage = () => {
       title: "Mrs Nokuthula Makhanya", 
       talks: "Educational strategies", 
       hostedBy: "Mbali Mbele", 
-      image: cardImage2,
+      image: cardoImage2,
       description: "Last night on the Ground Breaker Show...",
       description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity.",
       date: "5 October 2024",
@@ -179,7 +179,7 @@ const RadioPage = () => {
       title: "Mr Oupa Segalwe", 
       talks: "Biography", 
       hostedBy: "Galaletsang Shadi", 
-      image: cardImage3,
+      image: cardoImage3,
       description: "Earlier, on PLUG-A-GRADUATE...",
       description2: "Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe, the Head of Communication and Stakeholder Relations at the South African Weather Service. Mr. Segalwe shared insights from his new book, Lucas Mangope: A Life – Unpacking the Biography and the Journey to Publication.",
       date: "12 October 2024",
@@ -191,7 +191,7 @@ const RadioPage = () => {
       title: "Mr Obakeng Aubrey Moeketsi", 
       talks: "Industry experts share insights", 
       hostedBy: "Mathekga Senyolo", 
-      image: cardImage4,
+      image: cardoImage4,
       description: "Earlier this month, listeners tuned in for a special live broadcast...",
       description2: "The popular weekly show, Plug-A-Graduate, hosted by Obakeng Aubrey Moeketsi, straight from the Tshwane University of Technology Pretoria Campus on Friday, June 7th. On TUT FM 96.2, we brought you a dynamic event with industry experts and seasoned entrepreneurs.",
       date: "03 November 2024",
@@ -203,7 +203,7 @@ const RadioPage = () => {
       title: "Mrs Reabetswe Dire", 
       talks: "Turning knowledge into income", 
       hostedBy: "Obakeng Mooketsi", 
-      image: cardImage5,
+      image: cardoImage5,
       description: "Earlier on today’s insightful episode of Plug-A-Graduate...",
       description2: "The Ground Breaker Show, hosted Obakeng Mooketsi, also known as OBK, had the pleasure of welcoming Reabetswe Dire, the CEO of Edenvinne. They dove deep into how to transform your academic knowledge into a source of income.",
       date: "19 November 2024",
@@ -215,7 +215,7 @@ const RadioPage = () => {
       title: "Mrs Shalate Davhana", 
       talks: "Crime Protection", 
       hostedBy: "Khuthadzo Tshianzi", 
-      image: cardImage6,
+      image: cardoImage6,
       description: "The show discussed how it became a game-changer for recent graduates...",
       description2: "Seasoned job seekers, and aspiring entrepreneurs navigating the competitive job market. In our pilot episode, we welcomed esteemed guests: Mrs. Kedibone Mahapa, TUT FM 96.2 Station Manager; Dr. Roelien Brink, Director of Cooperative Education.",
       date: "15 November 2024",
@@ -224,13 +224,13 @@ const RadioPage = () => {
     },
   ];
 
-  const cards2 = [
+  const cardos2 = [
     { 
       id: 1, 
       title: "Mr Mashitishi Benson Phurutsi", 
       talks: "Website Projects", 
       hostedBy: "Tshiamo Matiza", 
-      image: cardImage7,
+      image: cardoImage7,
       description: "On the Ground Breaker Show this past Wednesday...",
       description2: "We took a deep dive into diverse fields of study with Plug-A-Graduate, hosted by Polelo N Madisa. Listeners joined us from 7 pm to 9 pm, gaining valuable insights from special guest Dr. Linda Mayer, Managing Director at IIE Rosebank College. It was an enlightening evening packed with inspiration and expert advice for graduates and aspiring professionals alike!",
       date: "2 October 2024",
@@ -242,7 +242,7 @@ const RadioPage = () => {
       title: "Mrs Phumla Nonkululeko Msibi", 
       talks: "Academic Excellence Awards", 
       hostedBy: "Mbali Mbele", 
-      image: cardImage8,
+      image: cardoImage8,
       description: "Last night on the Ground Breaker Show...",
       description2: "PLUG-A-GRADUATE with Polelo N Madisa featured a captivating segment from 19:00 to 21:00. The spotlight was on Nokuthula Makhanya, Managing Director at NPM Consulting (PTY) LTD, as she shared invaluable insights on how to break into the job market. With a deep commitment to professional integrity.",
       date: "5 October 2024",
@@ -254,7 +254,7 @@ const RadioPage = () => {
       title: "Mrs Phaphama Tshisikhawe", 
       talks: "Academic Tutors", 
       hostedBy: "Galaletsang Shadi", 
-      image: cardImage9,
+      image: cardoImage9,
       description: "Earlier, on PLUG-A-GRADUATE...",
       description2: "Polelo N Madisa on the Ground Breaker, featuring his guest, Oupa Segalwe, the Head of Communication and Stakeholder Relations at the South African Weather Service. Mr. Segalwe shared insights from his new book, Lucas Mangope: A Life – Unpacking the Biography and the Journey to Publication.",
       date: "12 October 2024",
@@ -266,7 +266,7 @@ const RadioPage = () => {
       title: "Dr Eric Pule", 
       talks: "Talks Alumni Space", 
       hostedBy: "Mathekga Senyolo", 
-      image: cardImage10,
+      image: cardoImage10,
       description: "Earlier this month, listeners tuned in for a special live broadcast...",
       description2: "The popular weekly show, Plug-A-Graduate, hosted by Obakeng Aubrey Moeketsi, straight from the Tshwane University of Technology Pretoria Campus on Friday, June 7th. On TUT FM 96.2, we brought you a dynamic event with industry experts and seasoned entrepreneurs.",
       date: "03 November 2024",
@@ -278,7 +278,7 @@ const RadioPage = () => {
       title: "Mr Pearl Thulani Ngathi", 
       talks: "Sports Management Opportunities", 
       hostedBy: "Obakeng Mooketsi", 
-      image: cardImage11,
+      image: cardoImage11,
       description: "Earlier on today’s insightful episode of Plug-A-Graduate...",
       description2: "The Ground Breaker Show, hosted Obakeng Mooketsi, also known as OBK, had the pleasure of welcoming Reabetswe Dire, the CEO of Edenvinne. They dove deep into how to transform your academic knowledge into a source of income.",
       date: "19 November 2024",
@@ -290,7 +290,7 @@ const RadioPage = () => {
       title: "Mrs Hapiness Thema", 
       talks: "Arts Making Money", 
       hostedBy: "Khuthadzo Tshianzi", 
-      image: cardImage12,
+      image: cardoImage12,
       description: "The show discussed how it became a game-changer for recent graduates...",
       description2: "Seasoned job seekers, and aspiring entrepreneurs navigating the competitive job market. In our pilot episode, we welcomed esteemed guests: Mrs. Kedibone Mahapa, TUT FM 96.2 Station Manager; Dr. Roelien Brink, Director of Cooperative Education.",
       date: "15 November 2024",
@@ -300,12 +300,12 @@ const RadioPage = () => {
   ];
 
   const handleNext = () => {
-    setCurrentCard((prev) => (prev + 1) % cards.length);
+    setCurrentcardo((prev) => (prev + 1) % cardos.length);
     setDragDistance(0);
   };
 
   const handlePrev = () => {
-    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length);
+    setCurrentcardo((prev) => (prev - 1 + cardos.length) % cardos.length);
     setDragDistance(0);
   };
 
@@ -338,11 +338,11 @@ const RadioPage = () => {
   };
 
   const handleMouseEnter = (id) => {
-    setHoveredCard(id); // Set hovered card
+    setHoveredcardo(id); // Set hovered cardo
   };
 
   const handleMouseLeave = () => {
-    setHoveredCard(null); // Reset hovered card
+    setHoveredcardo(null); // Reset hovered cardo
   };
 
   const videoRefs = useRef([]);
@@ -457,9 +457,9 @@ const handleIndicatorClick = (index) => {
 
       </div>
 
-      {/* Card Section */}
+      {/* cardo Section */}
       <div
-        className="card-section"
+        className="cardo-section"
         onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
@@ -467,39 +467,39 @@ const handleIndicatorClick = (index) => {
         onTouchMove={handleDragMove}
         onTouchEnd={handleDragEnd}
       >
-<div className="card-wrapper" ref={cardWrapperRef}>
-  {cards.map((card, index) => (
+<div className="cardo-wrapper" ref={cardoWrapperRef}>
+  {cardos.map((cardo, index) => (
     <div
-      key={card.id}
-      className={`card ${index === currentCard ? "active" : ""}`}
+      key={cardo.id}
+      className={`cardo ${index === currentcardo ? "active" : ""}`}
       style={{
         transform: `translateX(${
-          (index - currentCard) * 120 + (index === currentCard ? dragDistance / 5 : 0)
+          (index - currentcardo) * 120 + (index === currentcardo ? dragDistance / 5 : 0)
         }%)`,
-        opacity: index === currentCard ? 1 : 0.5,
+        opacity: index === currentcardo ? 1 : 0.5,
       }}
-      onMouseEnter={() => handleMouseEnter(card.id)}
+      onMouseEnter={() => handleMouseEnter(cardo.id)}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="card-image-container">
+      <div className="cardo-image-container">
         <img
-          src={card.image}
-          alt={card.title}
-          className="card-image"
+          src={cardo.image}
+          alt={cardo.title}
+          className="cardo-image"
         />
       </div>
 
-      <h3 className="person-name">{card.title}</h3>
+      <h3 className="person-name">{cardo.title}</h3>
       <p className="position">
-        (<b>Talks:</b> {card.talks})
+        (<b>Talks:</b> {cardo.talks})
       </p>
       <p className="position2">
-        <span className="hostedby"><b>Hosted By: </b></span>{card.hostedBy}
+        <span className="hostedby"><b>Hosted By: </b></span>{cardo.hostedBy}
       </p>
 
-      {hoveredCard === card.id && (
-  <div className="card-hover">
-    {activePlayerCard === card.id ? ( // Only show the audio player if this card is active
+      {hoveredcardo === cardo.id && (
+  <div className="cardo-hover">
+    {activePlayercardo === cardo.id ? ( // Only show the audio player if this cardo is active
       <div className={`audio-player ${animationClass}`}>
         <div className="audio-player-header">
        
@@ -515,9 +515,9 @@ const handleIndicatorClick = (index) => {
 
           {/* Artist Image */}
         <div className="audio-player-artist-image-container">
-            {hoveredCard && (
+            {hoveredcardo && (
             <img
-                src={cards.find((card) => card.id === hoveredCard)?.image}
+                src={cardos.find((cardo) => cardo.id === hoveredcardo)?.image}
                 alt="Artist"
                 className="audio-player-artist-image"
             />
@@ -525,20 +525,20 @@ const handleIndicatorClick = (index) => {
         </div>
 
             {/* Audio Player */}
-            {activePlayerCard === card.id && (
+            {activePlayercardo === cardo.id && (
                 <div className="audio-player1">
                         <div className="audio-player-song-info">
-                        <h3><span className="hc-np-1">{card.title}</span></h3>
-                        <p><span className="hc-np-1"><b>Talks:</b> {card.talks}</span></p>
+                        <h3><span className="hc-np-1">{cardo.title}</span></h3>
+                        <p><span className="hc-np-1"><b>Talks:</b> {cardo.talks}</span></p>
                         </div>
                   <audio
-                    ref={(ref) => (audioRefs.current[activePlayerCard] = ref)}
-                    src={card.audioSrc}
-                    onTimeUpdate={() => handleTimeUpdate(activePlayerCard)}
+                    ref={(ref) => (audioRefs.current[activePlayercardo] = ref)}
+                    src={cardo.audioSrc}
+                    onTimeUpdate={() => handleTimeUpdate(activePlayercardo)}
                     onEnded={() => setIsPlaying(false)}
                     />
 
-                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayerCard)}>
+                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayercardo)}>
                       <div
                         className="progress"
                         style={{ width: `${(audioProgress / audioDuration) * 100}%` }}
@@ -549,13 +549,13 @@ const handleIndicatorClick = (index) => {
                       <span>{formatTime(audioDuration)}</span>
                     </div>
                     <div className="controls">
-                      <button onClick={() => handleBackButtonClick(activePlayerCard)}>
+                      <button onClick={() => handleBackButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={faBackward} />
                       </button>
-                      <button onClick={() => handlePlayButtonClick(activePlayerCard)}>
+                      <button onClick={() => handlePlayButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                       </button>
-                      <button onClick={() => handleForwardButtonClick(activePlayerCard)}>
+                      <button onClick={() => handleForwardButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={faForward} />
                       </button>
                     </div>
@@ -563,17 +563,17 @@ const handleIndicatorClick = (index) => {
               )}
       </div>
     ) : (
-      <div className="card-details">
-        <p><strong className="hc-para1">{card.title}</strong></p>
-        <p><strong className="hc-para2">{card.description}</strong></p>
-        <p><strong className="hc-para4">{card.description2}</strong></p>
-        <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
-        <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
+      <div className="cardo-details">
+        <p><strong className="hc-para1">{cardo.title}</strong></p>
+        <p><strong className="hc-para2">{cardo.description}</strong></p>
+        <p><strong className="hc-para4">{cardo.description2}</strong></p>
+        <p><strong className="hc-para3"><b>Date:</b> {cardo.date}</strong></p>
+        <p><strong className="hc-para3"><b>Location:</b> {cardo.location}</strong></p>
         <div className="play-button-container">
           <button
             className="play-button"
             onClick={() => {
-              setActivePlayerCard(card.id);
+              setActivePlayercardo(cardo.id);
               setAnimationClass("fade-in"); // Trigger fade-in animation
             }}
           >
@@ -593,7 +593,7 @@ const handleIndicatorClick = (index) => {
 
 
         {/* Navigation Buttons */}
-        <div className="card-navigation">
+        <div className="cardo-navigation">
           <button onClick={handlePrev}>&lt;</button>
           <button onClick={handleNext}>&gt;</button>
         </div>
@@ -636,9 +636,9 @@ const handleIndicatorClick = (index) => {
 
       </div>
 
-      {/* Card Section */}
+      {/* cardo Section */}
       <div
-        className="card-section"
+        className="cardo-section"
         onMouseDown={handleDragStart}
         onMouseMove={handleDragMove}
         onMouseUp={handleDragEnd}
@@ -646,39 +646,39 @@ const handleIndicatorClick = (index) => {
         onTouchMove={handleDragMove}
         onTouchEnd={handleDragEnd}
       >
-<div className="card-wrapper" ref={cardWrapperRef}>
-  {cards2.map((card, index) => (
+<div className="cardo-wrapper" ref={cardoWrapperRef}>
+  {cardos2.map((cardo, index) => (
     <div
-      key={card.id}
-      className={`card ${index === currentCard ? "active" : ""}`}
+      key={cardo.id}
+      className={`cardo ${index === currentcardo ? "active" : ""}`}
       style={{
         transform: `translateX(${
-          (index - currentCard) * 120 + (index === currentCard ? dragDistance / 5 : 0)
+          (index - currentcardo) * 120 + (index === currentcardo ? dragDistance / 5 : 0)
         }%)`,
-        opacity: index === currentCard ? 1 : 0.5,
+        opacity: index === currentcardo ? 1 : 0.5,
       }}
-      onMouseEnter={() => handleMouseEnter(card.id)}
+      onMouseEnter={() => handleMouseEnter(cardo.id)}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="card-image-container">
+      <div className="cardo-image-container">
         <img
-          src={card.image}
-          alt={card.title}
-          className="card-image"
+          src={cardo.image}
+          alt={cardo.title}
+          className="cardo-image"
         />
       </div>
 
-      <h3 className="person-name">{card.title}</h3>
+      <h3 className="person-name">{cardo.title}</h3>
       <p className="position">
-        (<b>Talks:</b> {card.talks})
+        (<b>Talks:</b> {cardo.talks})
       </p>
       <p className="position2">
-        <span className="hostedby"><b>Hosted By: </b></span>{card.hostedBy}
+        <span className="hostedby"><b>Hosted By: </b></span>{cardo.hostedBy}
       </p>
 
-      {hoveredCard === card.id && (
-  <div className="card-hover">
-    {activePlayerCard === card.id ? ( // Only show the audio player if this card is active
+      {hoveredcardo === cardo.id && (
+  <div className="cardo-hover">
+    {activePlayercardo === cardo.id ? ( // Only show the audio player if this cardo is active
       <div className={`audio-player ${animationClass}`}>
         <div className="audio-player-header">
        
@@ -694,9 +694,9 @@ const handleIndicatorClick = (index) => {
 
           {/* Artist Image */}
         <div className="audio-player-artist-image-container">
-            {hoveredCard && (
+            {hoveredcardo && (
             <img
-                src={cards2.find((card) => card.id === hoveredCard)?.image}
+                src={cardos2.find((cardo) => cardo.id === hoveredcardo)?.image}
                 alt="Artist"
                 className="audio-player-artist-image"
             />
@@ -704,20 +704,20 @@ const handleIndicatorClick = (index) => {
         </div>
 
             {/* Audio Player */}
-            {activePlayerCard === card.id && (
+            {activePlayercardo === cardo.id && (
                 <div className="audio-player1">
                         <div className="audio-player-song-info">
-                        <h3><span className="hc-np-1">{card.title}</span></h3>
-                        <p><span className="hc-np-1"><b>Talks:</b> {card.talks}</span></p>
+                        <h3><span className="hc-np-1">{cardo.title}</span></h3>
+                        <p><span className="hc-np-1"><b>Talks:</b> {cardo.talks}</span></p>
                         </div>
                   <audio
-                    ref={(ref) => (audioRefs.current[activePlayerCard] = ref)}
-                    src={card.audioSrc}
-                    onTimeUpdate={() => handleTimeUpdate(activePlayerCard)}
+                    ref={(ref) => (audioRefs.current[activePlayercardo] = ref)}
+                    src={cardo.audioSrc}
+                    onTimeUpdate={() => handleTimeUpdate(activePlayercardo)}
                     onEnded={() => setIsPlaying(false)}
                     />
 
-                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayerCard)}>
+                    <div className="progress-bar" onClick={(e) => handleSeek(e, activePlayercardo)}>
                       <div
                         className="progress"
                         style={{ width: `${(audioProgress / audioDuration) * 100}%` }}
@@ -728,13 +728,13 @@ const handleIndicatorClick = (index) => {
                       <span>{formatTime(audioDuration)}</span>
                     </div>
                     <div className="controls">
-                      <button onClick={() => handleBackButtonClick(activePlayerCard)}>
+                      <button onClick={() => handleBackButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={faBackward} />
                       </button>
-                      <button onClick={() => handlePlayButtonClick(activePlayerCard)}>
+                      <button onClick={() => handlePlayButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
                       </button>
-                      <button onClick={() => handleForwardButtonClick(activePlayerCard)}>
+                      <button onClick={() => handleForwardButtonClick(activePlayercardo)}>
                         <FontAwesomeIcon icon={faForward} />
                       </button>
                     </div>
@@ -742,17 +742,17 @@ const handleIndicatorClick = (index) => {
               )}
       </div>
     ) : (
-      <div className="card-details">
-        <p><strong className="hc-para1">{card.title}</strong></p>
-        <p><strong className="hc-para2">{card.description}</strong></p>
-        <p><strong className="hc-para4">{card.description2}</strong></p>
-        <p><strong className="hc-para3"><b>Date:</b> {card.date}</strong></p>
-        <p><strong className="hc-para3"><b>Location:</b> {card.location}</strong></p>
+      <div className="cardo-details">
+        <p><strong className="hc-para1">{cardo.title}</strong></p>
+        <p><strong className="hc-para2">{cardo.description}</strong></p>
+        <p><strong className="hc-para4">{cardo.description2}</strong></p>
+        <p><strong className="hc-para3"><b>Date:</b> {cardo.date}</strong></p>
+        <p><strong className="hc-para3"><b>Location:</b> {cardo.location}</strong></p>
         <div className="play-button-container">
           <button
             className="play-button"
             onClick={() => {
-              setActivePlayerCard(card.id);
+              setActivePlayercardo(cardo.id);
               setAnimationClass("fade-in"); // Trigger fade-in animation
             }}
           >
@@ -767,7 +767,7 @@ const handleIndicatorClick = (index) => {
   ))}
 </div>
         {/* Navigation Buttons */}
-        <div className="card-navigation">
+        <div className="cardo-navigation">
           <button onClick={handlePrev}>&lt;</button>
           <button onClick={handleNext}>&gt;</button>
         </div>
