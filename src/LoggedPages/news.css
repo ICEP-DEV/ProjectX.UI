@@ -11,8 +11,8 @@
 /* Image styling */
 .custom-block a .magimg {
   display: block;
-  width: 200%;
-  max-width: 350px; /* Set a smaller width */
+  width: 100%;
+  max-width: 315px; /* Set a smaller width */
   height: 400px; /* Adjust the height as needed */
   margin: 10px auto; /* Centers the image horizontally */
 }
