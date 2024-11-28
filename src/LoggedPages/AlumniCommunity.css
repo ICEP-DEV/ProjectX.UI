@@ -1,80 +1,3 @@
-/* Your existing styles */
-
-/* New styles from Code 2 to create the wave effect */
-/* body.alumni-community-page {
-  margin: auto;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: auto;
-  background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgb(22, 43, 196) 68%, rgba(255,25,25,1) 98%);
-  animation: gradient 15s ease infinite;
-  background-size: 400% 400%;
-  background-attachment: fixed;
-} */
-
-
-@keyframes gradient {
-  0% {
-      background-position: 0% 0%;
-  }
-  50% {
-      background-position: 100% 100%;
-  }
-  100% {
-      background-position: 0% 0%;
-  }
-}
-
-.wave {
-  background: rgb(255 255 255 / 25%);
-  border-radius: 1000% 1000% 0 0;
-  position: fixed;
-  width: 200%;
-  height: 12em;
-  animation: wave 10s -3s linear infinite;
-  transform: translate3d(0, 0, 0);
-  opacity: 0.8;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.wave:nth-of-type(2) {
-  bottom: -1.25em;
-  animation: wave 18s linear reverse infinite;
-  opacity: 0.8;
-}
-
-.wave:nth-of-type(3) {
-  bottom: -2.5em;
-  animation: wave 20s -1s reverse infinite;
-  opacity: 0.9;
-}
-
-@keyframes wave {
-  2% {
-      transform: translateX(1);
-  }
-
-  25% {
-      transform: translateX(-25%);
-  }
-
-  50% {
-      transform: translateX(-50%);
-  }
-
-  75% {
-      transform: translateX(-25%);
-  }
-
-  100% {
-      transform: translateX(1);
-  }
-}
-
-/* Add any other styles you need */
-
-
 .alumni-community { 
   display: flex;
   flex-direction: column;
@@ -82,152 +5,6 @@
   padding: 20px;
   width: 100%;
 }
-
-/* Modal Styling */
-.profilemodel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 8888;
-}
-
-.profilemodel-container {
-  display: flex;
-  position: relative; /* Added to position the close button inside this container */
-  background: white;
-  width: 800px;
-  height: auto;
-  max-width: 100%;
-  max-height: 700px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  padding-bottom: 50px; /* Extra space at the bottom for the button */
-}
-
-.profilemodel-photo {
-  width: 50%;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-}
-
-.profilemodel-photo img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.start-year-began {
-  background-color: yellow;
-  padding: 2px 4px;
-  border-radius: 3px;
-  margin: 0 1px; /* Optional: spacing between digits */
-  font-size: 35px;
-  cursor: pointer;
-}
-
-.start-year-began:hover
-{
-  padding: 4px 8px;
-  transition: 0.5s;
-}
-
-.start-year {
-  margin-top: 50px;
-  font-size: 16px;
-  color: #555;
-  text-align: left;
-  margin-left: 40px;
-}
-
-.linked-in-icon {
-  display: inline-block;
-  position: absolute; /* Position the icon absolutely within the photo section */
-  bottom: 10px; /* 10px from the bottom */
-  left: 60px; /* 10px from the left */
-  font-size: 40px;
-  color: #0077b5; /* LinkedIn's original color */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.linked-in-icon:hover {
-  transform: scale(1.2);
-  color: #f7c600;
-}
-
-.profilemodel-details {
-  width: 50%;
-  padding: 20px;
-  text-align: left;  
-}
-
-.profilemodel-details h2 {
-  font-size: 24px;
-}
-
-.linkedin-description
-{
-  margin-top: 50px;
-  max-height: 400px; /* Adjust based on modal dimensions */
-  padding-left: 50px;
-  padding-right: 50px;
-  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
-  box-sizing: border-box; /* Ensures padding doesn't affect width/height */
-}
-
-/* Optional: Style for the scrollbar */
-.linkedin-description::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-}
-
-.linkedin-description::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background of the scrollbar track */
-  border-radius: 4px;
-}
-
-.linkedin-description::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 4px;
-}
-
-.linkedin-description::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Darker shade when hovered */
-}
-
-.profilemodel-details p {
-  font-size: 16px;
-  margin: 5px 0;
-  line-height: 50px;
-}
-
-/* Close button positioned at the bottom-right */
-.close-modal {
-  background: #f44336;
-  color: white;
-  height: 40px;
-  width: 80px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  position: absolute; /* Positioned within the container */
-  bottom: 10px; /* 10px from the bottom */
-  right: 10px; /* 10px from the right */
-}
-
-.close-modal:hover {
-  background: #d32f2f;
-}
-
-
 
 /* AlumniCommunity.css */
 .alumni-community-page {
@@ -318,592 +95,312 @@
   transition: 1s;
 }
 
-.results-container {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 900px;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 40px 30px 40px;
-  border-radius: 30px;
-}
-
-.results-header {
+/* Align alumni cards in rows, with each card in a new row */
+.alumni-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for spacing between cards */
   width: 100%;
-  max-width: 800px;
   margin-top: 20px;
+  animation: fadeIn 1s ease-out;
 }
 
-.results-container h3 {
-  color: #ffffff;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.linkedin-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.linkedin-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 8px;
-}
-
-.linkedin-buttons button {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  border: 1px solid transparent;
-  border-radius: 24px;
-  cursor: pointer;
-}
-
-.btn-connect {
-  background-color: #0073b1;
-  color: #fff;
-  border: 1px solid #0073b1;
-}
-
-.btn-connect:hover {
-  background-color: #005582;
-}
-
-.btn-message {
-  background-color: #fff;
-  color: #0073b1;
-  border: 1px solid #0073b1;
-}
-
-.btn-message:hover {
-  background-color: #eef3f8;
-}
-
-.btn-more {
-  background-color: #fff;
-  color: #000;
-  border: 1px solid #c4c4c4;
-}
-
-.btn-more:hover {
-  background-color: #f3f3f3;
-}
-
-
-.linkedin-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 700px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 99000;
-  border-radius: 10px;
-}
-
-.linkedin-modal-content {
-  padding: 20px;  
-  position: relative;
-}
-
-.linkedin-modal-image {
-  padding: 0;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.linkedin-modal-image img {
-  width: 100%; /* Adjusts to fit the modal width */
-  height: auto;
-}
-
-.profile-photo-container {
-  position: absolute;
-  top: 70px; /* Adjusts the vertical placement */
-  left: 20%;
-  transform: translateX(-50%);
-  width: 200px; /* Diameter of the circle */
-  height: 200px;
-  border-radius: 50%; /* Makes the frame circular */
-  overflow: hidden;
-  border: 4px solid white; /* Optional: Adds a white border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for a 3D effect */
-}
-
-.profile-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image fills the circle */
-}
-
-.close-linkedin-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.filter-results {
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  font-size: 14px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  margin-right: 20px;
-}
-
-.fr-add-space
-{
-  margin-left: 10px;
-}
-
+/* Styling for each alumni card */
 .alumni-card {
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border: 2px solid white;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Rounded corners for a modern look */
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition */
+  max-width: 800px;
+  width: 100%; /* Set width to 70% of the page */
+  margin: 0 auto; /* Center the card */
 }
 
-.alumni-photo {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;  
-  margin-right: 15px;
-  border: 2px solid white;
-  object-fit: cover; /* Ensures the image covers the area without distorting */
+.alumni-card:hover {
+  transform: translateY(-5px); /* Card lifts on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */
 }
 
-.alumni-info .label {
-  font-weight: bold;
+/* Profile picture styling */
+.profile-picture {
+  width: 100px; /* Slightly larger */
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px; /* Increased margin for better spacing */
+  transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styling for alumni details */
+.alumni-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Evenly spaced content */
+  color: #333;
+}
+
+/* Header styling for name */
+.alumni-details h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #005596; /* Blue color for the name */
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.alumni-details h4:hover {
+  color: #e3243c; /* Red color on hover */
+}
+
+/* Paragraph styling for details */
+.alumni-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.alumni-details p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Link styling */
+.alumni-details a {
+  margin-top: 10px;
   color: #e3243c;
-  margin-right: 5px;
-}
-
-.alumni-info span {
-  font-size: 15px; /* Further reduce the font size of the name and surname */
-}
-
-.alumni-info p {
-  margin: 0; /* Remove default margin to reduce spacing */
-  line-height: 1.5; /* Set a smaller line height */
-  font-size: 14px; /* Reduce font size */
-}
-
-.view-alumni {
-  margin-left: auto;
-  color: #30ffec;  
-  font-size: 10px;
+  font-weight: 500;
   text-decoration: none;
-  margin-right: 20px;
-  margin-top: 60px;
+  transition: color 0.3s ease;
 }
 
-.view-alumni:hover
-{
-  color: #fe4f67;
+.alumni-details a:hover {
+  color: #005596;
+  text-decoration: underline;
 }
 
-.surname-white {
-  color: white;
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.loading-animation {
+@media (max-width: 768px) {
+  .alumni-card {
+    width: 90%; /* Make the card 90% wide on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .alumni-card {
+    width: 100%; /* Make the card take up the full width on very small screens */
+  }
+}
+
+
+
+/* Basic styling for the popups */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* darkened background */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px; /* Adjust as needed */
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Apply blur effect behind the popup */
 }
 
-.graduation-hat-icon {
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  animation: rotate 1s linear infinite; /* Rotation animation */
+/* Popup container */
+.popup {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: slide-in 0.3s ease-out;
 }
 
-/* Keyframes for rotation animation */
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
+/* Center text and increase font size */
+.popup p {
+  font-size: 22px;
+  color: #ffffff; /* Make text black */
+  font-weight: bold;
+  text-align: center; /* Center the text */
+}
+
+/* Icon styling */
+.popup i {
+  font-size: 40px; /* Larger icons */
+  margin-bottom: 15px;
+  color: #e3243c; /* Red color for icons */
+}
+
+/* Close button */
+.close-popup {
+  background-color: #e3243c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.close-popup:hover {
+  background-color: #ff4b5c;
+}
+
+.close-popup:focus {
+  outline: none;
+}
+
+/* No results specific styling */
+.no-results {
+  font-size: 22px; /* Increase font size for no results text */
+  color: #e3243c; /* Red color */
+  margin-top: 15px;
+}
+
+/* Animation for the popup */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-.view-alumni-add-space
+
+.ac-color-icon
 {
-  margin-left: 10px;
-  font-size: 11px;
+  color: white;
+  font-size: 40px;
+  padding: 20px;
+  color: #e3243c; 
 }
 
+/* Style for the View Alumnus button */
+.view-alumnus-button {
+  display: none; /* Initially hidden */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: linear-gradient(15deg, #ce1127 0%, #005596 100%); 
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+/* Button appears when hovering on the alumni card */
+.alumni-card:hover .view-alumnus-button {
+  display: block; /* Display the button on hover */
+}
+
+/* Button hover effect */
+.view-alumnus-button:hover {
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+/* Add position: relative to alumni card for button positioning */
+.alumni-card {
+  position: relative; /* Required for button positioning */
+}
+
+
+/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  opacity: 0; /* Start invisible */
-  transition: opacity 0.3s ease; /* Transition for fading */
 }
 
-.modal-overlay.fade-in {
-  opacity: 1; /* Fully visible */
-}
-
-.modal-overlay.fade-out {
-  opacity: 0; /* Fully invisible */
-}
-
-.modal-content {
+/* Modal container */
+.modal {
   background: white;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 5px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
-  width: 650px; /* Fixed width */
-  height: 600px; /* Fixed height */
-  overflow: hidden; /* Ensure no overflow */
-  
-}
-
-.modal-inner {
-  display: flex;
-  height: 100%; /* Fill the modal height */
-}
-
-.modal-photo-container {
-  position: relative;
-  flex: 1;
+  animation: fade-in 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
-.alumni-name {
-  position: absolute;
-  top: 0px; /* Position above the photo */
-  color: #000; /* Color of the name */
-  font-weight: bold;
-  font-size: 32px; /* Adjust font size as needed */
-}
-
-.modal-photo {
-  width: 230px; /* Set photo width */
-  height: 230px; /* Set photo height */
-  border-radius: 50%; /* Circular frame */
-  object-fit: cover; /* Cover the area of the circular frame */
-  border: 5px solid #007bff; /* Optional: add border to photo */  
-}
-
-.modal-info {
-  flex: 1;
-  padding-left: 20px; /* Space between photo and info */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center the text vertically */
-}
-
-.overall-name
-{
-  font-weight: bold;
-  font-size: 25px;
-  margin-bottom: 20px;
-  margin-bottom: 20px;
-}
-
-.ap-color
-{
-  color: #df1616;
-}
-
-.ap-color-course
-{
-  font-size: 16px;
-  color: #df1616;
-}
-.ap-course
-{
-  font-size: 16px;
-}
-
-
-.linkedin-icon-link {
-  color: #0077b5; /* LinkedIn brand color */
-  font-size: 34px; /* Adjust icon size as needed */
-  text-decoration: none; /* Remove underline */
-  display: inline-flex; /* Ensures proper alignment if in a flex container */
-  align-items: center; /* Vertically centers the icon */
-  
-}
-
-.linkedin-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.linkedin-details li {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.linkedin-icon-link:hover
-{
-  color: #ffab14;
-}
-
-
-.linkedin-university-item {
-  display: flex; /* Align items horizontally */
-  align-items: center; /* Vertically align items */
-  margin-bottom: 12px; /* Add spacing between list items */
-}
-
-.linkedin-icon-container {
-  width: 40px; /* Adjust the size of the circular frame */
-  height: 40px;
-  border-radius: 50%; /* Makes the container circular */
-  overflow: hidden; /* Ensures the image stays within the circular frame */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0; /* Optional: Add a subtle background */
-  margin-right: 10px; /* Spacing between icon and text */
-}
-
-.linkedin-icon {
-  width: 100%; /* Make the image fill the circular container */
-  height: 100%; /* Ensure the image maintains its aspect ratio */
-  object-fit: cover; /* Ensure the image covers the frame without distortion */
-}
-
-
-.linkedin-details a {
-  color: #0073b1;
-  text-decoration: none;
-}
-
-.linkedin-details a:hover {
-  text-decoration: underline;
-}
-
-.mutual-connections {
-  display: flex;
-  align-items: center;
-}
-
-.mutual-connections img {
-  width: 20px;
-  height: 20px;
+/* Profile picture in modal */
+.modal-profile-picture {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  margin-right: 4px;
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
-.open-to-work {
-  background-color: #eef3f8;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  margin-top: 30px;
-}
-
-.open-to-work p:first-of-type {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.open-to-work a {
-  color: #0073b1;
-  text-decoration: none;
-}
-
-.open-to-work a:hover {
-  text-decoration: underline;
-}
-
-.linkedIn-adjust-text
-{
-  font-size: 13px;
-}
-
-.ap-linkedIn
-{
-  margin-top: 30px;
-}
-
-.ap-space-course
-{
-  margin-top: 10px;
-}
-
-
-.ap-year {
-  font-size: 30px; /* Adjust if needed */
-  display: flex; /* Use flexbox for horizontal alignment */
-}
-
-.ap-year-digit {
-  background-color: #ffab14;
-  color: white;
-  padding: 5px 10px; /* Add some padding around each digit */
-  margin: 0 2px; /* Add margin for spacing between digits */
-  border-radius: 5px; /* Optional: add some border radius for rounded corners */
-}
-
-
-.close-button {
+/* Close button */
+.close-modal-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: transparent;
+  background: none;
   border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  width: 60%; /* Adjust width as needed */
-  max-width: 800px; /* Maximum width for larger screens */
-  max-height: 60vh; /* Maximum height */
-  overflow-y: auto; /* Scrollbar for overflow */
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-title {
   font-size: 24px;
+  cursor: pointer;
   color: #333;
+  transition: color 0.3s ease;
 }
 
-.close-icon {
-  cursor: pointer;
-  font-size: 24px;
-  color: #999;
+.close-modal-button:hover {
+  color: red;
 }
 
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-.modal-fields-container {
-  display: grid; /* Use grid for layout */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 10px; /* Space between fields */
-  margin-bottom: 20px; /* Space below fields */
-}
-
-.modal-input,
-.modal-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.modal-input.filled,
-.modal-select.filled {
-  border-color: #F9A826; /* Change border color when filled */
-}
-
-.search-modal-button {
-  background:  linear-gradient(15deg, #005596 0%, #ce1127 100%);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-modal-button:hover {
-  background:  linear-gradient(15deg, #ce1127 0%, #005596 100%);
-  transition: 0.5s;
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn 0.5s forwards;
-}
-
-.fade-out {
-  animation: fadeOut 0.5s forwards;
-}
-
-.slide-down {
-  animation: slideDown 0.5s forwards;
-}
-
-.slide-up {
-  animation: slideUp 0.5s forwards;
-}
-
-@keyframes fadeIn {
+/* Fade-in animation */
+@keyframes fade-in {
   from {
     opacity: 0;
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translate(-50%, -100%);
-  }
-  to {
-    transform: translate(-50%, -50%);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translate(-50%, -50%);
-  }
-  to {
-    transform: translate(-50%, -100%);
+    transform: scale(1);
   }
 }
