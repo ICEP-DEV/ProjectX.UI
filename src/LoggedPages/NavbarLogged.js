@@ -3,11 +3,11 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link, useLocation} from 'react-router-dom';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
+import { BsPersonCircle } from 'react-icons/bs';
 
 function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
-  const [selectedAboutOption, setSelectedAboutOption] = useState('About Us');
   const [displayText, setDisplayText] = useState('Logout');
   const [isFading, setIsFading] = useState(false);
   const [iconPosition, setIconPosition] = useState(0);
@@ -113,20 +113,22 @@ function NavbarLogged() {
     };
   }, []);
 
-  const isActive = (section) => (activeSection === section ? 'active' : '');
+ 
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
 
-  const handleAboutOptionSelect = (option) => {
-    setSelectedAboutOption(option);
+  const toggleProfileBox = () => {
+    setIsProfileVisible(!isProfileVisible);
   };
 
-  const aboutOptions = [
-    { label: 'What Is Alumni Space?', section: 'section_2' },
-    { label: 'FAQs', section: 'section_4' },
-    { label: 'Contact Us', section: 'section_5' },
-  ];
+  const handleLogout = () => {
+    // Clear login state (optional: add actual logout logic here)
+    console.log('User logged out');
+  };  
+
 
 
   return (
+    <div>
     <Navbar id="navbarr" className="navbarr navbar-expand-lg navbar-light homepage-bgg">
       <Container>
         <Navbar.Brand href="#section_1">
@@ -174,26 +176,36 @@ function NavbarLogged() {
            
             <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
-
+     
           <div className="d-none d-lg-block">
-            <Link to="/" className="navbar-icon bi-box-arrow-right logout-icon" title="Click here to logout" style={{ transform: `translateX(${iconPosition}px)`, transition: 'transform 1s ease', color: '#005596' }}></Link>
-          </div>
-          <div className="login-add-space">
-            <Link to="/">
-              <p>
-                <span
-                  ref={textRef} // Attach ref here to measure text width
-                  className={`toggle-text ${isFading ? 'fade-out' : 'fade-in'}`}
-                  style={{ transition: `opacity ${fadeDuration}ms`, opacity: isFading ? 0 : 1 }}
-                >
-                  {displayText}
-                </span>
-              </p>
-            </Link>
-          </div>
+              <BsPersonCircle
+                className="navbar-icon person-icon"
+                title="Profile"
+                style={{  color: '#003883',fontSize: '1.5rem', cursor: 'pointer' }}
+                onClick={toggleProfileBox} // Toggle the profile box on click
+              />
+            </div>
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+     {isProfileVisible && (
+      <div className="profile-box">
+        <BsPersonCircle className="profile-box-icon" size={50} />
+        <h3 className="profile-box-title">Profile</h3>
+          <ul className="profile-box-links">
+            <li><Link to="/resetpassword">Change Password</Link></li>
+            <li><Link to="/edit-profile">Edit Profile</Link></li>
+          </ul>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+      </div>
+    )}
+
+    </div>
   );
 }
 
