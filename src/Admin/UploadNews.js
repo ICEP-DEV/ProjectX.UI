@@ -8,11 +8,13 @@ import { Form, Button } from 'react-bootstrap';
 const UploadNews = () => {
     const [newsType, setNewsType] = useState(''); // To track the selected news type
     const [formData, setFormData] = useState({
+        newsType:'',
         headline: '',
         description: '',
         publisher: '',
+        link: '',
         publishedDate: '',
-        image: null, // For magazines
+        media: null, // For magazines
     });
 
     const [submitError, setSubmitError] = useState('');
@@ -23,10 +25,26 @@ const UploadNews = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // Handle file input change (for magazines)
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, image: e.target.files[0] });
+    // Handle file input change
+    const handleFileChange = async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const base64 = await convertToBase64(file);
+            setFormData({ ...formData, media: base64 });
+        }
     };
+    
+
+    // Helper function to convert file to base64
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result); // Keep the full Base64 string
+            reader.onerror = (error) => reject(error);
+        });
+    };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,31 +60,30 @@ const UploadNews = () => {
                 formDataToSend.append('description', formData.description);
                 formDataToSend.append('publisher', formData.publisher);
                 formDataToSend.append('publishedDate', formData.publishedDate);
+                formDataToSend.append('media', formData.media);
             } else if (newsType === 'magazine') {
                 formDataToSend.append('link', formData.link);
-                formDataToSend.append('image', formData.image);
+                formDataToSend.append('description', formData.description);
+                formDataToSend.append('media', formData.media);
             }
 
             // Send form data to the API
             const response = await axios.post(
-                'http://localhost:5214/api/Admin/UploadNews',
-                formDataToSend,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                }
+                'http://localhost:5214/api/Admin/UploadNews/UploadNews',
+                formDataToSend
             );
 
             window.alert('News uploaded successfully!!!');
 
             // Clear the form fields
             setFormData({
+                newsType:'',
                 headline: '',
                 description: '',
                 publisher: '',
                 publishedDate: '',
-                image: null,
+                link: '',
+                media: null,
             });
             setNewsType('');
             setSubmitError('');
@@ -92,7 +109,10 @@ const UploadNews = () => {
                                 <Form.Label>News Type</Form.Label>
                                 <Form.Select
                                     value={newsType}
-                                    onChange={(e) => setNewsType(e.target.value)}
+                                    onChange={(e) => {
+                                        setNewsType(e.target.value);
+                                        setFormData({ ...formData, newsType: e.target.value }); // Update formData with newsType
+                                    }}
                                     required
                                 >
                                     <option value="">Select News Type</option>
@@ -114,47 +134,64 @@ const UploadNews = () => {
                                                 onChange={handleTextChange}
                                                 required
                                             />
-                                        </Form.Group>
-                                        <Form.Group controlId="formDescription">
-                                            <Form.Label>Description</Form.Label>
-                                            <Form.Control
-                                                as="textarea"
-                                                rows={3}
-                                                name="description"
-                                                value={formData.description}
-                                                onChange={handleTextChange}
-                                                required
-                                            />
-                                        </Form.Group>
+                                        </Form.Group>  
+
                                     </>
                                 )}
-
                                 {newsType && (
-                                    <Form.Group controlId="formLink">
+                                    <Form.Group controlId="formDescription">
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        name="description"
+                                        value={formData.description}
+                                        onChange={handleTextChange}
+                                        required
+                                    />
+                                </Form.Group>
+                                )}
+                                {newsType === 'general' && (
+                                    <>
+
+                                        <Form.Group controlId="formPublisher">
                                         <Form.Label>Publisher</Form.Label>
                                         <Form.Control
                                             type="text"
-                                            name="link"
+                                            name="publisher"
                                             value={formData.publisher}
                                             onChange={handleTextChange}
                                             required
                                         />
-                                    </Form.Group>
-                                )}
-                                {newsType && (
-                                    <Form.Group controlId="formLink">
+                                    </Form.Group>     
+
+                                    <Form.Group controlId="formDate">
                                         <Form.Label>Published Date</Form.Label>
                                         <Form.Control
-                                            type="text"
-                                            name="link"
+                                            type="date"
+                                            name="publishedDate"
                                             value={formData.publishedDate}
                                             onChange={handleTextChange}
                                             required
                                         />
                                     </Form.Group>
+
+                                    </>
+                                )}
+                                {newsType === 'magazine' && (
+                                    <Form.Group controlId="formLink">
+                                    <Form.Label>Magazine Link</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        name="link"
+                                        value={formData.link}
+                                        onChange={handleTextChange}
+                                        required
+                                    />
+                                </Form.Group>
                                 )}
 
-                                {newsType === 'magazine' && (
+                                {newsType && (
                                     <Form.Group controlId="formImage">
                                         <Form.Label>Upload Image</Form.Label>
                                         <Form.Control

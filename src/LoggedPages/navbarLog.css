@@ -386,7 +386,7 @@
   }
 
   .navbarr .navbar-collapse {
-    background-color: #154fce; /* Dropdown background color for small screens */
+    background-color:transparent; /* Dropdown background color for small screens */
     padding: 15px;
     border-radius: 5px;
   }

@@ -1,3 +1,4 @@
+
 .radio-page {
   display: flex;
   flex-direction: column;
@@ -40,6 +41,16 @@
   background-color: #ffffff; /* Light background for contrast */
 }
 
+.text-section
+{
+  padding-left: 90px;
+  position: relative;
+  padding-right: 90px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* Light background for contrast */
+}
+
 .text-section h2 {
   font-size: 1.8rem;
   color: #222;
@@ -48,6 +59,30 @@
 }
 
 .text-section p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.text-section1
+{
+  padding-left: 90px;
+  position: relative;
+  padding-right: 90px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color: #ffffff; /* Light background for contrast */
+}
+
+.text-section1 h2 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-section1 p {
   font-size: 1.1rem;
   color: #444;
   line-height: 1.6;
@@ -71,18 +106,18 @@
   opacity: 0;
 }
 
-/* Styling the information icon */
 .info-icon-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  left: 50%; /* Positioning at 50% of the container */
+  transform: translateX(-50%); /* Adjusting by half its own width for true centering */
 }
 
+
 .info-icon {
-  background-color: #ffab14;
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
   color: white;
-  border-radius: 50%;
-  width: 40px;
+  border-radius: 20px 20px ;
+  width: 200px;
   height: 40px;
   font-size: 20px;
   text-align: center;
@@ -92,8 +127,29 @@
   transition: background-color 0.3s ease;
 }
 
+/* Animate the chevron icon */
+.chevron-icon {
+  display: inline-block;
+  animation: moveUpDown 2s infinite ease-in-out; /* 2s duration, infinite loop */
+}
+
+/* Define the keyframes for up-and-down motion */
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(-3px); /* Start and end at the initial position */
+  }
+  50% {
+    transform: translateY(1px); /* Move up by 10px at the midpoint */
+  }
+}
+
 .info-icon:hover {
   background-color: #d28f12;
+}
+
+.isTextVisible-container
+{
+  margin-top: 100px;
 }
 
 /* Existing Content Styling */
@@ -112,7 +168,7 @@
   color: #555;
 }
 
-.card-wrapper {
+.cardo-wrapper {
   display: flex;
   overflow: hidden;
   justify-content: center;
@@ -121,34 +177,40 @@
   height: 600px;
   width: 1000px;
   touch-action: pan-y; /* Allow vertical scrolling */
+  text-align: left;
 }
 
-.card {
+.cardo {
   position: absolute;
   width: 420px;
   height: auto;
   background: #ffffff;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
   text-align: left;
   transition: transform 0.3s ease-in-out, opacity 0.3s;
   user-select: none; /* Prevent text selection */
   overflow: hidden;
 }
 
-.card-image-container {
+
+.cardo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.cardo-image-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.card-image {
+.cardo-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image fills the entire card */
+  object-fit: cover; /* Ensures image fills the entire cardo */
 }
 
-.card-info {
+.cardo-info {
   padding: 10px;
   background: #fff;
   position: absolute;
@@ -157,18 +219,18 @@
   right: 0;
 }
 
-.card.active {
+.cardo.active {
   animation: pop-in 0.4s ease-in-out;
 }
 
-.card h3 {
+.cardo h3 {
   color: #4a4a8b;
   font-size: 25px;
   text-align: center;
   margin-top: 30px;
 }
 
-.card p {
+.cardo p {
   color: #333;
   font-size: 18px;
   text-align: center;
@@ -190,12 +252,37 @@
   }
 }
 
-.card-wrapper:active .card {
+.play-button-container {
+  position: absolute;
+  top: 92%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+}
+
+.play-button {
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 55px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.play-button:hover {
+  background-color: #ff7f50;
+  transform: scale(1.1);
+}
+
+.cardo-wrapper:active .cardo {
   cursor: grabbing;
   transition: none; /* Disable smooth animation while dragging */
 }
 
-.card-navigation button {
+.cardo-navigation button {
   background-color: #ffab14;
   color: white;
   border: none;
@@ -207,19 +294,19 @@
   transition: transform 0.3s;
 }
 
-.card-navigation button:hover {
+.cardo-navigation button:hover {
   background-color: #f8b705;
   transform: scale(1.1);
 }
 
-.card-section {
+.cardo-section {
   margin: 40px 0;
   position: relative;
   text-align: center;
   user-select: none; /* Prevents text selection during swipes */
 }
 
-.card-hover {
+.cardo-hover {
   position: absolute;
   top: 0;
   left: 0;
@@ -233,15 +320,451 @@
   border-radius: 10px;
   opacity: 0;
   transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+  flex-direction: column;  /* Stack elements vertically */
+  gap: 10px;               /* Add space between each element */  
 }
 
-.card:hover .card-hover {
+.cardo:hover .cardo-hover {
   opacity: 1;
 }
 
-.card-title-heading
+.cardo-title-heading
 {
   color: #ffab14;
 }
 
+.radio-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+.video-container video {
+  width: 100%;  
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.hc-para1
+{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 100;
+  
+}
+
+.hc-para2
+{
+  color: #fff;
+  font-size: 17px;
+  font-weight: 100;
+  padding-right: 30px;
+}
+
+.hc-para3
+{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 100;  
+  padding-right: 30px;
+}
+.hc-para4
+{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 100;
+  
+}
+
+.cardo-details
+{
+  text-align: center;
+  padding: 40px;
+}
+
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  border-radius: 15px;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.audio-player1
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  border-radius: 15px;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.audio-player-song-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.audio-player-controls {
+  display: flex;
+  justify-content: center;  
+  margin-bottom: 10px;
+}
+
+.audio-player-controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.audio-player-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.audio-player-progress input[type="range"] {
+  flex-grow: 1;
+  background: none;
+  accent-color: white;
+}
+
+/* Fade-in and fade-out animations */
+.audio-player.fade-in {
+  opacity: 0;
+  animation: audio-player-fade-in 0.3s forwards; /* Fade-in animation */
+}
+
+.audio-player.fade-out {
+  opacity: 1;
+  animation: audio-player-fade-out 0.3s forwards; /* Fade-out animation */
+}
+
+@keyframes audio-player-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95); /* Slight zoom-in effect */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes audio-player-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95); /* Slight zoom-out effect */
+  }
+}
+
+/* Close button styling */
+.audio-player .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.audio-player .close-button:hover {
+  color: #ff4d4d; /* Red hover effect */
+}
+
+/* Circular logo styling */
+.tut-logo {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Ensure it is square */
+  border-radius: 50%; /* Makes the image circular */
+  border: 2px solid #fff; /* Optional: Add a white border */
+  position: absolute;
+  top: 20px; /* Position it in the top-right corner */
+  right: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+/* Artist Image Container */
+.audio-player-artist-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* Artist Image Styling */
+.audio-player-artist-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 3px solid #ffffff;
+  margin-bottom: 20px;
+}
+
+.hc-np-1
+{
+  color: #fff;
+}
+
+/* Hide default audio controls */
+.audio-player audio {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #555;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #0ff;
+  border-radius: 5px;
+}
+
+.time-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+button:hover {
+  color: #fff;
+}
+
+/* Tooltip container (pop out to the right) */
+.info-icon[data-tooltip]::after {
+  content: attr(data-tooltip); /* Use the tooltip text from the data attribute */
+  position: absolute;
+  top: 50%; /* Align vertically to the middle of the button */
+  left: 100%; /* Position to the right of the button */
+  transform: translateY(-50%) translateX(0); /* Initial position */
+  background-color: rgba(0, 0, 0, 0.8); /* Modern dark background with transparency */
+  color: #fff; /* White text for contrast */
+  padding: 4px 10px; /* Padding for better readability */
+  border-radius: 6px; /* Rounded corners for a modern look */
+  font-size: 13px; /* Adjust font size */
+  white-space: nowrap; /* Prevent wrapping */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent interactions */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade-in/out */
+  margin-left: 10px;
+}
+
+/* Optional: Add an arrow pointing to the button */
+.info-icon[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Center the arrow vertically */
+  left: calc(100% + 2px); /* Position just to the right of the tooltip */
+  transform: translateY(-50%);
+  border-width: 6px; /* Size of the arrow */
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8); /* Match tooltip background */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.info-icon[data-tooltip]:hover::after,
+.info-icon[data-tooltip]:hover::before {
+  opacity: 1; /* Fully visible */
+  transform: translateY(-50%) translateX(8px); /* Move slightly right for pop-out effect */
+}
+
+.video-container1 {
+  position: relative;
+  width: 65%;
+  max-width: 90%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.short-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, filter 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.short-video.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.blurred {
+  filter: blur(10px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: #fff; /* Ensure text is white and visible */
+  z-index: 3; /* Higher than the video */
+  pointer-events: none; /* Makes it non-interactive but visible */
+  
+}
+
+.overlay-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 4; /* Ensure content appears above the blur */
+  padding: 40px;
+}
+
+.overlay p {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-right: 20px;
+  z-index: 5; /* Additional assurance */
+  border-right: 1px solid white;
+  color: #fff;
+  opacity: 90%;
+  padding: 30px;
+}
+
+.view-full-video-btn {
+  flex: none;
+  padding: 15px 25px;
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  z-index: 999; /* Ensure it is clickable */
+  cursor: pointer;
+  pointer-events: auto; /* Allow interactions with the button */
+}
+
+.view-full-video-btn:hover {
+  background: #ffab14;
+  color: white;
+}
+
+.video-indicators {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.indicator.active {
+  background-color: #ffab14;
+  transform: scale(1.2);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(15deg, rgba(0, 85, 150, 0.8) 0%, rgba(206, 17, 39, 0.8) 100%);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background: linear-gradient(15deg, rgba(206, 17, 39, 0.8) 0%, rgba(0, 85, 150, 0.8) 100%);
+  transform: scale(1.1);
+}
+
+.nav-button.prev {
+  margin-right: auto;
+}
+
+.nav-button.next {
+  margin-left: auto;
+}
+
+/* Video Indicators */
+.video-indicators {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 

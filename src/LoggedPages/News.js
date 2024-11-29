@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './news.css';
 import Footer from '../components/Footer';
@@ -45,6 +45,7 @@ function News() {
       badge: "4",
       img: news4,
     },
+
   ];
 
   const magazines = [
@@ -72,70 +73,104 @@ function News() {
       img: mag4,
       link: "https://heitatut.co.za/Vol16no6/#page=1",
     },
-    
+
   ];
 
+  const historicalArchives1 = [
+    {
+
+      description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+      img: news1,
+    },
+    {
+
+      description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+      img: news2,
+    },
+    {
+
+      description: "On 13 November 2024, the Tshwane University of Technology (TUT) Academic Excellence Awards will recognize exceptional academic staff.",
+      img: news3,
+    },
+    {
+
+      description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
+      img: news4,
+    },
+
+  ];
+
+  const [NewsTab, setNewsTab] = useState("General")
+
+  function newsTabs(data) {
+    console.log(magazines)
+    setNewsTab(data)
+  }
   return (
-    <div>   
-        <div className="container">
-          <div className="row">
-            <div className="col-12 text-center">
-              <h2 className="mb-4">News</h2>
-            </div>
+    <div>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 text-center">
+            <h2 className="mb-4">News</h2>
           </div>
         </div>
+      </div>
 
-        <div className="container-fluid">
-          <div className="row">
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
-              {["General", "Magazine"].map((topic, index) => (
-                <li className="nav-item" role="presentation" key={index}>
-                  <button
-                    className={`nav-link ${index === 0 ? 'active' : ''}`}
-                    id={`${topic.toLowerCase()}-tab`}
-                    data-bs-toggle="tab"
-                    data-bs-target={`#${topic.toLowerCase()}-tab-pane`}
-                    type="button"
-                    role="tab"
-                    aria-controls={`${topic.toLowerCase()}-tab-pane`}
-                    aria-selected={index === 0 ? 'true' : 'false'}
-                  >
-                    {topic}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="container-fluid">
+        <div className="row">
+          <ul className="nav nav-tabs" id="myTab" role="tablist">
+            {["General", "Magazine", "Historical Archives"].map((topic, index) => (
+              <li className="nav-item" role="presentation" key={index}>
+                <button
+                  className={`nav-link ${index === 0 ? 'active' : ''}`}
+                  id={`${topic.toLocaleLowerCase()}-tab`}
+                  data-bs-toggle="tab"
+                  data-bs-target={`#${topic.toLocaleLowerCase()}-tab-pane`}
+                  type="button"
+                  role="tab"
+                  aria-controls={`${topic.toLocaleLowerCase()}-tab-pane`}
+                  aria-selected={index === 0 ? 'true' : 'false'}
+                  onClick={() => newsTabs(topic)}
+                >
+                  {topic}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
 
-         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="tab-content" id="myTabContent">
-                
-                {/* General News Tab */}
-                <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
-                  <div className="row">
-                    {newsArticles.map((item, idx) => (
-                      <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                        <div className="custom-block bg-white shadow-lg">
-                          <div className="d-flex">
-                            <div>
-                              <h5 className="mb-2">{item.title}</h5>
-                              <img src={item.img} alt="" style={{ width: "260px", margin: "10px 0" }} />
-                              <p className="sub-description mb-1">{item.subDescription}</p>
-                              <p className="description-text mb-0">{item.description}</p>
-                            </div>
-                            <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="tab-content" id="myTabContent">
+
+              {/* General News Tab */}
+              {NewsTab.toLocaleLowerCase() === "General".toLocaleLowerCase() && <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
+                <div className="row">
+                  {newsArticles.map((item, idx) => (
+                    <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                      <div className="custom-block bg-white shadow-lg">
+                        <div className="d-flex">
+                          <div>
+                            <h5 className="mb-2">{item.title}</h5>
+                            <img src={item.img} alt="" style={{ width: "260px", margin: "10px 0" }} />
+                            <p className="sub-description mb-1">{item.subDescription}</p>
+                            <p className="description-text mb-0">{item.description}</p>
                           </div>
+                          <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
+              </div>}
 
-                {/* Magazine Tab */}
-                <div className="tab-pane fade" id="magazine-tab-pane" role="tabpanel" aria-labelledby="magazine-tab" tabIndex="0">
+
+              {/* Magazine Tab */}
+              {NewsTab.toLocaleLowerCase() === "Magazine".toLocaleLowerCase() &&
+                // <div className="tab-pane fade" id="magazine-tab-pane" role="tabpanel" aria-labelledby="magazine-tab" tabIndex="0">
                   <div className="row">
                     {magazines.map((item, idx) => (
                       <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
@@ -143,7 +178,7 @@ function News() {
                           <a href={item.link} target="_blank" rel="noopener noreferrer">
                             <div className="d-flex">
                               <div>
-                                <img src={item.img} alt={`Magazine edition ${item.badge}`} className='magimg'/>
+                                <img src={item.img} alt={`Magazine edition ${item.badge}`} className='magimg' />
                                 <p className="description-text mb-0">{item.description}</p>
                               </div>
                             </div>
@@ -152,13 +187,82 @@ function News() {
                       </div>
                     ))}
                   </div>
-                </div>
+                // </div>
+              }
 
-              </div>
+
+              {NewsTab.toLocaleLowerCase() === "Historical Archives".toLocaleLowerCase() &&
+                <>
+                  {/* Historical Archives Tab 1 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
+                    <div className="row">
+                      <h5>2004 - 2008</h5>
+                      {historicalArchives1.map((item, idx) => (
+                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                          <div className="custom-block bg-white shadow-lg">
+                            <div className="d-flex">
+                              <div>
+                                {/*<h5 className="mb-2">{item.title}</h5> */}
+                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
+
+                                <p className="description-text mb-0">{item.description}</p>
+                              </div>
+                              {/* <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span> */}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+
+                  {/* Historical Archives Tab2 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
+                    <div className="row">
+                      <h5>2009 - 2013</h5>
+                      {historicalArchives1.map((item, idx) => (
+                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                          <div className="custom-block bg-white shadow-lg">
+                            <div className="d-flex">
+                              <div>
+                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
+                                <p className="description-text mb-0">{item.description}</p>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Historical Archives Tab3 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
+                    <div className="row">
+                      <h5>2018 - 2023</h5>
+                      {historicalArchives1.map((item, idx) => (
+                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                          <div className="custom-block bg-white shadow-lg">
+                            <div className="d-flex">
+                              <div>
+                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
+                                <p className="description-text mb-0">{item.description}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+
+              }
+
             </div>
           </div>
-        </div> 
-     
+        </div>
+      </div>
+
 
       <Footer />
     </div>
