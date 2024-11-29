@@ -151,6 +151,7 @@ function NavbarLogged() {
               </NavDropdown>
 
               <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
             </NavDropdown>
 
 
@@ -158,20 +159,21 @@ function NavbarLogged() {
             <NavDropdown title="News" id="news-dropdown" className="spacing">
             <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
-            <NavDropdown.Item 
+            
+            {/* <NavDropdown.Item 
   as="a" 
   href="https://kismettakk.github.io/Responsive-Radio-HTML/" 
   target="_blank" 
   rel="noopener noreferrer"
 >
   Radio Page
-</NavDropdown.Item>
+</NavDropdown.Item> */}
 
             </NavDropdown>
 
           {/* End News Dropdown */}
            
-            <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
+            <Nav.Link className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse-log' : ''}`} as={Link} to="/donate">Donate</Nav.Link>
           </Nav>
 
           <div className="d-none d-lg-block">

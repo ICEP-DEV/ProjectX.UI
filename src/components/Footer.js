@@ -37,7 +37,7 @@ const Footer = () => {
 
                     {/* Social Media Section */}
                     <div className="col-lg-3 col-md-6 col-12 mb-4" id='linksss'>
-                        <p className="site-footer-title mb-3" style={{ color: '#e6b012', fontSize: '25px' }}>Connect with us</p>
+                        <p className="site-footer-titles mb-3" style={{ color: '#e6b012', fontSize: '25px' }}>Connect with us</p>
                         <div className="social-mediass">
                             <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
                                 <i className="fab fa-facebook-square"></i>
@@ -66,7 +66,7 @@ const Footer = () => {
                     <div className="col-12 text-center">
                         <p className="footer-copyright">
                             Copyright © 2024 TUT - All Rights Reserved
-                            <span className="privacy-policy"> | Privacy Policy & POPIA</span>
+                            <span className="privacy-policy"> | <a href="/privacy-policy" className="privacy-link">Privacy Policy & POPIA</a></span>
                         </p>
                         
                     </div>
