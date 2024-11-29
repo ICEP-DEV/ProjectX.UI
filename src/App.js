@@ -37,6 +37,7 @@ import UploadJobs from './Admin/UploadJobs';
 import JobsCategory from './LoggedPages/JobsCategory';
 import UploadNews from './Admin/UploadNews';
 import Manage from './Admin/Manage';
+import ManageNews from './Admin/MangeNews';
 
 function App() {
   const location = useLocation();
@@ -82,6 +83,7 @@ function App() {
         <Route path="/jobs" element={<UploadJobs/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/manage" element={<Manage/>} />
+        <Route path="/manageNews" element={<ManageNews/>} />
       </Routes>
 
       {/* Footer */}

@@ -76,7 +76,7 @@ function News() {
                           <div className="d-flex">
                             <div>
                               <h5 className="mb-2">{item.headline}</h5>
-                              <img src={`data:image/jpeg;base64,${item.media}`} alt="" style={{ width: "350px",height: "300px", margin: "10px 0" }} />
+                              <img src={`data:image/jpeg;base64,${item.media}`} alt="" style={{ width: "400px",height: "300px", margin: "10px 0" }} />
                               <p className="sub-description mb-1">{`Published: ${ new Date(item.publishedDate).toLocaleDateString("en-GB",{ day: "2-digit",month: "long",year: "numeric", })}, by ${item.publisher}`}</p>
                               <p className="description-text mb-0">{item.description}</p>
                             </div>

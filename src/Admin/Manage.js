@@ -5,7 +5,7 @@ import NavbarLogged from "./NavbarLogged";
 import Sidebar from "../Admin/Sidebar";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom'; // For navigation
 
 const ManageContent = () => {
   const [activeSection, setActiveSection] = useState(null); // Track active section (News, Events, etc.)
@@ -74,6 +74,13 @@ const ManageContent = () => {
   const internships = jobs.filter((job) => job.type === "Internship");
   const permanentJobs = jobs.filter((job) => job.type === "Permanent");
 
+  //handling the edit button
+  const navigate = useNavigate();
+
+  const handleEdit = (item) => {
+    navigate('/manageNews', { state: { newsItem: item } }); // Pass the selected news item
+  };
+
   return (
     <Box display="flex">
       <NavbarLogged />
@@ -126,7 +133,7 @@ const ManageContent = () => {
             <Grid container spacing={2}>
               {newsData.map((item, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card>
+                  <Card style={{Height:'350px' }}>
                     <CardContent>
                       <Typography variant="h6" gutterBottom>
                         {item.headline}
@@ -146,16 +153,17 @@ const ManageContent = () => {
                       </Typography>
                       <Typography variant="body2">{item.description}</Typography>
                       <Button
-                    variant="contained"
-                    sx={{
-                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                        color: "#fff",
-                        marginTop: "10px", marginLeft: "400px",
-                        ":hover": { background: "#FF8C00" },
-                    }}
-                    >
-                    Edit
-                    </Button>
+                            variant="contained"
+                            sx={{
+                                background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                                color: "#fff",
+                                marginTop: "10px",
+                                ":hover": { background: "#FF8C00" },
+                            }}
+                            onClick={() => handleEdit(item)} // Pass the current item
+                            >
+                            Edit
+                     </Button>
                     </CardContent>
                   </Card>
                 </Grid>

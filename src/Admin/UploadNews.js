@@ -18,7 +18,7 @@ const UploadNews = () => {
     });
 
     const [submitError, setSubmitError] = useState('');
-
+    const [submitLoading, setSubmitLoading] = useState(false);
     // Handle text input changes
     const handleTextChange = (e) => {
         const { name, value } = e.target;
@@ -48,6 +48,9 @@ const UploadNews = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setNewsType('');
+            setSubmitError('');
+            setSubmitLoading(true);
         try {
             console.log(formData);
 
@@ -85,12 +88,14 @@ const UploadNews = () => {
                 link: '',
                 media: null,
             });
-            setNewsType('');
-            setSubmitError('');
+            
         } catch (error) {
             console.error('Error uploading news', error);
             setSubmitError('Error uploading news. Please try again later.');
         }
+        finally {
+            setSubmitLoading(false);
+          }
     };
 
     return (
@@ -203,8 +208,8 @@ const UploadNews = () => {
                                     </Form.Group>
                                 )}
 
-                                <Button variant="primary" type="submit" className="mt-3">
-                                    Upload
+                                <Button variant="primary" type="submit" className="mt-3" disabled={submitLoading}>
+                                    {submitLoading? 'Uploading...' : 'Upload'}
                                 </Button>
                             </Form>
                         </CardContent>
