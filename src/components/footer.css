@@ -1,25 +1,3 @@
-html,body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-
-}
-
-/* The container that holds content and footer */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Main content should take up available space */
-.main-content {
-  flex-grow: 1; /* Pushes footer to the bottom */
-  padding: 20px;
-}
-
-
-
 /* General footer styles */
 .site-footer {
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
@@ -28,8 +6,10 @@ html,body{
   padding-top: 10px;
 
   
+  padding-top: 10px;
+  position: relative; /* Ensure proper placement */
+  bottom: 0;
   width: 100%;
-  text-align: center;
 }
 
 .site-footer-title {
@@ -107,9 +87,9 @@ html,body{
 .footer-copyright {
   font-size: 16px;
   color: #aaa;
-  text-align: center;
+  
   margin: 0;
-  padding-top: 20px;
+  padding: 0;
 }
 
 .container22 {
@@ -315,20 +295,4 @@ html,body{
     transform: translateX(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
