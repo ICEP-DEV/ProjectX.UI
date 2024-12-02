@@ -172,7 +172,10 @@ const AlumniCommunity = () => {
     <div className="linkedin-modal-content">
       {/* Circular frame with the profile photo */}
       <div className="profile-photo-container">
-        <img src={selectedAlumni.photo}  alt="Profile" className="profile-photo" />
+        <img
+         src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+         alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
+         className="profile-photo"/>
       </div>
 
       {/* Div with the LinkedIn divider image */}
@@ -187,8 +190,8 @@ const AlumniCommunity = () => {
         &times;
       </button>
       
-      <div className='linkedin-description'>
-          <h5>{selectedAlumni.name} {selectedAlumni.surname}</h5>
+      <div className='linkedin-description'> 
+          <h5>{`${selectedAlumnus.firstName}`} {`${selectedAlumnus.lastName}`}</h5>
           <p>Software Development Intern at Sage, skilled in Java, JavaScript, and full-stack development. Contributing to impactful projects while refining technical and problem-solving skills to deliver innovative solutions.</p>
 
             {/* Details similar to the LinkedIn profile */}
