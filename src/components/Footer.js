@@ -63,7 +63,7 @@ const Footer = () => {
 
                 
                 <div className="row">
-                    <div className="col-12 text-center">
+                    <div className="col-12 d-flex justify-content-center align-items-center text-center">
                         <p className="footer-copyright">
                             Copyright © 2024 TUT - All Rights Reserved
                             <span className="privacy-policy"> | <a href="/privacy-policy" className="privacy-link">Privacy Policy & POPIA</a></span>
