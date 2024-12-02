@@ -40,11 +40,8 @@ import UploadJobs from './Admin/UploadJobs';
 import JobsCategory from './LoggedPages/JobsCategory';
 import Popia from './components/Popia';
 import UploadNews from './Admin/UploadNews';
-<<<<<<< HEAD
 import EditProfile from './LoggedPages/EditProfile';
-=======
 import Manage from './Admin/Manage';
->>>>>>> 32f4f33e4e0fee74e646c92e9c10dc1e659d57aa
 
 function App() {
   const location = useLocation();
@@ -94,18 +91,12 @@ function App() {
         <Route path="/upload" element={<UploadContent/>} />
         <Route path="/uploadEvents" element={<UploadEvents/>} />
         <Route path="/jobs" element={<UploadJobs/>} />
-<<<<<<< HEAD
        
-=======
->>>>>>> 32f4f33e4e0fee74e646c92e9c10dc1e659d57aa
         <Route path="/privacy-policy" element={<Popia/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
-<<<<<<< HEAD
         <Route path="/edit-profile" element={<EditProfile/>} />
 
-=======
         <Route path="/manage" element={<Manage/>} />
->>>>>>> 32f4f33e4e0fee74e646c92e9c10dc1e659d57aa
       </Routes>
 
       {/* Footer */}
