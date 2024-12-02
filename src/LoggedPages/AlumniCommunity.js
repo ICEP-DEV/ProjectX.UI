@@ -124,26 +124,33 @@ const AlumniCommunity = () => {
         </div>
       )}
 
-      {/* Modal */}
-      {isModalOpen && selectedAlumnus && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <button className="close-modal-button" onClick={closeModal}>
-              &times;
-            </button>
-            <img
-              src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
-              alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
-              className="modal-profile-picture"
-            />
-            <h4>{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</h4>
-            <p><strong>Course:</strong> {selectedAlumnus.course}</p>
-            <p><strong>Graduation Year:</strong> {selectedAlumnus.graduationYear}</p>
-            <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
-            <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
-          </div>
-        </div>
-      )}
+{/* Modal */}
+{isModalOpen && selectedAlumnus && (
+  <div className="modal-overlay">
+    <div className="modal">
+      <button className="close-modal-button" onClick={closeModal}>
+        &times;
+      </button>
+      <div className="modal-profile-picture-wrapper">
+        <p className="m-inc-text">{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</p>
+        <img
+          src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+          alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
+          className="modal-profile-picture"
+        />
+      </div>
+      <div className="modal-details">
+        <p><strong>Course:</strong> {selectedAlumnus.course}</p>
+        <p><strong>Year Began:</strong> {selectedAlumnus.graduationBegan}</p>
+        <p><strong>Student Number:</strong> {selectedAlumnus.alumnusId}</p>
+        <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
+        <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
+        <p><strong>Year Completed:</strong> {selectedAlumnus.graduationYear}</p>
+      </div>            
+    </div>
+  </div>
+)}
+
 
 
       {/* No Results Popup */}

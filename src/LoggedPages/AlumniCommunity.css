@@ -336,7 +336,6 @@
   position: relative; /* Required for button positioning */
 }
 
-
 /* Modal overlay */
 .modal-overlay {
   position: fixed;
@@ -355,25 +354,39 @@
 .modal {
   background: white;
   border-radius: 12px;
-  padding: 20px;
-  width: 400px;
-  height: 400px;
+  padding: 80px;
+  width: 800px; /* Increased width for better alignment */
+  height: auto; /* Allow height to adjust based on content */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
   animation: fade-in 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: flex; /* Enable flexbox layout */
+  flex-direction: row; /* Arrange content in a row */
+  align-items: center; /* Center items vertically */
+  gap: 20px; /* Add spacing between items */
+  text-align: left; /* Align text to the left */
 }
 
 /* Profile picture in modal */
 .modal-profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 250px; /* Adjusted size */
+  height: 250px;
   border-radius: 50%;
-  margin-bottom: 20px;
   object-fit: cover;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 60px;
+}
+
+.modal-details {
+  flex: 1; /* Take up remaining space */
+}
+
+.m-inc-text
+{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
 }
 
 /* Close button */
