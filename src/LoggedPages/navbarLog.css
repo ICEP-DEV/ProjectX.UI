@@ -52,10 +52,14 @@
   
  
   .navbarr {
-    background:  linear-gradient(15deg, #005596 0%, #ce1127 100%);
+    background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
     border-bottom: 1px solid rgba(128, 208, 199, 0.35);
     z-index: 9;
-    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s ease, padding 0.3s ease;
   }
   
   .navbar-brand,
@@ -83,8 +87,7 @@
     font-family: var(--title-font-family); 
     font-size: var(--menu-font-size);
     font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    
+    text-transform: uppercase;  
     position: relative;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -192,9 +195,16 @@
     
   }
   
-  .navbar-icon:hover {
-    background: var(--primary-color);
-    color: var(--white-color);
+  .navbar-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease;
   }
   
   .navbar-toggler {
@@ -395,6 +405,16 @@
     padding: 10px;
     margin: 5px 0;
     text-align: center;
+  }
+
+  
+}
+
+@media screen and (min-width: 992px) {
+  .navbarr .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    margin-top: 0;
+    pointer-events: auto;
   }
 }
 

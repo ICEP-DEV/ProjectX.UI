@@ -49,7 +49,7 @@ function App() {
   const showNavBar =  location.pathname === '/donateUnLogged';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
   const showNavBarNoDonateNotLog = location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage'|| location.pathname === '/donate' ;
 
 
   return (
