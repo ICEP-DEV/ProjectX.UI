@@ -5,7 +5,7 @@ import AlumniSpaceLogo from './SearchBarDemoImages/aslogo.png';
 import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
 import ProfilePhoto2 from './SearchBarDemoImages/2.png';
 import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
-import GraduationHatIcon from './SearchBarDemoImages/aslogo.png';
+import ModelBackGroundPic from './Radio/radio photos/Divider 3.png';
 import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
 
 const AlumniCommunity = () => {
@@ -139,7 +139,7 @@ const AlumniCommunity = () => {
       </button>
       {/* Main Heading */}
       <h1 className="m-inc-text">{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</h1>
-
+        
       <div className="modal-profile-picture-wrapper">
         <img
           src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
@@ -170,6 +170,15 @@ const AlumniCommunity = () => {
 {linkedinModalVisible && selectedAlumni &&(
   <div className="linkedin-modal">
     <div className="linkedin-modal-content">
+
+      {/* Close Icon */}
+      <div
+        className="linkedin-modal-close-icon"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
+        &times;
+      </div>
+
       {/* Circular frame with the profile photo */}
       <div className="profile-photo-container">
         <img

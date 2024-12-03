@@ -372,6 +372,14 @@
   flex-direction: column; /* Stack profile picture and LinkedIn icon vertically */
   align-items: center;
   margin-bottom: 30px; /* Space between picture and details */
+  position: relative; /* Allow layering */
+
+  /* Add background image */
+  background-image: url('./Radio/radio photos/Divider 2.png');
+  background-size: cover; /* Ensure the image covers the entire div */
+  background-position: center; /* Center the image */
+  width: 100%; /* Optional, ensure it fits modal width */
+  height: 300px; /* Adjust height as needed */
 }
 
 /* Profile picture in modal */
@@ -381,7 +389,51 @@
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 15px; /* Space between picture and LinkedIn icon */
+  position: relative; /* Keep the profile picture on top of the background */
+  z-index: 2; /* Ensure it layers above the background */
 }
+
+/* Media Queries for smaller devices */
+@media (max-width: 992px) {
+  .modal-profile-picture-wrapper {
+    height: 250px; /* Reduce the height for medium screens */
+  }
+
+  .modal-profile-picture {
+    width: 150px; /* Reduce profile picture size */
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-profile-picture-wrapper {
+    height: 200px; /* Further reduce the height for smaller screens */
+  }
+
+  .modal-profile-picture {
+    width: 100px; /* Further reduce profile picture size */
+    height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-profile-picture-wrapper {
+    height: 180px; /* Adjust height for very small screens */
+    background-size: cover; /* Ensure the image still covers the entire container */
+    background-position: top center; /* Position the image for better visibility */
+    background-repeat: no-repeat; /* Prevent the image from tiling */
+  }
+
+  .modal-profile-picture {
+    width: 80px; /* Smallest size for the profile picture */
+    height: 80px;
+  }
+
+  .linkedin-icon {
+    font-size: 30px; /* Scale down LinkedIn icon */
+  }
+}
+
 
 /* Modal details section */
 .modal-details {
@@ -414,6 +466,7 @@
   color: red;
 }
 
+
 /* Fade-in animation */
 @keyframes fade-in {
   from {
@@ -429,12 +482,14 @@
 /* LinkedIn icon below profile picture */
 .linkedin-icon {
   font-size: 40px;
-  color: #0077b5;
+  color: #ffab14;
   transition: color 0.3s ease;
+  z-index: 3; /* Keep it above background and profile picture */
+  cursor: pointer;
 }
 
 .linkedin-icon:hover {
-  color: #005582;
+  color: #f19d00de;
 }
 
 /* FontAwesome icon */
@@ -450,7 +505,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 800px;
-  height: 700px;
+  height: 750px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 99000;
@@ -676,6 +731,22 @@
   object-fit: cover; /* Ensure the image covers the frame without distortion */
 }
 
+.linkedin-modal-close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1001;
+}
+
+.linkedin-modal-close-icon:hover {
+  color: red;
+}
+
+
 /* Media annotations for a 15.6-inch screen */
 @media (min-width: 1366px) and (max-width: 1920px) {
   .modal {
@@ -825,3 +896,4 @@
     font-size: 24px; /* Adjust icon font size */
   }
 }
+
