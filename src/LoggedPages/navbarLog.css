@@ -410,14 +410,115 @@
   
 }
 
-@media screen and (min-width: 992px) {
-  .navbarr .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    margin-top: 0;
-    pointer-events: auto;
+@media (max-width: 992px) {
+  .navbar-toggler {
+    border: none;
+    outline: none;
+  }
+
+  .navbar-toggler-icon {
+    color: #000; /* Customize as needed */
+  }
+
+  .navbar-collapse {
+    background-color:  hsl(216, 70%, 37%); /* Background for the expanded menu */
+    padding: 10px;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
   }
 }
 
+
+
+/* Profile Box Styles */
+.profile-box {
+  position: absolute;
+  top: 80px; /* Adjust to match the navbar height */
+  right: 40px;
+  width: 260px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.profile-box-icon {
+  display: block;
+  margin: 0 auto 10px;
+  color: #005596;
+}
+
+.profile-box-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+
+.profile-box-links {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 5px 0;
+}
+
+.profile-box-links li {
+  text-align: center;
+  margin: 12px 0;
+  
+}
+
+.profile-box-links a {
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  color: grey;
+}
+
+.profile-box-links a:hover {
+  text-decoration: wavy;
+}
+
+.logout-button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  background: linear-gradient(15deg, #ce1127 0%, #003883 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 40px auto 0; 
+}
+
+.logout-button:hover {
+  background-color: #004080;
+}
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #003883;
+  margin: 4px 0;
+}
 
 
 

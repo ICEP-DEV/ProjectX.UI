@@ -3,42 +3,136 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
+import { BsPersonCircle } from 'react-icons/bs';
 
 function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992); // Tracks if the screen is less than 992px
+  const [displayText, setDisplayText] = useState('Logout');
+  const [isFading, setIsFading] = useState(false);
+  const [iconPosition, setIconPosition] = useState(0);
   const location = useLocation();
-
-  // Check screen width and update state
-  useEffect(() => {
-    const handleResize = () => setIsMobileView(window.innerWidth < 992);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const textRef = useRef(null);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  const isActive = (section) => (activeSection === section ? 'active' : '');
+  useEffect(() => {
+    console.log("Login Status: ", isLoggedIn);
+  }, [isLoggedIn]);
+
+  const fadeDuration = 1000; // 1 second fade duration
+
+  // Define texts and their corresponding display durations
+  const texts = [
+    { text: 'Logout', duration: 5000 },       // 5 seconds
+    { text: 'Welcome back', duration: 5000 }, // 5 seconds
+    { text: 'T Matiza', duration: 10000 },     // 10 seconds
+  ];
+
+  useEffect(() => {
+    let currentIndex = 0;
+
+    const cycleText = () => {
+      setIsFading(true); // Start fading out
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % texts.length; // Cycle through texts
+        setDisplayText(texts[currentIndex].text);
+        setIsFading(false); // Start fading in
+      }, fadeDuration); // Wait for fade-out to finish
+
+      // Adjust timing based on the displayed text
+      const displayDuration = texts[currentIndex].duration; // Get duration for current text
+
+      setTimeout(() => {
+        setIsFading(true); // Start fading out again
+      }, fadeDuration + displayDuration); // Wait for the display duration plus fade out
+    };
+
+    // Start cycling text on mount
+    cycleText();
+
+    // Interval for cycling text
+    const interval = setInterval(cycleText, fadeDuration + texts[currentIndex].duration);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const updateIconPosition = () => {
+      if (textRef.current) {
+        const textWidth = textRef.current.offsetWidth;
+        const logoutIconWidth = 50; // Adjust this to the actual width of the icon if necessary
+        const newPosition = textWidth + logoutIconWidth + 10; // Add some spacing
+        setIconPosition(newPosition);
+      }
+    };
+
+    updateIconPosition();
+    window.addEventListener('resize', updateIconPosition);
+
+    return () => {
+      window.removeEventListener('resize', updateIconPosition);
+    };
+  }, [displayText]);
+
+  const handleScroll = () => {
+    const sections = ['section_1', 'section_2', 'section_3', 'section_4', 'section_5'];
+    let currentSection = '';
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const top = element.getBoundingClientRect().top;
+        if (top <= window.innerHeight / 2 && top >= -element.clientHeight / 2) {
+          currentSection = section;
+        }
+      }
+    });
+
+    if (currentSection) {
+      setActiveSection(currentSection);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+ 
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+
+  const toggleProfileBox = () => {
+    setIsProfileVisible(!isProfileVisible);
+  };
+
+  const handleLogout = () => {
+    // Clear login state (optional: add actual logout logic here)
+    console.log('User logged out');
+  };  
+
 
   return (
-    <Navbar id="navbarr" expand="lg" className="navbar navbar-expand-lg navbar-light homepage-bgg">
+    <Navbar id="navbarr" expand="lg" className="navbar navbar-light homepage-bgg">
       <Container>
+        {/* Logo */}
         <Navbar.Brand href="#section_1">
           <img src={tutLogo} alt="Tut Logo" style={{ width: '250px', height: 'auto' }} />
         </Navbar.Brand>
 
-        {/* Toggle for mobile menu */}
+        {/* Mobile menu toggle */}
         <Navbar.Toggle aria-controls="navbarNav" />
 
         {/* Navbar links */}
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto">
             <Nav.Link
-              className={`nav-link-spacing1 ${location.pathname === '/news' ? 'active' : ''}`}
+              className={`nav-link-spacing1 ${location.pathname === '/logged' ? 'active' : ''}`}
               as={Link}
               to="/logged"
             >
@@ -52,18 +146,29 @@ function NavbarLogged() {
               Alumni Community
             </Nav.Link>
 
+            {/* Career Development Dropdown */}
             <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
-              <NavDropdown.Item as={Link} to="/arts">FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/economics">FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/engineering">FACULTY OF ENGINEERING</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/ict">FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/arts">
+                Faculty of Arts and Design
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/economics">
+                Faculty of Economics and Finance
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/engineering">
+                Faculty of Engineering
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/ict">
+                Faculty of Information and Communication Technology
+              </NavDropdown.Item>
             </NavDropdown>
 
+            {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing">
               <NavDropdown.Item as={Link} to="/news">News</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/events">Events</NavDropdown.Item>
             </NavDropdown>
 
+            {/* Donate Link */}
             <Nav.Link
               className={`nav-link-spacing ${location.pathname === '/donate' ? 'active donate-pulse-log' : ''}`}
               as={Link}
@@ -73,21 +178,30 @@ function NavbarLogged() {
             </Nav.Link>
           </Nav>
 
-          {/* Conditionally render Logout button */}
-          {isMobileView ? (
-            <Nav.Link as={Link} to="/" className="logout-icon-mobile">
-              Logout
-            </Nav.Link>
-          ) : (
-            <div className="d-none d-lg-block">
-              <Link
-                to="/"
-                className="navbar-icon bi-box-arrow-right logout-icon"
-                title="Click here to logout"
-                style={{ color: '#005596' }}
-              ></Link>
+          <div className="d-none d-lg-block">
+              <BsPersonCircle
+                className="navbar-icon person-icon"
+                title="Profile"
+                style={{  color: '#003883',fontSize: '1.5rem', cursor: 'pointer' }}
+                onClick={toggleProfileBox} // Toggle the profile box on click
+              />
             </div>
-          )}
+
+          {isProfileVisible && (
+          <div className="profile-box">
+            <BsPersonCircle className="profile-box-icon" size={50} />
+             <h3 className="profile-box-title">Profile</h3>
+          <ul className="profile-box-links">
+            <li><Link to="/resetpassword">Change Password</Link></li>
+            <li><Link to="/edit-profile">Edit Profile</Link></li>
+          </ul>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+      </div>
+    )}
+
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
