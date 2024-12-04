@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div>
       <div className="containerss">
-        <Link to="/" className="back-button">Back</Link> {/* Back button added here */}
+        {/* <Link to="/" className="back-button">Back</Link> */}
 
         <div className="forms-containerss">
           {/* Sign In Form */}

@@ -1,69 +1,218 @@
-import React, { useEffect, useState } from "react";
-import { Box, Typography, FormControl, InputLabel, Select, MenuItem, Grid, Card, CardContent, Button } from "@mui/material";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { Card, CardContent, Typography, Box, TextField, Button } from '@mui/material';
+import axios from 'axios';
+import NavbarLogged from './NavbarLogged';
+import Sidebar from '../Admin/Sidebar';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const ManageNews = ({ activeSection, toggleSection }) => {
-  const [newsType, setNewsType] = useState("general");
-  const [newsData, setNewsData] = useState([]);
+const ManageNews = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { newsItem } = location.state || {}; // Get the passed news item data
 
-  const fetchNewsData = async (type) => {
-    try {
-      const response = await axios.get(`http://localhost:5214/api/Alumnus/GetNewsByType/GetNews/${type}`);
-      setNewsData(response.data);
-    } catch (error) {
-      console.error("Error fetching news data:", error);
+  const [formData, setFormData] = useState({
+    headline: '',
+    publishedDate: '',
+    publisher: '',
+    description: '',
+    link: '', // Only for magazines
+  });
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [submitLoading, setSubmitLoading] = useState(false);
+
+  // Populate form fields when the component mounts
+  useEffect(() => {
+    if (newsItem) {
+      setFormData({
+        headline: newsItem.headline || '',
+        publishedDate: newsItem.publishedDate ? newsItem.publishedDate.split('T')[0] : '',
+        publisher: newsItem.publisher || '',
+        description: newsItem.description || '',
+        link: newsItem.link || '',
+      });
+      if (newsItem.media) {
+        setPreviewImage(`data:image/jpeg;base64,${newsItem.media}`);
+      }
+    }
+  }, [newsItem]);
+
+  // Handle changes in text fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Handle image file selection
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+    const reader = new FileReader();
+    reader.onloadend = () => setPreviewImage(reader.result);
+    if (file) reader.readAsDataURL(file);
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitLoading(true);
+    let mediaBase64 = null;
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.readAsDataURL(selectedFile);
+      reader.onload = async () => {
+        mediaBase64 = reader.result.split(',')[1];
+        await submitUpdateRequest(mediaBase64);
+      };
+    } else {
+      await submitUpdateRequest();
     }
   };
 
-  useEffect(() => {
-    if (activeSection === "news") {
-      fetchNewsData(newsType);
+  const submitUpdateRequest = async (mediaBase64 = null) => {
+    const formDataToSend = {
+      ...formData,
+      media: mediaBase64 || null,
+    };
+    try {
+      await axios.put(`http://localhost:5214/api/Admin/UpdateNews/UpdateNews/${newsItem.id}`, formDataToSend);
+      alert("News Updated successfully!");
+      navigate('/manage');
+    } catch (error) {
+      console.error("Error updating news:", error.response ? error.response.data : error.message);
+    } finally {
+      setSubmitLoading(false);
     }
-  }, [activeSection, newsType]);
+  };
+
+  const handleRemove = async () => {
+    try {
+      await axios.delete(`http://localhost:5214/api/Admin/DeleteNews/DeleteNews/${newsItem.id}`);
+      alert("News Deleted successfully!");
+      navigate('/manage');
+    } catch (error) {
+      console.error("Error deleting news:", error);
+    }
+  };
 
   return (
-    <Box>
-      <Card>
-        <CardContent>
-          <Box display="flex" justifyContent="space-between" alignItems="center">
-            <Typography variant="h5" color="#003883" gutterBottom>
-              News and Historical Archives
-            </Typography>
-            <Button
-              variant="contained"
-              onClick={() => toggleSection("news")}
-              sx={{ background: activeSection === "news" ? "#FF8C00" : "#003883", color: "#fff" }}
-            >
-              Manage
-            </Button>
-          </Box>
-        </CardContent>
-      </Card>
+    <Box display="flex">
+      <NavbarLogged />
+      <Sidebar />
+      <Box flex="1" ml="200px" p={3}>
+        <Typography variant="h4" align="center" color="#003883" gutterBottom>
+          Manage News
+        </Typography>
+        <Box display="flex" justifyContent="center" mt={8}>
+          <Card style={{ minWidth: 500, maxWidth: 600 }}>
+            <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
+              <form onSubmit={handleSubmit}>
+                {/* Conditional Fields */}
+                {newsItem.type === 'magazine' ? (
+                    <TextField
+                        fullWidth
+                        margin="normal"
+                        label="Link"
+                        name="link"
+                        value={formData.link}
+                        onChange={handleChange}
+                    />
+                    ) : (
+                    <>
+                        <TextField
+                        fullWidth
+                        margin="normal"
+                        label="Headline"
+                        name="headline"
+                        value={formData.headline}
+                        onChange={handleChange}
+                        />
+                        <TextField
+                        fullWidth
+                        margin="normal"
+                        label="Publisher"
+                        name="publisher"
+                        value={formData.publisher}
+                        onChange={handleChange}
+                        />
+                    </>
+                    )}
 
-      {activeSection === "news" && (
-        <Box>
-          <FormControl fullWidth>
-            <InputLabel>Select News Type</InputLabel>
-            <Select value={newsType} onChange={(e) => setNewsType(e.target.value)}>
-              <MenuItem value="general">General News</MenuItem>
-              <MenuItem value="magazine">Magazines</MenuItem>
-            </Select>
-          </FormControl>
-          <Grid container spacing={2}>
-            {newsData.map((item, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h6">{item.headline}</Typography>
-                    <img src={`data:image/jpeg;base64,${item.media}`} alt="News" style={{ width: "100%" }} />
-                    <Typography>{item.description}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+                
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Published Date"
+                  name="publishedDate"
+                  type="date"
+                  InputLabelProps={{ shrink: true }}
+                  value={formData.publishedDate}
+                  onChange={handleChange}
+                />
+                
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={4}
+                  margin="normal"
+                  label="Description"
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                />
+                
+                {/* Image Display */}
+                {previewImage && (
+                  <Box mt={2} display="flex" justifyContent="center">
+                    <img
+                      src={previewImage}
+                      alt="Preview"
+                      style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', marginBottom: '10px' }}
+                    />
+                  </Box>
+                )}
+                
+                <Box mt={2}>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ marginBottom: '15px' }}
+                  />
+                </Box>
+                
+                <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                  >
+                    {submitLoading ? 'Saving...' : 'Save Changes'}
+                  </Button>
+                  
+                  <Button
+                    variant="contained"
+                    onClick={handleRemove}
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                  >
+                    {submitLoading ? 'Removing...' : 'Remove News'}
+                  </Button>
+                </Box>
+              </form>
+            </CardContent>
+          </Card>
         </Box>
-      )}
+      </Box>
     </Box>
   );
 };

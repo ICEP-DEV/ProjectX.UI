@@ -19,7 +19,7 @@ const UploadEvents = () => {
   });
 
   const [submitError, setSubmitError] = useState('');
-
+  const [submitLoading, setSubmitLoading] = useState(false);
   // Handle text input changes
   const handleTextChange = (e) => {
     const { name, value } = e.target;
@@ -64,14 +64,18 @@ const UploadEvents = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  // Prevent default form submission behavior
+    setSubmitLoading(true);  // Set loading state before starting the request
+    setSubmitError('');      // Clear any previous errors
+    
     try {
       console.log(formData);
       // Send form data to the API
       const response = await axios.post('http://localhost:5214/api/Admin/UploadEvents/UploadEvents', formData);
+      
       window.alert('Event uploaded successfully!!!');
-
-      // Clear the form fields
+      
+      // Clear form fields
       setFormData({
         title: '',
         description: '',
@@ -79,15 +83,16 @@ const UploadEvents = () => {
         time: '',
         venue: '',
         volunteerRoles: [''],
-        media: null
-        
+        media: null,
       });
-      setSubmitError('');
     } catch (error) {
-      console.error('Error uploading event', error);
+      console.error('Error uploading event:', error);
       setSubmitError('Error uploading event. Please try again later.');
+    } finally {
+      setSubmitLoading(false);  // Ensure loading is turned off
     }
   };
+  
 
   return (
     <Box display="flex">
@@ -192,8 +197,8 @@ const UploadEvents = () => {
 
                 
 
-                <Button variant="primary" type="submit" className="mt-3">
-                  Upload
+                <Button variant="primary" type="submit" className="mt-3" disabled={submitLoading}>
+                        {submitLoading? 'Uploading...' : 'Upload'}
                 </Button>
               </Form>
             </CardContent>
