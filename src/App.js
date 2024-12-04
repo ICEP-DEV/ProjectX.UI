@@ -52,7 +52,7 @@ function App() {
   const showNavBar =  location.pathname === '/donateUnLogged';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
   const showNavBarNoDonateNotLog = location.pathname === '/';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage';
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage'|| location.pathname === '/donate' ;
 
 
   return (
@@ -99,6 +99,13 @@ function App() {
         <Route path="/manage" element={<Manage/>} />
         <Route path="/manageNews" element={<ManageNews/>} />
         <Route path="/manageEvents" element={<ManageEvents/>} />
+        <Route path="/jobs" element={<UploadJobs/>} />
+       
+        <Route path="/privacy-policy" element={<Popia/>} />
+        <Route path="/uploadNews" element={<UploadNews/>} />
+        <Route path="/edit-profile" element={<EditProfile/>} />
+
+        <Route path="/manage" element={<Manage/>} />
       </Routes>
 
       {/* Footer */}
