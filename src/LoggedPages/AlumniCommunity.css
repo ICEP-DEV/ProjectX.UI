@@ -369,7 +369,7 @@
   text-align: center; /* Center text */
 }
 
-/* Profile picture wrapper */
+/* Modal profile picture wrapper */
 .modal-profile-picture-wrapper {
   display: flex;
   flex-direction: column; /* Stack profile picture and LinkedIn icon vertically */
@@ -397,7 +397,8 @@
   z-index: 2; /* Ensure it layers above the background */
 }
 
-/* Large screens (laptops and desktops) */
+/* Media Queries for varying devices */
+
 /* Extra-large screens */
 @media (max-width: 1200px) {
   .modal {
@@ -451,6 +452,7 @@
   }
 }
 
+/* Extra small screens (very small phones) */
 @media (max-width: 576px) {
   .modal {
     width: 90vw;
@@ -527,7 +529,7 @@
 
 /* LinkedIn icon below profile picture */
 .linkedin-icon {
-  font-size: 40px;
+  font-size: 3vh;
   color: #ffab14;
   transition: color 0.3s ease;
   z-index: 3; /* Keep it above background and profile picture */
@@ -812,6 +814,7 @@
   .modal-details {
     text-align: left; /* Keep text aligned left for readability */
     font-size: 0.9rem; /* Reduce font size for details */
+    
   }
 
   .linkedin-icon {
@@ -942,3 +945,4 @@
     font-size: 24px; /* Adjust icon font size */
   }
 }
+
