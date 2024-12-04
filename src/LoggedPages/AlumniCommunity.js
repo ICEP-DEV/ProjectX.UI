@@ -15,7 +15,7 @@ const AlumniCommunity = () => {
     { photo: Image1, name: 'Tshiamo', surname: 'Matiza', stuno: 221306520, course: 'Computer Science', yearGraduated: 2021 },
     { photo: Image2, name: 'Tshiamo', surname: 'Madukadzhi', stuno: 222617112, course: 'Informatics', yearGraduated: 2022 },
     { photo: Image3, name: 'Tshiamo', surname: 'Mazibuko', stuno: 224567702, course: 'Information Technology', yearGraduated: 2023 },
-    { photo: Image3, name: 'Fundiswa', surname: 'Khanyi', stuno: 221447646, course: 'Mechatronics Engineering', yearGraduated: 2022 },
+    { photo: Image3, name: 'Fundiswa', surname: 'Khanyi', stuno: 221447646, course: 'Mechatronics Engineering', yearGraduated: 2014 },
     // Add more alumni as needed
   ];
   

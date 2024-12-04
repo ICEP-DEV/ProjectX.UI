@@ -4,6 +4,7 @@ import { Link, useLocation} from 'react-router-dom';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
 import { BsPersonCircle } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,7 +39,7 @@ function NavbarLogged() {
   const texts = [
     { text: 'Logout', duration: 5000 },       // 5 seconds
     { text: 'Welcome back', duration: 5000 }, // 5 seconds
-    { text: 'T Matiza', duration: 10000 },     // 10 seconds
+    { text: 'F Khanyi', duration: 10000 },     // 10 seconds
   ];
 
   useEffect(() => {
@@ -119,9 +120,11 @@ function NavbarLogged() {
   const toggleProfileBox = () => {
     setIsProfileVisible(!isProfileVisible);
   };
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Clear login state (optional: add actual logout logic here)
+    navigate('/');
     console.log('User logged out');
   };  
 

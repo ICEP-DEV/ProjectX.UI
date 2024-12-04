@@ -77,9 +77,26 @@ const ManageContent = () => {
   //handling the edit button
   const navigate = useNavigate();
 
-  const handleEdit = (item) => {
-    navigate('/manageNews', { state: { newsItem: item } }); // Pass the selected news item
+  const handleEdit = (item, type) => {
+    switch(type) {
+      case 'news':
+        navigate('/manageNews', { state: { newsItem: item } });
+        break;
+      case 'events':
+        navigate('/manageEvents', { state: { eventItem: item } });
+        break;
+      case 'jobs':
+        navigate('/manageJobs', { state: { jobItem: item } });
+        break;
+      case 'podcast':
+        navigate('/managePodcast', { state: { podcastItem: item } });
+        break;
+      default:
+        console.warn("Unknown type:", type);
+    }
   };
+  
+  
 
   return (
     <Box display="flex">
@@ -153,17 +170,18 @@ const ManageContent = () => {
                       </Typography>
                       <Typography variant="body2">{item.description}</Typography>
                       <Button
-                            variant="contained"
-                            sx={{
-                                background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                                color: "#fff",
-                                marginTop: "10px",
-                                ":hover": { background: "#FF8C00" },
-                            }}
-                            onClick={() => handleEdit(item)} // Pass the current item
-                            >
-                            Edit
-                     </Button>
+                        variant="contained"
+                        sx={{
+                            background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                            color: "#fff",
+                            marginTop: "10px",
+                            marginLeft: "300px",
+                            ":hover": { background: "#FF8C00" },
+                        }}
+                        onClick={() => handleEdit(item, 'news')}  // Pass 'event' and type
+                        >
+                        Edit
+                    </Button>
                     </CardContent>
                   </Card>
                 </Grid>
@@ -220,16 +238,19 @@ const ManageContent = () => {
                     {/* Optional: Add more fields as needed */}
                     <Typography variant="body2">{event.description}</Typography>
                     <Button
-                    variant="contained"
-                    sx={{
-                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                        color: "#fff",
-                        marginTop: "10px", marginLeft: "300px",
-                        ":hover": { background: "#FF8C00" },
-                    }}
-                    >
-                    Edit
+                        variant="contained"
+                        sx={{
+                            background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                            color: "#fff",
+                            marginTop: "10px",
+                            marginLeft: "300px",
+                            ":hover": { background: "#FF8C00" },
+                        }}
+                        onClick={() => handleEdit(event, 'events')}  // Pass 'event' and type
+                        >
+                        Edit
                     </Button>
+
                 </CardContent>
                 </Card>
             </Grid>
@@ -328,6 +349,8 @@ const ManageContent = () => {
                                 ":hover": { background: "#FF8C00" },
                                 }}
                             >
+                                onClick={() => handleEdit(job, 'jobs')}
+
                                 Edit
                             </Button>
                             </CardContent>
@@ -368,6 +391,7 @@ const ManageContent = () => {
                                 ":hover": { background: "#FF8C00" },
                                 }}
                             >
+                                onClick={() => handleEdit(job, 'jobs')}
                                 Edit
                             </Button>
                             </CardContent>
