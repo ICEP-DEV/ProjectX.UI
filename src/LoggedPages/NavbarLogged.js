@@ -9,7 +9,7 @@ function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
   const [isProfileVisible, setIsProfileVisible] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992);
+  // const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992);
   const location = useLocation();
 
   useEffect(() => {
@@ -17,11 +17,11 @@ function NavbarLogged() {
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobileView(window.innerWidth < 992);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => setIsMobileView(window.innerWidth < 992);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   const toggleProfileBox = () => setIsProfileVisible(!isProfileVisible);
 
@@ -83,14 +83,14 @@ function NavbarLogged() {
           </Nav>
 
           {/* Display profile icon for mobile view */}
-          {isMobileView && (
+          {/* {isMobileView && ( */}
             <BsPersonCircle
               className="navbar-icon person-icon"
               title="Profile"
               style={{ color: '#003883', fontSize: '1.5rem', cursor: 'pointer' }}
               onClick={toggleProfileBox}
             />
-          )}
+          {/* )} */}
 
           {/* Profile box */}
           {isProfileVisible && (
