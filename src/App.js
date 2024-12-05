@@ -16,7 +16,7 @@ import NavBarNoDonateNotLog from './components/NavBarNoDonateNotLog';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
 import ConfirmProfile from './components/ConfirmProfile';
-import ForgotPassword from './components/ForgotPassword';
+
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
 import News from './LoggedPages/News'; // Corrected component name to uppercase
@@ -71,7 +71,7 @@ function App() {
         <Route path="/donateUnLogged" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />} />
         <Route path="/logged" element={<Logged />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        
         <Route path="/signup" element={<Signup />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
