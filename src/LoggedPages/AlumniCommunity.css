@@ -336,7 +336,6 @@
   position: relative; /* Required for button positioning */
 }
 
-
 /* Modal overlay */
 .modal-overlay {
   position: fixed;
@@ -355,25 +354,147 @@
 .modal {
   background: white;
   border-radius: 12px;
-  padding: 20px;
-  width: 400px;
-  height: 400px;
+  padding: 2.5vw; /* Dynamic padding */
+  width: 50vw; /* Use viewport width */
+  max-width: 800px; /* Prevent it from getting too large */
+  height: auto;
+  max-height: 90vh; /* Prevent it from overflowing vertically */
+  overflow-y: auto; /* Add scroll for content overflow */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
   animation: fade-in 0.3s ease-in-out;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Column layout */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+}
+
+/* Modal profile picture wrapper */
+.modal-profile-picture-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack profile picture and LinkedIn icon vertically */
   align-items: center;
-  text-align: center;
+  margin-bottom: 30px; /* Space between picture and details */
+  position: relative;
+
+  background-image: url('./Radio/radio photos/Divider 2.png');
+  background-size: cover; /* Ensure the image covers the entire div */
+  background-position: center;
+  width: 100%;
+  height: 30vh; /* Use viewport height */
+  max-height: 300px; /* Cap the maximum height */
 }
 
 /* Profile picture in modal */
 .modal-profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 15vw; /* Use viewport width for scaling */
+  max-width: 250px; /* Cap the maximum size */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 50%;
-  margin-bottom: 20px;
   object-fit: cover;
+  margin-bottom: 15px; /* Space between picture and LinkedIn icon */
+  position: relative;
+  z-index: 2; /* Ensure it layers above the background */
+}
+
+/* Media Queries for varying devices */
+
+/* Extra-large screens */
+@media (max-width: 1200px) {
+  .modal {
+    width: 60vw;
+    max-width: 700px;
+  }
+
+  .modal-profile-picture-wrapper {
+    height: 25vh;
+    max-height: 280px;
+  }
+
+  .modal-profile-picture {
+    width: 14vw;
+    max-width: 220px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .modal {
+    width: 70vw;
+    max-width: 600px;
+  }
+
+  .modal-profile-picture-wrapper {
+    height: 20vh;
+    max-height: 250px;
+  }
+
+  .modal-profile-picture {
+    width: 12vw;
+    max-width: 180px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .modal {
+    width: 85vw;
+  }
+
+  .modal-profile-picture-wrapper {
+    height: 18vh;
+    max-height: 200px;
+  }
+
+  .modal-profile-picture {
+    width: 10vw;
+    max-width: 140px;
+  }
+}
+
+/* Extra small screens (very small phones) */
+@media (max-width: 576px) {
+  .modal {
+    width: 90vw;
+    padding: 20px; /* Adjust padding for small screens */
+  }
+
+  .modal-profile-picture-wrapper {
+    height: 15vh;
+    max-height: 180px;
+  }
+
+  .modal-profile-picture {
+    width: 8vw;
+    max-width: 100px;
+  }
+}
+
+/* Ultra-small screens (compact phones) */
+@media (max-width: 400px) {
+  .modal-profile-picture-wrapper {
+    height: 13vh;
+    max-height: 150px;
+  }
+
+  .modal-profile-picture {
+    width: 6vw;
+    max-width: 80px;
+  }
+}
+
+/* Modal details section */
+.modal-details {
+  width: 100%; /* Ensure modal details take full width */
+  text-align: left; /* Align text to the left */
+}
+
+.m-inc-text
+{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
 }
 
 /* Close button */
@@ -393,6 +514,7 @@
   color: red;
 }
 
+
 /* Fade-in animation */
 @keyframes fade-in {
   from {
@@ -404,3 +526,460 @@
     transform: scale(1);
   }
 }
+
+/* LinkedIn icon below profile picture */
+.linkedin-icon {
+  font-size: 3vh;
+  color: #ffab14;
+  transition: color 0.3s ease;
+  z-index: 3; /* Keep it above background and profile picture */
+  cursor: pointer;
+}
+
+.linkedin-icon:hover {
+  color: #f19d00de;
+}
+
+/* FontAwesome icon */
+.fab {
+  font-family: 'Font Awesome 5 Brands', sans-serif;
+}
+
+
+
+.linkedin-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 750px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 99000;
+  border-radius: 10px;
+}
+
+.linkedin-modal-content {
+  padding: 20px;  
+  position: relative;
+}
+
+.linkedin-modal-image {
+  padding: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.linkedin-modal-image img {
+  width: 100%; /* Adjusts to fit the modal width */
+  height: auto;
+}
+
+.profile-photo-container {
+  position: absolute;
+  top: 70px; /* Adjusts the vertical placement */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 200px; /* Diameter of the circle */
+  height: 200px;
+  border-radius: 50%; /* Makes the frame circular */
+  overflow: hidden;
+  border: 4px solid white; /* Optional: Adds a white border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for a 3D effect */
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the circle */
+}
+
+.linkedin-description
+{
+  margin-top: 50px;
+  max-height: 400px; /* Adjust based on modal dimensions */
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+  box-sizing: border-box; /* Ensures padding doesn't affect width/height */
+}
+
+/* Optional: Style for the scrollbar */
+.linkedin-description::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.linkedin-description::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 4px;
+}
+
+.linkedin-description::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px;
+}
+
+.linkedin-description::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker shade when hovered */
+}
+
+.linkedin-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkedin-details li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.linkedin-details a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.linkedin-details a:hover {
+  text-decoration: underline;
+}
+
+.linkedin-university-item {
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 12px; /* Add spacing between list items */
+}
+
+.linkedin-icon-container {
+  width: 40px; /* Adjust the size of the circular frame */
+  height: 40px;
+  border-radius: 50%; /* Makes the container circular */
+  overflow: hidden; /* Ensures the image stays within the circular frame */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Optional: Add a subtle background */
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.linkedin-icon-link {
+  color: #0077b5; /* LinkedIn brand color */
+  font-size: 34px; /* Adjust icon size as needed */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* Ensures proper alignment if in a flex container */
+  align-items: center; /* Vertically centers the icon */
+  
+}
+
+.linkedin-icon-link:hover
+{
+  color: #ffab14;
+}
+
+.mutual-connections {
+  display: flex;
+  align-items: center;
+}
+
+.mutual-connections img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.linkedin-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.linkedin-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.btn-connect {
+  background-color: #0073b1;
+  color: #fff;
+  border: 1px solid #0073b1;
+}
+
+.btn-connect:hover {
+  background-color: #005582;
+}
+
+.btn-message {
+  background-color: #fff;
+  color: #0073b1;
+  border: 1px solid #0073b1;
+}
+
+.btn-message:hover {
+  background-color: #eef3f8;
+}
+
+.btn-more {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #c4c4c4;
+}
+
+.btn-more:hover {
+  background-color: #f3f3f3;
+}
+
+.linkedIn-adjust-text
+{
+  font-size: 13px;
+}
+
+.close-linkedin-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.open-to-work {
+  background-color: #eef3f8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.open-to-work p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.open-to-work a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.open-to-work a:hover {
+  text-decoration: underline;
+}
+
+.linkedin-icon-1
+{
+  width: 100%; /* Make the image fill the circular container */
+  height: 100%; /* Ensure the image maintains its aspect ratio */
+  object-fit: cover; /* Ensure the image covers the frame without distortion */
+}
+
+.linkedin-modal-close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1001;
+}
+
+.linkedin-modal-close-icon:hover {
+  color: red;
+}
+
+
+/* Media annotations for a 15.6-inch screen */
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .modal {
+    width: 600px; /* Smaller modal width */
+    padding: 25px; /* Reduce padding */
+  }
+
+  .modal-profile-picture {
+    width: 180px; /* Scale down profile picture */
+    height: 180px;
+  }
+
+  .m-inc-text {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+
+  .modal-details {
+    text-align: left; /* Keep text aligned left for readability */
+    font-size: 0.9rem; /* Reduce font size for details */
+    
+  }
+
+  .linkedin-icon {
+    font-size: 30px; /* Scale down LinkedIn icon */
+  }
+
+  .close-modal-button {
+    font-size: 20px; /* Reduce close button size */
+  }
+}
+
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%; /* Reduce modal width for smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .modal-profile-picture {
+    width: 150px; /* Reduce profile picture size */
+    height: 150px;
+  }
+
+  .m-inc-text {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .modal-details {
+    text-align: center; /* Center-align text for smaller screens */
+  }
+}
+
+/* Responsive design for extra small screens */
+@media (max-width: 480px) {
+  .modal {
+    padding: 15px; /* Further adjust padding */
+  }
+
+  .modal-profile-picture {
+    width: 120px; /* Further reduce profile picture size */
+    height: 120px;
+  }
+
+  .m-inc-text {
+    font-size: 1.25rem; /* Smaller heading size */
+  }
+}
+
+/* Media annotation: Adjust modal size for smaller screens */
+@media (max-width: 768px) {
+  .linkedin-modal {
+    width: 90%; /* Reduce width for smaller screens */
+    height: auto; /* Allow height to adjust dynamically */
+    top: 10%; /* Adjust top placement */
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .linkedin-modal-content {
+    padding: 15px; /* Reduce padding for better fit */
+  }
+
+  .profile-photo-container {
+    top: 50px; /* Adjust vertical placement */
+    width: 150px; /* Reduce profile photo size */
+    height: 150px;
+  }
+
+  .linkedin-description {
+    margin-top: 30px; /* Adjust spacing */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Media annotation: Adjustments for very small screens */
+@media (max-width: 480px) {
+  .linkedin-modal {
+    width: 95%; /* Further reduce modal width */
+    padding: 10px; /* Add padding around modal */
+  }
+
+  .profile-photo-container {
+    width: 120px; /* Further reduce profile photo size */
+    height: 120px;
+  }
+
+  .linkedin-description {
+    font-size: 12px; /* Adjust text size for better readability */
+  }
+
+  .linkedin-buttons button {
+    padding: 6px 12px; /* Reduce button size */
+    font-size: 12px;
+  }
+}
+
+/* Media annotation: Optimize mutual connections layout */
+@media (max-width: 600px) {
+  .mutual-connections {
+    flex-wrap: wrap; /* Allow icons to wrap to next line */
+    justify-content: center; /* Center align content */
+  }
+
+  .mutual-connections img {
+    width: 18px; /* Slightly reduce icon size */
+    height: 18px;
+  }
+}
+
+/* Media annotation: Adjust modal image for smaller screens */
+@media (max-width: 768px) {
+  .linkedin-modal-image img {
+    max-width: 100%; /* Ensure image doesn't overflow */
+    height: auto;
+  }
+}
+
+/* Media annotation: Adjust icon size for better fit */
+@media (max-width: 768px) {
+  .linkedin-icon-container {
+    width: 30px; /* Reduce size of icon container */
+    height: 30px;
+  }
+
+  .linkedin-icon-link {
+    font-size: 24px; /* Adjust icon font size */
+  }
+}
+
+/* Responsive adjustments for LinkedIn icon */
+
+/* Extra-large screens */
+@media (max-width: 1200px) {
+  .linkedin-icon {
+    font-size: 2.8vh; /* Slightly smaller for medium-large screens */
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+  .linkedin-icon {
+    font-size: 2.5vh; /* Reduce size further for tablets */
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+  .linkedin-icon {
+    font-size: 2.2vh; /* Adjust icon size for small screens */
+  }
+}
+
+/* Extra small screens (very small phones) */
+@media (max-width: 576px) {
+  .linkedin-icon {
+    font-size: 2vh; /* Further reduce icon size for compact phones */
+  }
+}
+
+/* Ultra-small screens (compact phones) */
+@media (max-width: 400px) {
+  .linkedin-icon {
+    font-size: 1.8vh; /* Smallest size for the icon */
+  }
+}
+

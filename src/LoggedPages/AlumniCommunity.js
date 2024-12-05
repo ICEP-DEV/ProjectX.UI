@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'; 
 import './AlumniCommunity.css';
 import { FaExclamationCircle, FaRegSmile } from 'react-icons/fa'; // Icons from react-icons
+import AlumniSpaceLogo from './SearchBarDemoImages/aslogo.png';
+import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
+import ProfilePhoto2 from './SearchBarDemoImages/2.png';
+import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
+import ModelBackGroundPic from './Radio/radio photos/Divider 3.png';
+import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
 
 const AlumniCommunity = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -11,6 +17,9 @@ const AlumniCommunity = () => {
   const [showEmptySearchPopup, setShowEmptySearchPopup] = useState(false);
   const [selectedAlumnus, setSelectedAlumnus] = useState(null); // New state for selected alumnus
   const [isModalOpen, setIsModalOpen] = useState(false); // New state for modal visibility
+  const [selectedAlumni, setSelectedAlumni] = useState(null);
+  const [linkedinModalVisible, setLinkedinModalVisible] = useState(false);
+
 
   // Fetch data from API on component mount
   useEffect(() => {
@@ -61,6 +70,7 @@ const AlumniCommunity = () => {
   const openModal = (alumnus) => {
     setSelectedAlumnus(alumnus);
     setIsModalOpen(true);
+    setSelectedAlumni(alumnus);
   };
 
   const closeModal = () => {
@@ -111,11 +121,7 @@ const AlumniCommunity = () => {
                 <p><strong>Graduation Year:</strong> {alumnus.graduationYear}</p>
                 <p><strong>Campus:</strong> {alumnus.campus}</p>
                 <p><strong>Faculty:</strong> {alumnus.faculty}</p>
-                {alumnus.linkedInProfile && (
-                  <a href={alumnus.linkedInProfile} target="_blank" rel="noopener noreferrer">
-                    View LinkedIn Profile
-                  </a>
-                )}
+
               </div>
                   {/* New Button */}
                   <button className="view-alumnus-button" onClick={() => openModal(alumnus)}>View Alumnus</button>
@@ -124,27 +130,145 @@ const AlumniCommunity = () => {
         </div>
       )}
 
-      {/* Modal */}
-      {isModalOpen && selectedAlumnus && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <button className="close-modal-button" onClick={closeModal}>
-              &times;
-            </button>
-            <img
-              src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
-              alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
-              className="modal-profile-picture"
-            />
-            <h4>{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</h4>
-            <p><strong>Course:</strong> {selectedAlumnus.course}</p>
-            <p><strong>Graduation Year:</strong> {selectedAlumnus.graduationYear}</p>
-            <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
-            <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
-          </div>
-        </div>
-      )}
+{/* Modal */}
+{isModalOpen && selectedAlumnus && (
+  <div className="modal-overlay">
+    <div className="modal">
+      <button className="close-modal-button" onClick={closeModal}>
+        &times;
+      </button>
+      {/* Main Heading */}
+      <h1 className="m-inc-text">{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</h1>
+        
+      <div className="modal-profile-picture-wrapper">
+        <img
+          src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+          alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
+          className="modal-profile-picture"
+        />
+        {/* LinkedIn Icon */}
+        <a
+          onClick={() => setLinkedinModalVisible(true)}
+          className="linkedin-icon"
+        >
+          <i className="fab fa-linkedin linked-in-icon"></i>
+        </a>
+      </div>
+      
+      <div className="modal-details">
+        <p><strong>Course:</strong> {selectedAlumnus.course}</p>
+        <p><strong>Year Began:</strong> {selectedAlumnus.graduationBegan}</p>
+        <p><strong>Student Number:</strong> {selectedAlumnus.alumnusId}</p>
+        <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
+        <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
+        <p><strong>Year Completed:</strong> {selectedAlumnus.graduationYear}</p>
+      </div>            
+    </div>
+  </div>
+)}
 
+{linkedinModalVisible && selectedAlumni &&(
+  <div className="linkedin-modal">
+    <div className="linkedin-modal-content">
+
+      {/* Close Icon */}
+      <div
+        className="linkedin-modal-close-icon"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
+        &times;
+      </div>
+
+      {/* Circular frame with the profile photo */}
+      <div className="profile-photo-container">
+        <img
+         src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+         alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
+         className="profile-photo"/>
+      </div>
+
+      {/* Div with the LinkedIn divider image */}
+      <div className="linkedin-modal-image">
+        <img src={LinkedInPhoto} alt="LinkedIn Divider" />
+      </div>
+
+      <button
+        className="close-linkedin-modal"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
+        &times;
+      </button>
+      
+      <div className='linkedin-description'> 
+          <h5>{`${selectedAlumnus.firstName}`} {`${selectedAlumnus.lastName}`}</h5>
+          <p>Software Development Intern at Sage, skilled in Java, JavaScript, and full-stack development. Contributing to impactful projects while refining technical and problem-solving skills to deliver innovative solutions.</p>
+
+            {/* Details similar to the LinkedIn profile */}
+            <ul className="linkedin-details">
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={TutLogo} alt="TUT Logo" className="linkedin-icon-1" />
+              </div>
+              Tshwane University of Technology
+            </li>
+            <li className="linkedin-university-item">
+              <div className="linkedin-icon-container">
+                <img src={AlumniSpaceLogo} alt="AlumniSpace Logo" className="linkedin-icon-1" />
+              </div>
+              AlumniSpace Community
+            </li>
+              <li>Soshanguve, Pretoria, Gauteng, South Africa · <a href="#">Contact info</a></li>
+              <li>322 connections</li>
+              <li className="mutual-connections">
+                <img src= {ProfilePhoto3} alt="Connection 1" />
+                <img src={ProfilePhoto2} alt="Connection 2" />
+                Smanga Sthembiso Zikalala and Mogau Rakolota are mutual connections
+              </li>
+            </ul>
+
+              {/* Connect, Message, and More buttons */}
+              <div className="linkedin-buttons">
+              <button
+                className="btn-connect"
+                onClick={() => {
+                  // Check if the URL starts with 'http' or 'www'
+                  let fullUrl = selectedAlumnus.linkedInProfile;
+
+                  if (selectedAlumnus.linkedInProfile.startsWith("www")) {
+                    // If it starts with 'www', prepend 'https://www.linkedin.com'
+                    fullUrl = `https://${selectedAlumnus.linkedInProfile}`;
+                  } else if (!selectedAlumnus.linkedInProfile.startsWith("http")) {
+                    // If it does not start with 'http', assume it's a relative path and prepend the base URL
+                    fullUrl = `https://www.linkedin.com${selectedAlumnus.linkedInProfile}`;
+                  }
+
+                  // Open the full URL in a new tab
+                  window.open(fullUrl, "_blank");
+                }}
+              >
+                Connect
+              </button>
+                <button className="btn-message">Message</button>
+                <button className="btn-more">More</button>
+              </div>
+
+            {/* "Open to work" section */}
+            <div className="open-to-work">
+              <p>Open to work</p>
+              <p>
+                Business Analyst, System Analyst, Business System Analyst, Junior Business Analyst
+                <br />
+                <span className='linkedIn-adjust-text'>
+                  <a href="#">Show details</a>
+                </span>
+                
+              </p>
+            </div>
+        </div>
+
+    </div>
+  </div>
+)}
 
       {/* No Results Popup */}
       {showNoResultsPopup && (

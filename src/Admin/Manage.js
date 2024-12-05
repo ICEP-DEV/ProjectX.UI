@@ -5,7 +5,7 @@ import NavbarLogged from "./NavbarLogged";
 import Sidebar from "../Admin/Sidebar";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom'; // For navigation
 
 const ManageContent = () => {
   const [activeSection, setActiveSection] = useState(null); // Track active section (News, Events, etc.)
@@ -74,6 +74,30 @@ const ManageContent = () => {
   const internships = jobs.filter((job) => job.type === "Internship");
   const permanentJobs = jobs.filter((job) => job.type === "Permanent");
 
+  //handling the edit button
+  const navigate = useNavigate();
+
+  const handleEdit = (item, type) => {
+    switch(type) {
+      case 'news':
+        navigate('/manageNews', { state: { newsItem: item } });
+        break;
+      case 'events':
+        navigate('/manageEvents', { state: { eventItem: item } });
+        break;
+      case 'jobs':
+        navigate('/manageJobs', { state: { jobItem: item } });
+        break;
+      case 'podcast':
+        navigate('/managePodcast', { state: { podcastItem: item } });
+        break;
+      default:
+        console.warn("Unknown type:", type);
+    }
+  };
+  
+  
+
   return (
     <Box display="flex">
       <NavbarLogged />
@@ -126,7 +150,7 @@ const ManageContent = () => {
             <Grid container spacing={2}>
               {newsData.map((item, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card>
+                  <Card style={{Height:'350px' }}>
                     <CardContent>
                       <Typography variant="h6" gutterBottom>
                         {item.headline}
@@ -146,15 +170,17 @@ const ManageContent = () => {
                       </Typography>
                       <Typography variant="body2">{item.description}</Typography>
                       <Button
-                    variant="contained"
-                    sx={{
-                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                        color: "#fff",
-                        marginTop: "10px", marginLeft: "400px",
-                        ":hover": { background: "#FF8C00" },
-                    }}
-                    >
-                    Edit
+                        variant="contained"
+                        sx={{
+                            background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                            color: "#fff",
+                            marginTop: "10px",
+                            marginLeft: "300px",
+                            ":hover": { background: "#FF8C00" },
+                        }}
+                        onClick={() => handleEdit(item, 'news')}  // Pass 'event' and type
+                        >
+                        Edit
                     </Button>
                     </CardContent>
                   </Card>
@@ -212,16 +238,19 @@ const ManageContent = () => {
                     {/* Optional: Add more fields as needed */}
                     <Typography variant="body2">{event.description}</Typography>
                     <Button
-                    variant="contained"
-                    sx={{
-                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                        color: "#fff",
-                        marginTop: "10px", marginLeft: "300px",
-                        ":hover": { background: "#FF8C00" },
-                    }}
-                    >
-                    Edit
+                        variant="contained"
+                        sx={{
+                            background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                            color: "#fff",
+                            marginTop: "10px",
+                            marginLeft: "300px",
+                            ":hover": { background: "#FF8C00" },
+                        }}
+                        onClick={() => handleEdit(event, 'events')}  // Pass 'event' and type
+                        >
+                        Edit
                     </Button>
+
                 </CardContent>
                 </Card>
             </Grid>
@@ -320,6 +349,8 @@ const ManageContent = () => {
                                 ":hover": { background: "#FF8C00" },
                                 }}
                             >
+                                onClick={() => handleEdit(job, 'jobs')}
+
                                 Edit
                             </Button>
                             </CardContent>
@@ -360,6 +391,7 @@ const ManageContent = () => {
                                 ":hover": { background: "#FF8C00" },
                                 }}
                             >
+                                onClick={() => handleEdit(job, 'jobs')}
                                 Edit
                             </Button>
                             </CardContent>

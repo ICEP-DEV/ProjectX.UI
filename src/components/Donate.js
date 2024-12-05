@@ -7,7 +7,7 @@ import './Donate.css';
 const Donate = () => {
     return (
         <div>
-            <NavBar />
+           
             <Container className="donation-journey">
                 <Row>
                     <Col md={12}>

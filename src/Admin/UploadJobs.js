@@ -17,7 +17,7 @@ const UploadJobs = () => {
   });
 
   const [submitError, setSubmitError] = useState('');
-
+  const [submitLoading, setSubmitLoading] = useState(false);
   // Handle text input changes
   const handleTextChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +26,8 @@ const UploadJobs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitLoading(true);  // Set loading state before starting the request
+    setSubmitError('');      // Clear any previous errors
     try {
       console.log(formData);
       // Send form data to the API
@@ -42,10 +44,13 @@ const UploadJobs = () => {
         link: ''
         
       });
-      setSubmitError('');
+      
     } catch (error) {
       console.error('Error uploading job post', error);
       setSubmitError('Error uploading job post. Please try again later.');
+    }
+    finally {
+      setSubmitLoading(false);  // Ensure loading is turned off
     }
   };
 
@@ -141,8 +146,8 @@ const UploadJobs = () => {
                   />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" className="mt-3">
-                  Upload
+                <Button variant="primary" type="submit" className="mt-3" disabled={submitLoading}>
+                        {submitLoading? 'Uploading...' : 'Upload'}
                 </Button>
               </Form>
             </CardContent>
