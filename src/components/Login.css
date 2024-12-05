@@ -246,7 +246,7 @@ input {
 
 .rounded-buttonn {
   display: inline-block; /* Ensures button behaves correctly */
-  width: 200px; /* You can adjust the width as needed */
+  width: 250px; /* You can adjust the width as needed */
   background: linear-gradient(15deg, #ce1127 0%, #003883 100%); /* Adjust background if needed */
   border: none; /* Remove default border */
   outline: none; /* Remove default outline */

@@ -402,7 +402,7 @@
 
 /* Profile Box Styles */
 .profile-box {
-  position: absolute;
+  position: fixed;
   top: 80px; /* Adjust to match the navbar height */
   right: 40px;
   width: 260px;
@@ -412,6 +412,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  
 }
 
 .profile-box-icon {

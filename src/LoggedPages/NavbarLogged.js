@@ -193,7 +193,7 @@ function NavbarLogged() {
     </Navbar>
 
      {isProfileVisible && (
-      <div className="profile-box">
+      <div className="profile-box ">
         <BsPersonCircle className="profile-box-icon" size={50} />
         <h3 className="profile-box-title">Profile</h3>
           <ul className="profile-box-links">
