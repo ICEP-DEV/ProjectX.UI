@@ -166,6 +166,15 @@ body.login-page {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+.login-input-field i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.login-input-field i.animate {
+  transform: scale(1.5);
+  color: #ffcc00;
+}
+
 
 /* --- Responsive Media Queries --- */
 

@@ -2,12 +2,28 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import AlumniSpaceLogo from '../images/aslogo.png';
+import confetti from "canvas-confetti";
 
 const Login = () => {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [animateIcon, setAnimateIcon] = useState(false);
 
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
+    setAnimateIcon(true);
+    launchConfetti();
+
+    setTimeout(() => {
+      setAnimateIcon(false); // Reset animation class after animation ends
+    }, 300); // Match the duration of the CSS transition
+  };
+
+  const launchConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }, // Adjust the position of confetti
+    });
   };
   
   useEffect(() => {
@@ -67,7 +83,11 @@ const Login = () => {
                 </label>
               </div>
               <div className="login-input-field">
-                <i className="fas fa-user"></i>
+                <i
+                  className={`fas ${
+                    isAdmin ? "fa-user" : "fa-user-graduate"
+                  } ${animateIcon ? "animate" : ""}`}
+                ></i>
                 <input
                   type="text"
                   placeholder={isAdmin ? "Staff number" : "Student number"}
