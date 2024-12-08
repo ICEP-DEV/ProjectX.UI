@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./Signup.css";
 import axios from "axios";
+import AlumniSpaceLogo from '../images/aslogo.png';
 
 const Signup = () => {
   const [signUpMode, setSignUpMode] = useState(false);
@@ -99,84 +100,72 @@ const Signup = () => {
     }
   };
 
+  useEffect(() => {
+    // Add 'signup-page' class to body when this component mounts
+    document.body.classList.add('signup-page');
+    
+    // Clean up when leaving the signup page
+    return () => {
+      document.body.classList.remove('signup-page');
+    };
+  }, []);
+
   return (
-    <div className="containerss">
-      <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}></div>
+    <div className="signup-container1">
+      <div className="signup-container2">
+        {/* Left Section */}
+        <div className="signup-container3">
+        <a href="/" className="signup-logo-link">
+            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="signup-logo" />
+          </a>
+          <div className="signup-content">
+            <h1>Welcome to Alumni Space</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+              volutpat.
+            </p>
+          </div>
+        </div>
 
-      {/*<Link to="/login" className="back-button">Back</Link> {/* Back button added here */}
-
-      <div className="forms-containerss">
-        {/* Sign Up Form */}
-        <form onSubmit={handleSignUp} className="sign-up-formss">
-          <h2 className="titless">Sign up</h2>
-          {signUpError && (
-            <div className="alert alert-danger" role="alert">
-              {signUpError}
-            </div>
-          )}
-          {signUpSuccess && (
-            <div className="alert alert-success" role="alert">
-              {signUpSuccess}
-            </div>
-          )}
-          <div className="input-fieldss">
-            <i className="fas fa-user"></i>
+        {/* Right Section */}
+        <div className="signup-container4">
+          <form onSubmit={handleSignUp} className="signup-form">
+            <h2>Sign Up</h2>
+            {signUpError && <div className="signup-alert-danger">{signUpError}</div>}
+            {signUpSuccess && <div className="signup-alert-success">{signUpSuccess}</div>}
             <input
               type="text"
               placeholder="Student number"
               value={studentNum}
               onChange={(e) => setStudentNum(e.target.value)}
             />
-          </div>
-          <div className="input-fieldss">
-            <i className="fas fa-envelope"></i>
             <input
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div className="input-fieldss">
-            <i className="fas fa-lock"></i>
             <input
               type="password"
-              placeholder="Password" 
-              value={password} 
+              placeholder="Password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div className="input-fieldss">
-            <i className="fas fa-lock"></i>
-            <input 
-              type="password" 
-              placeholder="Confirm Password" 
-              value={confirmPassword} 
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-          </div>
-
-          {/* Submit the form */}
-          <button type="submit" className="anchorss transition-linkss" disabled={signUpLoading}>
-            {signUpLoading ? 'Loading...' : 'Sign Up'}
-          </button>
-
-           {/* New paragraph with "Sign up" link */}
-           <p className="dont-have-account">
-              Already have an account?{" "}
-              <Link to="/login" className="signup-link">
-                Login
-              </Link>
+            <button type="submit" disabled={signUpLoading}>
+              {signUpLoading ? 'Loading...' : 'Sign Up'}
+            </button>
+            <p>
+              Already have an account? <Link to="/login">Login</Link>
             </p>
-
-          {/* New paragraph with "Sign up" link */}
-          {/* <p className="dont-have-account">
-            Already have an account?{" "}
-            <Link to="/login" className="signup-link">
-              Login
-            </Link>
-          </p> */}
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

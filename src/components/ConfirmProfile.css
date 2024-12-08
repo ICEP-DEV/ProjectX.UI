@@ -1,238 +1,331 @@
-/* Container styling */
-.bg-gray-900 {
-    background-color: #ffffff;
-  }
-  
-  .text-gray-100 {
-    color: #000000;
-  }
-  
-  /* Form section styling */
-  .w-full {
-    width: 100%;
-  }
-  
-  .max-w-md {
-    max-width: 28rem;
-  }
-  
-  .p-8 {
-    padding: 2rem;
-  }
-  
-  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 1.5rem;
-  }
-  
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-  
-  .shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .bg-gray-800 {
-    background-color: #ffffff;
-  }
-  
-  .text-indigo-200 {
-    color: #242424;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .mb-1 {
-    margin-bottom: 0.25rem;
-  }
-  
-  .block {
-    display: block;
-  }
-  
-  .text-sm {
-    font-size: 0.875rem;
-  }
-  
-  .font-medium {
-    font-weight: 500;
-  }
-  
-  .text-red-500 {
-    color: #d80000;
-  }
-  
-  .w-full {
-    width: 100%;
-  }
-  
-  .p-2 {
-    padding: 0.5rem;
-  }
-  
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-  
-  .bg-gray-700 {
-    background-color: #ffffff;
-  }
-  
-  .text-gray-300 {
-    color: #000000;
-  }
-  
-  /* Button styling */
-  .btn {
-    padding: 0.75rem 1rem;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(15deg, #005596, #ce1127); /* Gradient from left to right */
-    color: white;
-    border: none; /* Optional: remove any border */
-  }
-  
-  .btn:hover {
-    background: linear-gradient(90deg, #ce1127, #005596); /* Reverse gradient on hover */
-    padding: 11px;
-    transition: 0.5s;
-  }
-  
+body.cp-page {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensures the body takes up the full height of the viewport */
+  overflow: hidden; /* Prevents scrolling */
+}
 
-  .bg-gradient-to-t {
-    background-image: linear-gradient(to top, var(--tw-gradient-stops));
-  }
-  
-  .from-indigo-600 {
-    --tw-gradient-from: #5a67d8;
-  }
-  
-  .to-indigo-500 {
-    --tw-gradient-to: #667eea;
-  }
-  
-  .bg-[length:100%_100%] {
-    background-size: 100% 100%;
-  }
+.confirm-body {
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+}
 
-  .text-white {
-    color: rgb(0, 0, 0);
+.confirm-container-2 {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-container-3 {
+  flex: 7; /* Occupies 70% of the width */
+  background-image: url('../images/SidePhoto.png'); /* Image from props */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+.cp-text-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.cp-text-content p
+{
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.confirm-container-3 h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.confirm-container-3 p {
+   font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+}
+
+.confirm-container-4 {
+  flex: 30%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.confirm-avatar {
+  margin-bottom: 20px;
+}
+
+.confirm-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.confirm-avatar-label {
+  display: block;
+  cursor: pointer;
+}
+
+.confirm-file-input {
+  display: none;
+}
+
+.confirm-container-4 input,
+.confirm-container-4 button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.confirm-container-4 button {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.confirm-container-4 button:hover {
+  background: linear-gradient(15deg, #ce1127 0%, #005596 100%); 
+  color: white;
+}
+
+.cp-input-field input
+{
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Logo in Container 3 */
+.confirm-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  text-decoration: none;
+}
+
+.confirm-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+  /* For devices with max-width 1024px (tablets and smaller laptops) */
+  @media (max-width: 1024px) {
+    .confirm-logo-img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .confirm-logo  {
+      top: 30px;
+      left: 30px;
+    }
   }
   
-  .shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] {
-    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16);
+  /* For devices with max-width 768px (tablets in portrait mode) */
+  @media (max-width: 768px) {
+    .confirm-logo-img {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .confirm-logo {
+      top: 25px;
+      left: 25px;
+    }
   }
   
-  /* Hover effect */
-  .hover\:bg-[length:100%_150%]:hover {
-    background-size: 100% 150%;
+  /* For devices with max-width 576px (mobile phones) */
+  @media (max-width: 576px) {
+    .confirm-logo-img{
+      width: 20px;
+      height: 20px;
+    }
+  
+    .confirm-logo  {
+      top: 20px;
+      left: 20px;
+    }
   }
   
-  /* Image styling */
-  .w-28 {
-    width: 7rem;
-  }
-  
-  .h-28 {
-    height: 7rem;
-  }
-  
-  .rounded-full {
-    border-radius: 9999px;
-  }
-  
-  .overflow-hidden {
-    overflow: hidden;
-  }
-  
-  .bg-indigo-600 {
-    background: linear-gradient(15deg, #005596, #ce1127); /* Gradient from left to right */
-  }
-  
-  .bg-indigo-600:hover {
-    background: linear-gradient(15deg, #ce1127, #005596); /* Reverse gradient on hover */
-  }
-  
-  
-  .transition-transform {
-    transition: transform 0.3s ease;
-  }
-  
-  .duration-300 {
-    transition-duration: 0.3s;
-  }
-  
-  .hover\:scale-110:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Input styling */
-  .input-field {
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    width: 100%;
-    background-color: #4a5568;
-    color: #e2e8f0;
-    margin-top: 1rem;
-  }
-  
-  /* Custom animation for the rotating image border */
-  @keyframes spin {
+  /* Pulsing Animation */
+  @keyframes pulse {
     0% {
-      transform: rotate(0deg);
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
     }
     100% {
-      transform: rotate(360deg);
+      transform: scale(1);
     }
   }
-  
-  .hidden {
-    display: none;
+/* Default Styles (apply to larger screens) */
+/* Already covered in your base CSS */
+
+/* Extra Large Devices (≥1200px) */
+@media (min-width: 1200px) {
+  .confirm-container-3 h1 {
+    font-size: 3.5rem; /* Slightly larger heading */
   }
-  
-  /* Flexbox and alignment */
-  .flex {
-    display: flex;
+
+  .confirm-container-3 p {
+    font-size: 1.25rem; /* Slightly larger text */
   }
-  
-  .flex-col {
+}
+
+/* Large Devices (992px - 1199.98px) */
+@media (max-width: 1199.98px) {
+  .confirm-container-3 h1 {
+    font-size: 3rem; /* Maintain large size */
+  }
+
+  .confirm-container-3 p {
+    font-size: 1.1rem;
+  }
+
+  .confirm-container-4 {
+    padding: 15px; /* Adjust padding */
+  }
+}
+
+/* Medium Devices (768px - 991.98px) */
+@media (max-width: 991.98px) {
+  .confirm-container-2 {
+    flex-direction: column; /* Stack vertically */
+    height: auto; /* Adjust height */
+  }
+
+  .confirm-container-3 {
+    flex: 1; /* Equal space */
+    height: 50vh;
+  }
+
+  .confirm-container-4 {
+    flex: 1; /* Equal space */
+    height: 50vh;
+    padding: 15px;
+  }
+
+  .confirm-container-3 h1 {
+    font-size: 2.5rem;
+  }
+
+  .confirm-container-3 p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Devices (576px - 767.98px) */
+@media (max-width: 767.98px) {
+  .confirm-body {
+    padding: 40px;
+  }
+
+  .confirm-container-2 {
+    width: 90%; /* Adjust width */
+  }
+
+  .confirm-container-3 {
+    height: 40vh;
+    padding: 20px; /* Reduce padding */
+  }
+
+  .confirm-container-3 h1 {
+    font-size: 2rem;
+  }
+
+  .confirm-container-3 p {
+    font-size: 0.9rem;
+  }
+
+  .confirm-container-4 {
+    height: 60vh;
+    padding: 10px; /* Reduce padding */
+  }
+
+  .confirm-avatar img {
+    width: 100px; /* Smaller avatar */
+    height: 100px;
+  }
+
+  .confirm-container-4 input,
+  .confirm-container-4 button {
+    padding: 8px;
+  }
+}
+
+/* Extra Small Devices (<576px) */
+@media (max-width: 575.98px) {
+  .confirm-body {
     flex-direction: column;
   }
-  
-  .items-center {
-    align-items: center;
+
+  .confirm-container-2 {
+    flex-direction: column;
+    width: 95%; /* Narrower width */
   }
-  
-  .justify-center {
-    justify-content: center;
+
+  .confirm-container-3 {
+    flex: 1;
+    height: auto; /* Allow flexible height */
+    padding: 15px; /* Reduce padding */
   }
-  
-  .min-h-screen {
-    min-height: 100vh;
+
+  .confirm-container-4 {
+    flex: 1;
+    padding: 10px;
   }
-  
-  .relative {
-    position: relative;
+
+  .confirm-container-3 h1 {
+    font-size: 1.8rem;
   }
-  
-  .cursor-pointer {
-    cursor: pointer;
+
+  .confirm-container-3 p {
+    font-size: 0.85rem;
   }
-  
-  .text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+
+  .confirm-avatar img {
+    width: 80px;
+    height: 80px; /* Even smaller avatar */
   }
-  
-  .mt-6 {
-    margin-top: 1.5rem;
+
+  .confirm-container-4 input,
+  .confirm-container-4 button {
+    font-size: 0.85rem;
+    padding: 8px;
   }
-  
-  .space-y-5 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 1.25rem;
-  }
-  
+}
