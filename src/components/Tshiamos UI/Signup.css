@@ -1,0 +1,322 @@
+/* Reset margins and padding ONLY for signup page */
+body.signup-page {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures the body takes up the full height of the viewport */
+    overflow: hidden; /* Prevents scrolling */
+  }
+  
+  /* Container 1 - Fullscreen gradient background */
+  .signup-container1 {
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  }
+  
+  /* Container 2 - Houses both left and right sections */
+  .signup-container2 {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Container 3 - Left Section with Image and Text */
+  .signup-container3 {
+    flex: 7; /* Occupies 70% of the width */
+    background-image: url('../images/SidePhoto.png'); /* Image from props */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px;
+  }
+  
+  .signup-content {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .signup-content-heading
+  {
+    font-size: 2.5rem;    
+  }
+  
+  .signup-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  /* Container 4 - Right Section with Form */
+  .signup-container4 {
+    flex: 3; /* Occupies 30% of the width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 40px;
+  }
+  
+  .signup-form {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .signup-form input {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .signup-form button {
+    padding: 12px;
+    font-size: 1rem;
+    background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .signup-form button:hover {
+    background: linear-gradient(15deg, #ce1127 0%, #005596 100%); 
+  }
+  
+  .signup-form p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .signup-form p a {
+    color: #6A11CB;
+    text-decoration: none;
+  }
+  
+  .signup-form p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Alerts */
+  .signup-alert-danger,
+  .signup-alert-success {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .signup-alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+  }
+  
+  .signup-alert-success {
+    color: #155724;
+    background-color: #d4edda;
+  }
+
+  /* Logo styles */
+.signup-logo-link {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+    text-decoration: none;
+  }
+  
+  .signup-logo {
+    width: 40px;
+    height: 40px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  /* --- Responsive Media Queries --- */
+  
+  /* Small Devices (max-width: 575.98px) */
+  @media (max-width: 575.98px) {
+    .signup-container2 {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .signup-container3 {
+      flex: 1;
+      padding: 20px;
+      background-position: center top;
+    }
+  
+    .signup-container4 {
+      flex: 1;
+      padding: 20px;
+    }
+  
+    .signup-content h1 {
+      font-size: 2rem;
+    }
+  
+    .signup-content p {
+      font-size: 0.9rem;
+    }
+  
+    .signup-form h2 {
+      font-size: 1.5rem;
+    }
+  
+    .signup-form input,
+    .signup-form button {
+      padding: 10px;
+    }
+  }
+  
+  /* Medium Devices (max-width: 767.98px) */
+  @media (max-width: 767.98px) {
+    .signup-container2 {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .signup-container3 {
+      flex: 1;
+      padding: 30px;
+    }
+  
+    .signup-container4 {
+      flex: 1;
+      padding: 30px;
+    }
+  
+    .signup-content h1 {
+      font-size: 2.2rem;
+    }
+  
+    .signup-content p {
+      font-size: 1rem;
+    }
+  
+    .signup-form h2 {
+      font-size: 1.7rem;
+    }
+  }
+  
+  /* Large Devices (max-width: 991.98px) */
+  @media (max-width: 991.98px) {
+    .signup-container2 {
+      width: 90%;
+    }
+  
+    .signup-content h1 {
+      font-size: 2.5rem;
+    }
+  
+    .signup-content p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Extra Large Devices (max-width: 1199.98px) */
+  @media (max-width: 1199.98px) {
+    .signup-container2 {
+      width: 85%;
+    }
+  
+    .signup-content h1 {
+      font-size: 2.8rem;
+    }
+  
+    .signup-content p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Extra Extra Large Devices (min-width: 1200px) */
+  @media (min-width: 1200px) {
+    .signup-container2 {
+      width: 70%;
+    }
+  
+    .signup-content h1 {
+      font-size: 3rem;
+    }
+  
+    .signup-content p {
+      font-size: 1.2rem;
+    }
+  }
+  
+
+  /* For devices with max-width 1024px (tablets and smaller laptops) */
+@media (max-width: 1024px) {
+    .signup-logo {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .signup-logo-link {
+      top: 30px;
+      left: 30px;
+    }
+  }
+  
+  /* For devices with max-width 768px (tablets in portrait mode) */
+  @media (max-width: 768px) {
+    .signup-logo {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .signup-logo-link {
+      top: 25px;
+      left: 25px;
+    }
+  }
+  
+  /* For devices with max-width 576px (mobile phones) */
+  @media (max-width: 576px) {
+    .signup-logo {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .signup-logo-link {
+      top: 20px;
+      left: 20px;
+    }
+  }
+  
+  /* Pulsing Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
