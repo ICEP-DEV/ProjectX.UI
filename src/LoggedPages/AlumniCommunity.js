@@ -35,32 +35,44 @@ const AlumniCommunity = () => {
     fetchAlumniData();
   }, []);
 
-  // Handle search
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (searchInput.trim() === '') {
       setShowEmptySearchPopup(true);
       setShowNoResultsPopup(false);
       return;
     }
-
+  
+    // Activate blur and loading animation
+    const blurOverlay = document.querySelector(".blur-overlay");
+    blurOverlay.classList.add("active");
+  
     setIsSearchClicked(true);
+  
+    // Simulate a small delay for UI purposes
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  
+    // Filter alumni data based on search input
     const filtered = alumniData.filter(alumnus =>
       alumnus.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
       alumnus.lastName.toLowerCase().includes(searchInput.toLowerCase()) ||
       alumnus.graduationYear.toString().includes(searchInput) ||
       alumnus.alumnusId.toString().includes(searchInput)
     );
+  
     setFilteredAlumni(filtered);
-
-    // Show "No results" popup if no alumni match the search
+  
+    // Show or hide popups based on results
     if (filtered.length === 0) {
       setShowNoResultsPopup(true);
     } else {
       setShowNoResultsPopup(false);
     }
     setShowEmptySearchPopup(false); // Hide empty search popup if a search is made
+  
+    // Deactivate blur and loading animation
+    blurOverlay.classList.remove("active");
   };
-
+  
   // Close popups
   const closePopup = () => {
     setShowNoResultsPopup(false);
@@ -80,6 +92,14 @@ const AlumniCommunity = () => {
 
   return (
     <div className={`alumni-community ${isModalOpen ? 'blur-background' : ''}`}>
+      <div className="blur-overlay">
+        <div className="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
       <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
         <div className="container">
           <div className="row">
