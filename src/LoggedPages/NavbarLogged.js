@@ -69,15 +69,18 @@ function NavbarLogged() {
                 <NavDropdown.Item as={Link} to="/management" className={location.pathname === '/management' ? 'active' : ''}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
               </NavDropdown>
+
               <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
             </NavDropdown>
 
-            {/* News Dropdown */}
+
+              {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing">
-              <NavDropdown.Item as={Link} to="/news">News</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/events">Events</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
             </NavDropdown>
+            {/* <NavDropdown.Item 
 
             {/* Donate Link */}
             <Nav.Link
