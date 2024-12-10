@@ -44,6 +44,8 @@ import EditProfile from './LoggedPages/EditProfile';
 import Manage from './Admin/Manage';
 import ManageNews from './Admin/MangeNews';
 import ManageEvents from './Admin/ManageEvents';
+import ManageJobs from './Admin/ManageJobs';
+import ViewResponses from './Admin/ViewResponses';
 
 function App() {
   const location = useLocation();
@@ -92,7 +94,7 @@ function App() {
         <Route path="/RegisteredAlumni" element={<RegisteredAlumni/>} />
         <Route path="/upload" element={<UploadContent/>} />
         <Route path="/uploadEvents" element={<UploadEvents/>} />
-        <Route path="/jobs" element={<UploadJobs/>} />    
+        <Route path="/jobs" element={<UploadJobs/>} />
         <Route path="/privacy-policy" element={<Popia/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
@@ -100,12 +102,11 @@ function App() {
         <Route path="/manageNews" element={<ManageNews/>} />
         <Route path="/manageEvents" element={<ManageEvents/>} />
         <Route path="/jobs" element={<UploadJobs/>} />
-       
         <Route path="/privacy-policy" element={<Popia/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
-
-        <Route path="/manage" element={<Manage/>} />
+        <Route path="/manageJobs" element={<ManageJobs/>} />
+        <Route path="/viewResponses" element={<ViewResponses/>} />
       </Routes>
 
       {/* Footer */}

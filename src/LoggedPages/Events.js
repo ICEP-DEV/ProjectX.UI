@@ -56,7 +56,7 @@ function Events() {
   const handleVolunteerClick = (roles) => {
     navigate('/volunteer', { state: { roles } });
   };
-  
+
 
   return (
     <div>

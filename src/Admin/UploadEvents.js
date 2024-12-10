@@ -67,14 +67,14 @@ const UploadEvents = () => {
     e.preventDefault();  // Prevent default form submission behavior
     setSubmitLoading(true);  // Set loading state before starting the request
     setSubmitError('');      // Clear any previous errors
-    
+
     try {
       console.log(formData);
       // Send form data to the API
       const response = await axios.post('http://localhost:5214/api/Admin/UploadEvents/UploadEvents', formData);
-      
+
       window.alert('Event uploaded successfully!!!');
-      
+
       // Clear form fields
       setFormData({
         title: '',

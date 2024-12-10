@@ -190,13 +190,15 @@ const ManageEvents = () => {
                       required
                     />
                     {index > 0 && (
-                      <Button variant="outlined" color="error" onClick={() => removeVolunteerRole(index)}>
+                      <Button variant="outlined" onClick={() => removeVolunteerRole(index)} style={{ marginLeft: '10px', background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                        color: "#fff"}}>
                         Remove
                       </Button>
                     )}
                   </Box>
                 ))}
-                <Button variant="contained" onClick={addVolunteerRole} style={{ marginTop: '10px' }}>
+                <Button variant="contained" onClick={addVolunteerRole} style={{ marginTop: '10px', background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff"}}>
                   Add Role
                 </Button>
 
@@ -213,12 +215,31 @@ const ManageEvents = () => {
                 </Box>
 
                 {/* Submit & Remove Buttons */}
-                <Box display="flex" justifyContent="space-between" mt={4}>
-                  <Button variant="contained" type="submit" disabled={submitLoading}>
+                <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                  >
                     {submitLoading ? 'Saving...' : 'Save Changes'}
                   </Button>
-                  <Button variant="outlined" color="error" onClick={handleRemove}>
-                    Delete Event
+                  
+                  <Button
+                    variant="contained"
+                    onClick={handleRemove}
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                  >
+                    {submitLoading ? 'Removing...' : 'Remove Event'}
                   </Button>
                 </Box>
               </form>

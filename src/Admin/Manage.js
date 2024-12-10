@@ -95,8 +95,6 @@ const ManageContent = () => {
         console.warn("Unknown type:", type);
     }
   };
-  
-  
 
   return (
     <Box display="flex">
@@ -348,9 +346,9 @@ const ManageContent = () => {
                                 marginTop: "10px",marginLeft: "400px",
                                 ":hover": { background: "#FF8C00" },
                                 }}
-                            >
                                 onClick={() => handleEdit(job, 'jobs')}
 
+                            >
                                 Edit
                             </Button>
                             </CardContent>
@@ -390,8 +388,8 @@ const ManageContent = () => {
                                 marginTop: "10px",marginLeft: "400px",
                                 ":hover": { background: "#FF8C00" },
                                 }}
-                            >
                                 onClick={() => handleEdit(job, 'jobs')}
+                            >
                                 Edit
                             </Button>
                             </CardContent>
@@ -429,7 +427,7 @@ const ManageContent = () => {
             </Box>
           </CardContent>
         </Card>
-        
+
 
         {/* Podcast Grid */}
         {activeSection === 'podcast' && (

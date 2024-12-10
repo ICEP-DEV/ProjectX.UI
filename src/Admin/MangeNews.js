@@ -105,111 +105,114 @@ const ManageNews = () => {
         </Typography>
         <Box display="flex" justifyContent="center" mt={8}>
           <Card style={{ minWidth: 500, maxWidth: 600 }}>
-            <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
-              <form onSubmit={handleSubmit}>
-                {/* Conditional Fields */}
-                {newsItem.type === 'magazine' ? (
-                    <TextField
-                        fullWidth
-                        margin="normal"
-                        label="Link"
-                        name="link"
-                        value={formData.link}
-                        onChange={handleChange}
-                    />
-                    ) : (
-                    <>
-                        <TextField
-                        fullWidth
-                        margin="normal"
-                        label="Headline"
-                        name="headline"
-                        value={formData.headline}
-                        onChange={handleChange}
-                        />
-                        <TextField
-                        fullWidth
-                        margin="normal"
-                        label="Publisher"
-                        name="publisher"
-                        value={formData.publisher}
-                        onChange={handleChange}
-                        />
-                    </>
-                    )}
+          <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
+            <form onSubmit={handleSubmit}>
+              {/* Conditional Fields */}
+              {newsItem?.type === 'magazine' ? (
+                <>
+                  <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Link"
+                    name="link"
+                    value={formData.link}
+                    onChange={handleChange}
+                  />
+                </>
+              ) : (
+                <>
+                  <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Headline"
+                    name="headline"
+                    value={formData.headline}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Publisher"
+                    name="publisher"
+                    value={formData.publisher}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    fullWidth
+                    multiline
+                    rows={4}
+                    margin="normal"
+                    label="Description"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleChange}
+                  />
+                </>
+              )}
 
-                
-                <TextField
-                  fullWidth
-                  margin="normal"
-                  label="Published Date"
-                  name="publishedDate"
-                  type="date"
-                  InputLabelProps={{ shrink: true }}
-                  value={formData.publishedDate}
-                  onChange={handleChange}
-                />
-                
-                <TextField
-                  fullWidth
-                  multiline
-                  rows={4}
-                  margin="normal"
-                  label="Description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                />
-                
-                {/* Image Display */}
-                {previewImage && (
-                  <Box mt={2} display="flex" justifyContent="center">
-                    <img
-                      src={previewImage}
-                      alt="Preview"
-                      style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', marginBottom: '10px' }}
-                    />
-                  </Box>
-                )}
-                
-                <Box mt={2}>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    style={{ marginBottom: '15px' }}
+              {/* Published Date Field (common to both types) */}
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Published Date"
+                name="publishedDate"
+                type="date"
+                InputLabelProps={{ shrink: true }}
+                value={formData.publishedDate}
+                onChange={handleChange}
+              />
+
+              {/* Image Display */}
+              {previewImage && (
+                <Box mt={2} display="flex" justifyContent="center">
+                  <img
+                    src={previewImage}
+                    alt="Preview"
+                    style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', marginBottom: '10px' }}
                   />
                 </Box>
-                
-                <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{
-                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                      color: "#fff",
-                      ":hover": { background: "#FF8C00" },
-                      flex: 1,
-                    }}
-                  >
-                    {submitLoading ? 'Saving...' : 'Save Changes'}
-                  </Button>
-                  
-                  <Button
-                    variant="contained"
-                    onClick={handleRemove}
-                    sx={{
-                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                      color: "#fff",
-                      ":hover": { background: "#FF8C00" },
-                      flex: 1,
-                    }}
-                  >
-                    {submitLoading ? 'Removing...' : 'Remove News'}
-                  </Button>
-                </Box>
-              </form>
-            </CardContent>
+              )}
+
+              {/* File Upload */}
+              <Box mt={2}>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  style={{ marginBottom: '15px' }}
+                />
+              </Box>
+
+              {/* Action Buttons */}
+              <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                    color: "#fff",
+                    ":hover": { background: "#FF8C00" },
+                    flex: 1,
+                  }}
+                >
+                  {submitLoading ? 'Saving...' : 'Save Changes'}
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={handleRemove}
+                  sx={{
+                    background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                    color: "#fff",
+                    ":hover": { background: "#FF8C00" },
+                    flex: 1,
+                  }}
+                >
+                  {submitLoading ? 'Removing...' : 'Remove News'}
+                </Button>
+              </Box>
+            </form>
+          </CardContent>
+
           </Card>
         </Box>
       </Box>
