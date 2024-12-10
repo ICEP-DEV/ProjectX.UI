@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link as ScrollLink } from 'react-scroll';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,14 +9,32 @@ import tutLogo from '../images/tut logo.png';
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeTab, setActiveTab] = useState('home'); // State for active tab
+  const [activeTab, setActiveTab] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
+
+  const sections = useRef({
+    home: document.getElementById('section_1'),
+    about: document.getElementById('section_2'),
+    faqs: document.getElementById('section_4'),
+    contact: document.getElementById('section_5'),
+  });
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Determine the active section
+      Object.entries(sections.current).forEach(([key, section]) => {
+        if (section) {
+          const { top, bottom } = section.getBoundingClientRect();
+          if (top <= window.innerHeight / 2 && bottom > window.innerHeight / 2) {
+            setActiveTab(key);
+          }
+        }
+      });
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,28 +44,18 @@ function NavBar() {
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  // Function to handle tab navigation
   const handleTabClick = (tabName, sectionId) => {
     setActiveTab(tabName);
 
-    // If not on the homepage, navigate first
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200); // Ensure smooth scroll after navigation
+      }, 200);
     } else {
-      // If on the homepage, scroll directly
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-
-  // Detect active tab based on location
-  useEffect(() => {
-    if (location.pathname === '/donateUnLogged') {
-      setActiveTab('donate');
-    }
-  }, [location.pathname]);
 
   return (
     <Navbar
@@ -63,32 +71,32 @@ function NavBar() {
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto nav-links">
             <span
-              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`}
+              className={`nav-link mx-3${activeTab === 'home' ? 'active' : ''}`}
               onClick={() => handleTabClick('home', 'section_1')}
             >
               Home
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+              className={`nav-link1 mx-3 ${activeTab === 'about' ? 'active' : ''}`}
               onClick={() => handleTabClick('about', 'section_2')}
             >
               What Is Alumni Space?
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              className={`nav-link2 mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
               onClick={() => handleTabClick('faqs', 'section_4')}
             >
               FAQs
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
+              className={`nav-link3 mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
               onClick={() => handleTabClick('contact', 'section_5')}
             >
               Contact Us
             </span>
             <Link
               to="/donateUnLogged"
-              className={`nav-link mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
+              className={`nav-link4 mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>

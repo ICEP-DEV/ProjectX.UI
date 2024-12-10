@@ -1,119 +1,107 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import AlumniSpaceLogo from '../images/aslogo.png';
-import confetti from "canvas-confetti";
 
 const Login = () => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [animateIcon, setAnimateIcon] = useState(false);
 
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
-    setAnimateIcon(true);
-    launchConfetti();
-
-    setTimeout(() => {
-      setAnimateIcon(false); // Reset animation class after animation ends
-    }, 300); // Match the duration of the CSS transition
   };
-
-  const launchConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 }, // Adjust the position of confetti
-    });
-  };
-  
-  useEffect(() => {
-    // Add 'signup-page' class to body when this component mounts
-    document.body.classList.add("login-page");
-
-    // Clean up when leaving the signup page
-    return () => {
-      document.body.classList.remove("login-page");
-    };
-  }, []);
 
   return (
-    <div className="login-body">
-      {/* Container 1 */}
-      <div className="login-container">
-        {/* Container 2 */}
-        <div className="login-left-container">
-          {/* Container 3 */}
-          <a href="/" className="login-logo-link">
-            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="login-logo" />
-          </a>
-          <div className="login-text-content">
-            <h1 className="login-heading">Welcome to Alumni Space</h1>
-            <p className="login-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat.
-            </p>
-          </div>
-        </div>
-        <div className="login-right-container">
-          {/* Container 4 */}
-          <div className="login-forms-container">
-            <form action="#" className="login-sign-in-form">
-              <h2 className="login-title">Hi, Welcome Back!</h2>
-              <div className="login-radio-group">
-                <label>
-                  <input
-                    type="radio"
-                    value="alumni"
-                    name="role"
-                    onChange={handleRoleChange}
-                    checked={!isAdmin}
-                  />
-                  Alumni
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    value="admin"
-                    name="role"
-                    onChange={handleRoleChange}
-                    checked={isAdmin}
-                  />
-                  Admin
-                </label>
-              </div>
-              <div className="login-input-field">
-                <i
-                  className={`fas ${
-                    isAdmin ? "fa-user" : "fa-user-graduate"
-                  } ${animateIcon ? "animate" : ""}`}
-                ></i>
+    <div>
+      <div className="containerss">
+        {/* <Link to="/" className="back-button">Back</Link> */}
+
+        <div className="forms-containerss">
+          {/* Sign In Form */}
+          <form action="#" className="sign-in-formss">
+            <h2 className="titless">Hi, Welcome Back!</h2>
+
+            {/* Radio buttons for Alumni and Admin */}
+            <div className="radio-group">
+              <label>
                 <input
-                  type="text"
-                  placeholder={isAdmin ? "Staff number" : "Student number"}
+                  type="radio"
+                  value="alumni"
+                  name="role"
+                  onChange={handleRoleChange}
+                  checked={!isAdmin}
                 />
+                Alumni
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="admin"
+                  name="role"
+                  onChange={handleRoleChange}
+                  checked={isAdmin}
+                />
+                Admin
+              </label>
+            </div>
+
+            {/* Conditionally render fields based on the role */}
+            <div className="input-fieldss">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder={isAdmin ? "Staff number" : "Student number"}
+              />
+            </div>
+
+            {isAdmin && (
+              <div className="input-fieldss">
+                <i className="fas fa-envelope"></i>
+                <input type="password" placeholder="Password" />
               </div>
-              <div className="login-input-field">
+            )}
+
+            {!isAdmin && (
+              <div className="input-fieldss">
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <Link to="/resetpassword" className="login-forgot-password-link">
-                Forgot Password?
+            )}
+
+            <Link to="/resetpassword" className="forgot-password-link">
+              Forgot Password?
+            </Link>
+
+            <Link
+              to={isAdmin ? "/admin" : "/logged"}
+              className="anchorss transition-linkss"
+            >
+              Login
+            </Link>
+
+            {/* New paragraph with "Sign up" link */}
+            <p className="dont-have-account">
+              Don't have an account?{" "}
+              <Link to="/signup" className="signup-link">
+                Sign up
               </Link>
-              <Link
-                to={isAdmin ? "/admin" : "/logged"}
-                className="login-anchor transition-link"
-              >
-                Login
-              </Link>
-              <p className="login-dont-have-account">
-                Don't have an account?{" "}
-                <Link to="/signup" className="login-signup-link">
-                  Sign up
-                </Link>
-              </p>
-            </form>
-          </div>
+            </p>
+
+         {/*<p className="social-textss">Connect with us </p>
+            <div className="social-mediass">
+              <div className="social-iconss" onClick={() => window.open('https://www.facebook.com/TUTCommunications', '_blank')}>
+                <i className="fab fa-facebook-f"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://x.com/official_tut', '_blank')}>
+                <i className="fab fa-twitter"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://www.tut.ac.za', '_blank')}>
+                <i className="fab fa-google"></i>
+              </div>
+              <div className="social-iconss" onClick={() => window.open('https://www.linkedin.com/school/tshwane-university-of-technology/', '_blank')}>
+                <i className="fab fa-linkedin-in"></i>
+              </div>
+            </div>
+            */}
+          </form>
         </div>
       </div>
     </div>
