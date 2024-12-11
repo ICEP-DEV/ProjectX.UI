@@ -80,16 +80,18 @@ function Events() {
         <div className="siz-calendar-container">
           <h2>Calendar</h2>
           <div className="siz-calendar-content" ref={calendarRef}>
-            <Calendar
-              onChange={setValue}
-              value={value}
-              tileContent={tileContent}
-              onClickDay={handleDayClick}
-              onMouseOver={(date) => handleDayHover(date)}
-              onMouseLeave={handleDayLeave}
-            />
+          <Calendar
+  onChange={setValue}
+  value={value}
+  tileContent={tileContent}
+  onClickDay={handleDayClick}
+  onMouseOver={(date) => handleDayHover(date)}
+  onMouseLeave={handleDayLeave}
+  //showWeekdays={false} // Hides days of the week
+/>
+
             {hoveredEvent && (
-              <div className="siz-event-tooltip">
+              <div className="event-tooltip">
                 {hoveredEvent}
               </div>
             )}
