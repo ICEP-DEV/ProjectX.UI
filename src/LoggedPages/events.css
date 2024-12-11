@@ -143,6 +143,15 @@
   width: 100%;
   color: #000;
 }
+.react-calendar__navigation {
+  justify-content: space-between; /* months css */
+  margin-bottom: 10px;
+  color: #000;
+}
+.react-calendar__navigation button {
+  color: #000; /* Change font color to black */
+  border: 1px solid #000;
+}
 
 .react-calendar__tile {
   width: 60px;
@@ -159,9 +168,6 @@
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
   color: #fff !important;
   border: 1px solid #fff; /* Border for active tile */
-}
-.react-calendar__month-view__weekdays {
-  display: none; /* Hides the days of the week */
 }
 
 /* Event dot indicator */

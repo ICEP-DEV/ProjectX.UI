@@ -87,7 +87,7 @@ function Events() {
   onClickDay={handleDayClick}
   onMouseOver={(date) => handleDayHover(date)}
   onMouseLeave={handleDayLeave}
-  //showWeekdays={false} // Hides days of the week
+  showWeekdays={false} // Hides days of the week
 />
 
             {hoveredEvent && (
