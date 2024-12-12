@@ -140,6 +140,7 @@ function News() {
         <div className="row">
           <div className="col-12">
             <div className="tab-content" id="myTabContent">
+             
               {/* General News Tab */}
               {NewsTab.toLocaleLowerCase() === "General".toLocaleLowerCase() && <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
                 <div className="row">
@@ -149,7 +150,7 @@ function News() {
                         <div className="d-flex">
                           <div>
                             <h5 className="mb-2">{item.title}</h5>
-                            <img src={item.img} alt="" style={{ width: "260px", margin: "10px 0" }} />
+                            <img src={item.img} alt="" className='gen-newsimg'style={{ width: "260px", margin: "10px 0" }} />
                             <p className="sub-description mb-1">{item.subDescription}</p>
                             <p className="description-text mb-0">{item.description}</p>
                           </div>

@@ -7,6 +7,24 @@
   transition: all 0.3s ease;
   height: 100%;
 }
+/* Custom image styling for gen-newsimg */
+.gen-newsimg {
+  display: block;
+  width: 100%;
+  max-width: 350px; /* Set a smaller width */
+  height: 250px; /* Adjust the height as needed */
+  margin: 10px auto; /* Centers the image horizontally */
+  object-fit: cover; /* Ensures image is cropped while maintaining aspect ratio */
+  
+}
+
+/* Ensuring parent container centers the image (if needed) */
+.custom-block .d-flex {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  text-align: center; /* Ensures text and images align properly */
+}
 
 /* Image styling */
 .custom-block a .magimg {
