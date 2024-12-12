@@ -87,6 +87,15 @@ function News() {
       // description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
       img: news4,
     },
+    {
+      // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+      img: news1,
+    },
+    {
+      // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+      img: news2,
+    },
+    
   ];
   const [NewsTab, setNewsTab] = useState("General")
   function newsTabs(data) {
@@ -180,55 +189,59 @@ function News() {
                     <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
                     <div className="row">
                       <h5>2004 - 2008</h5>
-                      {historicalArchives1.map((item, idx) => (
-                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                          <div className="custom-block bg-white shadow-lg">
-                            <div className="d-flex">
-                              <div>
-                                {/*<h5 className="mb-2">{item.title}</h5> */}
-                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
-                                <p className="description-text mb-0">{item.description}</p>
-                              </div>
-                              {/* <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span> */}
-                            </div>
-                          </div>
-                        </div>
-                      ))}
+                      {historicalArchives1.map((image, idx) => (
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+              <div className="card shadow-sm">
+              <img
+            src={image.img} // Use 'img' as defined in historicalArchives1
+            alt="Historical Archive" // Provide a meaningful alt text
+            className="card-img-top"
+            style={{ height: "200px", objectFit: "cover" }}
+            />
+
+              </div>
+            </div>
+          ))}
+                      
                     </div>
                   </div>
                   {/* Historical Archives Tab2 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
+                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
                     <div className="row">
                       <h5>2009 - 2013</h5>
-                      {historicalArchives1.map((item, idx) => (
-                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                          <div className="custom-block bg-white shadow-lg">
-                            <div className="d-flex">
-                              <div>
-                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
-                                <p className="description-text mb-0">{item.description}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      {historicalArchives1.map((image, idx) => (
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+              <div className="card shadow-sm">
+              <img
+            src={image.img} // Use 'img' as defined in historicalArchives1
+            alt="Historical Archive" // Provide a meaningful alt text
+            className="card-img-top"
+            style={{ height: "200px", objectFit: "cover" }}
+            />
+
+              </div>
+            </div>
                       ))}
                     </div>
                   </div>
                   {/* Historical Archives Tab3 */}
-                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
+                  <div className="" id="historicalarchives-tab-pane" >
+                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
                     <div className="row">
                       <h5>2018 - 2023</h5>
-                      {historicalArchives1.map((item, idx) => (
-                        <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                          <div className="custom-block bg-white shadow-lg">
-                            <div className="d-flex">
-                              <div>
-                                <img src={item.img} alt="" style={{ width: "280px", margin: "9px 0" }} />
-                                <p className="description-text mb-0">{item.description}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      {historicalArchives1.map((image, idx) => (
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+              <div className="card shadow-sm">
+              <img
+            src={image.img} // Use 'img' as defined in historicalArchives1
+            alt="Historical Archive" // Provide a meaningful alt text
+            className="card-img-top"
+            style={{ height: "200px", objectFit: "cover" }}
+            />
+
+              </div>
+            </div>
                       ))}
                     </div>
                   </div>

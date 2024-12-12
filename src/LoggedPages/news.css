@@ -57,9 +57,34 @@
 }
 
 /* ========================Historical Archives=========================================*/
-.hist{
-  color: gray ;
+/* Styling the paragraph with grey text */
+#hist {
+  color: grey;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
+
+/* Centering the years (h5 tags) */
+#historicalarchives-tab-pane h5 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Media Query for responsive styling */
+@media (max-width: 768px) {
+  /* Adjusting the paragraph font size for smaller screens */
+  #hist {
+    font-size: 14px;
+  }
+
+  /* Ensuring the years are still centered on smaller screens */
+  #historicalarchives-tab-pane h5 {
+    font-size: 18px;
+  }
+}
+
 
 /* Tabs styling */
 .nav-tabs .nav-link {
