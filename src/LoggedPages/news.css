@@ -56,7 +56,10 @@
   padding-left: 0; /* Ensures no padding pushes items to the right */
 }
 
-
+/* ========================Historical Archives=========================================*/
+.hist{
+  color: gray ;
+}
 
 /* Tabs styling */
 .nav-tabs .nav-link {

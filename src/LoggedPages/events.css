@@ -138,7 +138,7 @@
   box-shadow: 10px 10px 20px rgba(88, 86, 86, 0.1);
   background: #F0F0F0;
   border-radius: 10px;
-  padding: 10px;
+  padding: 4px;
   max-width: 1200px;
   width: 100%;
   color: #000;
@@ -147,6 +147,7 @@
   justify-content: space-between; /* months css */
   margin-bottom: 10px;
   color: #000;
+  height: 50px; /* Fixed height for stationary navigation */
 }
 .react-calendar__navigation button {
   color: #000; /* Change font color to black */
@@ -155,7 +156,7 @@
 
 .react-calendar__tile {
   width: 60px;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
