@@ -187,9 +187,10 @@ function News() {
                 <>
                   {/* Historical Archives Tab 1 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
-                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
+                  <h5>2004 - 2008</h5>
+                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
                     <div className="row">
-                      <h5>2004 - 2008</h5>
+                     
                       {historicalArchives1.map((image, idx) => (
             <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
               <div className="card shadow-sm">
@@ -208,9 +209,10 @@ function News() {
                   </div>
                   {/* Historical Archives Tab2 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
-                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
+                  <h5>2009 - 2013</h5>  
+                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
                     <div className="row">
-                      <h5>2009 - 2013</h5>
+                    
                       {historicalArchives1.map((image, idx) => (
             <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
               <div className="card shadow-sm">
@@ -228,9 +230,10 @@ function News() {
                   </div>
                   {/* Historical Archives Tab3 */}
                   <div className="" id="historicalarchives-tab-pane" >
+                  <h5>2018 - 2023</h5>
                   <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
                     <div className="row">
-                      <h5>2018 - 2023</h5>
+                      
                       {historicalArchives1.map((image, idx) => (
             <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
               <div className="card shadow-sm">
