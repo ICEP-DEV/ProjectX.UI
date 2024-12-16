@@ -3,8 +3,7 @@ import './ConfirmProfile.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import AvatarPic from '../images/intro-bg1.gif';
-import Container3Image from "../images/SidePhoto.png";
-import AlumniSpaceLogo from '../images/aslogo.png';  // Importing the logo
+import confetti from 'canvas-confetti'; // Import confetti library
 
 export default function ConfirmProfile() {
   const [profile, setProfile] = useState({
@@ -21,7 +20,8 @@ export default function ConfirmProfile() {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [signUpLoading, setSignUpLoading] = useState(false);
-  const [studentNum, setStudentNum] = useState('');
+
+  
   // Fetch the profile data when the component loads
   useEffect(() => {
     fetchProfile();
@@ -38,14 +38,14 @@ export default function ConfirmProfile() {
         const data = await response.json();
         console.log("Fetched data:", data); // Log data to verify it
         setProfile({
-          alumnusId:data.alumnusId,
+          alumnusId: data.alumnusId,
           firstName: data.firstName,
           lastName: data.lastName,
           graduationYear: data.graduationYear,
           campus: data.campus,
           faculty: data.faculty,
           linkedinProfile: data.linkedinProfile,
-          profilePicture: data.profilePicture
+          profilePicture: data.profilePicture ? `data:image/png;base64,${data.profilePicture}` : null,
         });
         
       } else if (response.status === 204) {
@@ -60,10 +60,10 @@ export default function ConfirmProfile() {
   
 
   // Handlers for navigation between sections
-  const nextStep = () => setCurrentStep((prev) => prev + 1);
-  const prevStep = () => setCurrentStep((prev) => prev - 1);
+  // const nextStep = () => setCurrentStep((prev) => prev + 1);
+  // const prevStep = () => setCurrentStep((prev) => prev - 1);
 
-  // Handle LinkedIn input change
+  // // Handle LinkedIn input change
   const handleLinkedInChange = async (e) => {
     const updatedProfile = {
       ...profile,
@@ -82,20 +82,45 @@ export default function ConfirmProfile() {
         `http://localhost:5214/api/Alumnus/UpdateProfile/UpdateProfile`,
         data
       );
-      alert("Profile updated!");
+      alert("LinkedIn Profile Link Saved!");
     } catch (error) {
-      console.error('Profile Error:', error);
+      console.error('LinkedIn Profile Error:', error);
     } finally {
       setSignUpLoading(false);
     }
   };
 
 
-  // Handle form submission and navigate to logged.js
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate('/Logged');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSignUpLoading(true);
+  
+    const data = {
+      studentNum: profile.alumnusId,
+      linkedinProfile: profile.linkedinProfile,
+      profilePicture: image ? image.split(",")[1] : null, // Send only the base64 string
+    };
+  
+    try {
+      console.log(data);
+      const response = await axios.put(
+        `http://localhost:5214/api/Alumnus/UpdateProfile/UpdateProfile`,
+        data,
+        { headers: { "Content-Type": "application/json" } }
+      );
+  
+      alert("Profile updated successfully!");
+      navigate('/Login');
+    } catch (error) {
+      console.error("Failed to update profile:", error);
+    } finally {
+      setSignUpLoading(false);
+    }
   };
+  
+  
+
+  
 
   const [image, setImage] = useState(null);  // State for the uploaded image
 
@@ -104,139 +129,216 @@ export default function ConfirmProfile() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result);  // Set the uploaded image in state
+        setImage(reader.result); // Preview the image
+        setProfile({
+          ...profile,
+          profilePicture: reader.result,
+        });
       };
-      reader.readAsDataURL(file);  // Read the file as a data URL
+      reader.readAsDataURL(file);
     }
   };
-
+  
+  
   useEffect(() => {
     // Add 'signup-page' class to body when this component mounts
-    document.body.classList.add("cp-page");
+    document.body.classList.add("login-page");
 
     // Clean up when leaving the signup page
     return () => {
-      document.body.classList.remove("cp-page");
+      document.body.classList.remove("login-page");
+    };
+  }, []);
+ 
+  useEffect(() => {
+    // Trigger confetti animation on page load
+    const icon = document.querySelector('.fa-graduation-cap');
+    if (icon) {
+      icon.addEventListener('animationend', triggerConfetti);
+      triggerConfetti(); // Run it once at load
+    }
+
+    return () => {
+      if (icon) {
+        icon.removeEventListener('animationend', triggerConfetti);
+      }
     };
   }, []);
 
-  return (
-    <div className="confirm-body">
-      <div className="confirm-container-2">
-      
-        {/* Left Side (Container 3) */}
-        <div
-          className="confirm-container-3"
-          style={{ backgroundImage: `url(${Container3Image})` }}
-        >
-                      {/* Logo - clickable, directs to homepage */}
-                      <a href="/signup" className="confirm-logo">
-              <img src={AlumniSpaceLogo} alt="Logo" className="confirm-logo-img" />
-            </a>
-          
-          <div className="cp-text-content">
-            <h1>Welcome to Alumni Space</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
+  const triggerConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  };
+
+  
+return (
+  <section className="cp-container1">
+  <div className="cp-container2">
+    <div className="cp-container3">
+      <h1 className="cp-welcome-heading">Welcome to website</h1>
+      <p className="cp-description">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+      </p>
+    </div>
+    <div className="cp-container4">
+      <div className="cp-form-container">
+        <h2 className="cp-confirm-heading">Confirm Your Profile</h2>
+
+        {/* Circular User Icon */}
+        <div className="cp-icon-container">
+          <label htmlFor="file-upload" className="cp-file-upload-label">
+            <div className="cp-avatar-container">
+              {profile.profilePicture ? (
+                <img src={profile.profilePicture} alt="User Avatar" className="cp-avatar-image" />
+              ) : (
+                <img src={AvatarPic} alt="Default Avatar" className="cp-avatar-image" />
+              )}
+            </div>
+          </label>
+          <input
+            type="file"
+            id="file-upload"
+            className="cp-hidden-input"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
         </div>
 
-        {/* Right Side (Container 4) */}
-        <div className="confirm-container-4">
-          <div className="confirm-avatar">
-            <label htmlFor="file-upload" className="confirm-avatar-label">
-              {image ? (
-                <img src={image} alt="User Avatar" />
-              ) : (
-                <img src={AvatarPic} alt="Default Avatar" />
-              )}
-            </label>
-            <input
-              type="file"
-              id="file-upload"
-              className="confirm-file-input"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-          </div>
-
-        <div className="cp-input-field">
-          <form onSubmit={handleSubmit}>
-            {currentStep === 1 && (
-              <>
-                <label>Student Number</label>
-                <input
-                  type="text"
-                  value={profile.alumnusId}
-                  readOnly
-                />
-                <label>First Name</label>
-                <input
-                  type="text"
-                  value={profile.firstName}
-                  readOnly
-                />
-                <label>Last Name</label>
-                <input
-                  type="text"
-                  value={profile.lastName}
-                  readOnly
-                />
-                <button type="button" onClick={nextStep}>
-                  Next
-                </button>
-              </>
-            )}
-
-            {currentStep === 2 && (
-              <>
-                <label>Graduation Year</label>
-                <input
-                  type="text"
-                  value={profile.graduationYear}
-                  readOnly
-                />
-                <label>Campus</label>
-                <input
-                  type="text"
-                  value={profile.campus}
-                  readOnly
-                />
-                <label>Faculty</label>
-                <input
-                  type="text"
-                  value={profile.faculty}
-                  readOnly
-                />
-                <button type="button" onClick={prevStep}>
-                  Back
-                </button>
-                <button type="button" onClick={nextStep}>
-                  Next
-                </button>
-              </>
-            )}
-
-            {currentStep === 3 && (
-              <>
-                <label>LinkedIn</label>
-                <input
-                  type="text"
-                  value={profile.linkedinProfile}
-                  onChange={handleLinkedInChange}
-                />
-                <button type="button" onClick={prevStep}>
-                  Back
-                </button>
-                <button type="submit" disabled={signUpLoading}>
-                  Confirm
-                </button>
-              </>
-            )}
-          </form>
+        {/* Form for user details */}
+        <form onSubmit={handleSubmit}>
+  {/* Section 1 */}
+  {currentStep === 1 && (
+    <div className="cp-form-section">
+      {/* Student Number */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="stuno">Student Number</label>
+        <div className="cp-input-container">
+          <i className="fas fa-graduation-cap cp-icon-sn"></i>
+          <input
+            type="text"
+            id="stuno"
+            className="cp-input"
+            placeholder="Student number"
+            value={profile.alumnusId}
+            readOnly
+          />
         </div>
       </div>
-    </div>
-    </div>
-  );
-}
 
+      {/* First Name */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="name">First Name</label>
+        <div className="cp-input-container">
+          <i className="fas fa-user-graduate cp-icon"></i>
+          <input
+            type="text"
+            id="name"
+            className="cp-input"
+            placeholder="First name"
+            value={profile.firstName}
+            readOnly
+          />
+        </div>
+      </div>
+
+      {/* Last Name */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="surname">Last Name</label>
+        <div className="cp-input-container">
+        <i className="fas fa-user-graduate cp-icon"></i>
+          <input
+            type="text"
+            id="surname"
+            className="cp-input"
+            placeholder="Last name"
+            value={profile.lastName}
+            readOnly
+          />
+        </div>
+      </div>
+
+      {/* Graduation Year */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="email">Graduation Year</label>
+        <div className="cp-input-container">
+          <i className="fas fa-calendar-alt cp-icon"></i>
+          <input
+            type="email"
+            id="email"
+            className="cp-input"
+            placeholder="Graduation year"
+            value={profile.graduationYear}
+            readOnly
+          />
+        </div>
+      </div>
+
+      {/* Campus */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="campus">Campus</label>
+        <div className="cp-input-container">
+          <i className="fas fa-building cp-icon"></i>
+          <input
+            type="text"
+            id="campus"
+            className="cp-input"
+            placeholder="Campus"
+            value={profile.campus}
+            readOnly
+          />
+        </div>
+      </div>
+
+      {/* Faculty */}
+      <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="faculty">Faculty</label>
+        <div className="cp-input-container">
+          <i className="fas fa-university cp-icon"></i>
+          <input
+            type="text"
+            id="faculty"
+            className="cp-input"
+            placeholder="Faculty"
+            value={profile.faculty}
+            readOnly
+          />
+        </div>
+      </div>
+
+            {/* Alumni LinkedIn */}
+            <div className="cp-input-wrapper">
+        <label className="cp-form-label" htmlFor="linkedin">Alumni LinkedIn Link</label>
+        <div className="cp-input-container">
+          <i className="fab fa-linkedin cp-icon"></i>
+          <input
+            type="text"
+            id="linkedin"
+            className="cp-input"
+            placeholder="Paste LinkedIn Link Here"
+            value={profile.linkedinProfile}
+            onChange={handleLinkedInChange}
+          />
+        </div>
+      </div>
+
+      <div className="cp-button-container">
+       
+        <button type="submit" className="cp-btn" disabled={signUpLoading}>
+          {signUpLoading ? 'Loading...' : 'Confirm'}
+        </button>
+      </div>
+    </div>
+  )}
+
+</form>
+
+      </div>
+    </div>
+  </div>
+</section>
+);
+
+}

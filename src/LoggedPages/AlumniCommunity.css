@@ -840,13 +840,14 @@
 
 .linkedin-modal-close-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 15px;
   font-size: 24px;
   color: #333;
   cursor: pointer;
   transition: color 0.3s ease;
   z-index: 1001;
+  margin-left: 30px;
 }
 
 .linkedin-modal-close-icon:hover {
@@ -1005,5 +1006,480 @@
   }
 }
 
+/* LinkedIn icon below profile picture */
+.road-to-linkedin-icon {
+  font-size: 3vh;
+  color: #ffab14;
+  transition: color 0.3s ease;
+  z-index: 3; /* Keep it above background and profile picture */
+  cursor: pointer;
+}
+
+.road-to-linkedin-icon:hover {
+  color: #f19d00de;
+}
+
+/* FontAwesome icon */
+.road-to-fab {
+  font-family: 'Font Awesome 5 Brands', sans-serif;
+}
+
+.linkedin-icon
+{
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.road-to-linkedin-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 750px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 99000;
+  border-radius: 10px;
+}
+
+.road-to-linkedin-modal-content {
+  padding: 20px;  
+  position: relative;
+}
+
+.road-to-linkedin-modal-image {
+  padding: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.road-to-linkedin-modal-image img {
+  width: 100%; /* Adjusts to fit the modal width */
+  height: auto;
+}
+
+.road-to-profile-photo-container {
+  position: absolute;
+  top: 70px; /* Adjusts the vertical placement */
+  left: 20%;
+  transform: translateX(-50%);
+  width: 200px; /* Diameter of the circle */
+  height: 200px;
+  border-radius: 50%; /* Makes the frame circular */
+  overflow: hidden;
+  border: 4px solid white; /* Optional: Adds a white border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for a 3D effect */
+}
+
+.road-to-profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the circle */
+}
+
+.road-to-linkedin-description {
+  margin-top: 50px;
+  max-height: 400px; /* Adjust based on modal dimensions */
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+  box-sizing: border-box; /* Ensures padding doesn't affect width/height */
+}
+
+/* Optional: Style for the scrollbar */
+.road-to-linkedin-description::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.road-to-linkedin-description::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 4px;
+}
+
+.road-to-linkedin-description::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px;
+}
+
+.road-to-linkedin-description::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker shade when hovered */
+}
+
+.road-to-linkedin-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.road-to-linkedin-details li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.road-to-linkedin-details a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.road-to-linkedin-details a:hover {
+  text-decoration: underline;
+}
+
+.road-to-linkedin-university-item {
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 12px; /* Add spacing between list items */
+}
+
+.road-to-linkedin-icon-container {
+  width: 40px; /* Adjust the size of the circular frame */
+  height: 40px;
+  border-radius: 50%; /* Makes the container circular */
+  overflow: hidden; /* Ensures the image stays within the circular frame */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Optional: Add a subtle background */
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.road-to-linkedin-icon-link {
+  color: #0077b5; /* LinkedIn brand color */
+  font-size: 34px; /* Adjust icon size as needed */
+  text-decoration: none; /* Remove underline */
+  display: inline-flex; /* Ensures proper alignment if in a flex container */
+  align-items: center; /* Vertically centers the icon */
+  
+}
+
+.road-to-linkedin-icon-link:hover {
+  color: #ffab14;
+}
+
+.road-to-mutual-connections {
+  display: flex;
+  align-items: center;
+}
+
+.road-to-mutual-connections img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.road-to-linkedin-buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.road-to-linkedin-buttons button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.road-to-btn-connect {
+  background-color: #0073b1;
+  color: #fff;
+  border: 1px solid #0073b1;
+}
+
+.road-to-btn-connect:hover {
+  background-color: #005582;
+}
+
+.road-to-btn-message {
+  background-color: #fff;
+  color: #0073b1;
+  border: 1px solid #0073b1;
+}
+
+.road-to-btn-message:hover {
+  background-color: #eef3f8;
+}
+
+.road-to-btn-more {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #c4c4c4;
+}
+
+.road-to-btn-more:hover {
+  background-color: #f3f3f3;
+}
+
+.road-to-linkedIn-adjust-text {
+  font-size: 13px;
+}
+
+.road-to-close-linkedin-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.road-to-open-to-work {
+  background-color: #eef3f8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.road-to-open-to-work p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.road-to-open-to-work a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.road-to-open-to-work a:hover {
+  text-decoration: underline;
+}
+
+.road-to-linkedin-icon-1 {
+  width: 100%; /* Make the image fill the circular container */
+  height: 100%; /* Ensure the image maintains its aspect ratio */
+  object-fit: cover; /* Ensure the image covers the frame without distortion */
+}
+
+.road-to-linkedin-modal-close-icon {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1001;  
+}
+
+.road-to-linkedin-modal-close-icon:hover {
+  color: red;
+}
+
+
+
+/* Media annotations for a 15.6-inch screen */
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .road-to-modal {
+    width: 600px; /* Smaller modal width */
+    padding: 25px; /* Reduce padding */
+  }
+
+  .road-to-modal-profile-picture {
+    width: 180px; /* Scale down profile picture */
+    height: 180px;
+  }
+
+  .road-to-m-inc-text {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+
+  .road-to-modal-details {
+    text-align: left; /* Keep text aligned left for readability */
+    font-size: 0.9rem; /* Reduce font size for details */
+  }
+
+  .road-to-linkedin-icon {
+    font-size: 30px; /* Scale down LinkedIn icon */
+  }
+
+  .road-to-close-modal-button {
+    font-size: 20px; /* Reduce close button size */
+  }
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  .road-to-modal {
+    width: 90%; /* Reduce modal width for smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .road-to-modal-profile-picture {
+    width: 150px; /* Reduce profile picture size */
+    height: 150px;
+  }
+
+  .road-to-m-inc-text {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .road-to-modal-details {
+    text-align: center; /* Center-align text for smaller screens */
+  }
+}
+
+/* Responsive design for extra small screens */
+@media (max-width: 480px) {
+  .road-to-modal {
+    padding: 15px; /* Further adjust padding */
+  }
+
+  .road-to-modal-profile-picture {
+    width: 120px; /* Further reduce profile picture size */
+    height: 120px;
+  }
+
+  .road-to-m-inc-text {
+    font-size: 1.25rem; /* Smaller heading size */
+  }
+}
+
+/* Media annotation: Adjust modal size for smaller screens */
+@media (max-width: 768px) {
+  .road-to-linkedin-modal {
+    width: 90%; /* Reduce width for smaller screens */
+    height: auto; /* Allow height to adjust dynamically */
+    top: 10%; /* Adjust top placement */
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .road-to-linkedin-modal-content {
+    padding: 15px; /* Reduce padding for better fit */
+  }
+
+  .road-to-profile-photo-container {
+    top: 50px; /* Adjust vertical placement */
+    width: 150px; /* Reduce profile photo size */
+    height: 150px;
+  }
+
+  .road-to-linkedin-description {
+    margin-top: 30px; /* Adjust spacing */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Media annotation: Adjustments for very small screens */
+@media (max-width: 480px) {
+  .road-to-linkedin-modal {
+    width: 95%; /* Further reduce modal width */
+    padding: 10px; /* Add padding around modal */
+  }
+
+  .road-to-profile-photo-container {
+    width: 120px; /* Further reduce profile photo size */
+    height: 120px;
+  }
+
+  .road-to-linkedin-description {
+    font-size: 12px; /* Adjust text size for better readability */
+  }
+
+  .road-to-linkedin-buttons button {
+    padding: 6px 12px; /* Reduce button size */
+    font-size: 12px;
+  }
+}
+
+/* Media annotation: Optimize mutual connections layout */
+@media (max-width: 600px) {
+  .road-to-mutual-connections {
+    flex-wrap: wrap; /* Allow icons to wrap to next line */
+    justify-content: center; /* Center align content */
+  }
+
+  .road-to-mutual-connections img {
+    width: 18px; /* Slightly reduce icon size */
+    height: 18px;
+  }
+}
+
+/* Media annotation: Adjust modal image for smaller screens */
+@media (max-width: 768px) {
+  .road-to-linkedin-modal-image img {
+    max-width: 100%; /* Ensure image doesn't overflow */
+    height: auto;
+  }
+}
+
+/* Media annotation: Adjust icon size for better fit */
+@media (max-width: 768px) {
+  .road-to-linkedin-icon-container {
+    width: 30px; /* Reduce size of icon container */
+    height: 30px;
+  }
+
+  .road-to-linkedin-icon-link {
+    font-size: 24px; /* Adjust icon font size */
+  }
+}
+
+.road-to-linkedin-details-container {
+  padding: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.road-to-linkedin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  color: #333;
+}
+
+.road-to-linkedin-table td,
+.road-to-linkedin-table th {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.road-to-linkedin-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.road-to-linkedin-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.road-to-linkedin-table td:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+
+.road-to-linkedin-table td:last-child {
+  text-align: left;
+}
+
+/* General blur effect container */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* White with opacity */
+  backdrop-filter: blur(8px);
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for appearance */
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevent clicks while blurred */
+  z-index: 10; /* Ensure it's above other content */
+}
+
+/* When the modal is open, show the blur */
+.blur-overlay.active {
+  opacity: 1; /* Fully visible when active */
+  pointer-events: auto;
+}
 
 
