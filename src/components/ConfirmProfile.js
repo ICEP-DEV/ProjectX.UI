@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import AvatarPic from '../images/intro-bg1.gif';
 import confetti from 'canvas-confetti'; // Import confetti library
+import Container3Image from "../images/SidePhoto.png";
+import AlumniSpaceLogo from '../images/aslogo.png';  // Importing the logo
 
 export default function ConfirmProfile() {
   const [profile, setProfile] = useState({
@@ -60,8 +62,8 @@ export default function ConfirmProfile() {
   
 
   // Handlers for navigation between sections
-  // const nextStep = () => setCurrentStep((prev) => prev + 1);
-  // const prevStep = () => setCurrentStep((prev) => prev - 1);
+  const nextStep = () => setCurrentStep((prev) => prev + 1);
+  const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   // // Handle LinkedIn input change
   const handleLinkedInChange = async (e) => {
@@ -175,47 +177,57 @@ export default function ConfirmProfile() {
 
   
 return (
-  <section className="cp-container1">
-  <div className="cp-container2">
-    <div className="cp-container3">
-      <h1 className="cp-welcome-heading">Welcome to website</h1>
-      <p className="cp-description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-      </p>
-    </div>
-    <div className="cp-container4">
-      <div className="cp-form-container">
-        <h2 className="cp-confirm-heading">Confirm Your Profile</h2>
 
+  <div className="confirm-body">
+  <div className="confirm-container-2">
+        {/* Left Side (Container 3) */}
+        <div
+          className="confirm-container-3"
+          style={{ backgroundImage: `url(${Container3Image})` }}
+        >
+                      {/* Logo - clickable, directs to homepage */}
+                      <a href="/signup" className="confirm-logo">
+              <img src={AlumniSpaceLogo} alt="Logo" className="confirm-logo-img" />
+            </a>
+          
+          <div className="cp-text-content">
+            <h1>Welcome to Alumni Space</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+    <div className="confirm-container-4">
+    
         {/* Circular User Icon */}
-        <div className="cp-icon-container">
-          <label htmlFor="file-upload" className="cp-file-upload-label">
-            <div className="cp-avatar-container">
+        <div className="confirm-avatar">
+          <label htmlFor="file-upload" className="confirm-avatar-label">
+           
               {profile.profilePicture ? (
                 <img src={profile.profilePicture} alt="User Avatar" className="cp-avatar-image" />
               ) : (
                 <img src={AvatarPic} alt="Default Avatar" className="cp-avatar-image" />
               )}
-            </div>
+            
           </label>
           <input
             type="file"
             id="file-upload"
-            className="cp-hidden-input"
+            className="confirm-file-input"
             accept="image/*"
             onChange={handleImageUpload}
           />
         </div>
 
+  <div className="cp-input-field">
         {/* Form for user details */}
         <form onSubmit={handleSubmit}>
   {/* Section 1 */}
   {currentStep === 1 && (
-    <div className="cp-form-section">
+    <>
       {/* Student Number */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="stuno">Student Number</label>
-        <div className="cp-input-container">
+     
+        <label htmlFor="stuno">Student Number</label>    
+        <div className="cp-input-container"> 
           <i className="fas fa-graduation-cap cp-icon-sn"></i>
           <input
             type="text"
@@ -225,13 +237,13 @@ return (
             value={profile.alumnusId}
             readOnly
           />
-        </div>
-      </div>
+       </div>   
+     
 
       {/* First Name */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="name">First Name</label>
-        <div className="cp-input-container">
+      
+        <label htmlFor="name">First Name</label>      
+        <div className="cp-input-container">  
           <i className="fas fa-user-graduate cp-icon"></i>
           <input
             type="text"
@@ -241,13 +253,14 @@ return (
             value={profile.firstName}
             readOnly
           />
-        </div>
-      </div>
+          </div> 
+       
+   
 
       {/* Last Name */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="surname">Last Name</label>
-        <div className="cp-input-container">
+     
+        <label htmlFor="surname">Last Name</label>
+        <div className="cp-input-container">  
         <i className="fas fa-user-graduate cp-icon"></i>
           <input
             type="text"
@@ -257,13 +270,25 @@ return (
             value={profile.lastName}
             readOnly
           />
-        </div>
-      </div>
+           </div> 
+           <div className="cp-button">
+
+           <button type="button" className="cp-btn" onClick={nextStep}>
+              <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+           </div>
+
+              </>
+            )}
+
+{currentStep === 2 && (
+              <>
 
       {/* Graduation Year */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="email">Graduation Year</label>
-        <div className="cp-input-container">
+     
+        <label htmlFor="email">Graduation Year</label>
+        <div className="cp-input-container">  
           <i className="fas fa-calendar-alt cp-icon"></i>
           <input
             type="email"
@@ -273,13 +298,13 @@ return (
             value={profile.graduationYear}
             readOnly
           />
-        </div>
-      </div>
+       </div> 
+      
 
       {/* Campus */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="campus">Campus</label>
-        <div className="cp-input-container">
+     
+        <label htmlFor="campus">Campus</label>
+        <div className="cp-input-container">  
           <i className="fas fa-building cp-icon"></i>
           <input
             type="text"
@@ -289,13 +314,12 @@ return (
             value={profile.campus}
             readOnly
           />
-        </div>
-      </div>
+      </div> 
 
       {/* Faculty */}
-      <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="faculty">Faculty</label>
-        <div className="cp-input-container">
+      
+        <label htmlFor="faculty">Faculty</label>
+        <div className="cp-input-container">  
           <i className="fas fa-university cp-icon"></i>
           <input
             type="text"
@@ -305,13 +329,31 @@ return (
             value={profile.faculty}
             readOnly
           />
-        </div>
+      </div> 
+
+      <div className="cp-button">
+
+      <button type="button" className="cp-btn" onClick={prevStep}>
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button type="button" className="cp-btn" onClick={nextStep}>
+                  <i class="fa-solid fa-arrow-right arrow-right"></i>
+                </button>
+
       </div>
 
+
+              </>
+            )}
+
+{currentStep === 3 && (
+              <>
+
             {/* Alumni LinkedIn */}
-            <div className="cp-input-wrapper">
-        <label className="cp-form-label" htmlFor="linkedin">Alumni LinkedIn Link</label>
-        <div className="cp-input-container">
+
+           <div className="cp-container-for-input">
+        <label htmlFor="linkedin">Alumni LinkedIn Link</label>
+        <div className="cp-input-container"> 
           <i className="fab fa-linkedin cp-icon"></i>
           <input
             type="text"
@@ -321,16 +363,19 @@ return (
             value={profile.linkedinProfile}
             onChange={handleLinkedInChange}
           />
-        </div>
+      </div> 
       </div>
 
-      <div className="cp-button-container">
-       
-        <button type="submit" className="cp-btn" disabled={signUpLoading}>
-          {signUpLoading ? 'Loading...' : 'Confirm'}
+      <div className="cp-button">
+        <button type="button" className="cp-btn" onClick={prevStep}>
+          <i class="fa-solid fa-arrow-left"></i>
         </button>
-      </div>
-    </div>
+        <button type="submit" className="cp-btn" disabled={signUpLoading}>
+          {signUpLoading ? 'Loading...' : <i class="fa-regular fa-circle-check"></i>}
+        </button>
+        </div> 
+     
+      </>
   )}
 
 </form>
@@ -338,7 +383,7 @@ return (
       </div>
     </div>
   </div>
-</section>
+</div>
 );
 
 }

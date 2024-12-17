@@ -1,70 +1,3 @@
-.cp-container1 {
-  display: flex;
-  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;  /* Center content horizontally */
-}
-
-.cp-container2 {
-  display: flex;
-  width: 80%;
-  height: 80%;
-  max-width: 1200px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.cp-container3 {
-  flex: 7; /* Occupies 70% of the width */
-  background-image: url('../images/SidePhoto.png'); /* Image from props */
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px;
-}
-
-.cp-welcome-heading {
-  font-family: 'Arial', sans-serif;
-  font-size: 2rem;
-  color: #fff;
-  position: absolute;
-  top: 20%;
-  left: 5%;
-}
-
-.cp-description {
-  font-family: 'Arial', sans-serif;
-  font-size: 1rem;
-  color: #fff;
-  position: absolute;
-  top: 30%;
-  left: 5%;
-}
-
-
-.cp-container4 {
-  background-color: #fff;
-  width: 40%;
-  padding: 20px 40px 20px 40px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 100%; /* Set the height of container4 to match container3 */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  /* Ensures space between form content and buttons */
-}
-
-.cp-form-container {
-  display: flex;
-  flex-direction: column;
-}
 
 .cp-confirm-heading {
   font-size: 2rem;
@@ -73,60 +6,6 @@
   text-align: center;
 }
 
-.cp-icon-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.cp-file-upload-label {
-  cursor: pointer;
-}
-
-.cp-avatar-container {
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  overflow: hidden;
-  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
-}
-
-.cp-avatar-container:hover
-{
-  width: 7.5rem;
-  height: 7.5rem;
-  transition: 0.3s;
-}
-
-.cp-avatar-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cp-hidden-input {
-  display: none;
-}
-
-.cp-form-section {
-  margin-bottom: 20px;
-}
-
-.cp-form-label {
-  font-size: 1rem;
-  color: #242424;
-  margin-bottom: 0.5rem;
-}
-
-.cp-input {
-  width: 100%;
-  padding: 10px 10px 10px 40px; /* Add space for the icon */
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
 
 .cp-input-wrapper {
   margin-bottom: 20px;
@@ -136,6 +15,8 @@
 .cp-input-container {
   position: relative;
 }
+
+
 
 .cp-icon {
   position: absolute;
@@ -201,3 +82,462 @@
   padding-top: 20px; /* Add space above the buttons */
 }
 
+.confirm-body {
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+}
+
+.confirm-container-2 {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-container-3 {
+  flex: 7; /* Occupies 70% of the width */
+  background-image: url('../images/SidePhoto.png'); /* Image from props */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+.cp-text-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.cp-text-content p
+{
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.confirm-container-3 h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.confirm-container-3 p {
+   font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+}
+
+.confirm-container-4 {
+  flex: 30%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative; 
+  border-radius: 10px;
+}
+
+.confirm-avatar {
+  margin-bottom: 20px;
+}
+
+.confirm-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.confirm-avatar-label {
+  display: block;
+  cursor: pointer;
+}
+
+.confirm-file-input {
+  display: none;
+}
+
+.confirm-container-4 input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.confirm-container-4 button {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  width: 50px; /* Set fixed width */
+  height: 50px; /* Set fixed height (equal to width) */
+  padding: 10px;
+  border: none;
+}
+
+.confirm-container-4 button:hover {
+  background: linear-gradient(45deg, #ce1127 0%, #005596 100%); 
+  color: white;
+}
+
+.cp-input-field input
+{
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Add space for the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cp-button {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; /* Aligns buttons to the right */
+  position: absolute;
+  bottom: 0; /* Positions buttons at the bottom */
+  right: 50px; /* Positions buttons to the right */
+  box-sizing: border-box;
+  gap: 10px;
+  
+}
+
+/* Logo in Container 3 */
+.confirm-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  text-decoration: none;
+}
+
+.confirm-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+  /* For devices with max-width 1024px (tablets and smaller laptops) */
+  @media (max-width: 1024px) {
+    .confirm-logo-img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .confirm-logo  {
+      top: 30px;
+      left: 30px;
+    }
+  }
+  
+  /* For devices with max-width 768px (tablets in portrait mode) */
+  @media (max-width: 768px) {
+    .confirm-logo-img {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .confirm-logo {
+      top: 25px;
+      left: 25px;
+    }
+  }
+  
+  /* For devices with max-width 576px (mobile phones) */
+  @media (max-width: 576px) {
+    .confirm-logo-img{
+      width: 20px;
+      height: 20px;
+    }
+  
+    .confirm-logo  {
+      top: 15px;
+      left: 15px;
+    }
+  }
+  
+  /* Pulsing Animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+/* Default Styles (apply to larger screens) */
+/* Already covered in your base CSS */
+
+/* Extra Large Devices (≥1200px) */
+@media (min-width: 1200px) {
+  .confirm-container-3 h1 {
+    font-size: 3.5rem; /* Slightly larger heading */
+  }
+
+  .confirm-container-3 p {
+    font-size: 1.25rem; /* Slightly larger text */
+  }
+}
+
+/* Large Devices (992px - 1199.98px) */
+@media (max-width: 1199.98px) {
+  .confirm-container-3 h1 {
+    font-size: 3rem; /* Maintain large size */
+  }
+
+  .confirm-container-3 p {
+    font-size: 1.1rem;
+  }
+
+  .confirm-container-4 {
+    padding: 15px; /* Adjust padding */
+  }
+}
+
+/* Medium Devices (768px - 991.98px) */
+@media (max-width: 991.98px) {
+  .confirm-container-2 {
+    flex-direction: column; /* Stack vertically */
+    height: auto; /* Adjust height */
+  }
+
+  .confirm-container-3 {
+    flex: 1; /* Equal space */
+    height: 50vh;
+  }
+
+  .confirm-container-4 {
+    flex: 1; /* Equal space */
+    height: 50vh;
+    padding: 15px;
+  }
+
+  .confirm-container-3 h1 {
+    font-size: 2.5rem;
+  }
+
+  .confirm-container-3 p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Devices (576px - 767.98px) */
+@media (max-width: 767.98px) {
+  .confirm-body {
+    padding: 40px;
+  }
+
+  .confirm-container-2 {
+    width: 90%; /* Adjust width */
+  }
+
+  .confirm-container-3 {
+    height: 40vh;
+    padding: 20px; /* Reduce padding */
+  }
+
+  .confirm-container-3 h1 {
+    font-size: 2rem;
+  }
+
+  .confirm-container-3 p {
+    font-size: 0.9rem;
+  }
+
+  .confirm-container-4 {
+    height: 60vh;
+    padding: 10px; /* Reduce padding */
+  }
+
+  .confirm-avatar img {
+    width: 100px; /* Smaller avatar */
+    height: 100px;
+  }
+
+  .confirm-container-4 input,
+  .confirm-container-4 button {
+    padding: 8px;
+  }
+}
+
+/* Extra Small Devices (<576px) */
+@media (max-width: 575.98px) {
+  .confirm-body {
+    flex-direction: column;
+  }
+
+  .confirm-container-2 {
+    flex-direction: column;
+    width: 95%; /* Narrower width */
+  }
+
+  .confirm-container-3 {
+    flex: 1;
+    height: auto; /* Allow flexible height */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .confirm-container-4 {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .confirm-container-3 h1 {
+    font-size: 1.8rem;
+  }
+
+  .confirm-container-3 p {
+    font-size: 0.85rem;
+  }
+
+  .confirm-avatar img {
+    width: 80px;
+    height: 80px; /* Even smaller avatar */
+  }
+
+  .confirm-container-4 input,
+  .confirm-container-4 button {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .confirm-container-4 input
+  {
+    padding: 10px 10px 10px 40px;
+  }
+}
+
+/* Buttons Styling */
+.cp-button {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  gap: 10px;
+}
+
+@media (max-width: 1024px) {
+  .cp-button {
+    right: 30px; /* Adjust button alignment */
+  }
+
+  .cp-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem; /* Smaller font size for buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .cp-button {
+    right: 20px; /* Adjust button alignment for smaller screens */
+    bottom: 20px; /* Raise buttons slightly */
+  }
+
+  .cp-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem; /* Reduce button size */
+  }
+}
+
+@media (max-width: 576px) {
+  .cp-button {
+    position: static; /* Reset positioning */
+    flex-direction: row; /* Stack buttons vertically */
+    align-items: center;
+    gap: 5px; /* Reduce gap between buttons */
+  }
+
+  .cp-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem; /* Smaller button font */
+    margin-top: 2rem;
+  }
+}
+
+/* Heading and Text Content Adjustments */
+.cp-text-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+  .cp-text-content h1 {
+    font-size: 2.5rem; /* Adjust font size for tablets */
+    padding: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cp-text-content h1 {
+    font-size: 2rem; /* Adjust font size for smaller tablets */
+    padding: 50px;
+    
+  }
+}
+
+@media (max-width: 576px) {
+  .cp-text-content h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    text-align: center;
+    padding: 25px;
+  }
+}
+
+.cp-text-content p {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .cp-text-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cp-text-content p {
+    font-size: 0.8rem;
+    text-align: center; /* Center-align text */
+  }
+}
+
+/* Image and Background */
+.confirm-container-3 {
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .confirm-container-3 {
+    padding: 20px; /* Reduce padding */
+    height: 50vh; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .confirm-container-3 {
+    height: auto; /* Allow content height to adjust */
+    padding: 15px;
+  }
+}
