@@ -130,41 +130,59 @@ const Signup = () => {
 
         {/* Right Section */}
         <div className="signup-container4">
-          <form onSubmit={handleSignUp} className="signup-form">
-            <h2>Sign Up</h2>
-            {signUpError && <div className="signup-alert-danger">{signUpError}</div>}
-            {signUpSuccess && <div className="signup-alert-success">{signUpSuccess}</div>}
-            <input
-              type="text"
-              placeholder="Student number"
-              value={studentNum}
-              onChange={(e) => setStudentNum(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <button type="submit" disabled={signUpLoading}>
-              {signUpLoading ? 'Loading...' : 'Sign Up'}
-            </button>
-            <p>
-              Already have an account? <Link to="/login">Login</Link>
-            </p>
-          </form>
+        <form onSubmit={handleSignUp} className="signup-form">
+  <h2>Sign Up</h2>
+  {signUpError && <div className="signup-alert-danger">{signUpError}</div>}
+  {signUpSuccess && <div className="signup-alert-success">{signUpSuccess}</div>}
+  
+  <div className="input-icon99">
+  <i className="fas fa-graduation-cap cp-icon-sn"></i>
+    <input
+      type="text"
+      placeholder="Student number"
+      value={studentNum}
+      onChange={(e) => setStudentNum(e.target.value)}
+    />
+  </div>
+  
+  <div className="input-icon99">
+    <i className="fa-solid fa-envelope"></i>
+    <input
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+  </div>
+  
+  <div className="input-icon99">
+    <i className="fa-solid fa-lock"></i>
+    <input
+      type="password"
+      placeholder="Password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+  </div>
+  
+  <div className="input-icon99">
+    <i className="fa-solid fa-lock"></i>
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      value={confirmPassword}
+      onChange={(e) => setConfirmPassword(e.target.value)}
+    />
+  </div>
+  
+  <button type="submit" disabled={signUpLoading}>
+    {signUpLoading ? 'Loading...' : 'Sign Up'}
+  </button>
+  <p>
+    Already have an account? <Link to="/login">Login</Link>
+  </p>
+</form>
+
         </div>
       </div>
     </div>

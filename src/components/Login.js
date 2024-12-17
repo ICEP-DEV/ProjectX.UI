@@ -84,7 +84,7 @@ const Login = () => {
               </div>
               <div className="login-input-field">
                 <i
-                  className={`fas ${
+                  id="stu-user" className={`fas ${
                     isAdmin ? "fa-user" : "fa-user-graduate"
                   } ${animateIcon ? "animate" : ""}`}
                 ></i>
@@ -94,7 +94,7 @@ const Login = () => {
                 />
               </div>
               <div className="login-input-field">
-                <i className="fas fa-lock"></i>
+                <i className="fas fa-lock" id="stu-user"></i>
                 <input type="password" placeholder="Password" />
               </div>
               <Link to="/resetpassword" className="login-forgot-password-link">
