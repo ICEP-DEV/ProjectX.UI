@@ -248,7 +248,7 @@
   height: 15px;
   background: linear-gradient(45deg, #005596, #e3243c);
   border-radius: 50%;
-  animation: bounce 1.5s infinite ease-in-out;
+  animation: bounce3 1.5s infinite ease-in-out;
 }
 
 .loading-dots span:nth-child(2) {
@@ -260,7 +260,7 @@
 }
 
 /* Dot bounce animation */
-@keyframes bounce {
+@keyframes bounce3 {
   0%, 80%, 100% {
     transform: scale(0.8);
     opacity: 0.5;

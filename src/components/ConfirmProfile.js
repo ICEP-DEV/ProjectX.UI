@@ -175,11 +175,37 @@ export default function ConfirmProfile() {
     });
   };
 
+  const handleClick = () => {
+    // Start loading
+    setSignUpLoading(true);
+
+    // Activate the blur overlay
+    document.querySelector(".blur-overlay2").classList.add("active");
+
+    // Simulate an async operation (e.g., API request)
+    setTimeout(() => {
+      setSignUpLoading(false); // Stop loading
+      document.querySelector(".blur-overlay2").classList.remove("active");
+    }, 3000); // Simulate 3 seconds of loading time
+  };
+
   
 return (
 
   <div className="confirm-body">
   <div className="confirm-container-2">
+
+     {/* Fullscreen Blur Overlay */}
+     {signUpLoading && (
+        <div className="blur-overlay2 active">
+          <div className="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      )}
+    
         {/* Left Side (Container 3) */}
         <div
           className="confirm-container-3"
@@ -274,7 +300,7 @@ return (
            <div className="cp-button">
 
            <button type="button" className="cp-btn" onClick={nextStep}>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i class="fa-solid fa-arrow-right point-right"></i>
                 </button>
 
            </div>
@@ -337,7 +363,7 @@ return (
                   <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <button type="button" className="cp-btn" onClick={nextStep}>
-                  <i class="fa-solid fa-arrow-right arrow-right"></i>
+                  <i class="fa-solid fa-arrow-right point-right"></i>
                 </button>
 
       </div>
@@ -362,6 +388,7 @@ return (
             placeholder="Paste LinkedIn Link Here"
             value={profile.linkedinProfile}
             onChange={handleLinkedInChange}
+            required
           />
       </div> 
       </div>
@@ -370,8 +397,16 @@ return (
         <button type="button" className="cp-btn" onClick={prevStep}>
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <button type="submit" className="cp-btn" disabled={signUpLoading}>
-          {signUpLoading ? 'Loading...' : <i class="fa-regular fa-circle-check"></i>}
+        <button type="submit" className="cp-btn">
+          {signUpLoading ? (
+            <div className="loading-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          ) : (
+            <i className="fa-regular fa-circle-check"></i>
+          )}
         </button>
         </div> 
      
