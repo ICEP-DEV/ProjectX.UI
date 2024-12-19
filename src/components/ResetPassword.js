@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css"; // Import the same CSS file as the Login component
+import AlumniSpaceLogo from '../images/aslogo.png';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -77,53 +78,71 @@ const PasswordReset = () => {
   };
 
   return (
-    <div>
-      <div className="containerss">
-       
+    <div className="login-body">
+      {/* Container 1 */}
+      <div className="login-container">
+        {/* Container 2 */}        
+        <div className="login-left-container">
+          {/* Container 3 */}
+          <a href="/" className="login-logo-link">
+            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="login-logo" />
+          </a>
+          <div className="login-text-content">
+            <h1 className="login-heading">Welcome to Alumni Space</h1>
+            <p className="login-paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </p>
+          </div>
+        </div>
 
-        <div className="forms-containerss">
-          <form onSubmit={handleReset} className="sign-in-formss">
-            <h2 className="titless">Change Password</h2>
-            <h3 className="fs-6 fw-normal text-secondary m-0">Enter the details below</h3>
+        <div className="login-right-container">
+          {/* Container 4 */}
+          <div className="login-forms-container">
+          
+          <form onSubmit={handleReset} className="rp-sign-in-formss">
+            <h2 className="login-title">Change Password</h2>
+            <p className="login-paragraph">Enter the details below</p>
 
             {signUpError && (
-              <div className="alert alert-danger" role="alert">
+              <div className="rp-alert rp-alert-danger" role="alert">
                 {signUpError}
               </div>
             )}
             {signUpSuccess && (
-              <div className="alert alert-success" role="alert">
+              <div className="rp-alert rp-alert-success" role="alert">
                 {signUpSuccess}
               </div>
             )}
 
-            <div className="input-fieldss">
+            <div className="rp-input-fieldss">
               <i className="fas fa-envelope"></i>
               <input
                 type="email"
-                className="form-control"
+                className="login-input-field"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div className="input-fieldss">
+            <div className="login-input-field">
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                className="form-control"
+                className="rp-form-control"
                 placeholder="New Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <div className="input-fieldss">
+            <div className="rp-input-fieldss">
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                className="form-control"
+                className="rp-form-control"
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -131,20 +150,21 @@ const PasswordReset = () => {
               />
             </div>
 
-            <div className="d-grid">
+            <div className="rp-d-grid">
               <button
-                className="rounded-buttonn" // Change class name to 'rounded-button'
+                className="rp-rounded-buttonn" // Change class name to 'rp-rounded-button'
                 type="submit"
                 disabled={signUpLoading}
               >
                 {signUpLoading ? 'Loading...' : 'Change Password'}
               </button>
             </div>
-
           </form>
+          </div>
+          </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
