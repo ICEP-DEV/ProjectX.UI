@@ -107,11 +107,6 @@ body.login-page {
   margin-bottom: 20px;
 }
 
-#stu-user
-{
-  color: #aaa;
-}
-
 .login-input-field i {
   position: absolute;
   top: 50%;
@@ -179,9 +174,10 @@ body.login-page {
 
 .login-input-field i {
   transition: transform 0.3s ease, color 0.3s ease;
+  color: #ccc;
 }
 
-.login-input-field i.animate {
+.login-input-field i.animate2 {
   transform: scale(1.5);
   color: #ffcc00;
 }

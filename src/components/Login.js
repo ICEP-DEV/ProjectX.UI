@@ -91,7 +91,7 @@ const Login = () => {
                 <i
                   id="stu-user" className={`fas ${
                     isAdmin ? "fa-user" : "fa-user-graduate"
-                  } ${animateIcon ? "animate" : ""}`}
+                  } ${animateIcon ? "animate2" : ""}`}
                 ></i>
                 <input
                   type="text"
