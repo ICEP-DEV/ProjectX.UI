@@ -37,7 +37,7 @@
   color: #888;
   font-size: 15px;
   pointer-events: none;
-  animation: bounce 1.6s; /* Add bounce animation now*/
+  animation: bounce 1.9s; /* Add bounce animation now*/
 }
 
 @keyframes bounce {
