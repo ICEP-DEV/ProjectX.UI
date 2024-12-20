@@ -103,6 +103,11 @@ const Signup = () => {
   useEffect(() => {
     // Add 'signup-page' class to body when this component mounts
     document.body.classList.add('signup-page');
+
+      // Add animation class after a short delay
+  const timer = setTimeout(() => {
+    document.querySelector('.signup-container1')?.classList.add('animate-in');
+  }, 0);
     
     // Clean up when leaving the signup page
     return () => {

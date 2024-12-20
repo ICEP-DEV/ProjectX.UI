@@ -14,6 +14,14 @@ body.signup-page {
     justify-content: center;
     align-items: center;
     background: linear-gradient(15deg, #005596 0%, #ce1127 100%); 
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .signup-container1.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   /* Container 2 - Houses both left and right sections */

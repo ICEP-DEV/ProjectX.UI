@@ -30,6 +30,11 @@ const Login = () => {
     // Add 'signup-page' class to body when this component mounts
     document.body.classList.add("login-page");
 
+    // Add animation class after a short delay
+    const timer = setTimeout(() => {
+      document.querySelector('.login-body')?.classList.add('animate-in');
+    }, 0);
+
     // Clean up when leaving the signup page
     return () => {
       document.body.classList.remove("login-page");
