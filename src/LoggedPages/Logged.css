@@ -789,6 +789,40 @@ https://templatemo.com/tm-590-topic-listing
     {
       margin-bottom: 100px;
     }
+
+    /* Add to Logged.css */
+@keyframes panIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.pan-in {
+  animation: panIn 1s ease-out forwards;
+}
+
+.section {
+  opacity: 0;
+}
+
+.section.active {
+  opacity: 1;
+}
+
+.carousel-item {
+  opacity: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  animation: panIn 1s ease-out forwards;
+}
+
     
     /* Media Queries */
     

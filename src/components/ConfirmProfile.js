@@ -119,10 +119,6 @@ export default function ConfirmProfile() {
       setSignUpLoading(false);
     }
   };
-  
-  
-
-  
 
   const [image, setImage] = useState(null);  // State for the uploaded image
 

@@ -1,0 +1,372 @@
+/*
+VIEW IN FULL SCREEN MODE
+FULL SCREEN MODE: http://salehriaz.com/404Page/404.html
+
+DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+
+@-moz-keyframes fof-rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
+@-webkit-keyframes fof-rocket-movement {100% {-webkit-transform: translate(1200px,-600px); } }
+@keyframes fof-rocket-movement { 100% {transform: translate(1200px,-600px);} }
+@-moz-keyframes fof-spin-earth { 100% { -moz-transform: rotate(-360deg); transition: transform 20s;  } }
+@-webkit-keyframes fof-spin-earth { 100% { -webkit-transform: rotate(-360deg); transition: transform 20s;  } }
+@keyframes fof-spin-earth{ 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); transition: transform 20s; } }
+
+@-moz-keyframes fof-move-astronaut {
+    100% { -moz-transform: translate(-160px, -160px); }
+}
+@-webkit-keyframes fof-move-astronaut {
+    100% { -webkit-transform: translate(-160px, -160px); }
+}
+@keyframes fof-move-astronaut {
+    100% { -webkit-transform: translate(-160px, -160px); transform:translate(-160px, -160px); }
+}
+@-moz-keyframes fof-rotate-astronaut {
+    100% { -moz-transform: rotate(-720deg); }
+}
+@-webkit-keyframes fof-rotate-astronaut {
+    100% { -webkit-transform: rotate(-720deg); }
+}
+@keyframes fof-rotate-astronaut {
+    100% { -webkit-transform: rotate(-720deg); transform:rotate(-720deg); }
+}
+
+@-moz-keyframes fof-glow-star {
+    40% { -moz-opacity: 0.3; }
+    90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2); }
+}
+@-webkit-keyframes fof-glow-star {
+    40% { -webkit-opacity: 0.3; }
+    90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2); }
+}
+@keyframes fof-glow-star {
+    40% { -webkit-opacity: 0.3; opacity: 0.3; }
+    90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px; }
+}
+
+.fof-spin-earth-on-hover {
+    transition: ease 200s !important;
+    transform: rotate(-3600deg) !important;
+}
+
+.fof-root {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+
+.fof-bg-purple {
+    background: url("./LoggedInPhotos/BG P.png") no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh; /* Ensures it takes up the full viewport height */
+    overflow: hidden;
+}
+
+.fof-custom-navbar {
+    padding-top: 15px;
+}
+
+.fof-brand-logo {
+    margin-left: 25px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.fof-navbar-links {
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.fof-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    align-items: center; 
+}
+
+.fof-li {
+    float: left;
+    padding: 0px 15px;
+}
+
+.fof-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing : 2px;
+    font-size: 12px;
+    
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.fof-li a:hover {
+    color: #ffcb39;
+}
+
+.fof-btn-request {
+    padding: 10px 25px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+}
+
+.fof-btn-request:hover {
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+}
+
+.fof-btn-go-home {
+    position: relative;
+    z-index: 200;
+    margin: 15px auto;
+    width: 150px;
+    padding: 10px 15px;
+    border: 1px solid #FFCB39;
+    border-radius: 100px;
+    font-weight: 400;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing : 2px;
+    font-size: 11px;
+    
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.fof-btn-go-home:hover {
+    background-color: #FFCB39;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
+}
+
+.fof-central-body {
+    padding: 17% 5% 10% 5%;
+    text-align: center;
+}
+
+.fof-objects img {
+    z-index: 90;
+    pointer-events: none;
+}
+
+.fof-object_rocket {
+    z-index: 95;
+    position: absolute;
+    transform: translateX(-50px);
+    top: 75%;
+    pointer-events: none;
+    animation: fof-rocket-movement 200s linear infinite both running;
+}
+
+.fof-object_earth {
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    z-index: 90;
+}
+
+.fof-object_moon {
+    position: absolute;
+    top: 12%;
+    left: 25%;
+}
+
+.fof-earth-moon {}
+
+.fof-object_astronaut {
+    animation: fof-rotate-astronaut 200s infinite linear both alternate;
+}
+
+.fof-box_astronaut {
+    z-index: 110 !important;
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    will-change: transform;
+    animation: fof-move-astronaut 50s infinite linear both alternate;
+}
+
+.fof-image-404 {
+    position: relative;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.fof-stars {
+    background: url('./LoggedInPhotos/overlay_stars.png');
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: left top;
+}
+
+.fof-glowing_stars .fof-star {
+    position: absolute;
+    border-radius: 100%;
+    background-color: #fff;
+    width: 3px;
+    height: 3px;
+    opacity: 0.3;
+    will-change: opacity;
+}
+
+.fof-glowing_stars .fof-star:nth-child(1) {
+    top: 80%;
+    left: 25%;
+    animation: fof-glow-star 2s infinite ease-in-out alternate 1s;
+}
+.fof-glowing_stars .fof-star:nth-child(2) {
+    top: 20%;
+    left: 40%;
+    animation: fof-glow-star 2s infinite ease-in-out alternate 3s;
+}
+.fof-glowing_stars .fof-star:nth-child(3) {
+    top: 25%;
+    left: 25%;
+    animation: fof-glow-star 2s infinite ease-in-out alternate 5s;
+}
+.fof-glowing_stars .fof-star:nth-child(4) {
+    top: 75%;
+    left: 80%;
+    animation: fof-glow-star 2s infinite ease-in-out alternate 7s;
+}
+.fof-glowing_stars .fof-star:nth-child(5) {
+    top: 90%;
+    left: 50%;
+    animation: fof-glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+/* Default styles (already defined) */
+
+/* Add the pan-in animation */
+@keyframes pan-in {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* End at its normal position */
+        opacity: 1;
+    }
+}
+
+/* Apply pan-in to the main container */
+.fof-root {
+    animation: pan-in 1s ease-out forwards;
+}
+
+/* Apply pan-in animation to individual elements */
+.fof-brand-logo,
+.fof-central-body,
+.fof-objects img,
+.fof-glowing_stars .fof-star {
+    animation: pan-in 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delay the animation for each item */
+}
+
+.fof-central-body {
+    animation-delay: 0.6s;
+}
+
+.fof-objects img {
+    animation-delay: 1s;
+}
+
+.fof-glowing_stars .fof-star {
+    animation-delay: 1.5s;
+}
+
+
+/* For screens up to 600px wide */
+@media only screen and (max-width: 600px) {
+    .fof-navbar-links {
+        display: none;
+    }
+    
+    .fof-custom-navbar {
+        text-align: center;
+    }
+    
+    .fof-brand-logo img {
+        width: 120px;
+    }
+    
+    .fof-box_astronaut {
+        top: 70%;
+    }
+    
+    .fof-central-body {
+        padding-top: 25%;
+    }
+}
+
+/* For screens between 600px and 768px */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .fof-brand-logo img {
+        width: 80px;
+    }
+    
+    .fof-box_astronaut {
+        top: 65%;
+    }
+    
+    .fof-central-body {
+        padding-top: 20%;
+    }
+}
+
+/* For screens between 768px and 1024px */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .fof-brand-logo img {
+        width: 80px;
+    }
+    
+    .fof-box_astronaut {
+        top: 60%;
+    }
+    
+    .fof-central-body {
+        padding-top: 15%;
+    }
+}
+
+/* For screens larger than 1024px */
+@media only screen and (min-width: 1025px) {
+    .fof-brand-logo img {
+        width: 80px;
+    }
+    
+    .fof-box_astronaut {
+        top: 55%;
+    }
+    
+    .fof-central-body {
+        padding-top: 10%;
+    }
+}
+

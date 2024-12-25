@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './footer.css'; // Import your custom CSS for styling
+import { Link } from 'react-router-dom';
 import FLogo from '../images/footlogo.png';
 
 const Footer = () => {
@@ -87,9 +88,12 @@ const Footer = () => {
                         />
                         </div>
                   <ul className="fo-social">
-                    <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+                    <li><a href="https://www.facebook.com/TUTCommunications"><i className="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://x.com/official_tut"><i className="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/tut_official2/#"><i className="fab fa-instagram"></i></a></li>
+                    <li><Link to="/notfoundpage"><i className="fab fa-tiktok"></i></Link></li>
+                    <li><a href="https://www.linkedin.com/company/official-tshwane-university-of-technology/posts/?feedView=all"><i className="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber"><i className="fab fa-youtube-square"></i></a></li>
                   </ul>
                 </div>
               </div>
@@ -109,7 +113,7 @@ const Footer = () => {
                         <i class="fa-solid fa-circle-info "></i>
                       </div>
                       <div className="fo-info">
-                        <p><a href="tel:+919246147999">About Us</a></p>
+                        <p className="site-footer-linkf"><Link to="/logged#section_2">About Us</Link></p>
                       </div>
                     </div>
                     <div className="fo-single_info">
@@ -117,7 +121,7 @@ const Footer = () => {
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                       </div>
                       <div className="fo-info">
-                        <p><a href="mailto:info@deneb.com">Donate</a></p>
+                        <p className="site-footer-linkf"><Link to="/donate">Donate</Link></p>
                       </div>
                     </div>
                     <div className="fo-single_info">
@@ -125,7 +129,7 @@ const Footer = () => {
                         <i class="fa-solid fa-person-circle-question"></i>
                       </div>
                       <div className="fo-info">
-                        <p><a href="mailto:info@deneb.com">FAQs</a></p>
+                        <p className="site-footer-linkf"><Link to="/logged#section_4" >FAQs</Link></p>
                       </div>
                     </div>                    
                   </div>
