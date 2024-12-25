@@ -141,7 +141,7 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="fo-copyright_text">
-                  <p>Copyright &copy; 2024 TUT All Rights Reserved <span className='p-footer-space'>| Privacy Policy & POPIA</span></p>
+                  <p>Copyright &copy; 2024 TUT All Rights Reserved<span className='p-footer-space'>|</span>Privacy Policy & POPIA</p>
                 </div>
               </div>
             </div>
