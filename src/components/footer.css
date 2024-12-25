@@ -193,6 +193,49 @@
   color: white;
 }
 
+.icon-animation1 {
+  animation: panInOut 3s infinite ease-in-out; /* Apply the animation */
+  display: inline-block; /* Ensure proper scaling */
+}
+
+@keyframes panInOut {
+  0%, 100% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.2); /* Slightly larger size */
+  }
+}
+
+.icon-animation2 {
+  animation: panInOut 3s infinite ease-in-out; /* Apply the animation */
+  display: inline-block; /* Ensure proper scaling */
+}
+
+@keyframes panInOut {
+  0%, 90% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.2); /* Slightly larger size */
+  }
+}
+
+.icon-animation3 {
+  animation: panInOut 3s infinite ease-in-out; /* Apply the animation */
+  display: inline-block; /* Ensure proper scaling */
+}
+
+@keyframes panInOut {
+  0%, 90% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.2); /* Slightly larger size */
+  }
+}
+
+
 .gradient-light {
   position: fixed;
   width: 150px;

@@ -105,7 +105,7 @@ const Footer = () => {
                   </div>
                   <div className="fo-contact_info">
                     <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up">
+                      <div className="fo-icon foot-icon-size-up icon-animation1">
                         <i class="fa-solid fa-circle-info "></i>
                       </div>
                       <div className="fo-info">
@@ -113,7 +113,7 @@ const Footer = () => {
                       </div>
                     </div>
                     <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up">
+                      <div className="fo-icon foot-icon-size-up icon-animation2">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                       </div>
                       <div className="fo-info">
@@ -121,7 +121,7 @@ const Footer = () => {
                       </div>
                     </div>
                     <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up">
+                      <div className="fo-icon foot-icon-size-up icon-animation3">
                         <i class="fa-solid fa-person-circle-question"></i>
                       </div>
                       <div className="fo-info">
