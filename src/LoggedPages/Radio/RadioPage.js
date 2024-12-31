@@ -1,11 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
-import Vid1 from "./radio video/Plug an Alumni.mp4";
-import Vid2 from "./radio video/Plug a Graduate.mp4";
-import Vid3 from "./radio video/Catch up.mp4";
-import Vid4 from "./radio video/Video for.mp4";
-import divider1 from "./radio photos/Divider 3.png";
-import divider2 from "./radio photos/Divider 2.png";
 import Footer from '../Footer';
 
 import cardoImage1 from "./radio photos/photos/2.png";  // Add your image imports
