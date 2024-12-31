@@ -71,7 +71,7 @@ const Footer = () => {
 
       {/* Footer Section */}
       <footer className="fo-footer_section">
-        <div className="fo-widget_wrapper" style={{ backgroundImage: "url(http://demo.tortoizthemes.com/deneb-html/deneb-ltr/assets/images/footer_bg.png)" }}>
+        <div className="fo-widget_wrapper">
           <div className="container">
             <div className="row">
               <div className="col-lg-6 col-md-6 col-12">
