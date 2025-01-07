@@ -45,6 +45,10 @@ export default function ConfirmProfile() {
           linkedinProfile: data.linkedinProfile,
           profilePicture: data.profilePicture
         });
+
+                // Store the profile data in session storage
+                sessionStorage.setItem('firstName', data.firstName);
+                sessionStorage.setItem('lastName', data.lastName);
         
       } else if (response.status === 204) {
         console.log("No content found");

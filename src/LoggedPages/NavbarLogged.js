@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { BsPersonCircle } from 'react-icons/bs';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
@@ -9,24 +9,28 @@ function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
   const [isProfileVisible, setIsProfileVisible] = useState(false);
-  // const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992);
   const location = useLocation();
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Fetch first name and last name from sessionStorage
+  const firstName = sessionStorage.getItem('firstName');
+  const lastName = sessionStorage.getItem('lastName');
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  // useEffect(() => {
-  //   const handleResize = () => setIsMobileView(window.innerWidth < 992);
-  //   window.addEventListener('resize', handleResize);
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, []);
-
   const toggleProfileBox = () => setIsProfileVisible(!isProfileVisible);
 
   const handleLogout = () => {
     console.log('User logged out');
+    localStorage.removeItem('isLoggedIn'); // Optional: Remove login state from localStorage
+    sessionStorage.removeItem('firstName'); // Optional: Clear sessionStorage
+    sessionStorage.removeItem('lastName'); // Optional: Clear sessionStorage
+
+    // Navigate to the LoggedOutPage
+    navigate('/loggedout'); // Redirect to the logged out page
   };
 
   return (
@@ -74,13 +78,11 @@ function NavbarLogged() {
               <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
             </NavDropdown>
 
-
-              {/* News Dropdown */}
+            {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing">
-            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
             </NavDropdown>
-            {/* <NavDropdown.Item 
 
             {/* Donate Link */}
             <Nav.Link
@@ -93,20 +95,26 @@ function NavbarLogged() {
           </Nav>
 
           {/* Display profile icon for mobile view */}
-          {/* {isMobileView && ( */}
-            <BsPersonCircle
-              className="navbar-icon person-icon"
-              title="Profile"
-              style={{ color: '#003883', fontSize: '1.5rem', cursor: 'pointer' }}
-              onClick={toggleProfileBox}
-            />
-          {/* )} */}
+          <BsPersonCircle
+            className="navbar-icon person-icon"
+            title="Profile"
+            style={{ color: '#003883', fontSize: '1.5rem', cursor: 'pointer' }}
+            onClick={toggleProfileBox}
+          />
 
           {/* Profile box */}
           {isProfileVisible && (
             <div className="profile-box">
               <BsPersonCircle className="profile-box-icon" size={50} />
               <h3 className="profile-box-title">Profile</h3>
+              <p>
+                <span className="fade-in224 fade-in-word224">{firstName}</span>{' '}
+                <span className="fade-in224 fade-in-word224">{lastName}</span>{' '}
+                <span className="fade-in224 fade-in-word224">Welcome</span>{' '}
+                <span className="fade-in224 fade-in-word224">Back</span>{' '}
+                <span className="fade-in224 fade-in-word224">!</span>
+              </p>
+
               <ul className="profile-box-links">
                 <li><Link to="/resetpassword">Change Password</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>

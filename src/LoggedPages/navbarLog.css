@@ -526,6 +526,37 @@
   margin: 4px 0;
 }
 
+.fade-in224 {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn224 1s forwards;
+}
+
+.fade-in-word224:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.fade-in-word224:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.fade-in-word224:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.fade-in-word224:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.fade-in-word224:nth-child(5) {
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn224 {
+  to {
+    opacity: 1;
+  }
+}
 
 
 

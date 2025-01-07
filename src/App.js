@@ -26,6 +26,7 @@ import Volunteer from './LoggedPages/Volunteer';
 import Economics from './LoggedPages/Economics';
 import Engineering from './LoggedPages/Engineering';
 import Humanities from './LoggedPages/Humanities';
+import LoggedOutPage from './LoggedPages/LoggedOutPage';
 import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
@@ -104,6 +105,7 @@ function App() {
         <Route path="/privacy-policy" element={<Popia/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
+        <Route path="/loggedout" element={<LoggedOutPage/>} />
 
         <Route path="/manage" element={<Manage/>} />
       </Routes>
