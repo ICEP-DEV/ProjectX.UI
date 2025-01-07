@@ -43,7 +43,7 @@ function Events() {
 
   const tileContent = ({ date, view }) => {
     const hasEvent = eventsData.some(event => new Date(event.date).toDateString() === date.toDateString());
-    return view === 'month' && hasEvent ? <div className="event-dot" /> : null;
+    return view === 'month' && hasEvent ? <div className="siz-event-dot" /> : null;
   };
 
   const scrollToEvent = (eventDate) => {
@@ -57,39 +57,39 @@ function Events() {
     navigate('/volunteer', { state: { roles } });
   };
 
-
   return (
     <div>
-      <div className="events-container">
-        <header className="header">
+      <div className="siz-events-container">
+        <header className="siz-header">
           <h1>EVENTS</h1>
         </header>
-        <div className="carousel">
+        <div className="siz-carousel">
           {eventsData.map((event, index) => (
-            <div className="event-card" key={index}>
-              <img src={`data:image/jpeg;base64,${event.media}`} alt="Event Media"/>
+            <div className="siz-event-card" key={index}>
+              <img src={`data:image/jpeg;base64,${event.media}`} alt="Event Media" />
               <h3>{event.title}</h3>
               <p>{event.description}</p>
-              <div className="buttons">
-                <button className="rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
-                <button className="volunteer-button" onClick={() => handleVolunteerClick(event.volunteerRoles)}>Volunteer</button>
-
+              <div className="siz-buttons">
+                <button className="siz-rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
+                <button className="siz-volunteer-button" onClick={() => handleVolunteerClick(event.volunteerRoles)}>Volunteer</button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="calendar-container">
+        <div className="siz-calendar-container">
           <h2>Calendar</h2>
-          <div className="calendar-content" ref={calendarRef}>
-            <Calendar
-              onChange={setValue}
-              value={value}
-              tileContent={tileContent}
-              onClickDay={handleDayClick}
-              onMouseOver={(date) => handleDayHover(date)}
-              onMouseLeave={handleDayLeave}
-            />
+          <div className="siz-calendar-content" ref={calendarRef}>
+          <Calendar
+  onChange={setValue}
+  value={value}
+  tileContent={tileContent}
+  onClickDay={handleDayClick}
+  onMouseOver={(date) => handleDayHover(date)}
+  onMouseLeave={handleDayLeave}
+  showWeekdays={false} // Hides days of the week
+/>
+
             {hoveredEvent && (
               <div className="event-tooltip">
                 {hoveredEvent}
@@ -99,8 +99,8 @@ function Events() {
         </div>
 
         {popupEvent && (
-          <div className="popup">
-            <div className="popup-content">
+          <div className="siz-popup">
+            <div className="siz-popup-content">
               <h3>{popupEvent.title}</h3>
               <p>{popupEvent.description}</p>
               <p><strong>Time:</strong> {popupEvent.time}</p>
@@ -110,7 +110,7 @@ function Events() {
           </div>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

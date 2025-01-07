@@ -80,7 +80,6 @@ const PasswordReset = () => {
     <div>
       <div className="containerss">
 
-
         <div className="forms-containerss">
           <form onSubmit={handleReset} className="sign-in-formss">
             <h2 className="titless">Change Password</h2>
