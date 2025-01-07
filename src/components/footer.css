@@ -1,34 +1,30 @@
 /* General footer styles */
 .site-footer {
   background: linear-gradient(15deg, #005596 0%, #ce1127 100%);
-  color: white;
-  padding: -10px 0;
-  padding-top: 10px;
-
-  
-  padding-top: 10px;
-  position: relative; /* Ensure proper placement */
-  bottom: 0;
+  color: white; 
+  padding: 10px 0; 
+  position: relative; /* Ensure proper placement */ 
+  bottom: 0; 
   width: 100%;
 }
 
 .site-footer-title {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+
   margin-right: 310px;
 }
 
 .site-footer-titles{
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  
   margin-right: 70px;
 }
 
 .site-footer-links {
   list-style-type: none;
-  padding: 0px;
+  padding: 0;
   
 }
 
@@ -112,187 +108,4 @@
   color: #e6b012; /* Darker blue on hover */
 }
 
-
-/* Responsive Design */
-
-/* Tablets (Portrait and Landscape) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .footer-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Center align content */
-  }
-
-  /* Center titles */
-  .site-footer-title, .site-footer-titles {
-    margin-right: 0;
-    text-align: center;
-  }
-
-  /* Center links under Quick Links */
-  #links {
-    text-align: center;
-  }
-
-  .site-footer-links {
-    margin: 0; /* Remove any left offset */
-    padding: 0; /* Ensure no padding interferes */
-    display: inline-block; /* Center the list */
-    text-align: left; /* Links align under the title */
-  }
-
-  .site-footer-link-item {
-    margin-bottom: 8px;
-  }
-
-  /* Social icons */
-  .social-iconss {
-    font-size: 1.8rem; /* Slightly smaller icons for tablets */
-    margin: 0 8px; /* Equal spacing between icons */
-  }
-
-  /* Adjust graduation icon for centering */
-  .graduation-icon {
-    margin: 20px auto;
-  }
-
-  /* Center Social Media section */
-  #linksss {
-    margin: 20px 0;
-    transform: translateX(0);
-  }
-
-  /* Center copyright text */
-  .footer-copyright {
-    margin: 15px 0;
-    text-align: center;
-  }
-}
-
-
-/* Laptops (Smaller screens) */
-@media screen and (min-width: 1024px) and (max-width: 1366px) {
-  .footer-row {
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Align text to the center */
-  }
-
-  .graduation-icon {
-    margin: 20px auto; /* Center the icon */
-  }
-
-  .social-iconss {
-    font-size: 2rem; /* Default size */
-    margin: 4px; /* Even spacing between icons */
-  }
-
-  #linksss {
-    transform: translateX(0); /* Reset positioning */
-    margin: 20px 0; /* Add vertical spacing */
-  }
-
-  .site-footer-title, .site-footer-titles {
-    text-align: center; /* Center titles */
-    margin: 0 auto; /* Ensure proper centering */
-  }
-
-  .site-footer-links {
-    margin: 0; /* Remove any offsets */
-    padding: 0; /* Ensure no extra padding interferes */
-    display: inline-block; /* Center the list */
-    text-align: left; /* Align links below the title */
-  }
-
-  .footer-copyright {
-    margin-top: 20px;
-    text-align: center; /* Center text */
-  }
-}
-
-
-/* iPads (Portrait) */
-@media screen and (min-width: 600px) and (max-width: 768px) {
-  .footer-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .graduation-icon {
-    margin: 10px auto;
-  }
-
-  .social-iconss {
-    font-size: 1.6rem;
-    margin-right: 0.5rem;
-  }
-
-  #linksss {
-    margin: 15px 0;
-    transform: translateX(0);
-  }
-
-  .footer-copyright {
-    font-size: 14px;
-    margin: 10px 0;
-  }
-}
-
-/* Mobile Phones*/
-@media screen and (max-width: 600px) {
-  .footer-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Center the Quick Links section */
-  #links {
-    text-align: center;
-    margin: 20px 0; /* Add some spacing */
-  }
-
-  .site-footer-title {
-    text-align: center; /* Ensure title aligns in the center */
-    margin-bottom: 15px; /* Add spacing between title and links */
-    margin-right: 20px;
-  }
-
-  .site-footer-titles{
-    margin-right: 20px;
-  }
-
-  .site-footer-links {
-    padding: 0; /* Remove extra padding */
-    display: inline-block; /* Align links in the center */
-    text-align: left; /* Align links relative to their section */
-  }
-
-  .site-footer-link-item {
-    margin-bottom: 8px;
-  }
-
-  .graduation-icon {
-    margin: 20px auto;
-  }
-
-  .footer-copyright {
-    font-size: 12px;
-    margin: 10px 0;
-  }
-
-  /* Adjust social icons for mobile */
-  .social-iconss {
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
-  }
-
-  /* Adjust Connect section margin */
-  #linksss {
-    margin: 20px 0;
-    transform: translateX(0);
-  }
-}
 

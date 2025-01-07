@@ -79,7 +79,7 @@ const PasswordReset = () => {
   return (
     <div>
       <div className="containerss">
-        <Link to="/login" className="back-button">Back</Link>
+
 
         <div className="forms-containerss">
           <form onSubmit={handleReset} className="sign-in-formss">

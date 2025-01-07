@@ -9,7 +9,7 @@ function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState('section_1');
   const [isProfileVisible, setIsProfileVisible] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992);
+  // const [isMobileView, setIsMobileView] = useState(window.innerWidth < 992);
   const location = useLocation();
 
   useEffect(() => {
@@ -17,11 +17,11 @@ function NavbarLogged() {
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobileView(window.innerWidth < 992);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => setIsMobileView(window.innerWidth < 992);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   const toggleProfileBox = () => setIsProfileVisible(!isProfileVisible);
 
@@ -60,17 +60,27 @@ function NavbarLogged() {
 
             {/* Career Development Dropdown */}
             <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
-              <NavDropdown.Item as={Link} to="/arts">Faculty of Arts and Design</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/economics">Faculty of Economics and Finance</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/engineering">Faculty of Engineering</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/ict">Faculty of Information and Communication Technology</NavDropdown.Item>
+              <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
+                <NavDropdown.Item as={Link} to="/arts" className={location.pathname === '/arts' ? 'active' : ''}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/economics" className={location.pathname === '/economics' ? 'active' : ''}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/engineering" className={location.pathname === '/engineering' ? 'active' : ''}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/humanities" className={location.pathname === '/humanities' ? 'active' : ''}>FACULTY OF HUMANITIES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/ict" className={location.pathname === '/ict' ? 'active' : ''}>FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/management" className={location.pathname === '/management' ? 'active' : ''}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
             </NavDropdown>
 
-            {/* News Dropdown */}
+
+              {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing">
-              <NavDropdown.Item as={Link} to="/news">News</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/events">Events</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
             </NavDropdown>
+            {/* <NavDropdown.Item 
 
             {/* Donate Link */}
             <Nav.Link
@@ -83,14 +93,14 @@ function NavbarLogged() {
           </Nav>
 
           {/* Display profile icon for mobile view */}
-          {isMobileView && (
+          {/* {isMobileView && ( */}
             <BsPersonCircle
               className="navbar-icon person-icon"
               title="Profile"
               style={{ color: '#003883', fontSize: '1.5rem', cursor: 'pointer' }}
               onClick={toggleProfileBox}
             />
-          )}
+          {/* )} */}
 
           {/* Profile box */}
           {isProfileVisible && (

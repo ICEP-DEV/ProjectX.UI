@@ -64,7 +64,7 @@ const Signup = () => {
         const response = await axios.post("http://localhost:5214/api/Alumnus/Registration/Registration", data, {
           withCredentials: true,
         });
-        
+
         setSignUpSuccess('Registration successful! Please log in.');
         setSignUpMode(false);
 
@@ -103,7 +103,7 @@ const Signup = () => {
     <div className="containerss">
       <div id="loadings-spinnerss" className="spinnerss" style={{ display: "none" }}></div>
 
-      <Link to="/login" className="back-button">Back</Link> {/* Back button added here */}
+      {/*<Link to="/login" className="back-button">Back</Link> {/* Back button added here */}
 
       <div className="forms-containerss">
         {/* Sign Up Form */}
@@ -160,6 +160,14 @@ const Signup = () => {
           <button type="submit" className="anchorss transition-linkss" disabled={signUpLoading}>
             {signUpLoading ? 'Loading...' : 'Sign Up'}
           </button>
+
+           {/* New paragraph with "Sign up" link */}
+           <p className="dont-have-account">
+              Already have an account?{" "}
+              <Link to="/login" className="signup-link">
+                Login
+              </Link>
+            </p>
 
           {/* New paragraph with "Sign up" link */}
           {/* <p className="dont-have-account">

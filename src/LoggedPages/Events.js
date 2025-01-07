@@ -67,7 +67,7 @@ function Events() {
         <div className="carousel">
           {eventsData.map((event, index) => (
             <div className="event-card" key={index}>
-              <img src={`data:image/jpeg;base64,${event.media}`} alt="Event Media" />
+              <img src={`data:image/jpeg;base64,${event.media}`} alt="Event Media"/>
               <h3>{event.title}</h3>
               <p>{event.description}</p>
               <div className="buttons">

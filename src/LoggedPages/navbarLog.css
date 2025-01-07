@@ -12,10 +12,15 @@
   
   /* Default state (non-sticky) */
   .navbarr .heading-color {
-    color: #3d8dca; /* Replace 'initial' with your original color if different */
-    font-size: 1em; /* Replace '1em' with your original font size */
-    transition: font-size .5s, color .5s; /* Smooth transition for both properties */
-  }
+    color: #3d8dca;
+    /*Replace'initial'withyouroriginalcolorifdifferent*/font-size: 1em;
+    /*Replace'1em'withyouroriginalfontsize*/transition: font-size .5s, color .5s;
+     /* Smooth transition for both properties */  
+    -webkit-transition: font-size .5s, color .5s;
+    -moz-transition: font-size .5s, color .5s;
+    -ms-transition: font-size .5s, color .5s;
+    -o-transition: font-size .5s, color .5s;
+}
   
   .sticky-wrapper.is-sticky .navbarr .heading-color {
     color: white;
@@ -354,7 +359,7 @@
 
 .nav-link-spacing1 {
  
-  margin-left: 50px;
+  margin-left: 0;
   margin-right: 30px;
 }
 
@@ -442,7 +447,7 @@
 
 /* Profile Box Styles */
 .profile-box {
-  position: absolute;
+  position: fixed;
   top: 80px; /* Adjust to match the navbar height */
   right: 40px;
   width: 260px;
@@ -452,6 +457,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  
 }
 
 .profile-box-icon {

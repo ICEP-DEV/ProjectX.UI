@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './ConfirmProfile.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import AvatarPic from '../images/intro-bg1.gif';
 
 export default function ConfirmProfile() {
   const [profile, setProfile] = useState({
@@ -94,23 +95,46 @@ export default function ConfirmProfile() {
     navigate('/Logged');
   };
 
+  const [image, setImage] = useState(null);  // State for the uploaded image
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);  // Set the uploaded image in state
+      };
+      reader.readAsDataURL(file);  // Read the file as a data URL
+    }
+  };
+
   return (
     <section className="bg-gray-900 text-gray-100">
       <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="w-full max-w-md p-8 space-y-6 rounded-lg shadow-lg bg-gray-800">
           <h2 className="text-2xl font-semibold text-center text-indigo-200">Confirm Your Profile</h2>
 
-          {/* Circular User Icon */}
+        {/* Circular User Icon */}
           <div className="flex flex-col items-center">
             <label htmlFor="file-upload" className="relative cursor-pointer mb-4">
               <div className="w-28 h-28 rounded-full overflow-hidden flex items-center justify-center bg-indigo-600 transition-transform duration-300 hover:scale-110">
-                {/* {profile.profilePicture ? ( 
-                  <img src={profile.profilePicture} alt="User" className="w-full h-full object-cover" />
-                ) : */}( 
-                  <span className="text-white text-3xl">👤</span>
-                )
+                {/* Display the uploaded image or the default AvatarPic */}
+                {image ? (
+                  <img src={image} alt="User Avatar" className="w-full h-full object-cover" />
+                ) : (
+                  <img src={AvatarPic} alt="Default Avatar" className="w-full h-full object-cover" />
+                )}
               </div>
             </label>
+
+            {/* File input for uploading an image */}
+            <input
+              type="file"
+              id="file-upload"
+              className="hidden"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
           </div>
 
           {/* Form for user details */}

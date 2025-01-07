@@ -12,7 +12,7 @@ const UserTable = () => {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchField, setSearchField] = useState('firstName'); // Default search field
+    const [searchField, setSearchField] = useState('alumnusId'); // Default search field
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(6);
 
@@ -80,6 +80,7 @@ const UserTable = () => {
                         variant="outlined"
                         style={{ width: '25%' }}
                     >
+                        <MenuItem value="alumnusId">Student Number</MenuItem>
                         <MenuItem value="firstName">Name</MenuItem>
                         <MenuItem value="lastName">Surname</MenuItem>
                         <MenuItem value="campus">Campus</MenuItem>
