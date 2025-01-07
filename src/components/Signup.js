@@ -64,7 +64,7 @@ const Signup = () => {
         const response = await axios.post("http://localhost:5214/api/Alumnus/Registration/Registration", data, {
           withCredentials: true,
         });
-        
+
         setSignUpSuccess('Registration successful! Please log in.');
         setSignUpMode(false);
 

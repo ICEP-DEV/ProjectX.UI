@@ -8,11 +8,11 @@ import NavbarLogged from './NavbarLogged';
 import { Box } from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
 
-const UserTable = () => {
+const ViewResponses = () => {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchField, setSearchField] = useState('alumnusId'); // Default search field
+    const [searchField, setSearchField] = useState('firstName'); // Default search field
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(6);
 
@@ -60,7 +60,7 @@ const UserTable = () => {
             <Sidebar />
             <Box flex="1" ml="200px" p={3}>
                 <Typography variant="h4" align="center" color="#003883" gutterBottom>
-                    Registered Alumni
+                    Responses
                 </Typography>
 
                 {/* Search Controls */}
@@ -80,7 +80,6 @@ const UserTable = () => {
                         variant="outlined"
                         style={{ width: '25%' }}
                     >
-                        <MenuItem value="alumnusId">Student Number</MenuItem>
                         <MenuItem value="firstName">Name</MenuItem>
                         <MenuItem value="lastName">Surname</MenuItem>
                         <MenuItem value="campus">Campus</MenuItem>
@@ -147,4 +146,4 @@ const UserTable = () => {
     );
 };
 
-export default UserTable;
+export default ViewResponses;

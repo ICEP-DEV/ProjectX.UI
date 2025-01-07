@@ -42,9 +42,9 @@ const UploadJobs = () => {
         location: '',
         closingdate: '',
         link: ''
-        
+
       });
-      
+
     } catch (error) {
       console.error('Error uploading job post', error);
       setSubmitError('Error uploading job post. Please try again later.');

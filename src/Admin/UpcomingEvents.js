@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, List, ListItem, ListItemText, Box } from '@mui/material';
+import { Button,Card, CardContent, Typography, List, ListItem, ListItemText, Box } from '@mui/material';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom'; // For navigation
 const UpcomingEvents = () => {
   const [eventsData, setEvents] = useState([]);
 
+    //handling the responses button
+    const navigate = useNavigate();
+  const handleResponses = (item, type) => {
+
+        navigate('/viewResponses', { state: { newsItem: item } });
+
+  };
   // Fetch events on component mount
   useEffect(() => {
     const fetchEvents = async () => {
@@ -20,7 +27,7 @@ const UpcomingEvents = () => {
 
   return (
     <Card style={{ maxWidth: 500, marginLeft: '50px', height: 530 }}>
-      <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
+      <CardContent style={{ maxHeight: '500px', overflowY: 'auto' }}>
         <Typography variant="h6" color="#003883" gutterBottom>
           Upcoming Events
         </Typography>
@@ -36,7 +43,12 @@ const UpcomingEvents = () => {
                 secondary={
                   <>
                     <Typography variant="body2" color="textSecondary">
-                      Date: { new Date(item.date).toLocaleDateString("en-GB",{ day: "2-digit",month: "long",year: "numeric", })}
+                      Date:{" "}
+                      {new Date(item.date).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
                       Time: {item.time}
@@ -47,6 +59,21 @@ const UpcomingEvents = () => {
                   </>
                 }
               />
+              <Button
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  alignSelf: 'flex-end',
+                  background:
+                    'linear-gradient(15deg, #ce1127 0%, #003883 100%)',
+                  color: '#fff',
+                  ':hover': { background: '#FF8C00' },
+                }}
+                onClick={() => handleResponses()}
+              >
+                Responses
+              </Button>
+
             </ListItem>
           ))}
         </List>

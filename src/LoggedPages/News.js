@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './news.css';
 import Footer from '../components/Footer';
 
@@ -11,65 +12,26 @@ import mag1 from '../images/mag1.jpg';
 import mag2 from '../images/mag2.jpg';
 import mag3 from '../images/mag3.jpg';
 import mag4 from '../images/mag4.jpg';
+
 function News() {
   const navigate = useNavigate();
+  const [newsArticles, setNewsArticles] = useState([]);
+  const [magazines, setMagazines] = useState([]);
+  const [activeTab, setActiveTab] = useState('general');
 
-  const newsArticles = [
-    {
-      title: "Structured Master’s makes performing technologies and collaboration look easy!",
-      subDescription: "Published: 6 November 2024, by Kgothatso Monono",
-      description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
-      badge: "1",
-      img: news1,
-    },
-    {
-      title: "The Faculty of ICT’s Hacker Society highlights challenges faced by young women in tech.",
-      subDescription: "Published: 5 November 2024, by Kgothatso Monono",
-      description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
-      badge: "2",
-      img: news2,
-    },
-    {
-      title: "TUT to celebrate academic stars at prestigious awards ceremony",
-      subDescription: "Published: 5 November 2024, by Phaphama Tshisikhawe",
-      description: "On 13 November 2024, the Tshwane University of Technology (TUT) Academic Excellence Awards will recognize exceptional academic staff.",
-      badge: "3",
-      img: news3,
-    },
-    {
-      title: "TUT, famed for developing elite athletes, calls for funding and sponsorship",
-      subDescription: "Published: 6 November 2024, by Phumla Mkize",
-      description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
-      badge: "4",
-      img: news4,
-    },
-  ];
-  const magazines = [
-    {
-      description: "The Autumn 2024 edition of Heita magazine celebrates TUT's graduates, highlighting their academic achievements, inspiring journeys, and the diverse fields they’re entering",
-      badge: "1",
-      img: mag1,
-      link: "https://heitatut.co.za/Vol16no3/#page=1",
-    },
-    {
-      description: "This edition celebrates TUT women excelling in academia, arts, tech, and service, showcasing their impact and TUT’s commitment to gender equity.",
-      badge: "2",
-      img: mag2,
-      link: "https://heitatut.co.za/Vol16no5/#page=1",
-    },
-    {
-      description: "This edition highlights the experiences and achievements of students with disabilities, showcasing their resilience, talents, and contributions to the university community.",
-      badge: "3",
-      img: mag3,
-      link: "https://heitatut.co.za/Vol16no4/#page=1",
-    },
-    {
-      description: "At TUT, embracing diversity means valuing and respecting the unique identities, cultures, and perspectives that shape our vibrant community. It’s about creating a space where everyone feels seen, heard, and empowered to contribute",
-      badge: "4",
-      img: mag4,
-      link: "https://heitatut.co.za/Vol16no6/#page=1",
-    },
-  ];
+  // Fetch news articles based on the selected type
+  const fetchNews = async (type) => {
+    try {
+      const response = await axios.get(`http://localhost:5214/api/Alumnus/GetNewsByType/GetNews/${type}`);
+      if (type === 'general') {
+        setNewsArticles(response.data);
+      } else if (type === 'magazine') {
+        setMagazines(response.data);
+      }
+    } catch (error) {
+      console.error(`Error fetching ${type} news:`, error);
+    }
+  };
   const historicalArchives1 = [
     {
       // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
@@ -95,13 +57,16 @@ function News() {
       // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
       img: news2,
     },
-    
+
   ];
-  const [NewsTab, setNewsTab] = useState("General")
-  function newsTabs(data) {
-    console.log(magazines)
-    setNewsTab(data)
-  }
+
+
+  // Fetch news data when the component mounts
+  useEffect(() => {
+    fetchNews('general');
+    fetchNews('magazine');
+  }, []);
+
   return (
     <div>
       <div className="container">
@@ -118,15 +83,15 @@ function News() {
             {["General", "Magazine", "Historical Archives"].map((topic, index) => (
               <li className="nav-item" role="presentation" key={index}>
                 <button
-                  className={`nav-link ${index === 0 ? 'active' : ''}`}
-                  id={`${topic.toLocaleLowerCase()}-tab`}
+                  className={`nav-link ${activeTab === topic.toLowerCase() ? 'active' : ''}`}
+                  id={`${topic.toLowerCase()}-tab`}
                   data-bs-toggle="tab"
-                  data-bs-target={`#${topic.toLocaleLowerCase()}-tab-pane`}
+                  data-bs-target={`#${topic.toLowerCase()}-tab-pane`}
                   type="button"
                   role="tab"
-                  aria-controls={`${topic.toLocaleLowerCase()}-tab-pane`}
-                  aria-selected={index === 0 ? 'true' : 'false'}
-                  onClick={() => newsTabs(topic)}
+                  aria-controls={`${topic.toLowerCase()}-tab-pane`}
+                  aria-selected={activeTab === topic.toLowerCase() ? 'true' : 'false'}
+                  onClick={() => setActiveTab(topic.toLowerCase())}
                 >
                   {topic}
                 </button>
@@ -140,117 +105,141 @@ function News() {
         <div className="row">
           <div className="col-12">
             <div className="tab-content" id="myTabContent">
-             
               {/* General News Tab */}
-              {NewsTab.toLocaleLowerCase() === "General".toLocaleLowerCase() && <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab" tabIndex="0">
-                <div className="row">
-                  {newsArticles.map((item, idx) => (
-                    <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                      <div className="custom-block bg-white shadow-lg">
-                        <div className="d-flex">
-                          <div>
-                            <h5 className="mb-2">{item.title}</h5>
-                            <img src={item.img} alt="" className='gen-newsimg'style={{ width: "260px", margin: "10px 0" }} />
-                            <p className="sub-description mb-1">{item.subDescription}</p>
-                            <p className="description-text mb-0">{item.description}</p>
-                          </div>
-                          <span className="badge bg-design rounded-pill ms-auto">{item.badge}</span>
+              {activeTab === 'general' && (
+                <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab">
+                  <div className="row">
+                    {newsArticles.map((item, idx) => (
+                      <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
+                        <div className="custom-block bg-white shadow-lg">
+                          <h5 className="mb-2">{item.headline}</h5>
+                          <img src={`data:image/jpeg;base64,${item.media}`} alt="" style={{ width: "400px", height: "300px", margin: "10px 0" }} />
+                          <p className="sub-description mb-1">
+                            {`Published: ${new Date(item.publishedDate).toLocaleDateString("en-GB", {
+                              day: "2-digit",
+                              month: "long",
+                              year: "numeric",
+                            })}, by ${item.publisher}`}
+                          </p>
+                          <p className="description-text mb-0">{item.description}</p>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>}
+              )}
 
               {/* Magazine Tab */}
-              {NewsTab.toLocaleLowerCase() === "Magazine".toLocaleLowerCase() &&
-                // <div className="tab-pane fade" id="magazine-tab-pane" role="tabpanel" aria-labelledby="magazine-tab" tabIndex="0">
+              {activeTab === 'magazine' && (
+                <div className="tab-pane fade show active" id="magazine-tab-pane" role="tabpanel" aria-labelledby="magazine-tab">
                   <div className="row">
                     {magazines.map((item, idx) => (
                       <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
                         <div className="custom-block bg-white shadow-lg">
                           <a href={item.link} target="_blank" rel="noopener noreferrer">
-                            <div className="d-flex">
-                              <div>
-                                <img src={item.img} alt={`Magazine edition ${item.badge}`} className='magimg' />
-                                <p className="description-text mb-0">{item.description}</p>
-                              </div>
-                            </div>
+                            <img src={`data:image/jpeg;base64,${item.media}`} alt="Magazine edition" className="magimg" />
+                            <p className="description-text mb-0">{item.description}</p>
                           </a>
                         </div>
                       </div>
                     ))}
                   </div>
-                // </div>
-              }
-              {NewsTab.toLocaleLowerCase() === "Historical Archives".toLocaleLowerCase() &&
+                </div>
+              )}
+
+              {/* Historical Archives Tab */}
+              {activeTab === 'historical archives' && (
                 <>
-                  {/* Historical Archives Tab 1 */}
-                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
-                  <h5>2004 - 2008</h5>
+                  {/* 2004 - 2008 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
+                    <h5>2004 - 2008</h5>
                     <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
                     <div className="row">
-                     
                       {historicalArchives1.map((image, idx) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
-              <div className="card shadow-sm">
-              <img
-            src={image.img} // Use 'img' as defined in historicalArchives1
-            alt="Historical Archive" // Provide a meaningful alt text
-            className="card-img-top"
-            style={{ height: "200px", objectFit: "cover" }}
-            />
+                      <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+                        <div className="card shadow-sm">
+                        <img
+                      src={image.img} // Use 'img' as defined in historicalArchives1
+                      alt="Historical Archive" // Provide a meaningful alt text
+                      className="card-img-top"
+                      style={{ height: "200px", objectFit: "cover" }}
+                      />
 
-              </div>
-            </div>
-          ))}
-                      
                     </div>
                   </div>
-                  {/* Historical Archives Tab2 */}
-                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab" tabIndex="0">
-                  <h5>2009 - 2013</h5>  
+                  ))}
+                  </div>
+                  </div>
+
+                  {/* 2009 - 2013 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
+                    <h5>2009 - 2013</h5>
+                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                    <div className="row">
+
+                      {historicalArchives1.map((image, idx) => (
+                      <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+                        <div className="card shadow-sm">
+                        <img
+                        src={image.img} // Use 'img' as defined in historicalArchives1
+                        alt="Historical Archive" // Provide a meaningful alt text
+                        className="card-img-top"
+                        style={{ height: "200px", objectFit: "cover" }}
+                        />
+
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                   {/* 2009 - 2013 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
+                  <h5>2014 - 2018</h5>
                   <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
                     <div className="row">
-                    
                       {historicalArchives1.map((image, idx) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
-              <div className="card shadow-sm">
-              <img
-            src={image.img} // Use 'img' as defined in historicalArchives1
-            alt="Historical Archive" // Provide a meaningful alt text
-            className="card-img-top"
-            style={{ height: "200px", objectFit: "cover" }}
-            />
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+                          <div className="card shadow-sm">
+                          <img
+                        src={image.img} // Use 'img' as defined in historicalArchives1
+                        alt="Historical Archive" // Provide a meaningful alt text
+                        className="card-img-top"
+                        style={{ height: "200px", objectFit: "cover" }}
+                        />
 
-              </div>
-            </div>
+                          </div>
+                        </div>
+
                       ))}
                     </div>
                   </div>
-                  {/* Historical Archives Tab3 */}
-                  <div className="" id="historicalarchives-tab-pane" >
-                  <h5>2018 - 2023</h5>
-                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
+
+
+                  {/* 2018 - 2023 */}
+                  <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
+                    <h5>2019 - 2023</h5>
+                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape</p>
                     <div className="row">
-                      
-                      {historicalArchives1.map((image, idx) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
-              <div className="card shadow-sm">
-              <img
-            src={image.img} // Use 'img' as defined in historicalArchives1
-            alt="Historical Archive" // Provide a meaningful alt text
-            className="card-img-top"
-            style={{ height: "200px", objectFit: "cover" }}
-            />
 
-              </div>
-            </div>
+                      {historicalArchives1.map((image, idx) => (
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
+                          <div className="card shadow-sm">
+                          <img
+                        src={image.img} // Use 'img' as defined in historicalArchives1
+                        alt="Historical Archive" // Provide a meaningful alt text
+                        className="card-img-top"
+                        style={{ height: "200px", objectFit: "cover" }}
+                        />
+
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>
+
                 </>
-              }
+              )}
             </div>
           </div>
         </div>
