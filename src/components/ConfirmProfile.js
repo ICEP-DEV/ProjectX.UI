@@ -46,9 +46,12 @@ export default function ConfirmProfile() {
           profilePicture: data.profilePicture
         });
 
+
                 // Store the profile data in session storage
                 sessionStorage.setItem('firstName', data.firstName);
                 sessionStorage.setItem('lastName', data.lastName);
+                sessionStorage.setItem('alumnusId',data.alumnusId);
+                sessionStorage.setItem('data',data);
         
       } else if (response.status === 204) {
         console.log("No content found");
