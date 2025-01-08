@@ -19,7 +19,7 @@ const ViewResponses = () => {
     useEffect(() => {
         // Fetch users data from API
         axios
-            .get('http://localhost:5214/api/Admin/GetAlumnis/GetAlumnis')
+            .get('http://localhost:5214/api/Admin/GetEventResponses/GetEventResponses')
             .then((response) => {
                 setUsers(response.data);
                 setFilteredUsers(response.data); // Initially, show all users
@@ -95,6 +95,7 @@ const ViewResponses = () => {
                         <Table>
                             <TableHead>
                                 <TableRow>
+                                    
                                     <TableCell style={{ fontWeight: 'bold' }}>Alumni ID</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Name</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Surname</TableCell>
@@ -103,6 +104,9 @@ const ViewResponses = () => {
                                     <TableCell style={{ fontWeight: 'bold' }}>Course</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Graduation Year</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Profile</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>EventTitle</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>EventDate</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>VolunteerRole</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -116,7 +120,11 @@ const ViewResponses = () => {
                                             <TableCell>{user.campus}</TableCell>
                                             <TableCell>{user.faculty}</TableCell>
                                             <TableCell>{user.course}</TableCell>
-                                            <TableCell>{user.graduationYear}</TableCell>
+                                            <TableCell>{user.AlumnusLinkedInProfile}</TableCell>
+                                            <TableCell>{user.EventTitle}</TableCell>
+                                            <TableCell>{user.EventDate}</TableCell>
+                                            <TableCell>{user.VolunteerRole}</TableCell>
+
                                             <TableCell>
                                                 <a
                                                     href={user.linkedInProfile}
