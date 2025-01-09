@@ -9,50 +9,62 @@ import { Box } from '@mui/material';
 import Sidebar from '../Admin/Sidebar';
 
 const ViewResponses = () => {
-    const [users, setUsers] = useState([]);
+    const [eventsData, setEvents] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchField, setSearchField] = useState('firstName'); // Default search field
+    const [searchField, setSearchField] = useState('AlumnusFirstName'); // Default search field
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(6);
 
     useEffect(() => {
-        // Fetch users data from API
-        axios
-            .get('http://localhost:5214/api/Admin/GetEventResponses/GetEventResponses')
-            .then((response) => {
-                setUsers(response.data);
-                setFilteredUsers(response.data); // Initially, show all users
-            });
+        const fetchEvents = async () => {
+            try {
+                const response = await axios.get("http://localhost:5214/api/Admin/GetEventResponses/GetEventResponses");
+                console.log("API Response:", response.data); // Log to inspect data
+                setEvents(response.data);
+                setFilteredUsers(response.data); // Initialize filteredUsers with eventsData
+            } catch (error) {
+                console.error("Error fetching events:", error);
+            }
+        };
+        fetchEvents();
     }, []);
 
-    // Handle search
     const handleSearch = (e) => {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
 
-        const filtered = users.filter((user) =>
-            user[searchField]?.toString().toLowerCase().includes(query)
+        const filtered = eventsData.filter((volunteer) =>
+            volunteer[searchField]?.toString().toLowerCase().includes(query)
         );
 
         setFilteredUsers(filtered);
     };
 
-    // Handle field change for search
     const handleFieldChange = (e) => {
         setSearchField(e.target.value);
     };
 
-    // Handle page change
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
 
-    // Handle rows per page change
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
+
+    const approveVolunteer = (alumnusId) => {
+        console.log(`Approve clicked for Alumnus ID: ${alumnusId}`);
+        // Add approve functionality here
+    };
+
+    
+    const rejectVolunteer = (alumnusId) => {
+        console.log(`Rejected volunteer with ID: ${alumnusId}`);
+        // Add your API call or logic to update the status
+    };
+    
 
     return (
         <Box display="flex">
@@ -63,7 +75,6 @@ const ViewResponses = () => {
                     Responses
                 </Typography>
 
-                {/* Search Controls */}
                 <Box display="flex" justifyContent="space-between" mb={3}>
                     <TextField
                         label="Search"
@@ -80,63 +91,80 @@ const ViewResponses = () => {
                         variant="outlined"
                         style={{ width: '25%' }}
                     >
-                        <MenuItem value="firstName">Name</MenuItem>
-                        <MenuItem value="lastName">Surname</MenuItem>
-                        <MenuItem value="campus">Campus</MenuItem>
-                        <MenuItem value="faculty">Faculty</MenuItem>
-                        <MenuItem value="course">Course</MenuItem>
-                        <MenuItem value="graduationYear">Graduation Year</MenuItem>
+                        <MenuItem value="alumnusFirstName">Name</MenuItem>
+                        <MenuItem value="alumnusLastName">Surname</MenuItem>
+                        <MenuItem value="alumnusCampus">Campus</MenuItem>
+                        <MenuItem value="alumnusCourse">Course</MenuItem>
+                        <MenuItem value="eventTitle">Event Title</MenuItem>
+                        <MenuItem value="volunteerRole">Volunteer Role</MenuItem>
                     </TextField>
                 </Box>
 
-                {/* Table */}
                 <Paper>
                     <TableContainer>
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    
                                     <TableCell style={{ fontWeight: 'bold' }}>Alumni ID</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Name</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Surname</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Campus</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>Faculty</TableCell>
                                     <TableCell style={{ fontWeight: 'bold' }}>Course</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>Graduation Year</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>Profile</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>EventTitle</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>EventDate</TableCell>
-                                    <TableCell style={{ fontWeight: 'bold' }}>VolunteerRole</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>Event Title</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>Status</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>Volunteer Role</TableCell>
+                                    <TableCell style={{ fontWeight: 'bold' }}>Action</TableCell>
                                 </TableRow>
                             </TableHead>
+                            
                             <TableBody>
                                 {filteredUsers
                                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                    .map((user) => (
-                                        <TableRow key={user.id}>
-                                            <TableCell>{user.alumnusId}</TableCell>
-                                            <TableCell>{user.firstName}</TableCell>
-                                            <TableCell>{user.lastName}</TableCell>
-                                            <TableCell>{user.campus}</TableCell>
-                                            <TableCell>{user.faculty}</TableCell>
-                                            <TableCell>{user.course}</TableCell>
-                                            <TableCell>{user.AlumnusLinkedInProfile}</TableCell>
-                                            <TableCell>{user.EventTitle}</TableCell>
-                                            <TableCell>{user.EventDate}</TableCell>
-                                            <TableCell>{user.VolunteerRole}</TableCell>
-
+                                    .map((volunteer, index) => (
+                                        <TableRow key={index}>
+                                            <TableCell>{volunteer.alumnusId || "N/A"}</TableCell>
+                                            <TableCell>{volunteer.alumnusFirstName}</TableCell>
+                                            <TableCell>{volunteer.alumnusLastName}</TableCell>
+                                            <TableCell>{volunteer.alumnusCampus}</TableCell>
+                                            <TableCell>{volunteer.alumnusCourse}</TableCell>
+                                            <TableCell>{volunteer.eventTitle}</TableCell>
+                                            <TableCell>{volunteer.status || "Awaiting"}</TableCell>
+                                            <TableCell>{volunteer.volunteerRole}</TableCell>
                                             <TableCell>
-                                                <a
-                                                    href={user.linkedInProfile}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
+                                                <button
+                                                    style={{
+                                                        padding: "5px 10px",
+                                                        margin: "0 5px",
+                                                        backgroundColor: "green",
+                                                        color: "white",
+                                                        border: "none",
+                                                        borderRadius: "5px",
+                                                        cursor: "pointer",
+                                                    }}
+                                                    onClick={() => approveVolunteer(volunteer.alumnusId)}
                                                 >
-                                                    View Profile
-                                                </a>
+                                                    Approve
+                                                </button>
+                                                <button
+                                                    style={{
+                                                        padding: "5px 10px",
+                                                        margin: "0 5px",
+                                                        backgroundColor: "red",
+                                                        color: "white",
+                                                        border: "none",
+                                                        borderRadius: "5px",
+                                                        cursor: "pointer",
+                                                    }}
+                                                    onClick={() => rejectVolunteer(volunteer.alumnusId)}
+                                                >
+                                                    Reject
+                                                </button>
                                             </TableCell>
                                         </TableRow>
                                     ))}
                             </TableBody>
+
+
                         </Table>
                     </TableContainer>
                     <TablePagination

@@ -71,7 +71,7 @@ const Sidebar = () => {
                     onMouseEnter={() => handleMouseEnter(3)}
                     onMouseLeave={handleMouseLeave}
                     style={buttonStyles(3)}
-                    onClick={() => handleClick('/volunteers')}  // Navigate to the Volunteers page
+                    onClick={() => handleClick('/viewResponses')}  // Navigate to the Volunteers page
                 >
                     <ListItemIcon><VolunteerActivism style={{ color: buttonStyles(3).color }} /></ListItemIcon>
                     <ListItemText primary="Volunteers" />
