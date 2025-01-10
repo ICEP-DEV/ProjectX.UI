@@ -177,7 +177,7 @@ const AlumniCommunity = () => {
       
       <div className="modal-details">
         <p><strong>Course:</strong> {selectedAlumnus.course}</p>
-        <p><strong>Year Began:</strong> {selectedAlumnus.graduationBegan}</p>
+        {/* <p><strong>Year Began:</strong> {selectedAlumnus.graduationBegan}</p> */}
         <p><strong>Student Number:</strong> {selectedAlumnus.alumnusId}</p>
         <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
         <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
