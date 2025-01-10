@@ -51,6 +51,17 @@ export default function ConfirmProfile() {
             ? `data:image/png;base64,${data.profilePicture}`
             : null,
         });
+<<<<<<< HEAD
+=======
+
+
+                // Store the profile data in session storage
+                sessionStorage.setItem('firstName', data.firstName);
+                sessionStorage.setItem('lastName', data.lastName);
+                sessionStorage.setItem('alumnusId',data.alumnusId);
+                sessionStorage.setItem('data',data);
+        
+>>>>>>> ff082a0eadc405019decffd4e81685471454c5fd
       } else if (response.status === 204) {
         console.log("No content found");
       } else {

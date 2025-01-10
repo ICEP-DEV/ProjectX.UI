@@ -36,6 +36,27 @@ const Dashboard = () => {
         };
     
         fetchAlumniCount();
+
+        const fetchVolunteersCount = async() => {
+          try{
+            const response = await axios.get('http://localhost:5214/api/Admin/CountVolunteers/CountVolunteers');
+            const volunteersCount = response.data;
+            console.log('volunteers :' + volunteersCount);
+            //update card data array with fetched volunteer count
+            setCardData((prevCardData) =>
+              prevCardData.map((card) => 
+                card.title === 'Volunteers' ? { ...card, value: volunteersCount} : card
+              )
+            );
+
+          }
+          catch(error){
+            console.error('Error fetching volunteers count: ', error)
+          }
+
+        };
+
+        fetchVolunteersCount();
       }, []);
 
     return (

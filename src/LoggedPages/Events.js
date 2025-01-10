@@ -53,9 +53,11 @@ function Events() {
     }
   };
 
-  const handleVolunteerClick = (roles) => {
-    navigate('/volunteer', { state: { roles } });
+  const handleVolunteerClick = (eventId, roles) => {
+    console.log(eventId, roles)
+    navigate('/volunteer', { state: { eventId, roles } });
   };
+  
 
   return (
     <div>
@@ -71,7 +73,7 @@ function Events() {
               <p>{event.description}</p>
               <div className="siz-buttons">
                 <button className="siz-rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
-                <button className="siz-volunteer-button" onClick={() => handleVolunteerClick(event.volunteerRoles)}>Volunteer</button>
+                <button className="siz-volunteer-button" onClick={() => handleVolunteerClick(event.id,event.volunteerRoles)}>Volunteer</button>
               </div>
             </div>
           ))}
@@ -81,14 +83,14 @@ function Events() {
           <h2>Calendar</h2>
           <div className="siz-calendar-content" ref={calendarRef}>
           <Calendar
-  onChange={setValue}
-  value={value}
-  tileContent={tileContent}
-  onClickDay={handleDayClick}
-  onMouseOver={(date) => handleDayHover(date)}
-  onMouseLeave={handleDayLeave}
-  showWeekdays={false} // Hides days of the week
-/>
+          onChange={setValue}
+          value={value}
+          tileContent={tileContent}
+          onClickDay={handleDayClick}
+          onMouseOver={(date) => handleDayHover(date)}
+          onMouseLeave={handleDayLeave}
+          showWeekdays={false} // Hides days of the week
+        />
 
             {hoveredEvent && (
               <div className="event-tooltip">
