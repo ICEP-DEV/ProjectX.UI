@@ -5,7 +5,7 @@ import AlumniSpaceLogo from './SearchBarDemoImages/aslogo.png';
 import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
 import ProfilePhoto2 from './SearchBarDemoImages/2.png';
 import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
-import ModelBackGroundPic from './Radio/radio photos/Divider 3.png';
+import ModelBackGroundPic from './Radio/radio photos/Divider 2r.png';
 import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
 
 const AlumniCommunity = () => {
@@ -20,20 +20,36 @@ const AlumniCommunity = () => {
   const [selectedAlumni, setSelectedAlumni] = useState(null);
   const [linkedinModalVisible, setLinkedinModalVisible] = useState(false);
 
+    // Prevent scrolling when modal is open
+    useEffect(() => {
+      if (isModalOpen || linkedinModalVisible) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+  
+      // Cleanup on component unmount
+      return () => {
+        document.body.style.overflow = "auto";
+      };
+    }, [isModalOpen, linkedinModalVisible]);
+
 
   // Fetch data from API on component mount
-  useEffect(() => {
-    const fetchAlumniData = async () => {
-      try {
-        const response = await fetch("http://localhost:5214/api/Admin/GetAlumnis/GetAlumnis");
-        const data = await response.json();
-        setAlumniData(data);
-      } catch (error) {
-        console.error("Error fetching alumni data:", error);
-      }
-    };
-    fetchAlumniData();
-  }, []);
+    useEffect(() => {
+      const fetchAlumniData = async () => {
+        try {
+          const response = await fetch("http://localhost:5214/api/Admin/GetAlumnis/GetAlumnis");
+          const data = await response.json();
+          console.log(data); // Check profilePicture field
+          setAlumniData(data);
+        } catch (error) {
+          console.error("Error fetching alumni data:", error);
+        }
+      };
+      fetchAlumniData();
+    }, []);
+
 
   const handleSearch = async () => {
     if (searchInput.trim() === '') {
@@ -90,8 +106,14 @@ const AlumniCommunity = () => {
     setSelectedAlumnus(null);
   };
 
+  
+
   return (
     <div className={`alumni-community ${isModalOpen ? 'blur-background' : ''}`}>
+          {/* Blur effect overlay */}
+    {(isModalOpen || linkedinModalVisible) && (
+      <div className="blur-overlay active"></div>
+    )}
       <div className="blur-overlay">
         <div className="loading-dots">
           <span></span>
@@ -151,41 +173,82 @@ const AlumniCommunity = () => {
       )}
 
 {/* Modal */}
-{isModalOpen && selectedAlumnus && (
-  <div className="modal-overlay">
-    <div className="modal">
-      <button className="close-modal-button" onClick={closeModal}>
+{isModalOpen && selectedAlumnus && ( 
+  <div className="road-to-linkedin-modal">
+    <div className="road-to-linkedin-modal-content">
+
+      {/* Close Icon */}
+      <div
+        className="road-to-linkedin-modal-close-icon"
+        onClick={() => setIsModalOpen(false)}
+      >
+        &times;
+      </div>
+
+      {/* Circular frame with the profile photo */}
+      <div className="road-to-profile-photo-container">
+        <img
+         src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+         alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
+         className="road-to-profile-photo"/>
+      </div>
+
+      {/* Div with the LinkedIn divider image */}
+      <div className="road-to-linkedin-modal-image">
+        <img src={ModelBackGroundPic} alt="LinkedIn Divider" />
+      </div>
+
+      <button
+        className="road-to-close-linkedin-modal"
+        onClick={() => setLinkedinModalVisible(false)}
+      >
         &times;
       </button>
-      {/* Main Heading */}
-      <h1 className="m-inc-text">{`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}</h1>
-        
-      <div className="modal-profile-picture-wrapper">
-        <img
-          src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
-          alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
-          className="modal-profile-picture"
-        />
+      
+      <div className='road-to-linkedin-description'> 
+          <h5>{`${selectedAlumnus.firstName}`} {`${selectedAlumnus.lastName}`}</h5>
+          <p>To connect with {`${selectedAlumnus.firstName}`} {`${selectedAlumnus.lastName}`} on LinkedIn click the linkedIn icon below:</p>
+
         {/* LinkedIn Icon */}
+
         <a
           onClick={() => setLinkedinModalVisible(true)}
           className="linkedin-icon"
         >
           <i className="fab fa-linkedin linked-in-icon"></i>
         </a>
-      </div>
-      
-      <div className="modal-details">
-        <p><strong>Course:</strong> {selectedAlumnus.course}</p>
-        {/* <p><strong>Year Began:</strong> {selectedAlumnus.graduationBegan}</p> */}
-        <p><strong>Student Number:</strong> {selectedAlumnus.alumnusId}</p>
-        <p><strong>Faculty:</strong> {selectedAlumnus.faculty}</p>
-        <p><strong>Campus:</strong> {selectedAlumnus.campus}</p>
-        <p><strong>Year Completed:</strong> {selectedAlumnus.graduationYear}</p>
-      </div>            
+
+        <p>{`${selectedAlumnus.firstName}`} {`${selectedAlumnus.lastName}`}'s Varsity Bio:</p>
+
+        <div className="road-to-linkedin-details-container">
+            <table className="road-to-linkedin-table">
+              <tbody>
+                <tr>
+                  <td><strong>Course:</strong></td>
+                  <td>{selectedAlumnus.course}</td>
+                </tr>
+                <tr>
+                  <td><strong>Faculty:</strong></td>
+                  <td>{selectedAlumnus.faculty}</td>
+                </tr>
+                <tr>
+                  <td><strong>Campus:</strong></td>
+                  <td>{selectedAlumnus.campus}</td>
+                </tr>
+                <tr>
+                  <td><strong>Year Completed:</strong></td>
+                  <td>{selectedAlumnus.graduationYear}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
     </div>
   </div>
 )}
+
 
 {linkedinModalVisible && selectedAlumni &&(
   <div className="linkedin-modal">
@@ -251,23 +314,23 @@ const AlumniCommunity = () => {
               <button
                 className="btn-connect"
                 onClick={() => {
-                  // Check if the URL starts with 'http' or 'www'
-                  let fullUrl = selectedAlumnus.linkedInProfile;
+                  // Dynamically set the fallback URL or clean/modify the URL
+                  let fullUrl = selectedAlumnus?.linkedInProfile 
+                                  ? selectedAlumnus.linkedInProfile 
+                                  : "https://www.linkedin.com";
 
-                  if (selectedAlumnus.linkedInProfile.startsWith("www")) {
-                    // If it starts with 'www', prepend 'https://www.linkedin.com'
-                    fullUrl = `https://${selectedAlumnus.linkedInProfile}`;
-                  } else if (!selectedAlumnus.linkedInProfile.startsWith("http")) {
-                    // If it does not start with 'http', assume it's a relative path and prepend the base URL
-                    fullUrl = `https://www.linkedin.com${selectedAlumnus.linkedInProfile}`;
+                  if (fullUrl.startsWith("www")) {
+                    fullUrl = `https://${fullUrl}`;
+                  } else if (!fullUrl.startsWith("http")) {
+                    fullUrl = `https://www.linkedin.com/${fullUrl}`;
                   }
 
-                  // Open the full URL in a new tab
                   window.open(fullUrl, "_blank");
                 }}
               >
                 Connect
               </button>
+
                 <button className="btn-message">Message</button>
                 <button className="btn-more">More</button>
               </div>
