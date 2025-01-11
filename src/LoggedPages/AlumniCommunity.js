@@ -163,7 +163,6 @@ const AlumniCommunity = () => {
                 <p><strong>Graduation Year:</strong> {alumnus.graduationYear}</p>
                 <p><strong>Campus:</strong> {alumnus.campus}</p>
                 <p><strong>Faculty:</strong> {alumnus.faculty}</p>
-                <p><strong>Faculty:</strong> {alumnus.faculty}</p>
 
               </div>
                   {/* New Button */}
