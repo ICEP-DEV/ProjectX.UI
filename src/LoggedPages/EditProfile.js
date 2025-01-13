@@ -71,6 +71,8 @@ export default function ConfirmProfile() {
       linkedinProfile: profile.linkedinProfile,
       profilePicture: image ? image.split(",")[1] : null, // Send only the base64 string
     };
+
+    console.log("Data to be submitted:", data); // Log data for debugging
   
     try {
       console.log(data);
@@ -233,13 +235,15 @@ export default function ConfirmProfile() {
                 <div>
                   <label className="ep-mb-1 ep-block ep-text-sm ep-font-medium ep-text-indigo-200/65" htmlFor="linkedin">
                     Alumni Linkedin Link 
-                  </label>
+                  </label>                 
                   <input
                     type="text"
                     id="linkedin"
                     className="ep-w-full ep-p-2 ep-rounded-lg ep-bg-gray-700 ep-text-gray-300"
-                    placeholder="LinkedIn Link"
+                    placeholder="Change LinkedIn Link Here"
                     value={profile.linkedinProfile}                    
+                    required
+                    onChange={(e) => setProfile({ ...profile, linkedinProfile: e.target.value })}
                   />
                 </div>
 
