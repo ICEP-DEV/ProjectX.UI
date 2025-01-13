@@ -118,24 +118,10 @@ const Signup = () => {
   return (
     <div className="signup-container1">
       <div className="signup-container2">
-        {/* Left Section */}
-        <div className="signup-container3">
-        <a href="/" className="signup-logo-link">
-            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="signup-logo" />
-          </a>
-          <div className="signup-content">
-            <h1><span className="signup-content-heading">Welcome to Alumni Space</span></h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-              volutpat.
-            </p>
-          </div>
-        </div>
-
         {/* Right Section */}
         <div className="signup-container4">
         <form onSubmit={handleSignUp} className="signup-form">
+          
   <h2>Sign Up</h2>
   {signUpError && <div className="signup-alert-danger">{signUpError}</div>}
   {signUpSuccess && <div className="signup-alert-success">{signUpSuccess}</div>}

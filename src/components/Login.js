@@ -46,20 +46,7 @@ const Login = () => {
       {/* Container 1 */}
       <div className="login-container">
         {/* Container 2 */}
-        <div className="login-left-container">
-          {/* Container 3 */}
-          <a href="/" className="login-logo-link">
-            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="login-logo" />
-          </a>
-          <div className="login-text-content">
-            <h1 className="login-heading">Welcome to Alumni Space</h1>
-            <p className="login-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat.
-            </p>
-          </div>
-        </div>
+
         <div className="login-right-container">
           {/* Container 4 */}
           <div className="login-forms-container">
