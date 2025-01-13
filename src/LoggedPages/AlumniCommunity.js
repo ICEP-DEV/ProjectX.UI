@@ -152,11 +152,12 @@ const AlumniCommunity = () => {
         <div className="alumni-list">
           {filteredAlumni.map(alumnus => (
             <div className="alumni-card" key={alumnus.alumnusProfId}>
-              <img 
-                src={alumnus.profilePicture || "https://via.placeholder.com/150"} 
-                alt={`${alumnus.firstName} ${alumnus.lastName}`} 
-                className="profile-picture" 
-              />
+            <img 
+              src={alumnus.profilePicture ? `data:image/png;base64,${alumnus.profilePicture}` : "https://via.placeholder.com/150"} 
+              alt={`${alumnus.firstName} ${alumnus.lastName}`} 
+              className="profile-picture" 
+            />
+
               <div className="alumni-details">
                 <h4>{`${alumnus.firstName} ${alumnus.lastName}`}</h4>
                 <p><strong>Course:</strong> {alumnus.course}</p>
@@ -188,7 +189,7 @@ const AlumniCommunity = () => {
       {/* Circular frame with the profile photo */}
       <div className="road-to-profile-photo-container">
         <img
-         src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+         src={selectedAlumnus.profilePicture ? `data:image/png;base64,${selectedAlumnus.profilePicture}` : "https://via.placeholder.com/150"} 
          alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
          className="road-to-profile-photo"/>
       </div>
@@ -265,7 +266,7 @@ const AlumniCommunity = () => {
       {/* Circular frame with the profile photo */}
       <div className="profile-photo-container">
         <img
-         src={selectedAlumnus.profilePicture || "https://via.placeholder.com/150"}
+         src={selectedAlumnus.profilePicture ? `data:image/png;base64,${selectedAlumnus.profilePicture}` : "https://via.placeholder.com/150"} 
          alt={`${selectedAlumnus.firstName} ${selectedAlumnus.lastName}`}
          className="profile-photo"/>
       </div>

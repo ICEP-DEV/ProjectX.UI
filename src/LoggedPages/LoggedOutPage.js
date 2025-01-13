@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
-import Moon from './LoggedInPhotos/Moon.png';
-import Astronaut from './LoggedInPhotos/astronaut2.png';
-import Earth from './LoggedInPhotos/earth.png';
-import Rocket from './LoggedInPhotos/rocket.png';
-import LoggedOut from './LoggedInPhotos/LoggedOut.png';
-import ASLogo from '../images/aslogo.png';
-import './NotFoundPage.css';
-import { Link } from 'react-router-dom';
+import Moon from "./LoggedInPhotos/Moon.png";
+import Astronaut from "./LoggedInPhotos/astronaut2.png";
+import Earth from "./LoggedInPhotos/earth.png";
+import Rocket from "./LoggedInPhotos/rocket.png";
+import LoggedOut from "./LoggedInPhotos/LoggedOut.png";
+import ASLogo from "../images/aslogo.png";
+import "./NotFoundPage.css";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
-
   useEffect(() => {
     // Add the class for pan-in animation when the component loads
-    document.body.classList.add('rp-login-page');
-    document.querySelector('.fof-root')?.classList.add('animate-in');
-    
+    document.body.classList.add("rp-login-page");
+    document.querySelector(".fof-root")?.classList.add("animate-in");
+
     // Clean up when leaving the page
     return () => {
-      document.body.classList.remove('rp-login-page');
+      document.body.classList.remove("rp-login-page");
     };
   }, []);
 
@@ -32,19 +31,46 @@ const NotFoundPage = () => {
           </div>
           <div className="center-404">
             <div className="fof-central-body">
-              <img className="fof-image-404" src={LoggedOut} width="500px" alt="404" />
-              <Link className="fof-btn-go-home" to="/logged">GO BACK HOME</Link>
+              <img
+                className="fof-image-404"
+                src={LoggedOut}
+                width="500px"
+                alt="404"
+              />
+              <Link className="fof-btn-go-home" to="/">
+                GO BACK HOME
+              </Link>
             </div>
           </div>
 
           <div className="fof-objects">
-            <img className="fof-object_rocket" src={Rocket} width="40px" alt="Rocket" />
+            <img
+              className="fof-object_rocket"
+              src={Rocket}
+              width="40px"
+              alt="Rocket"
+            />
             <div className="fof-earth-moon">
-              <img className="fof-object_earth" src={Earth} width="100px" alt="Earth" />
-              <img className="fof-object_moon" src={Moon} width="80px" alt="Moon" />
+              <img
+                className="fof-object_earth"
+                src={Earth}
+                width="100px"
+                alt="Earth"
+              />
+              <img
+                className="fof-object_moon"
+                src={Moon}
+                width="80px"
+                alt="Moon"
+              />
             </div>
             <div className="fof-box_astronaut">
-              <img className="fof-object_astronaut" src={Astronaut} width="210px" alt="Astronaut" />
+              <img
+                className="fof-object_astronaut"
+                src={Astronaut}
+                width="210px"
+                alt="Astronaut"
+              />
             </div>
           </div>
           <div className="fof-glowing_stars">

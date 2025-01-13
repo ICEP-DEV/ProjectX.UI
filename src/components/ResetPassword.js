@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Login.css"; // Import the same CSS file as the Login component
+import "./ResetPassword.css"; // Import the same CSS file as the Login component
+import AlumniSpaceLogo from '../images/aslogo.png';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -76,74 +77,110 @@ const PasswordReset = () => {
     }
   };
 
+    useEffect(() => {
+      // Add 'signup-page' class to body when this component mounts
+      document.body.classList.add('rp-login-page');
+
+        // Add animation class after a short delay
+      const timer = setTimeout(() => {
+        document.querySelector('.rp-login-body')?.classList.add('animate-in');
+      }, 0);
+      
+      // Clean up when leaving the signup page
+      return () => {
+        document.body.classList.remove('rp-login-page');
+      };
+    }, []);
+
   return (
-    <div>
-      <div className="containerss">
-
-        <div className="forms-containerss">
-          <form onSubmit={handleReset} className="sign-in-formss">
-            <h2 className="titless">Change Password</h2>
-            <h3 className="fs-6 fw-normal text-secondary m-0">Enter the details below</h3>
-
+    <div className="rp-login-body">
+      {/* Container 1 */}
+      <div className="rp-login-container">
+        {/* Container 2 */}        
+        <div className="rp-login-left-container">
+          {/* Container 3 */}
+          <a href="/login" className="rp-login-logo-link">
+            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="rp-login-logo" />
+          </a>
+          <div className="rp-login-text-content">
+            <h1 className="rp-login-heading">Welcome to Alumni Space</h1>
+            <p className="rp-login-paragraph">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </p>
+          </div>
+        </div>
+  
+        <div className="rp-login-right-container">
+          {/* Container 4 */}
+          <div className="rp-login-forms-container">
+          
+          <form onSubmit={handleReset} className="signup-form">
+            <h2 className="rp-login-title">Change Password</h2>
+            <p className="rp-login-paragraph-right">Please fill-in the details below:</p>
+  
             {signUpError && (
-              <div className="alert alert-danger" role="alert">
+              <div className="rp-alert rp-alert-danger" role="alert">
                 {signUpError}
               </div>
             )}
             {signUpSuccess && (
-              <div className="alert alert-success" role="alert">
+              <div className="rp-alert rp-alert-success" role="alert">
                 {signUpSuccess}
               </div>
             )}
-
-            <div className="input-fieldss">
+  
+            <div className="rp-login-input-field">
               <i className="fas fa-envelope"></i>
               <input
                 type="email"
-                className="form-control"
+                className="rp-form-control"
                 placeholder="Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div className="input-fieldss">
+  
+            <div className="rp-login-input-field">
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                className="form-control"
+                className="rp-form-control"
                 placeholder="New Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            <div className="input-fieldss">
+  
+            <div className="rp-login-input-field">
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                className="form-control"
+                className="rp-form-control"
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </div>
-
-            <div className="d-grid">
-              <button
-                className="rounded-buttonn" // Change class name to 'rounded-button'
+  
+            
+              <button                
                 type="submit"
                 disabled={signUpLoading}
               >
                 {signUpLoading ? 'Loading...' : 'Change Password'}
               </button>
-            </div>
-
+            
           </form>
+          </div>
+          </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 
