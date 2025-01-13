@@ -636,6 +636,12 @@ blockquote {
   background-color: var(--primary-color);
 }
 
+/*---------------------------------------
+  What is Alum            
+-----------------------------------------*/
+#section_2 h2 {
+  color: black;
+}
 
 /*---------------------------------------
   FAQs              
@@ -741,7 +747,7 @@ blockquote {
   }
   
   .tl-title {
-    color: #fdb913;
+    color:black;
     position: relative;
   }
   
