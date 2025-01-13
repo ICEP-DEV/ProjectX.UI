@@ -11,7 +11,6 @@ const UploadJobs = () => {
     faculty: '',
     type: '',
     position: '',
-    vacancy: '',
     closingdate: '',
     link: ''
   });

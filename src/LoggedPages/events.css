@@ -207,10 +207,18 @@
 }
 
 .siz-popup-content {
-  background-color: #fff;
+  background-color: white;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.siz-popup-content button {
+  background-color: red;
+  padding: 20px;
+  border-radius: 10px;
+  width: 130px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

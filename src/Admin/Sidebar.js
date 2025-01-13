@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { List, ListItem, ListItemIcon, ListItemText, Badge  } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import Money from '@mui/icons-material/AttachMoney';
@@ -7,11 +7,17 @@ import VolunteerActivism from '@mui/icons-material/VolunteerActivism';
 import EventAvailableSharp from '@mui/icons-material/EventAvailableSharp';
 import DropdownListItem from './DropdownListItem'; // Import the DropdownListItem
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import axios from "axios";
+import { useEffect } from "react";
+import { Notifications } from "@mui/icons-material";
 
 const Sidebar = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const navigate = useNavigate();  // Initialize the navigate function
+    const [newVolunteersCount, setNewVolunteersCount] = useState(0);
+    const [hoveredItem, setHoveredItem] = useState(null);
 
+  
     const handleMouseEnter = (index) => setHoveredIndex(index);
     const handleMouseLeave = () => setHoveredIndex(null);
 
@@ -21,6 +27,36 @@ const Sidebar = () => {
         transition: '0.3s',
         cursor: 'pointer',
     });
+
+    // Simulate fetching new data
+        useEffect(() => {
+            const fetchNewVolunteers = async () => {
+                try {
+                    const response = await axios.get("http://localhost:5214/api/Admin/GetNewVolunteers/GetNewVolunteers");
+                    setNewVolunteersCount(response.data); // Set only the data (count)
+                    console.log("New Volunteers Count:", response.data);
+                } catch (error) {
+                    console.error("Error fetching new volunteers:", error);
+                }
+            };
+        
+            fetchNewVolunteers();
+        
+            const interval = setInterval(fetchNewVolunteers, 60000); // Check every 60 seconds
+        
+            return () => clearInterval(interval); // Cleanup interval on unmount
+        }, []);
+    
+
+        const VolunteerHandleClick = (path) => {
+            setNewVolunteersCount(0); // Reset counter
+            navigate(path); // Navigate to the page
+        };
+
+        const VolButtonStyles = (itemId) => ({
+            backgroundColor: hoveredItem === itemId ? "#f0f0f0" : "transparent",
+            color: hoveredItem === itemId ? "#003883" : "#000",
+          });
 
     // Function to handle navigation when item is clicked
     const handleClick = (path) => {
@@ -71,9 +107,21 @@ const Sidebar = () => {
                     onMouseEnter={() => handleMouseEnter(3)}
                     onMouseLeave={handleMouseLeave}
                     style={buttonStyles(3)}
-                    onClick={() => handleClick('/volunteers')}  // Navigate to the Volunteers page
+                    onClick={() => VolunteerHandleClick('/viewResponses')}  // Navigate to the Volunteers page
                 >
-                    <ListItemIcon><VolunteerActivism style={{ color: buttonStyles(3).color }} /></ListItemIcon>
+                    <ListItemIcon>
+                        <Badge
+                        badgeContent={newVolunteersCount}
+                        color="error"
+                        invisible={newVolunteersCount === 0} // Hide badge if no new data
+                        >
+                        {newVolunteersCount > 0 ? (
+                            <Notifications style={{ color: buttonStyles(2).color }} />
+                        ) : (
+                            <VolunteerActivism style={{ color: buttonStyles(2).color }} />
+                        )}
+                        </Badge>
+                    </ListItemIcon>
                     <ListItemText primary="Volunteers" />
                 </ListItem>
 
