@@ -12,10 +12,14 @@ import { Link, useLocation } from 'react-router-dom';
 // Import images
 // import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
 // import graduationImage from '../images/tut_graduate.jpg';
+import homepg1 from './LoggedInPhotos/homepg1.jpeg';
+import homepg2 from './LoggedInPhotos/homepg2.jpeg';
+import homepg3 from './LoggedInPhotos/homepg3.jpeg';
 import faqGraphic from '../images/faq_graphic.jpg';
-import CarouselP1 from './LoggedInPhotos/a.png';
-import CarouselP2 from './LoggedInPhotos/b.png';
-import CarouselP3 from './LoggedInPhotos/c.png';
+
+// import CarouselP1 from './LoggedInPhotos/a.png';
+// import CarouselP2 from './LoggedInPhotos/b.png';
+// import CarouselP3 from './LoggedInPhotos/c.png';
 
 const Logged = () => {
   const smoothS = useLocation();
@@ -76,7 +80,7 @@ const Logged = () => {
 
   const data = [
     {
-      imgSrc: CarouselP1,
+      imgSrc: homepg3,
       introduceTitle: 'DESIGN SLIDER',
       introduceTopic: 'Aerphone',
       introduceDes:
@@ -84,16 +88,16 @@ const Logged = () => {
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      specifications: [
-        { label: 'Date', value: '23 April 2025' },
-        { label: 'Time', value: '07:15' },
-        { label: 'Venue', value: 'Net Care' },
-        { label: 'Dress Code', value: 'All White' },
-        { label: 'Plus-One', value: 'Yes' },
-      ],
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
     },
     {
-      imgSrc: CarouselP2,
+      imgSrc: homepg2,
       introduceTitle: 'DESIGN SLIDER',
       introduceTopic: 'Aerphone',
       introduceDes:
@@ -101,16 +105,16 @@ const Logged = () => {
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      specifications: [
-        { label: 'Date', value: '23 April 2025' },
-        { label: 'Time', value: '07:15' },
-        { label: 'Venue', value: 'Net Care' },
-        { label: 'Dress Code', value: 'All White' },
-        { label: 'Plus-One', value: 'Yes' },
-      ],
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
     },
     {
-      imgSrc: CarouselP3,
+      imgSrc: homepg1,
       introduceTitle: 'DESIGN SLIDER',
       introduceTopic: 'Aerphone',
       introduceDes:
@@ -118,13 +122,13 @@ const Logged = () => {
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      specifications: [
-        { label: 'Date', value: '23 April 2025' },
-        { label: 'Time', value: '07:15' },
-        { label: 'Venue', value: 'Net Care' },
-        { label: 'Dress Code', value: 'All White' },
-        { label: 'Plus-One', value: 'Yes' },
-      ],
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
     },
     // Add other items (similar to the structure above)
   ];
@@ -246,14 +250,14 @@ const Logged = () => {
             <div className="detail">
               <div className="title">{item.detailTitle}</div>
               <div className="des">{item.detailDes}</div>
-              <div className="specifications">
+              {/* <div className="specifications">
                 {item.specifications.map((spec, i) => (
                   <div key={i}>
                     <p className='label-carousel'>{spec.label}</p>
                     <p className='value-carousel'>{spec.value}</p>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         ))}
