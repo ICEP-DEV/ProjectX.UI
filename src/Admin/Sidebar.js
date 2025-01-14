@@ -88,7 +88,7 @@ const Sidebar = () => {
                     <ListItemText primary="Alumni" />
                 </ListItem>
 
-                <ListItem
+                {/* <ListItem
                     button
                     onMouseEnter={() => handleMouseEnter(2)}
                     onMouseLeave={handleMouseLeave}
@@ -97,7 +97,7 @@ const Sidebar = () => {
                 >
                     <ListItemIcon><Money style={{ color: buttonStyles(2).color }} /></ListItemIcon>
                     <ListItemText primary="Donations" />
-                </ListItem>
+                </ListItem> */}
                  {/* Dropdown for Content */}
                  <DropdownListItem />
 
@@ -133,7 +133,7 @@ const Sidebar = () => {
                     onClick={() => handleClick('/events')}  // Navigate to the Events page
                 >
                     <ListItemIcon><EventAvailableSharp style={{ color: buttonStyles(4).color }} /></ListItemIcon>
-                    <ListItemText primary="Events" />
+                    <ListItemText primary="RSVPs" />
                 </ListItem>
             </List>
         </div>
