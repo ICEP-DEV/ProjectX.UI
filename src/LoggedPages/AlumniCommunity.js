@@ -141,7 +141,7 @@ const AlumniCommunity = () => {
           value={searchInput} 
           onChange={(e) => setSearchInput(e.target.value)} 
         />
-        <i className="filter-icon bi bi-funnel"></i>
+        {/* <i className="filter-icon bi bi-funnel"></i> */}
         <button className="search-button" onClick={handleSearch}>
           Search
         </button>
