@@ -254,7 +254,7 @@ const Logged = () => {
               <div className="title">{item.introduceTitle}</div>
               <div className="topic">{item.introduceTopic}</div>
               <div className="des">{item.introduceDes}</div>
-              <button className="seeMore">SEE MORE &#8599;</button>
+              <button className="seeMore">VIEW MORE &#8599;</button>
             </div>
             <div className="detail">
               <div className="title">{item.detailTitle}</div>
@@ -274,7 +274,7 @@ const Logged = () => {
       <div className="arrows">
         <button id="prev">&lt;</button>
         <button id="next">&gt;</button>
-        <button id="back">See All &#8599;</button>
+        <button id="back">VIEW LESS &#8599;</button>
       </div>
     </div>
         {/* Advertising Div End */}
