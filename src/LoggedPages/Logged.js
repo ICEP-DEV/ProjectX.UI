@@ -35,6 +35,9 @@ const Logged = () => {
     const backButton = document.getElementById('back');
     let unAcceppClick;
 
+      // Hide backButton initially
+      backButton.style.display = 'none';
+
     const showSlider = (type) => {
       nextButton.style.pointerEvents = 'none';
       prevButton.style.pointerEvents = 'none';
@@ -63,11 +66,17 @@ const Logged = () => {
       button.onclick = () => {
         carousel.classList.remove('next', 'prev');
         carousel.classList.add('showDetail');
+
+        // Show backButton when seeMoreButtons is clicked
+        backButton.style.display = 'block';
       };
     });
 
     backButton.onclick = () => {
       carousel.classList.remove('showDetail');
+
+       // Hide backButton when it is clicked
+       backButton.style.display = 'none';
     };
 
     return () => {
