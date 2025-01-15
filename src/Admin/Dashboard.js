@@ -9,6 +9,7 @@ import NavbarLogged from './NavbarLogged';
 import UpcomingEvents from './UpcomingEvents';
 import PerFaculty from './PerFaculty';
 import TrackAlumni from './TrackAlumni';
+import PieChart from './PieChart';
 
 const Dashboard = () => {
     const [cardData, setCardData] = useState([
@@ -98,9 +99,9 @@ const Dashboard = () => {
                     <Grid item xs={8}>
                     <AnalyticsGraph/>
                     </Grid>
-                    {/* <Grid item xs={4}>
-                        <UpcomingEvents />
-                    </Grid> */}
+                    <Grid item xs={4}>
+                        <PieChart />
+                    </Grid>
                 </Grid>
             </Box>
         </Box>
