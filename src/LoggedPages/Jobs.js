@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 import image1 from '../images/humanities.png';
 import image2 from '../images/ict.jpg';
 import image3 from '../images/science.png';
-import image4 from '../images/humanities.png';
-import image5 from '../images/ict.jpg';
-import image6 from '../images/science.png';
-import image7 from '../images/humanities.png';
+import image4 from '../images/arts.jpg';
+import image5 from '../images/engineering.jpg';
+import image6 from '../images/finance.jpg';
+import image7 from '../images/management.jpg';
 
 
 const Jobs = () => {

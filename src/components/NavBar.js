@@ -16,8 +16,8 @@ function NavBar() {
   const sections = useRef({
     home: document.getElementById('section_1'),
     about: document.getElementById('section_2'),
+    news: document.getElementById('section_3'),
     faqs: document.getElementById('section_4'),
-    contact: document.getElementById('section_5'),
   });
 
   useEffect(() => {
@@ -83,16 +83,16 @@ function NavBar() {
               What Is Alumni Space?
             </span>
             <span
-              className={`nav-link2 mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_4')}
+              className={`nav-link2 mx-3 ${activeTab === 'news' ? 'active' : ''}`}
+              onClick={() => handleTabClick('news', 'section_3')}
             >
-              FAQs
+             News
             </span>
             <span
-              className={`nav-link3 mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
-              onClick={() => handleTabClick('contact', 'section_5')}
+              className={`nav-link3 mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
-              Contact Us
+             FAQs
             </span>
             <Link
               to="/donateUnLogged"

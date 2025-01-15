@@ -43,9 +43,9 @@ const Footer = () => {
                                 <i className="fab fa-facebook-square"></i>
                             </div>
                             <div className="social-iconss" onClick={() => window.open('https://x.com/official_tut', '_blank')}>
-                                <i className="fab fa-twitter-square"></i>
+                                <i className="fab fa-x-twitter"></i>
                             </div>
-                            <div className="social-iconss" onClick={() => window.open('https://www.tut.ac.za', '_blank')}>
+                            <div className="social-iconss" onClick={() => window.open('https://www.tiktok.com/@tut_official1?lang=en', '_blank')}>
                                 <i className="fab fa-tiktok"></i>
                             </div>
                             <div className="social-iconss" onClick={() => window.open('https://www.linkedin.com/company/official-tshwane-university-of-technology/posts/?feedView=all', '_blank')}>
