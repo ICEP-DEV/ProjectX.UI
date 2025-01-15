@@ -1,11 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
-import Vid1 from "./radio video/Plug an Alumni.mp4";
-import Vid2 from "./radio video/Plug a Graduate.mp4";
-import Vid3 from "./radio video/Catch up.mp4";
-import Vid4 from "./radio video/Video for.mp4";
-import divider1 from "./radio photos/Divider 3.png";
-import divider2 from "./radio photos/Divider 2.png";
 import Footer from '../Footer';
 
 import cardoImage1 from "./radio photos/photos/2.png";  // Add your image imports
@@ -32,11 +26,11 @@ import Audio5 from "./radio podcast/Rearabetswe Dire.mp3";
 import Audio6 from "./radio podcast/Shalate Davhana.mp3";
 
 import Video1 from "./radio photos/Short Video.mp4";
-import Video2 from "./radio video/Plug a Graduate.mp4";
-import Video3 from "./radio photos/Short Video.mp4";
-import Video4 from "./radio video/Plug a Graduate.mp4";
-import Video5 from "./radio photos/Short Video.mp4";
-import Video6 from "./radio video/Plug a Graduate.mp4";
+import Video2 from "./radio video/promo1.mp4";
+import Video3 from "./radio video/promo 2.mp4";
+import Video4 from "./radio photos/Short Video.mp4";
+import Video5 from "./radio video/promo1.mp4";
+import Video6 from "./radio video/promo 2.mp4";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faBackward, faForward, faChevronDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
@@ -392,13 +386,49 @@ const handleIndicatorClick = (index) => {
 
   return (
     <div className="radio-page">
-      {/* Video Section */}
-      <div className="video-container">
-        <video src={Vid1} autoPlay loop muted className="radio-video" />
-      </div>
-
       {/* Divider Photo 1 */}
-      <img src={divider1} alt="Divider 1" className="divider-photo" />
+      <div style={{ width: "100vw", height: "65vh", overflow: "hidden" , marginTop:"30px"}}>
+      <div className="pod-body">
+        <header className="pod-header1">
+          <div className="pod-inner-header pod-flex">
+
+              <i class="fas fa-plug pod-logo"></i>
+
+            <h1 className="pod-h1">Plug an Alumni</h1>
+          </div>
+          <div>
+            <svg
+              className="pod-waves"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 24 150 28"
+              preserveAspectRatio="none"
+              shapeRendering="auto"
+            >
+              <defs>
+                <path
+                  id="gentle-wave"
+                  d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                />
+              </defs>
+              <g className="pod-parallax">
+                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+              </g>
+            </svg>
+          </div>
+        </header>
+        <div className="pod-area">
+          <ul className="pod-circles">
+            {[...Array(10)].map((_, index) => (
+              <li key={index}></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
 
       {/* Text Section */}
       <div className="text-section">
@@ -415,16 +445,48 @@ const handleIndicatorClick = (index) => {
         </p>
       </div>
 
-      {/* Divider Photo 2 */}
-      <img src={divider2} alt="Divider 2" className="divider-photo" />
+      <div style={{ width: "100vw", height: "65vh", overflow: "hidden" }}>
+      <div className="pod-body">
+        <header className="pod-header2">
+          <div className="pod-inner-header pod-flex">
+          
+            {/* <i class="fa-solid fa-briefcase pod-logo"></i> */}
 
-      {/* Video Section */}
-      <div className="video-container">
-        <video src={Vid2} autoPlay loop muted className="radio-video" />
+            <h1 className="pod-h1">Plug a Graduate</h1>
+          </div>
+          <div>
+            <svg
+              className="pod-waves"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 24 150 28"
+              preserveAspectRatio="none"
+              shapeRendering="auto"
+            >
+              <defs>
+                <path
+                  id="gentle-wave"
+                  d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                />
+              </defs>
+              <g className="pod-parallax">
+                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+              </g>
+            </svg>
+          </div>
+        </header>
+        <div className="pod-area">
+          <ul className="pod-circles">
+            {[...Array(10)].map((_, index) => (
+              <li key={index}></li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      {/* Divider Photo 1 */}
-      <img src={divider1} alt="Divider 1" className="divider-photo" />
+    </div>
 
       {/* Text Section 2 */}
       <div className="text-section1">
@@ -599,16 +661,46 @@ const handleIndicatorClick = (index) => {
         </div>
       </div>
 
-      {/* Divider Photo 2 */}
-      <img src={divider2} alt="Divider 2" className="divider-photo" />
-
-      {/* Video Section */}
-      <div className="video-container">
-        <video src={Vid3} autoPlay loop muted className="radio-video" />
+      <div style={{ width: "100vw", height: "65vh", overflow: "hidden" }}>
+      <div className="pod-body">
+        <header className="pod-header1">
+          <div className="pod-inner-header pod-flex">
+          
+            <h1 className="pod-h1">Catch Up With an Alumni</h1>
+          </div>
+          <div>
+            <svg
+              className="pod-waves"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 24 150 28"
+              preserveAspectRatio="none"
+              shapeRendering="auto"
+            >
+              <defs>
+                <path
+                  id="gentle-wave"
+                  d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                />
+              </defs>
+              <g className="pod-parallax">
+                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+              </g>
+            </svg>
+          </div>
+        </header>
+        <div className="pod-area">
+          <ul className="pod-circles">
+            {[...Array(10)].map((_, index) => (
+              <li key={index}></li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      {/* Divider Photo 1 */}
-      <img src={divider1} alt="Divider 1" className="divider-photo" />
+    </div>
 
       {/* Text Section 2 */}
       <div className="text-section1">
@@ -773,16 +865,46 @@ const handleIndicatorClick = (index) => {
         </div>
       </div>
 
-{/* Divider Photo 2 */}
- <img src={divider2} alt="Divider 2" className="divider-photo" />
-
-{/* Video Section */}
-<div className="video-container">
-  <video src={Vid4} autoPlay loop muted className="radio-video" />
-</div>
-
-{/* Divider Photo 1 */}
-<img src={divider1} alt="Divider 1" className="divider-photo" />
+      <div style={{ width: "100vw", height: "65vh", overflow: "hidden" }}>
+      <div className="pod-body">
+        <header className="pod-header1">
+          <div className="pod-inner-header pod-flex">
+           
+            <h1 className="pod-h1">Videos for an Alumni</h1>
+          </div>
+          <div>
+            <svg
+              className="pod-waves"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 24 150 28"
+              preserveAspectRatio="none"
+              shapeRendering="auto"
+            >
+              <defs>
+                <path
+                  id="gentle-wave"
+                  d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                />
+              </defs>
+              <g className="pod-parallax">
+                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
+              </g>
+            </svg>
+          </div>
+        </header>
+        <div className="pod-area">
+          <ul className="pod-circles">
+            {[...Array(10)].map((_, index) => (
+              <li key={index}></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
 
       {/* Text Section 3 */}
       <div className="text-section1">
@@ -828,8 +950,9 @@ const handleIndicatorClick = (index) => {
 
         {isHovered && (
           <div className="overlay">
+           
             <div className="overlay-content">
-              <p>{videoData[currentVideoIndex].description}</p>
+              <div> <p>{videoData[currentVideoIndex].description}</p></div>
               <button
                 className="view-full-video-btn"
                 onClick={() => window.open('https://www.youtube.com/watch?v=csquC7HfazE&t=2s', '_blank')}
