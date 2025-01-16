@@ -1,20 +1,147 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Logged.css';
+import './Carousel.css';
 import Footer from '../components/Footer';
-import Donate from '../components/Donate';
+// import Donate from '../components/Donate';
 import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 
 
 // Import images
-import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
-import graduationImage from '../images/tut_graduate.jpg';
+// import aluminiCommunityImage from '../images/topics/undraw_Remote_design_team_re_urdx.png';
+// import graduationImage from '../images/tut_graduate.jpg';
+import homepg1 from './LoggedInPhotos/homepg1.jpeg';
+import homepg2 from './LoggedInPhotos/homepg2.jpeg';
+import homepg3 from './LoggedInPhotos/homepg3.jpeg';
 import faqGraphic from '../images/faq_graphic.jpg';
+
+// import CarouselP1 from './LoggedInPhotos/a.png';
+// import CarouselP2 from './LoggedInPhotos/b.png';
+// import CarouselP3 from './LoggedInPhotos/c.png';
 
 const Logged = () => {
   const smoothS = useLocation();
+  const carouselRef = useRef(null);
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    const listHTML = listRef.current;
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+    const seeMoreButtons = carousel.querySelectorAll('.seeMore');
+    const backButton = document.getElementById('back');
+    let unAcceppClick;
+
+      // Hide backButton initially
+      backButton.style.display = 'none';
+
+    const showSlider = (type) => {
+      nextButton.style.pointerEvents = 'none';
+      prevButton.style.pointerEvents = 'none';
+
+      carousel.classList.remove('next', 'prev');
+      const items = carousel.querySelectorAll('.carousel .list .item');
+      if (type === 'next') {
+        listHTML.appendChild(items[0]);
+        carousel.classList.add('next');
+      } else {
+        listHTML.prepend(items[items.length - 1]);
+        carousel.classList.add('prev');
+      }
+
+      clearTimeout(unAcceppClick);
+      unAcceppClick = setTimeout(() => {
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.pointerEvents = 'auto';
+      }, 2000);
+    };
+
+    nextButton.onclick = () => showSlider('next');
+    prevButton.onclick = () => showSlider('prev');
+
+    seeMoreButtons.forEach((button) => {
+      button.onclick = () => {
+        carousel.classList.remove('next', 'prev');
+        carousel.classList.add('showDetail');
+
+        // Show backButton when seeMoreButtons is clicked
+        backButton.style.display = 'block';
+      };
+    });
+
+    backButton.onclick = () => {
+      carousel.classList.remove('showDetail');
+
+       // Hide backButton when it is clicked
+       backButton.style.display = 'none';
+    };
+
+    return () => {
+      nextButton.onclick = null;
+      prevButton.onclick = null;
+      seeMoreButtons.forEach((button) => (button.onclick = null));
+      backButton.onclick = null;
+    };
+  }, []);
+
+  const data = [
+    {
+      imgSrc: homepg3,
+      introduceTitle: 'DESIGN SLIDER',
+      introduceTopic: 'Aerphone',
+      introduceDes:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+      detailTitle: 'Aerphone GHTK',
+      detailDes:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
+    },
+    {
+      imgSrc: homepg2,
+      introduceTitle: 'DESIGN SLIDER',
+      introduceTopic: 'Aerphone',
+      introduceDes:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+      detailTitle: 'Aerphone GHTK',
+      detailDes:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
+    },
+    {
+      imgSrc: homepg1,
+      introduceTitle: 'DESIGN SLIDER',
+      introduceTopic: 'Aerphone',
+      introduceDes:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+      detailTitle: 'Aerphone GHTK',
+      detailDes:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
+      // specifications: [
+      //   { label: 'Date', value: '23 April 2025' },
+      //   { label: 'Time', value: '07:15' },
+      //   { label: 'Venue', value: 'Net Care' },
+      //   { label: 'Dress Code', value: 'All White' },
+      //   { label: 'Plus-One', value: 'Yes' },
+      // ],
+    },
+    // Add other items (similar to the structure above)
+  ];
+
   
   // Simulate login by setting 'isLoggedIn' to true in localStorage
   useEffect(() => {
@@ -89,6 +216,14 @@ const Logged = () => {
     };
   }, [smoothS]);
 
+  const timelineData = [
+    { title: "Career Advancement and Networking", content: " The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth." },
+    { title: "Continued Learning and Skill Development", content: "Through the alumni website, alumni can access a timeline of educational opportunities, such as workshops, webinars, and certification courses. These resources help alumni stay updated with industry trends, learn new skills, and continue their professional development long after graduation." },
+    { title: "Community Support and Engagement", content: " The alumni website offers a timeline of community events, reunions, and charitable initiatives, encouraging alumni to stay connected and engaged with their alma mater. Alumni can participate in volunteering opportunities, mentor current students, and give back to the university community." },
+    // { title: "Title 4", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+    // { title: "Title 5", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+  ];
+
   return (
     <div>
       {/* Add NavBar component here */}
@@ -96,128 +231,78 @@ const Logged = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
+        {/* <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
           <div className="container">
             <div className="row">
               <div className="col-lg-8 col-12 mx-auto text-center"></div>
-              <div className="col-lg-8 col-12 mx-auto">
-                <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
+              <div className="col-lg-8 col-12 mx-auto tl-add-space3">
+                <h1 className="text-black text-center">Welcome To Alumni Space</h1>
                 <h6 className="text-center">A Hub for TUT Graduates</h6>
               
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Advertising Div Start */}
-        <section className="featured-section">
-          <div className="containerli">
-            <div className="row justify-content-center">
-              <div className="col-lg-4 col-12 mb-4 mb-lg-0">
-                <div className="custom-block bg-white shadow-lg">
-                    <div className="d-flex">
-                      <div>
-                        <h5 className="mb-2">Alumni Community</h5>
-                        <p className="mb-0">
-                          Welcome to the Alumni Workspace—where you can connect with fellow graduates, explore career
-                          opportunities, and celebrate the achievements of our university community.
-                          <br />
-                          <br />
-                        </p>
-                      </div>
-                    </div>
-                    <img src={aluminiCommunityImage} className="custom-block-image img-fluid" alt="" />
-                  
-                </div>
-              </div>
-
-              <div className="col-lg-6 col-12">
-                <div className="custom-block custom-block-overlay">
-                  <div className="d-flex flex-column h-100">
-                    <img src={graduationImage} className="custom-block-image img-fluid" alt="" />
-                    <div className="custom-block-overlay-text d-flex">
-                      <div>
-                        <h5 className="text-white mb-2">Graduation</h5>
-                        <p className="text-white">The time has finally come for the 2025 group of graduates.</p>
-                        <Link to="/topics-detail" className="btn custom-btn mt-2 mt-lg-3">
-                          Learn More
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="social-share d-flex">
-                      <p className="text-white me-4">Share:</p>
-                      <ul className="social-icon">
-                        <li className="social-icon-item">
-                          <a href="#" className="social-icon-link bi-twitter"></a>
-                        </li>
-                        <li className="social-icon-item">
-                          <a href="#" className="social-icon-link bi-facebook"></a>
-                        </li>
-                        <li className="social-icon-item">
-                          <a href="#" className="social-icon-link bi-pinterest"></a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="section-overlay"></div>
+        <div className="carousel" ref={carouselRef}>
+      <div className="list" ref={listRef}>
+        {data.map((item, index) => (
+          <div className="item" key={index}>
+            <img className='carousel-img' src={item.imgSrc} alt={item.introduceTopic} />
+            <div className="introduce">
+              <div className="title">{item.introduceTitle}</div>
+              <div className="topic">{item.introduceTopic}</div>
+              <div className="des">{item.introduceDes}</div>
+              <button className="seeMore">VIEW MORE &#8599;</button>
+            </div>
+            <div className="detail">
+              <div className="title">{item.detailTitle}</div>
+              <div className="des">{item.detailDes}</div>
+              {/* <div className="specifications">
+                {item.specifications.map((spec, i) => (
+                  <div key={i}>
+                    <p className='label-carousel'>{spec.label}</p>
+                    <p className='value-carousel'>{spec.value}</p>
                   </div>
-                </div>
-              </div>
+                ))}
+              </div> */}
             </div>
           </div>
-        </section>
+        ))}
+      </div>
+      <div className="arrows">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+        <button id="back">VIEW LESS &#8599;</button>
+      </div>
+    </div>
         {/* Advertising Div End */}
 
         {/* What Is Alumini Space Start */}
-        <section className="timeline-section section-padding" id="section_2">
-                    <div className="section-overlay"></div>
+        <section className="section-padding" id="section_2">                  
 
                     <div className="container">
                         <div className="row">
-                            <div className="col-12 text-center">
-                                <h2 className="text-white mb-4"  >What Is Alumni Space?</h2>
+                            <div className="col-12 text-center tl-add-space">
+                                <h2 className="text-black mb-4"  >What Is Alumni Space?</h2>
                             </div>
-                            <div className="col-lg-10 col-12 mx-auto">
-                                <div className="timeline-container">
-                                    <ul className="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                                        <div className="list-progress">
-                                            <div className="inner"></div>
-                                        </div>
 
-                                        <li>
-                                            <h4 className="text-white mb-3" id = "ss">Career Advancement and Networking</h4>
-                                            <p className="text-white">
-                                                The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-search"></i>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <h4 className="text-white mb-3">Continued Learning and Skill Development</h4>
-                                            <p className="text-white">
-                                                Through the alumni website, alumni can access a timeline of educational opportunities, such as workshops, webinars, and certification courses. These resources help alumni stay updated with industry trends, learn new skills, and continue their professional development long after graduation.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-bookmark"></i>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <h4 className="text-white mb-3">Community Support and Engagement</h4>
-                                            <p className="text-white">
-                                                The alumni website offers a timeline of community events, reunions, and charitable initiatives, encouraging alumni to stay connected and engaged with their alma mater. Alumni can participate in volunteering opportunities, mentor current students, and give back to the university community.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-globe"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div className="tl-timeline">
+                              <div className="tl-outer">
+                                {timelineData.map((item, index) => (
+                                  <div key={index} className={`tl-card ${index % 2 === 0 ? 'tl-odd' : 'tl-even'}`}>
+                                    <div className="tl-info">
+                                      <h3 className="tl-title">{item.title}</h3>
+                                      <p>{item.content}</p>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
+                 
                             <div class="col-12 text-center mt-5">
-                               <p class="text-white">
+                               <p class="text-black">
                                 Want to learn more?
                               <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
                               </p>
@@ -323,10 +408,10 @@ const Logged = () => {
 
 
                 {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg" id="section_5">
+                <section className="contact-section section-padding section-bg tl-con-us" id="section_5">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-12 col-12 text-center">
+                            <div className="col-lg-12 col-12 text-center tl-add-space2">
                                 <h2 className="mb-5">Get in touch</h2>
                             </div>
                             <div className="col-lg-5 col-12 mb-4 mb-lg-0">

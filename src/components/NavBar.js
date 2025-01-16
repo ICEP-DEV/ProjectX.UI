@@ -77,26 +77,26 @@ function NavBar() {
               Home
             </span>
             <span
-              className={`nav-link1 mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
               onClick={() => handleTabClick('about', 'section_2')}
             >
               What Is Alumni Space?
             </span>
             <span
-              className={`nav-link2 mx-3 ${activeTab === 'news' ? 'active' : ''}`}
-              onClick={() => handleTabClick('news', 'section_3')}
+              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
              News
             </span>
             <span
-              className={`nav-link3 mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_4')}
+              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
+              onClick={() => handleTabClick('contact', 'section_5')}
             >
              FAQs
             </span>
             <Link
               to="/donateUnLogged"
-              className={`nav-link4 mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
+              className={`nav-link mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>

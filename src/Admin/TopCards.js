@@ -6,7 +6,7 @@ const TopCards = ({ data }) => {
     return (
         <Grid container spacing={2} style={{ marginBottom: '90px' }}>
             {data.map((item, index) => (
-                <Grid item xs={3} key={index}>
+                <Grid item xs={4} key={index}>
                     <Card>
                         <CardContent>
                             <Typography variant="h6" color= "#003883">{item.title} </Typography>

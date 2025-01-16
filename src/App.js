@@ -16,7 +16,7 @@ import NavBarNoDonateNotLog from './components/NavBarNoDonateNotLog';
 import DonationForm from './components/DonationForm';
 import Logged from './LoggedPages/Logged';
 import ConfirmProfile from './components/ConfirmProfile';
-
+import NotFoundPage from './LoggedPages/NotFoundPage';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
 import News from './LoggedPages/News'; // Corrected component name to uppercase
@@ -26,6 +26,7 @@ import Volunteer from './LoggedPages/Volunteer';
 import Economics from './LoggedPages/Economics';
 import Engineering from './LoggedPages/Engineering';
 import Humanities from './LoggedPages/Humanities';
+import LoggedOutPage from './LoggedPages/LoggedOutPage';
 import ICT from './LoggedPages/ICT';
 import Management from './LoggedPages/Management';
 import Science from './LoggedPages/Science';
@@ -46,6 +47,9 @@ import ManageNews from './Admin/MangeNews';
 import ManageEvents from './Admin/ManageEvents';
 import ManageJobs from './Admin/ManageJobs';
 import ViewResponses from './Admin/ViewResponses';
+import UpcomingEvents from './Admin/UpcomingEvents';
+
+
 
 function App() {
   const location = useLocation();
@@ -73,7 +77,7 @@ function App() {
         <Route path="/donateUnLogged" element={<Donate />} />
         <Route path="/DonationForm" element={<DonationForm />} />
         <Route path="/logged" element={<Logged />} />
-        
+        <Route path="/notfoundpage" element={<NotFoundPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/alumni" element={<AlumniCommunity />} /> {/* Ensure route to Alumni Community */}
@@ -105,8 +109,12 @@ function App() {
         <Route path="/privacy-policy" element={<Popia/>} />
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
+        <Route path="/loggedout" element={<LoggedOutPage/>} />
+
+        <Route path="/manage" element={<Manage/>} />
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
+        <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
       </Routes>
 
       {/* Footer */}

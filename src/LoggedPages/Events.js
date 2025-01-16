@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Calendar } from 'react-calendar';
 import './events.css';
 import axios from 'axios';
@@ -7,14 +7,17 @@ import axios from 'axios';
 import Footer from '../components/Footer';
 
 function Events() {
+  const { state } = useLocation();
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const [value, setValue] = useState(new Date());
   const [hoveredEvent, setHoveredEvent] = useState(null);
   const [popupEvent, setPopupEvent] = useState(null);
   const calendarRef = useRef(null);
   const [eventsData, setEvents] = useState([]);
+  const alumnusId = sessionStorage.getItem('alumnusId'); // Ensure alumnusId is set in sessionStorage
+  const { eventId } = state || {}; // Safe destructuring
 
-  // Fetch events on component mount
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -27,9 +30,53 @@ function Events() {
     fetchEvents();
   }, []);
 
+  const handleButtonClick = async (EventId) => {
+    console.log('Event ID:', EventId);
+    if (!EventId) {
+      window.alert('Event ID is missing or invalid. Please try again.');
+      return;
+    }
+
+    const data = {
+      EventId,
+      AlumnusId: alumnusId,
+    };
+
+    try {
+      const response = await axios.post(
+        'http://localhost:5214/api/Alumnus/RSVP/RSVP',
+        data
+      );
+      console.log(data);
+      if (response.status === 200) {
+        setShowPopup(true); // Show popup on success
+      }
+    } catch (error) {
+      console.error('Error volunteering:', error);
+      const errorMessage =
+        error.response?.data || 'An error occurred while submitting your request.';
+      window.alert(errorMessage);
+    }
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false); // Hide the popup
+    navigate('/Logged'); // Redirect to another page if needed
+  };
+
   const handleDayClick = (date) => {
     const event = eventsData.find(event => new Date(event.date).toDateString() === date.toDateString());
-    setPopupEvent(event || null);
+    if (event) {
+      setPopupEvent({
+        EventId: event.id, // Ensure correct property name
+        title: event.title,
+        description: event.description,
+        time: event.time,
+        venue: event.venue,
+      });
+    } else {
+      setPopupEvent(null);
+    }
   };
 
   const handleDayHover = (date) => {
@@ -53,8 +100,8 @@ function Events() {
     }
   };
 
-  const handleVolunteerClick = (roles) => {
-    navigate('/volunteer', { state: { roles } });
+  const handleVolunteerClick = (eventId, roles) => {
+    navigate('/volunteer', { state: { eventId, roles } });
   };
 
   return (
@@ -71,7 +118,7 @@ function Events() {
               <p>{event.description}</p>
               <div className="siz-buttons">
                 <button className="siz-rsvp-button" onClick={() => scrollToEvent(event.date)}>RSVP</button>
-                <button className="siz-volunteer-button" onClick={() => handleVolunteerClick(event.volunteerRoles)}>Volunteer</button>
+                <button className="siz-volunteer-button" onClick={() => handleVolunteerClick(event.id, event.volunteerRoles)}>Volunteer</button>
               </div>
             </div>
           ))}
@@ -80,15 +127,15 @@ function Events() {
         <div className="siz-calendar-container">
           <h2>Calendar</h2>
           <div className="siz-calendar-content" ref={calendarRef}>
-          <Calendar
-  onChange={setValue}
-  value={value}
-  tileContent={tileContent}
-  onClickDay={handleDayClick}
-  onMouseOver={(date) => handleDayHover(date)}
-  onMouseLeave={handleDayLeave}
-  showWeekdays={false} // Hides days of the week
-/>
+            <Calendar
+              onChange={setValue}
+              value={value}
+              tileContent={tileContent}
+              onClickDay={handleDayClick}
+              onMouseOver={(date) => handleDayHover(date)}
+              onMouseLeave={handleDayLeave}
+              showWeekdays={false} // Hides days of the week
+            />
 
             {hoveredEvent && (
               <div className="event-tooltip">
@@ -105,7 +152,20 @@ function Events() {
               <p>{popupEvent.description}</p>
               <p><strong>Time:</strong> {popupEvent.time}</p>
               <p><strong>Venue:</strong> {popupEvent.venue}</p>
-              <button onClick={() => setPopupEvent(null)}>Confirm</button>
+              <button onClick={() => handleButtonClick(popupEvent.EventId)}>Confirm</button>
+            </div>
+          </div>
+        )}
+
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <p>
+                RSVP for {showPopup.eventTitle} captured! We will reach out to you soon.
+              </p>
+              <button onClick={handleClosePopup} className="close-popup-btn">
+                Close
+              </button>
             </div>
           </div>
         )}
