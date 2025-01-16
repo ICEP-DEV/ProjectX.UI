@@ -184,8 +184,8 @@ const HomePage = () => {
        
 
                 {/* What Is Alumini Space Start */}
-                <section className="timeline-section " id="section_2">
-                    <div className="container">
+                <section className="timeline-section "  id="section_2" >
+                    <div className="container" style={{ marginTop: '-20px' }}>
                         <div className="row">
                             <div className="col-12 text-center">
                                 <h2 className=" mb-4">What Is Alumni Space?</h2>
@@ -235,7 +235,7 @@ const HomePage = () => {
                 {/* What Is Alumini Space End */}
 
 
-      <section className="news-section">
+      <section className="news-section" id="section_3">
       <div className="container">
         <div className="row">
           <div className="col-12 text-center mb-5">

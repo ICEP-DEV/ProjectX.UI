@@ -84,13 +84,13 @@ function NavBar() {
             </span>
             <span
               className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_4')}
+              onClick={() => handleTabClick('faqs', 'section_3')}
             >
              News
             </span>
             <span
               className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
-              onClick={() => handleTabClick('contact', 'section_5')}
+              onClick={() => handleTabClick('contact', 'section_4')}
             >
              FAQs
             </span>
