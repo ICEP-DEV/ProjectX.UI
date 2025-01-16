@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import AlumniSpaceLogo from '../images/aslogo.png';
-import confetti from "canvas-confetti";
 import axios from "axios";
 
 const Login = () => {
@@ -17,19 +16,11 @@ const Login = () => {
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
     setAnimateIcon(true);
-    launchConfetti();
+    
 
     setTimeout(() => {
       setAnimateIcon(false); // Reset animation class after animation ends
     }, 300); // Match the duration of the CSS transition
-  };
-
-  const launchConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 }, // Adjust the position of confetti
-    });
   };
   
   useEffect(() => {

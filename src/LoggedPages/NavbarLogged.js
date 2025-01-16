@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import use
 import { BsPersonCircle } from 'react-icons/bs';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
+import AvatarPic from "../images/intro-bg1.gif";
 
 function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -45,7 +46,7 @@ function NavbarLogged() {
             linkedinProfile: data.linkedinProfile,
             profilePicture: data.profilePicture
               ? `data:image/png;base64,${data.profilePicture}`
-              : null,
+              : AvatarPic,
           });
         } else if (response.status === 204) {
           console.log("No content found");
