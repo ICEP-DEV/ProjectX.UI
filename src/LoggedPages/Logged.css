@@ -1136,7 +1136,6 @@ animation: panIn 1s ease-out forwards;
   .custom-block-topics-listing a {
     flex-direction: column;
   }
-
   .timeline-container .vertical-scrollable-timeline .list-progress {
     height: 70%;
   }

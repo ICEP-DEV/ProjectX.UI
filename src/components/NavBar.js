@@ -16,8 +16,8 @@ function NavBar() {
   const sections = useRef({
     home: document.getElementById('section_1'),
     about: document.getElementById('section_2'),
+    news: document.getElementById('section_3'),
     faqs: document.getElementById('section_4'),
-    contact: document.getElementById('section_5'),
   });
 
   useEffect(() => {
@@ -86,13 +86,13 @@ function NavBar() {
               className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
               onClick={() => handleTabClick('faqs', 'section_4')}
             >
-              FAQs
+             News
             </span>
             <span
               className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
               onClick={() => handleTabClick('contact', 'section_5')}
             >
-              Contact Us
+             FAQs
             </span>
             <Link
               to="/donateUnLogged"
