@@ -4,36 +4,67 @@ import './homepage.css';
 import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
-import SlideShow from './SlideShow'; // Adjust the path as needed
 import Donate from './Donate'; // Adjust the path as needed
 
 
-// Import images
+import graduationImage3 from '../images/7.png';
+import grad from '../images/grad.jpg';
+import grad1 from '../images/grad1.jpg';
 
-import graduationImage from '../images/5.jpg';
-import graduationImage1 from '../images/tut_graduate.jpg';
-import graduationImage2 from '../images/2.JPG';
-import graduationImage3 from '../images/1.jpg';
-import graduationImage4 from '../images/6.jpeg';
-import graduationImage5 from '../images/3.png';
-import graduationImage6 from '../images/4.jpeg';
+// Import images
 import faqGraphic from '../images/faq_graphic.jpg';
 
-const backgroundImages = [
-  graduationImage,
-  graduationImage1,
-  graduationImage2,
-  graduationImage3,
-  graduationImage4,
-  graduationImage5,
-  graduationImage6,
+import image1 from '../images/Nkuna at Convention.jpg';
+import image2 from '../images/late application.jpg';
+import image3 from '../images/Dr Hans.png';
+
+const images = [
+  grad1,
+  grad,
+  
 ];
 
 
+const newsData = [
+  { id: 1, title: 'TUTs Faculty of ICT represented at Global Forum for Women in Technology', image: image1},
+  { id: 2, title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', image: image2 },
+  { id: 3, title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education', image: image3 },
+
+];
+
+
+
 const HomePage = () => {
+
   const sibanda = useLocation();
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  // Automatically move to the next slide every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 15000); // Change image every 15 seconds
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+// Navigate to the next slide
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+    // Navigate to the previous slide
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+ 
   
+
   // Smooth scrolling function
   const scrollToDiv = (element, navHeight) => {
     const offsetTop = element.offsetTop;
@@ -106,14 +137,17 @@ const HomePage = () => {
     };
   }, [sibanda]);
 
+
+  const currentImage = images[0];
+
   return (
     <div>
       <main>
         {/* Search Start */}
-        <section
-           className="justify-content-center align-items-center"id="section_1" >
+        <section  id="section_1"
+            >
         {/* Hero Section */}
-        <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
+       {/* <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
           <div className="container">
             <div className="row">
               <div className="col-lg-8 col-12 mx-auto text-center"></div>
@@ -123,23 +157,38 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+        </section> */}
+
+<div className="slideshow-container">
+      <div
+        className="slideshow-slide"
+        style={{ backgroundImage: `url(${images[currentIndex]})` }}
+      >
+        {/* Content inside the slide */}
+      </div>
+      <div className="carousel-indicators">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`indicator ${currentIndex === index ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+      <button className="prev" onClick={prevSlide}> ❮ </button>
+      <button className="next" onClick={nextSlide}> ❯ </button>
+    </div>
+
         </section>
 
-          <SlideShow />
-
-          
-        </section>
-
-        {/* Advertising Div End */}
+       
 
                 {/* What Is Alumini Space Start */}
-                <section className="timeline-section section-padding" id="section_2">
-                    <div className="section-overlay"></div>
-
-                    <div className="container">
+                <section className="timeline-section "  id="section_2" >
+                    <div className="container" style={{ marginTop: '-20px' }}>
                         <div className="row">
                             <div className="col-12 text-center">
-                                <h2 className="text-white mb-4">What Is Alumni Space?</h2>
+                                <h2 className=" mb-4">What Is Alumni Space?</h2>
                             </div>
                             <div className="col-lg-10 col-12 mx-auto">
                                 <div className="timeline-container">
@@ -148,19 +197,19 @@ const HomePage = () => {
                                             <div className="inner"></div>
                                         </div>
 
+                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '30px' }}>Career Advancement and Networking</h4>
                                         <li>
-                                            <h4 className="text-white mb-3">Career Advancement and Networking</h4>
-                                            <p className="text-white">
+                                            <p className="text-black" style={{marginTop: '-20px'}}>
                                                 The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth.
                                             </p>
                                             <div className="icon-holder">
                                                 <i className="bi-search"></i>
                                             </div>
                                         </li>
-
+                                           
+                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Continued Learning and Skill Development</h4>
                                         <li>
-                                            <h4 className="text-white mb-3">Continued Learning and Skill Development</h4>
-                                            <p className="text-white">
+                                            <p className="text-black " style={{marginTop: '-20px'}}>
                                                 Through the alumni website, alumni can access a timeline of educational opportunities, such as workshops, webinars, and certification courses. These resources help alumni stay updated with industry trends, learn new skills, and continue their professional development long after graduation.
                                             </p>
                                             <div className="icon-holder">
@@ -168,9 +217,9 @@ const HomePage = () => {
                                             </div>
                                         </li>
 
+                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Community Support and Engagement</h4>
                                         <li>
-                                            <h4 className="text-white mb-3">Community Support and Engagement</h4>
-                                            <p className="text-white">
+                                            <p className="text-black" style={{marginTop: '-20px'}}>
                                                 The alumni website offers a timeline of community events, reunions, and charitable initiatives, encouraging alumni to stay connected and engaged with their alma mater. Alumni can participate in volunteering opportunities, mentor current students, and give back to the university community.
                                             </p>
                                             <div className="icon-holder">
@@ -180,25 +229,40 @@ const HomePage = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-12 text-center mt-5">
-                               <p class="text-white">
-                                Want to learn more?
-                              <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
-                              </p>
-                            </div>
                         </div>
                     </div>
                 </section>
                 {/* What Is Alumini Space End */}
 
+
+      <section className="news-section" id="section_3">
+      <div className="container">
+        <div className="row">
+          <div className="col-12 text-center mb-5">
+            <h2 className="mb-4" style={{ paddingTop: '30px' }}>Latest News</h2>
+          </div>
+        </div>
+        <div className="row">
+          {newsData.map(news => (
+            <div className="col-lg-3 col-md-6 col-sm-12 news-item" key={news.id}>
+              <div className="news-content">
+              <img src={news.image} alt={news.title} className="news-image img-fluid" />
+              </div>
+              <h4 className="news-title">{news.title}</h4>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
                 
 
   {/* FAQs Start */}
-     <section className="faq-section section-padding" id="section_4">
+     <section className="faq-section " id="section_4">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 col-12">
-            <h2 className="mb-4">Frequently Asked Questions</h2>
+          <div className="">
+            <h2 className="mb-3" style={{ textAlign: 'center', paddingTop: '30px' }}>Frequently Asked Questions</h2>
           </div>
           <div className="clearfix"></div>
           <div className="col-lg-5 col-12">
@@ -287,7 +351,7 @@ const HomePage = () => {
 
 
                 {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg" id="section_5">
+                {/*<section className="contact-section section-padding section-bg" id="section_5">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-12 text-center">
@@ -325,7 +389,7 @@ const HomePage = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* Contact Us End */}
       </main>
       <Footer />

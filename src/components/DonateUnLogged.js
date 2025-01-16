@@ -65,6 +65,7 @@ const DonateUnLogged = () => {
                         </div>
                     </Col>
                 </Row>
+
                 <Row>
                     <Col lg={12} className="mx-auto text-center">
                         <Button

@@ -47,6 +47,9 @@ import ManageNews from './Admin/MangeNews';
 import ManageEvents from './Admin/ManageEvents';
 import ManageJobs from './Admin/ManageJobs';
 import ViewResponses from './Admin/ViewResponses';
+import UpcomingEvents from './Admin/UpcomingEvents';
+
+
 
 function App() {
   const location = useLocation();
@@ -111,6 +114,7 @@ function App() {
         <Route path="/manage" element={<Manage/>} />
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
+        <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
       </Routes>
 
       {/* Footer */}
