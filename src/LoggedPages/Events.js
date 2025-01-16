@@ -34,6 +34,7 @@ function Events() {
     console.log('Event ID:', EventId);
     if (!EventId) {
       window.alert('Event ID is missing or invalid. Please try again.');
+      setPopupEvent(null);
       return;
     }
 
@@ -160,9 +161,9 @@ function Events() {
         {showPopup && (
           <div className="popup">
             <div className="popup-content">
-              <p>
-                RSVP for {showPopup.eventTitle} captured! We will reach out to you soon.
-              </p>
+            <p style={{ color: "black" }}>
+              RSVP for {showPopup.eventTitle} captured! We will reach out to you soon.
+            </p>
               <button onClick={handleClosePopup} className="close-popup-btn">
                 Close
               </button>
