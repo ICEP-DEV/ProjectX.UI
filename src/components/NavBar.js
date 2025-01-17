@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link as ScrollLink } from 'react-scroll';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbar.css';
 import '../LoggedPages/navbarLog.css';
@@ -12,13 +11,19 @@ function NavBar() {
   const [activeTab, setActiveTab] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
+  const sections = useRef({}); // Initialize sections with useRef
 
-  const sections = useRef({
-    home: document.getElementById('section_1'),
-    about: document.getElementById('section_2'),
-    news: document.getElementById('section_3'),
-    faqs: document.getElementById('section_4'),
-  });
+
+  useEffect(() => {
+    // Assign the correct DOM elements to the sections
+    sections.current = {
+      home: document.getElementById('section_1'),
+      about: document.getElementById('section_2'),
+      news: document.getElementById('section_3'),
+      faqs: document.getElementById('section_4'),
+    };
+  }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +32,11 @@ function NavBar() {
       // Determine the active section
       Object.entries(sections.current).forEach(([key, section]) => {
         if (section) {
-          const { top, bottom } = section.getBoundingClientRect();
-          if (top <= window.innerHeight / 2 && bottom > window.innerHeight / 2) {
+          const { top, height } = section.getBoundingClientRect();
+          const middleOfSection = top + height / 2;
+          const viewportMiddle = window.innerHeight / 2;
+
+          if (middleOfSection > 0 && middleOfSection <= viewportMiddle) {
             setActiveTab(key);
           }
         }
@@ -38,14 +46,17 @@ function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
+
   const handleTabClick = (tabName, sectionId) => {
     setActiveTab(tabName);
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     if (location.pathname !== '/') {
       navigate('/');
@@ -55,7 +66,10 @@ function NavBar() {
     } else {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+
   };
+
+  
 
   return (
     <Navbar
@@ -71,7 +85,7 @@ function NavBar() {
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-lg-5 me-lg-auto nav-links">
             <span
-              className={`nav-link mx-3${activeTab === 'home' ? 'active' : ''}`}
+              className={`nav-link mx-3 ${activeTab === 'home' ? 'active' : ''}`}
               onClick={() => handleTabClick('home', 'section_1')}
             >
               Home
@@ -83,20 +97,20 @@ function NavBar() {
               What Is Alumni Space?
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_3')}
+              className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
+              onClick={() => handleTabClick('news', 'section_3')}
             >
-             News
+              News
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
-              onClick={() => handleTabClick('contact', 'section_4')}
+              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
-             FAQs
+              FAQs
             </span>
             <Link
               to="/donateUnLogged"
-              className={`nav-link mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
+              className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>
