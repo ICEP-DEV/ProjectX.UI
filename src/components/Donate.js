@@ -34,7 +34,7 @@ const Donate = () => {
                     </Col>
                 </Row>
             </Container>
-            {/* <Footer /> */}
+            { <Footer />}
         </div>
     );
 };
