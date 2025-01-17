@@ -478,6 +478,7 @@ blockquote {
 
 .topics-listing-page .site-header {
   padding-bottom: 65px;
+
 }
 
 .custom-block-topics-listing-info {
@@ -749,6 +750,7 @@ blockquote {
   .tl-title {
     color:black;
     position: relative;
+    
   }
   
   .tl-title::before {
@@ -1172,6 +1174,13 @@ animation: panIn 1s ease-out forwards;
   }
 }
 
+.introduce{
+ text-align: left;  
+ /* align-items: center;  */
+ margin-left: -60px;
+}
 
+.list{
 
-
+  margin-left: 30px;
+}

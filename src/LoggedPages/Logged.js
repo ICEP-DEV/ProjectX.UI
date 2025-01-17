@@ -90,11 +90,10 @@ const Logged = () => {
   const data = [
     {
       imgSrc: homepg3,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Unlock Knowledge Anytime, Anywhere',   
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
-      detailTitle: 'Aerphone GHTK',
+        'Discover a wealth of resources at your fingertips. Our Digital Library offers alumni access to academic materials, research papers, and industry insights to keep you informed and ahead.',
+      // detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
       // specifications: [
@@ -107,10 +106,9 @@ const Logged = () => {
     },
     {
       imgSrc: homepg2,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Celebrating Your Journey, Empowering Your Future',
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+        'Welcome to Alumni Space – where your achievements inspire, your connections grow, and your future takes flight. Together, we celebrate your success and open doors to endless opportunities. Let’s keep the journey going, hand in hand',
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
@@ -124,10 +122,10 @@ const Logged = () => {
     },
     {
       imgSrc: homepg1,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Strengthening Bonds, Building Futures',
+     
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+        'Join the Convocation and Alumni Meet, a celebration of shared journeys and future aspirations. Reconnect with peers, foster meaningful connections, and contribute to the growth of our alumni community. Together, we create opportunities and uphold the legacy of excellence.',
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
