@@ -75,20 +75,20 @@ function NavBar() {
               What Is Alumni Space?
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_3')}
+              className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
+              onClick={() => handleTabClick('news', 'section_3')}
             >
               News
             </span>
             <span
-              className={`nav-link mx-3 ${activeTab === 'contact' ? 'active' : ''}`}
-              onClick={() => handleTabClick('contact', 'section_4')}
+              className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
+              onClick={() => handleTabClick('faqs', 'section_4')}
             >
               FAQs
             </span>
             <Link
               to="/donateUnLogged"
-              className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
+              className={`nav-link mx-3 donate-pulse1 ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
               <span className="fix-donate-color">Donate</span>

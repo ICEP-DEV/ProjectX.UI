@@ -63,25 +63,26 @@ function NavbarLogged() {
             </Nav.Link>
 
             {/* Career Development Dropdown */}
-            <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing">
+            <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing me-5">
+
               <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
-                <NavDropdown.Item as={Link} to="/arts" className={location.pathname === '/arts' ? 'active' : ''}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/economics" className={location.pathname === '/economics' ? 'active' : ''}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/engineering" className={location.pathname === '/engineering' ? 'active' : ''}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/humanities" className={location.pathname === '/humanities' ? 'active' : ''}>FACULTY OF HUMANITIES</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/ict" className={location.pathname === '/ict' ? 'active' : ''}>FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/management" className={location.pathname === '/management' ? 'active' : ''}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/science" className={location.pathname === '/science' ? 'active' : ''}>FACULTY OF SCIENCE</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/arts" className={`${location.pathname === '/arts' ? 'active' : ''} custom-font-size`}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/economics" className={`${location.pathname === '/economics' ? 'active' : ''} custom-font-size`}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/engineering" className={`${location.pathname === '/engineering' ? 'active' : ''} custom-font-size`}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/humanities" className={`${location.pathname === '/humanities' ? 'active' : ''} custom-font-size`}>FACULTY OF HUMANITIES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/ict" className={`${location.pathname === '/ict' ? 'active' : ''} custom-font-size`}>FACULTY OF INFORMATION AND COMMUNICATION TECHNOLOGY</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/management" className={`${location.pathname === '/management' ? 'active' : ''} custom-font-size`}>FACULTY OF MANAGEMENT SCIENCES</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/science" className={`${location.pathname === '/science' ? 'active' : ''} custom-font-size`}>FACULTY OF SCIENCE</NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/job" className={`${location.pathname === '/job-opportunities' ? 'active' : ''} custom-font-size align-items-start`}>JOB OPPORTUNITIES</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/radiopage" className={`${location.pathname === '/radiopage' ? 'active' : ''} custom-font-size align-items-start1`}>PODCASTS</NavDropdown.Item>
             </NavDropdown>
 
             {/* News Dropdown */}
-            <NavDropdown title="News" id="news-dropdown" className="spacing">
-              <NavDropdown.Item as={Link} to="/news" className={location.pathname === '/news' ? 'active' : ''}>News</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/events" className={location.pathname === '/events' ? 'active' : ''}>Events</NavDropdown.Item>
+            <NavDropdown title="News" id="news-dropdown" className="spacing me-5">
+              <NavDropdown.Item as={Link} to="/news" className={`${location.pathname === '/news' ? 'active' : ''} custom-font-size`}>NEWS</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/events" className={`${location.pathname === '/events' ? 'active' : ''} custom-font-size`}>EVENTS</NavDropdown.Item>
             </NavDropdown>
 
             {/* Donate Link */}
