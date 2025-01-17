@@ -367,7 +367,6 @@ export default function ConfirmProfile() {
                         placeholder="Paste LinkedIn Link Here"
                         value={profile.linkedinProfile}
                         onChange={handleLinkedInChange}
-                        required
                       />
                     </div>
                   </div>

@@ -199,6 +199,12 @@
     transition: all 0.3s ease;
     
   }
+
+  .p-move-left
+  {
+    margin-left: 20px;
+    color: white;
+  }
   
   .navbar-icon {
     display: inline-block;
@@ -472,8 +478,8 @@
   position: fixed;
   top: 80px; /* Adjust to match the navbar height */
   right: 40px;
-  width: 260px;
-  padding: 30px;
+  width: 300px;
+  padding: 20px;
   background: white;
   border: 1px solid #ccc;
   border-radius: 10px;

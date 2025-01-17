@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import use
 import { BsPersonCircle } from 'react-icons/bs';
 import './navbarLog.css';
 import tutLogo from '../images/tut logo.png';
+import AvatarPic from "../images/intro-bg1.gif";
 
 function NavbarLogged() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,14 +12,59 @@ function NavbarLogged() {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const location = useLocation();
   const navigate = useNavigate(); // Initialize useNavigate
+  const [profile, setProfile] = useState({
+    firstName: '',
+    lastName: '',
+    graduationYear: '',
+    campus: '',
+    faculty: '',
+    linkedinProfile: '',
+    profilePicture: null,
+  });
 
-  // Fetch first name and last name from sessionStorage
-  const firstName = sessionStorage.getItem('firstName');
-  const lastName = sessionStorage.getItem('lastName');
+    // Fetch profile data
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:5214/api/Alumnus/GetAlumnusProfile/GetAlumnusProfile",
+          {
+            method: "GET",
+            credentials: "include", // Include cookies in the request
+          }
+        );
+        console.log("Response status:", response.status); // Check status
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched data:", data); // Log data to verify it
+          setProfile({
+            alumnusId: data.alumnusId,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            graduationYear: data.graduationYear,
+            campus: data.campus,
+            faculty: data.faculty,
+            linkedinProfile: data.linkedinProfile,
+            profilePicture: data.profilePicture
+              ? `data:image/png;base64,${data.profilePicture}`
+              : AvatarPic,
+          });
+        } else if (response.status === 204) {
+          console.log("No content found");
+        } else {
+          console.log("Error fetching profile:", response.statusText);
+        }
+      } catch (error) {
+        console.error("There was an error fetching the profile:", error);
+      }
+    };
 
+  // Fetch profile on component mount
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
+    if (loggedIn === 'true') {
+      fetchProfile(); // Fetch profile data only if logged in
+    }
   }, []);
 
   const toggleProfileBox = () => setIsProfileVisible(!isProfileVisible);
@@ -26,8 +72,6 @@ function NavbarLogged() {
   const handleLogout = () => {
     console.log('User logged out');
     localStorage.removeItem('isLoggedIn'); // Optional: Remove login state from localStorage
-    sessionStorage.removeItem('firstName'); // Optional: Clear sessionStorage
-    sessionStorage.removeItem('lastName'); // Optional: Clear sessionStorage
 
     // Navigate to the LoggedOutPage
     navigate('/loggedout'); // Redirect to the logged out page
@@ -95,28 +139,50 @@ function NavbarLogged() {
             </Nav.Link>
           </Nav>
 
-          {/* Display profile icon for mobile view */}
-          <BsPersonCircle
-            className="navbar-icon person-icon"
-            title="Profile"
-            style={{ color: '#003883', fontSize: '1.5rem', cursor: 'pointer' }}
-            onClick={toggleProfileBox}
-          />
+            {/* Display profile picture for mobile view */}
+            {profile.profilePicture && (
+              <img
+                src={profile.profilePicture}
+                alt="Profile"
+                className="navbar-icon person-icon"
+                title="Profile"
+                style={{
+                  cursor: 'pointer',
+                  width: '2rem',
+                  height: '2rem',
+                  borderRadius: '50%',
+                  objectFit: 'cover', // Ensures the image covers the area without stretching
+                }}
+                onClick={toggleProfileBox}
+              />
+            )}
+
+          <span className="fade-in224 fade-in-word224 p-move-left">{profile.firstName}</span>{' '}
 
           {/* Profile box */}
           {isProfileVisible && (
             <div className="profile-box">
-              <BsPersonCircle className="profile-box-icon" size={50} />
+                <img
+                  src={profile.profilePicture}
+                  alt="Profile"
+                  className="profile-box-icon"
+                  style={{
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '50%',
+                    objectFit: 'cover', // Ensures the image covers the area without stretching
+                  }}
+                />
               <h3 className="profile-box-title">Profile</h3>
-              <p>
-                <span className="fade-in224 fade-in-word224">{firstName}</span>{' '}
-                <span className="fade-in224 fade-in-word224">{lastName}</span>{' '}
+              <p>                              
                 <span className="fade-in224 fade-in-word224">Welcome</span>{' '}
                 <span className="fade-in224 fade-in-word224">Back</span>{' '}
+                <span className="fade-in224 fade-in-word224">{profile.firstName}</span>{' '}
                 <span className="fade-in224 fade-in-word224">!</span>
               </p>
 
               <ul className="profile-box-links">
+                <li><strong>Graduation Year: </strong>{profile.graduationYear}</li>
                 <li><Link to="/resetpassword">Change Password</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
               </ul>

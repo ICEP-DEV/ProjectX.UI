@@ -140,6 +140,7 @@ export default function ConfirmProfile() {
               className="ep-hidden"
               accept="image/*"
               onChange={handleImageUpload}
+              required
             />
           </div>
 
@@ -241,8 +242,7 @@ export default function ConfirmProfile() {
                     id="linkedin"
                     className="ep-w-full ep-p-2 ep-rounded-lg ep-bg-gray-700 ep-text-gray-300"
                     placeholder="Change LinkedIn Link Here"
-                    value={profile.linkedinProfile}                    
-                    required
+                    value={profile.linkedinProfile} 
                     onChange={(e) => setProfile({ ...profile, linkedinProfile: e.target.value })}
                   />
                 </div>
