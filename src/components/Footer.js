@@ -24,7 +24,7 @@ const Footer = () => {
                         <h6 className="site-footer-title mb-3">Quick Links</h6>
                         <ul className="site-footer-links">
                             <li className="site-footer-link-item">
-                                <Link to="/logged#section_2" className="site-footer-linkf">About Us</Link>
+                                <Link to="#section_2" className="site-footer-linkf">About Us</Link>
                             </li>
                             <li className="site-footer-link-item">
                                 <Link to="/donate" className="site-footer-linkf">Donate</Link>
