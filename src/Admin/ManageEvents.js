@@ -23,6 +23,8 @@ const ManageEvents = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(false);
+  
 
   useEffect(() => {
     if (eventItem) {
@@ -73,19 +75,29 @@ const ManageEvents = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitLoading(true);
-
-    let mediaBase64 = null;
-    if (selectedFile) {
-      const reader = new FileReader();
-      reader.onload = async () => {
-        mediaBase64 = reader.result.split(',')[1];
-        await submitUpdateRequest(mediaBase64);
-      };
-      reader.readAsDataURL(selectedFile);
-    } else {
-      await submitUpdateRequest();
+  
+    try {
+      let mediaBase64 = null;
+  
+      // Convert file to base64 if a file is selected
+      if (selectedFile) {
+        mediaBase64 = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result.split(',')[1]);
+          reader.onerror = (error) => reject(error);
+          reader.readAsDataURL(selectedFile);
+        });
+      }
+  
+      // Call the function to submit the request
+      await submitUpdateRequest(mediaBase64);
+    } catch (error) {
+      console.error("Error submitting the form:", error.message);
+    } finally {
+      setSubmitLoading(false);
     }
   };
+  
 
   const submitUpdateRequest = async (mediaBase64 = null) => {
     try {
@@ -94,6 +106,7 @@ const ManageEvents = () => {
         media: mediaBase64 || eventItem.media,
       };
       await axios.put(`http://localhost:5214/api/Admin/UpdateEvents/UpdateEvents/${eventItem.id}`, formDataToSend);
+      console.log(formData);
       alert("Event updated successfully!");
       navigate('/manage');
     } catch (error) {
@@ -104,14 +117,18 @@ const ManageEvents = () => {
   };
 
   const handleRemove = async () => {
+    setRemoveLoading(true);
     try {
       await axios.delete(`http://localhost:5214/api/Admin/DeleteEvent/DeleteEvent/${eventItem.id}`);
       alert("Event deleted successfully!");
       navigate('/manage');
     } catch (error) {
       console.error("Error deleting event:", error);
+    } finally {
+      setRemoveLoading(false);
     }
   };
+  
 
   return (
     <Box display="flex">
@@ -216,7 +233,7 @@ const ManageEvents = () => {
 
                 {/* Submit & Remove Buttons */}
                 <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
-                  <Button
+                <Button
                     type="submit"
                     variant="contained"
                     sx={{
@@ -228,7 +245,7 @@ const ManageEvents = () => {
                   >
                     {submitLoading ? 'Saving...' : 'Save Changes'}
                   </Button>
-                  
+
                   <Button
                     variant="contained"
                     onClick={handleRemove}
@@ -239,8 +256,9 @@ const ManageEvents = () => {
                       flex: 1,
                     }}
                   >
-                    {submitLoading ? 'Removing...' : 'Remove Event'}
+                    {removeLoading ? 'Removing...' : 'Remove Event'}
                   </Button>
+
                 </Box>
               </form>
             </CardContent>
