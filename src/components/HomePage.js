@@ -10,6 +10,7 @@ import Donate from './Donate'; // Adjust the path as needed
 import graduationImage3 from '../images/7.png';
 import grad from '../images/grad.jpg';
 import grad1 from '../images/grad1.jpg';
+import picture from '../images/Picture1.png';
 
 // Import images
 import faqGraphic from '../images/faq_graphic.jpg';
@@ -20,7 +21,7 @@ import image3 from '../images/Dr Hans.png';
 
 const images = [
   grad1,
-  grad,
+  picture,
   
 ];
 
@@ -164,8 +165,20 @@ const HomePage = () => {
         className="slideshow-slide"
         style={{ backgroundImage: `url(${images[currentIndex]})` }}
       >
-        {/* Content inside the slide */}
+        {currentIndex === 0 && (
+      <div className="slide-text">
+        Connect. Inspire. Celebrate.
       </div>
+    )}
+
+  {currentIndex === 1 && (
+    <div className="slide-text">
+      Shape Lives, One Donation at a Time
+    </div>
+  )}
+
+      </div>
+
       <div className="carousel-indicators">
         {images.map((_, index) => (
           <div
@@ -185,7 +198,7 @@ const HomePage = () => {
 
                 {/* What Is Alumini Space Start */}
                 <section className="timeline-section "  id="section_2" >
-                    <div className="container" style={{ marginTop: '-20px' }}>
+                    <div className="container" style={{ marginTop: '-40px' }}>
                         <div className="row">
                             <div className="col-12 text-center">
                                 <h2 className=" mb-4">What Is Alumni Space?</h2>
@@ -199,7 +212,7 @@ const HomePage = () => {
 
                                         <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '30px' }}>Career Advancement and Networking</h4>
                                         <li>
-                                            <p className="text-black" style={{marginTop: '-20px'}}>
+                                            <p className="text" style={{marginTop: '-20px', color:'#757571'}}>
                                                 The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth.
                                             </p>
                                             <div className="icon-holder">
@@ -209,7 +222,7 @@ const HomePage = () => {
                                            
                                         <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Continued Learning and Skill Development</h4>
                                         <li>
-                                            <p className="text-black " style={{marginTop: '-20px'}}>
+                                            <p className="text " style={{marginTop: '-20px',color:'#757571'}}>
                                                 Through the alumni website, alumni can access a timeline of educational opportunities, such as workshops, webinars, and certification courses. These resources help alumni stay updated with industry trends, learn new skills, and continue their professional development long after graduation.
                                             </p>
                                             <div className="icon-holder">
@@ -219,7 +232,7 @@ const HomePage = () => {
 
                                         <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Community Support and Engagement</h4>
                                         <li>
-                                            <p className="text-black" style={{marginTop: '-20px'}}>
+                                            <p className="text" style={{marginTop: '-20px', color:'#757571'}}>
                                                 The alumni website offers a timeline of community events, reunions, and charitable initiatives, encouraging alumni to stay connected and engaged with their alma mater. Alumni can participate in volunteering opportunities, mentor current students, and give back to the university community.
                                             </p>
                                             <div className="icon-holder">
@@ -239,7 +252,7 @@ const HomePage = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 text-center mb-5">
-            <h2 className="mb-4" style={{ paddingTop: '30px' }}>Latest News</h2>
+            <h2 className="mb-4" style={{ paddingTop: '5px' }}>Latest News</h2>
           </div>
         </div>
         <div className="row">

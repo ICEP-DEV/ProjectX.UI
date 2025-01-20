@@ -14,7 +14,7 @@
 .custom-carousel .carousel-control-next {
   width: auto;
   color: black;
-  top: 50%;
+  top: 35%;
   transform: translateY(-70%);
   font-size: 2rem;
   text-shadow: none;
@@ -29,7 +29,7 @@
 }
 
 .job-title{
-    color: #003883; 
+    color: black; 
     font-size: 1.8rem; /* Adjust size for better readability */
     margin-bottom: 20px; /* Add spacing below */
 }
