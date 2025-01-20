@@ -103,6 +103,7 @@ function Events() {
 
   const handleVolunteerClick = (eventId, roles) => {
     navigate('/volunteer', { state: { eventId, roles } });
+    console.log('Event id: ', eventId, 'Roles', roles )
   };
 
   return (

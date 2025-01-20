@@ -110,7 +110,6 @@ function App() {
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
         <Route path="/loggedout" element={<LoggedOutPage/>} />
-
         <Route path="/manage" element={<Manage/>} />
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
