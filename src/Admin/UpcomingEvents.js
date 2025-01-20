@@ -103,7 +103,7 @@ const UpcomingEvents = () => {
       <Sidebar />
       <Box flex="1" ml="200px" p={3}>
         <Typography variant="h4" align="center" color="#003883" gutterBottom>
-          Responses
+          RSVP Responses
         </Typography>
 
         <Box display="flex" justifyContent="space-between" mb={3}>

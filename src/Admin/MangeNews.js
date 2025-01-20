@@ -8,25 +8,25 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const ManageNews = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { newsItem } = location.state || {}; // Get the passed news item data
+  const { newsItem } = location.state || {};
 
   const [formData, setFormData] = useState({
     headline: '',
     publishedDate: '',
     publisher: '',
     description: '',
-    link: '', // Only for magazines
+    link: '',
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
-  const [submitLoading, setSubmitLoading] = useState(false);
+  const [saveLoading, setSaveLoading] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
-  // Populate form fields when the component mounts
   useEffect(() => {
     if (newsItem) {
       setFormData({
         headline: newsItem.headline || '',
-        publishedDate: newsItem.publishedDate ? newsItem.publishedDate.split('T')[0] : '',
+        publishedDate: newsItem.publishedDate?.split('T')[0] || '',
         publisher: newsItem.publisher || '',
         description: newsItem.description || '',
         link: newsItem.link || '',
@@ -37,13 +37,11 @@ const ManageNews = () => {
     }
   }, [newsItem]);
 
-  // Handle changes in text fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle image file selection
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
@@ -52,18 +50,18 @@ const ManageNews = () => {
     if (file) reader.readAsDataURL(file);
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitLoading(true);
+    setSaveLoading(true);
     let mediaBase64 = null;
+
     if (selectedFile) {
       const reader = new FileReader();
-      reader.readAsDataURL(selectedFile);
       reader.onload = async () => {
         mediaBase64 = reader.result.split(',')[1];
         await submitUpdateRequest(mediaBase64);
       };
+      reader.readAsDataURL(selectedFile);
     } else {
       await submitUpdateRequest();
     }
@@ -72,26 +70,34 @@ const ManageNews = () => {
   const submitUpdateRequest = async (mediaBase64 = null) => {
     const formDataToSend = {
       ...formData,
-      media: mediaBase64 || null,
+      media: mediaBase64 || newsItem?.media || null,
     };
     try {
-      await axios.put(`http://localhost:5214/api/Admin/UpdateNews/UpdateNews/${newsItem.id}`, formDataToSend);
-      alert("News Updated successfully!");
+      await axios.put(
+        `http://localhost:5214/api/Admin/UpdateNews/UpdateNews/${newsItem.id}`,
+        formDataToSend
+      );
+      alert("News updated successfully!");
       navigate('/manage');
     } catch (error) {
       console.error("Error updating news:", error.response ? error.response.data : error.message);
+      alert("Failed to update news. Please try again.");
     } finally {
-      setSubmitLoading(false);
+      setSaveLoading(false);
     }
   };
 
   const handleRemove = async () => {
+    setRemoveLoading(true);
     try {
       await axios.delete(`http://localhost:5214/api/Admin/DeleteNews/DeleteNews/${newsItem.id}`);
-      alert("News Deleted successfully!");
+      alert("News deleted successfully!");
       navigate('/manage');
     } catch (error) {
       console.error("Error deleting news:", error);
+      alert("Failed to delete news. Please try again.");
+    } finally {
+      setRemoveLoading(false);
     }
   };
 
@@ -105,11 +111,9 @@ const ManageNews = () => {
         </Typography>
         <Box display="flex" justifyContent="center" mt={8}>
           <Card style={{ minWidth: 500, maxWidth: 600 }}>
-          <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
-            <form onSubmit={handleSubmit}>
-              {/* Conditional Fields */}
-              {newsItem?.type === 'magazine' ? (
-                <>
+            <CardContent style={{ maxHeight: '700px', overflowY: 'auto' }}>
+              <form onSubmit={handleSubmit}>
+                {newsItem?.type === 'magazine' ? (
                   <TextField
                     fullWidth
                     margin="normal"
@@ -118,101 +122,102 @@ const ManageNews = () => {
                     value={formData.link}
                     onChange={handleChange}
                   />
-                </>
-              ) : (
-                <>
-                  <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Headline"
-                    name="headline"
-                    value={formData.headline}
-                    onChange={handleChange}
-                  />
-                  <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Publisher"
-                    name="publisher"
-                    value={formData.publisher}
-                    onChange={handleChange}
-                  />
-                  <TextField
-                    fullWidth
-                    multiline
-                    rows={4}
-                    margin="normal"
-                    label="Description"
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                  />
-                </>
-              )}
+                ) : (
+                  <>
+                    <TextField
+                      fullWidth
+                      margin="normal"
+                      label="Headline"
+                      name="headline"
+                      value={formData.headline}
+                      onChange={handleChange}
+                    />
+                    <TextField
+                      fullWidth
+                      margin="normal"
+                      label="Publisher"
+                      name="publisher"
+                      value={formData.publisher}
+                      onChange={handleChange}
+                    />
+                    <TextField
+                      fullWidth
+                      multiline
+                      rows={4}
+                      margin="normal"
+                      label="Description"
+                      name="description"
+                      value={formData.description}
+                      onChange={handleChange}
+                    />
+                  </>
+                )}
 
-              {/* Published Date Field (common to both types) */}
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Published Date"
-                name="publishedDate"
-                type="date"
-                InputLabelProps={{ shrink: true }}
-                value={formData.publishedDate}
-                onChange={handleChange}
-              />
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Published Date"
+                  name="publishedDate"
+                  type="date"
+                  InputLabelProps={{ shrink: true }}
+                  value={formData.publishedDate}
+                  onChange={handleChange}
+                />
 
-              {/* Image Display */}
-              {previewImage && (
-                <Box mt={2} display="flex" justifyContent="center">
-                  <img
-                    src={previewImage}
-                    alt="Preview"
-                    style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', marginBottom: '10px' }}
+                {previewImage && (
+                  <Box mt={2} display="flex" justifyContent="center">
+                    <img
+                      src={previewImage}
+                      alt="Preview"
+                      style={{
+                        width: '100%',
+                        maxHeight: '200px',
+                        objectFit: 'cover',
+                        marginBottom: '10px',
+                      }}
+                    />
+                  </Box>
+                )}
+
+                <Box mt={2}>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    style={{ marginBottom: '15px' }}
                   />
                 </Box>
-              )}
 
-              {/* File Upload */}
-              <Box mt={2}>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  style={{ marginBottom: '15px' }}
-                />
-              </Box>
-
-              {/* Action Buttons */}
-              <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  sx={{
-                    background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                    color: "#fff",
-                    ":hover": { background: "#FF8C00" },
-                    flex: 1,
-                  }}
-                >
-                  {submitLoading ? 'Saving...' : 'Save Changes'}
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={handleRemove}
-                  sx={{
-                    background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                    color: "#fff",
-                    ":hover": { background: "#FF8C00" },
-                    flex: 1,
-                  }}
-                >
-                  {submitLoading ? 'Removing...' : 'Remove News'}
-                </Button>
-              </Box>
-            </form>
-          </CardContent>
-
+                <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                    disabled={saveLoading}
+                  >
+                    {saveLoading ? 'Saving...' : 'Save Changes'}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={handleRemove}
+                    sx={{
+                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                      color: "#fff",
+                      ":hover": { background: "#FF8C00" },
+                      flex: 1,
+                    }}
+                    disabled={removeLoading}
+                  >
+                    {removeLoading ? 'Removing...' : 'Remove News'}
+                  </Button>
+                </Box>
+              </form>
+            </CardContent>
           </Card>
         </Box>
       </Box>
