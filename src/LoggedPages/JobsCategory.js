@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavbarLogged from "./NavbarLogged";
-import Footer from "../components/Footer";
+import FooterLogged from "./FooterLogged";
 import "./Jobs.css";
 
 const JobsCategory = () => {
@@ -134,7 +134,7 @@ const JobsCategory = () => {
           </>
         )}
       </div>
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };

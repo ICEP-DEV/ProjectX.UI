@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
- import './footer.css'; // Import your custom CSS for styling
+import './footerlogged.css'; // Import your custom CSS for styling
 import { Link } from 'react-router-dom';
-import ALogo from '../images/aslogo.png';
+import FLogo from '../images/aslogo.png';
 
-const Footer = () => {
+const FooterLogged = () => {
     
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -43,11 +43,11 @@ const Footer = () => {
                 <div className="fo-widget fo-widget_about">
                   <div className="logo-container" onMouseMove={handleMouseMove}>
                     <img
-                      src={ALogo}
+                      src={FLogo}
                       className="hover-logo"
                       alt="Animated Logo"
                       style={{
-                        // transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+                        transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                       }}
                     />
                   </div>
@@ -64,38 +64,39 @@ const Footer = () => {
 
               {/* Quick Links Section */}
               <div className="col-lg-2 col-md-6 col-sm-12">
-                <div className="fo-widget fo-widget_links">
-                  <div className="fo-widget_title">
-                    <h4>Quick Links</h4>
-                  </div>
-                  <div className="fo-contact_info">
-                    <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up icon-animation1">
-                        <i className="fa-solid fa-circle-info "></i>
-                      </div>
-                      <div className="fo-info">
-                        <p className="site-footer-linkf"><Link to="/logged#section_2">About Us</Link></p>
-                      </div>
-                    </div>
-                    <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up icon-animation2">
-                        <i className="fa-solid fa-hand-holding-dollar"></i>
-                      </div>
-                      <div className="fo-info">
-                        <p className="site-footer-linkf"><Link to="/donate">Donate</Link></p>
-                      </div>
-                    </div>
-                    <div className="fo-single_info">
-                      <div className="fo-icon foot-icon-size-up icon-animation3">
-                        <i className="fa-solid fa-person-circle-question"></i>
-                      </div>
-                      <div className="fo-info">
-                        <p className="site-footer-linkf"><Link to="/logged#section_4" >FAQs</Link></p>
-                      </div>
-                    </div>                    
-                  </div>
-                </div>
-              </div>
+  <div className="fo-widget fo-widget_links">
+    <div className="fo-widget_title">
+      <h4>Quick Links</h4>
+    </div>
+    <div className="fo-contact_info left-aligned"> {/* Added custom class here */}
+      <div className="fo-single_info">
+        <div className="fo-icon foot-icon-size-up icon-animation1">
+          {/* <i className="fa-solid fa-circle-info "></i> */}
+        </div>
+        <div className="fo-info">
+          <p className="site-footer-linkf"><Link to="/logged#section_7"><span className='Flinks'>What Is Alumni Space</span></Link></p>
+        </div>
+      </div>
+      <div className="fo-single_info">
+        <div className="fo-icon foot-icon-size-up icon-animation2">
+          {/* <i className="fa-solid fa-hand-holding-dollar"></i> */}
+        </div>
+        <div className="fo-info">
+          <p className="site-footer-linkf"><Link to="/donate"><span className='Flinks'>Donate</span></Link></p>
+        </div>
+      </div>
+      <div className="fo-single_info">
+        <div className="fo-icon foot-icon-size-up icon-animation3">
+          {/* <i className="fa-solid fa-person-circle-question"></i> */}
+        </div>
+        <div className="fo-info">
+          <p className="site-footer-linkf"><Link to="/logged#section_8"><span className='Flinks'>FAQs</span></Link></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
             </div>
           </div>
 
@@ -105,7 +106,7 @@ const Footer = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="fo-copyright_text">
-                    <p>Copyright &copy; 2024 TUT All Rights Reserved<span className='p-footer-space'>|</span>Privacy Policy & POPIA</p>
+                    <p><span className='fo-copyright_text-paragraph'>Copyright &copy; 2024 TUT All Rights Reserved</span><span className='p-footer-space'>|</span><span className='fo-copyright_text-paragraph'>Privacy Policy & POPIA</span></p>
                   </div>
                 </div>
               </div>
@@ -116,4 +117,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default FooterLogged;

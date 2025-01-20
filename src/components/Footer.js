@@ -82,7 +82,7 @@ const Footer = () => {
           {/* <i className="fa-solid fa-hand-holding-dollar"></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/donate"><span className='Flinks'>Donate</span></Link></p>
+          <p className="site-footer-linkf"><Link to="/donateUnLogged"><span className='Flinks'>Donate</span></Link></p>
         </div>
       </div>
       <div className="fo-single_info">
@@ -90,7 +90,7 @@ const Footer = () => {
           {/* <i className="fa-solid fa-person-circle-question"></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/logged#section_4"><span className='Flinks'>FAQs</span></Link></p>
+          <p className="site-footer-linkf"><Link to="#section_4"><span className='Flinks'>FAQs</span></Link></p>
         </div>
       </div>
     </div>

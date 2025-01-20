@@ -114,6 +114,7 @@ function App() {
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
         <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
+        {/* <Route path="/" element={<UpcomingEvents/>}/> */}
       </Routes>
 
       {/* Footer */}

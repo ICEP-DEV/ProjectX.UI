@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarLogged from './NavbarLogged';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
 
@@ -83,7 +83,7 @@ const Humanities = () => {
    </div>
   </div>
 
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };
