@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./RadioPage.css";
-import Footer from '../Footer';
+import FooterLogged from '../FooterLogged';
 
 import cardoImage1 from "./radio photos/photos/2.png";  // Add your image imports
 import cardoImage2 from "./radio photos/photos/1.png";
@@ -34,6 +34,7 @@ import Video6 from "./radio video/promo 2.mp4";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faBackward, faForward, faChevronDown, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+
 
 // Video data including descriptions
 const videoData = [
@@ -986,7 +987,7 @@ const handleIndicatorClick = (index) => {
         ))}
       </div>
 
-<Footer />
+<FooterLogged />
     </div>
   );
 };

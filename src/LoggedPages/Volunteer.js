@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './volunteer.css';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -100,7 +100,7 @@ const Volunteer = () => {
           </div>
         )}
       </div>
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };

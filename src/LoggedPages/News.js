@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './news.css';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 
 import news1 from '../images/news1.jpg';
 import news2 from '../images/news2..png';
@@ -245,7 +245,7 @@ function News() {
         </div>
       </div>
 
-      <Footer />
+      <FooterLogged />
     </div>
   );
 }

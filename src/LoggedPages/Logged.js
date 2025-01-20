@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Logged.css';
 import './Carousel.css';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
+
 // import Donate from '../components/Donate';
 import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -278,7 +279,7 @@ const Logged = () => {
         {/* Advertising Div End */}
 
         {/* What Is Alumini Space Start */}
-        <section className="section-padding" id="section_2">                  
+        <section className="section-padding" id="section_7">                  
 
                     <div className="container">
                         <div className="row">
@@ -313,7 +314,7 @@ const Logged = () => {
 
 
   {/* FAQs Start */}
-     <section className="faq-section section-padding" id="section_4">
+     <section className="faq-section section-padding" id="section_8">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-12">
@@ -448,7 +449,7 @@ const Logged = () => {
                 {/* Contact Us End */}
 
       </main>
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };
