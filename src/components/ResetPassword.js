@@ -96,22 +96,7 @@ const PasswordReset = () => {
     <div className="rp-login-body">
       {/* Container 1 */}
       <div className="rp-login-container">
-        {/* Container 2 */}        
-        <div className="rp-login-left-container">
-          {/* Container 3 */}
-          <a href="/login" className="rp-login-logo-link">
-            <img src={AlumniSpaceLogo} alt="Alumni Space Logo" className="rp-login-logo" />
-          </a>
-          <div className="rp-login-text-content">
-            <h1 className="rp-login-heading">Welcome to Alumni Space</h1>
-            <p className="rp-login-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat.
-            </p>
-          </div>
-        </div>
-  
+        {/* Container 2 */}          
         <div className="rp-login-right-container">
           {/* Container 4 */}
           <div className="rp-login-forms-container">
@@ -166,7 +151,10 @@ const PasswordReset = () => {
                 required
               />
             </div>
-  
+
+                          <Link to="/login" className="login-forgot-password-link">
+                            Back To Login
+                          </Link>            
             
               <button                
                 type="submit"

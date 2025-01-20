@@ -55,9 +55,9 @@ function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
-  const showNavBar =  location.pathname === '/donateUnLogged';
+  const showNavBar =  location.pathname === '/';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
-  const showNavBarNoDonateNotLog = location.pathname === '/';
+  const showNavBarNoDonateNotLog = location.pathname === '/donateUnLogged';
   const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage'|| location.pathname === '/donate' ;
 
 
@@ -110,7 +110,6 @@ function App() {
         <Route path="/uploadNews" element={<UploadNews/>} />
         <Route path="/edit-profile" element={<EditProfile/>} />
         <Route path="/loggedout" element={<LoggedOutPage/>} />
-
         <Route path="/manage" element={<Manage/>} />
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />

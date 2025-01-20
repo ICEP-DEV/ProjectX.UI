@@ -16,7 +16,7 @@ const AnalyticsGraph = () => {
     }, []);
 
     return (
-        <Card style={{ maxWidth: 100000 , marginBottom: '90px'}}>
+        <Card style={{ maxWidth: 100000 , marginBottom: '20px'}}>
             <CardContent>
                      <Typography variant="h5" color="textPrimary"  gutterBottom style={{ textAlign: 'center' , color:"#003883" }}>
                         Alumni Per campus

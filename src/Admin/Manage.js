@@ -88,9 +88,9 @@ const ManageContent = () => {
       case 'jobs':
         navigate('/manageJobs', { state: { jobItem: item } });
         break;
-      case 'podcast':
-        navigate('/managePodcast', { state: { podcastItem: item } });
-        break;
+      // case 'podcast':
+      //   navigate('/managePodcast', { state: { podcastItem: item } });
+      //   break;
       default:
         console.warn("Unknown type:", type);
     }
@@ -406,7 +406,7 @@ const ManageContent = () => {
 
 
         {/* Podcast Section */}
-        <Card sx={{ background: '#ffff', color: '#fff', marginBottom: '20px' }}>
+        {/* <Card sx={{ background: '#ffff', color: '#fff', marginBottom: '20px' }}>
           <CardContent>
             <Box display="flex" justifyContent="space-between" alignItems="center">
               <Typography variant="h5" color="#003883" gutterBottom>
@@ -426,11 +426,11 @@ const ManageContent = () => {
               </Button>
             </Box>
           </CardContent>
-        </Card>
+        </Card> */}
 
 
         {/* Podcast Grid */}
-        {activeSection === 'podcast' && (
+        {/* {activeSection === 'podcast' && (
           <Grid container spacing={2} mb={3}>
             {['Software Engineer', 'Data Analyst', 'UI/UX Designer', 'Product Manager'].map((job, index) => (
               <Grid item xs={3} key={index}>
@@ -455,7 +455,7 @@ const ManageContent = () => {
               </Grid>
             ))}
           </Grid>
-        )}
+        )} */}
       </Box>
     </Box>
   );

@@ -11,12 +11,13 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
+  const [role, setRole] = useState("alumni"); // Default role is "alumni"
   const navigate = useNavigate();
 
   const handleRoleChange = (event) => {
     setIsAdmin(event.target.value === "admin");
     setAnimateIcon(true);
-    
+    setRole(event.target.value); // Store the selected role
 
     setTimeout(() => {
       setAnimateIcon(false); // Reset animation class after animation ends
@@ -53,7 +54,7 @@ const Login = () => {
     const loginDTO = {
       UserId: studentNum,
       Password: password,
-      Role: isAdmin ? "admin" : "alumni"
+      Role: role,
     };
 
     try {
@@ -64,12 +65,14 @@ const Login = () => {
       // If login is successful, store session info
       if (response.status === 200) {
         const { UserId, UserName, UserRole } = response.data;
+            // Show popup with the UserRole value
+        // alert("UserRole returned from backend: " + role);
         sessionStorage.setItem('UserId', UserId);
         sessionStorage.setItem('UserName', UserName);
-        sessionStorage.setItem('UserRole', UserRole);
+        sessionStorage.setItem('UserRole', role);
 
         // Redirect based on the role
-        if (UserRole === 'admin') {
+        if (role === "admin") {
           navigate("/admin");
         } else {
           navigate("/logged");
@@ -105,7 +108,7 @@ const Login = () => {
                     value="alumni"
                     name="role"
                     onChange={handleRoleChange}
-                    checked={!isAdmin}
+                    checked={role === "alumni"}
                   />
                   Alumni
                 </label>
@@ -115,7 +118,7 @@ const Login = () => {
                     value="admin"
                     name="role"
                     onChange={handleRoleChange}
-                    checked={isAdmin}
+                    checked={role === "admin"}
                   />
                   Admin
                 </label>

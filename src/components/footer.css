@@ -100,6 +100,11 @@
   margin-bottom: 20px;
 } */
 
+.fo-contact_info
+{
+  margin-bottom: 70px;
+}
+
 .fo-footer_section .fo-widget_wrapper .fo-widget_contact .fo-contact_info .fo-single_info .fo-icon {
   font-size: 12px;
   color: #feb000;
@@ -145,13 +150,13 @@ flex-wrap: wrap;
   text-align: center;
 }
 
-.fo-footer_section .fo-copyright_area .fo-copyright_text p {
+.fo-footer_section .fo-copyright_area .fo-copyright_text-paragraph {
   color: #ffffff;
 }
 
 .logo-container {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   margin: 0 auto; 
   perspective: 1000px; /* Gives the 3D perspective effect */
   cursor: grabbing;
