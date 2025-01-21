@@ -39,7 +39,7 @@ const FooterLogged = () => {
           <div className="container">
             <div className="row">
               {/* Logo and Social Media Section */}
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-4 col-md-6 col-12">
                 <div className="fo-widget fo-widget_about">
                   <div className="logo-container" onMouseMove={handleMouseMove}>
                     <img
@@ -98,7 +98,7 @@ const FooterLogged = () => {
 </div>
   {/* Contact Us Start */}
   {/* Contact Us Section (Now in the same row as Quick Links) */}
-  <div className="col-lg-3 col-md-6 col-sm-12">
+  <div className="col-lg-2 col-md-6 col-sm-12">
           <div className="fo-widget fo-widget_contact">
             <h6>Contact Us</h6>
             <div className="container">
