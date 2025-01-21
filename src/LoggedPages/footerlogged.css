@@ -19,7 +19,7 @@ body {
   /* padding-top: 20px;*/
   padding-bottom:0px; 
   background: linear-gradient(30deg, #ce1127, #005596);
-  position: fixed;
+  position: relative;
   text-align: center;
   align-items: center;
   justify-content: center;
