@@ -3,6 +3,7 @@ import NavbarLogged from './NavbarLogged';
 import Footer from '../components/Footer';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
+import huma from '../images/chapter of humanities.png';
 
 const Humanities = () => {
   return (
@@ -36,7 +37,7 @@ const Humanities = () => {
           {/* Image and Vision Container */}
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
-              <img src={arts} alt="Artsp" className="img-fluid rounded" />
+              <img src={huma} alt="Artsp" className="img-fluid rounded" />
               <div className="visionZ">
                 <h3>VISION</h3>
                 <p>&bull; The Faculty of Humanities’ vision is subsumed in, and supports the TUT vision of pioneering an enterprising

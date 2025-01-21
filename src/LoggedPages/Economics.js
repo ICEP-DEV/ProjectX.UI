@@ -3,6 +3,7 @@ import NavbarLogged from './NavbarLogged';
 import Footer from '../components/Footer';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
+import economics from '../images/chapter of economics and finance.png';
 
 const Economics = () => {
   return (
@@ -34,7 +35,7 @@ const Economics = () => {
          
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
-              <img src={arts} alt="Artsp" className="img-fluid rounded" />
+              <img src={economics} alt="Artsp" className="img-fluid rounded" />
               <div className="visionZ">
                 <h3>VISION</h3>
                 <p>&bull; A people's university that makes knowledge work.</p>

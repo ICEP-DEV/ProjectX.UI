@@ -3,6 +3,7 @@ import NavbarLogged from './NavbarLogged';
 import Footer from '../components/Footer';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
+import ict from '../images/chapter of ICT.png';
 
 const Humanities = () => {
   return (
@@ -36,7 +37,7 @@ const Humanities = () => {
           {/* Image and Vision Container */}
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
-              <img src={arts} alt="Artsp" className="img-fluid rounded" />
+              <img src={ict} alt="Artsp" className="img-fluid rounded" />
               <div className="visionZ">
                 <h3>VISION</h3>
                 <p>&bull; To be a quality-driven locally relevant and internationally comparable university of technology ICT faculty at

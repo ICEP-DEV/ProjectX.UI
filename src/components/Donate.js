@@ -8,7 +8,7 @@ const Donate = () => {
     return (
         <div>
            
-            <Container className="donation-journey">
+            <Container className="donation-journey" style={{ paddingBottom: '220px' }}>
                 <Row>
                     <Col md={12}>
                         <h3 className="text-center mb-4">Donation</h3>

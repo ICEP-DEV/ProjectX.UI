@@ -7,6 +7,7 @@ import ProfilePhoto2 from './SearchBarDemoImages/2.png';
 import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
 import ModelBackGroundPic from './Radio/radio photos/Divider 2r.png';
 import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
+import FooterLogged from './FooterLogged';
 
 const AlumniCommunity = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -110,6 +111,7 @@ const AlumniCommunity = () => {
 
   return (
     <div className={`alumni-community ${isModalOpen ? 'blur-background' : ''}`}>
+      <div className="con" style={{ paddingBottom: '220px' }}>
           {/* Blur effect overlay */}
     {(isModalOpen || linkedinModalVisible) && (
       <div className="blur-overlay active"></div>
@@ -132,7 +134,7 @@ const AlumniCommunity = () => {
           </div>
         </div>
       </section>
-      <div className="search-container">
+      <div className="search-container"  >
         <i className="search-icon bi bi-search"></i>
         <input 
           type="text" 
@@ -375,6 +377,11 @@ const AlumniCommunity = () => {
           </div>
         </div>
       )}
+
+</div>
+
+<FooterLogged />
+
     </div>
   );
 };
