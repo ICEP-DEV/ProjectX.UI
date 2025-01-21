@@ -14,7 +14,7 @@ import PieChart from './PieChart';
 const Dashboard = () => {
     const [cardData, setCardData] = useState([
         { title: 'Registered Alumni', value: 0 },
-        { title: 'Attendees', value: 0},
+        { title: 'RSVPs', value: 0},
         { title: 'Volunteers', value: 0 }
       ]);
 
@@ -66,7 +66,7 @@ const Dashboard = () => {
             //update card data array with fetched RSVPS count
             setCardData((prevCardData) =>
               prevCardData.map((card) => 
-                card.title === 'Attendees' ? { ...card, value: RSVPsCount} : card
+                card.title === 'RSVPs' ? { ...card, value: RSVPsCount} : card
               )
             );
 
@@ -92,12 +92,13 @@ const Dashboard = () => {
                     <TrackAlumni />
                     </Grid>
                     <Grid item xs={6}>
-                        <PerFaculty />
+                        <AnalyticsGraph />
+                        
                     </Grid>
                 </Grid>
                 <Grid container spacing={3}>
                     <Grid item xs={8}>
-                    <AnalyticsGraph/>
+                    <PerFaculty/>
                     </Grid>
                     <Grid item xs={4}>
                         <PieChart />

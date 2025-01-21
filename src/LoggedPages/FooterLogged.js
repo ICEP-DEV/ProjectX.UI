@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './footer.css'; // Import your custom CSS for styling
+import './footerlogged.css'; // Import your custom CSS for styling
 import { Link } from 'react-router-dom';
 import FLogo from '../images/aslogo.png';
 
-const Footer = () => {
+const FooterLogged = () => {
     
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -74,7 +74,7 @@ const Footer = () => {
           {/* <i className="fa-solid fa-circle-info "></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/#section_2"><span className='Flinks'>About Us</span></Link></p>
+          <p className="site-footer-linkf"><Link to="/logged#section_7"><span className='Flinks'>What Is Alumni Space</span></Link></p>
         </div>
       </div>
       <div className="fo-single_info">
@@ -82,7 +82,7 @@ const Footer = () => {
           {/* <i className="fa-solid fa-hand-holding-dollar"></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/donateUnLogged"><span className='Flinks'>Donate</span></Link></p>
+          <p className="site-footer-linkf"><Link to="/donate"><span className='Flinks'>Donate</span></Link></p>
         </div>
       </div>
       <div className="fo-single_info">
@@ -90,14 +90,15 @@ const Footer = () => {
           {/* <i className="fa-solid fa-person-circle-question"></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="#section_4"><span className='Flinks'>FAQs</span></Link></p>
+          <p className="site-footer-linkf"><Link to="/logged#section_8"><span className='Flinks'>FAQs</span></Link></p>
         </div>
       </div>
     </div>
   </div>
 </div>
-{/* Contact Us Section (Now in the same row as Quick Links) */}
-<div className="col-lg-3 col-md-6 col-sm-12">
+  {/* Contact Us Start */}
+  {/* Contact Us Section (Now in the same row as Quick Links) */}
+  <div className="col-lg-3 col-md-6 col-sm-12">
           <div className="fo-widget fo-widget_contact">
             <h6>Contact Us</h6>
             <div className="container">
@@ -121,6 +122,8 @@ const Footer = () => {
                   {/* <h6 className="mb-3">Head office</h6> */}
                   <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve, 0152</p>
                   <hr />
+
+                  <div className="contact-info-right"></div>
                   <p className="d-flex align-items-center mb-1">
                     <span className="me-2">Phone</span>
                     <a href="tel:081-355-6089" className="site-footer-link">081-355-6089</a>
@@ -129,13 +132,15 @@ const Footer = () => {
                     <span className="me-2">Email</span>
                     <a href="mailto:info@company.com" className="site-footer-link">info@company.com</a>
                   </p>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-            </div>
-          </div>
+
+      </div>
+    </div>
 
           {/* Copyright Section */}
           <div className="fo-copyright_area">
@@ -154,4 +159,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default FooterLogged;

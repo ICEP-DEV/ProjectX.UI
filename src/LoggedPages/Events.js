@@ -34,6 +34,7 @@ function Events() {
     console.log('Event ID:', EventId);
     if (!EventId) {
       window.alert('Event ID is missing or invalid. Please try again.');
+      setPopupEvent(null);
       return;
     }
 
@@ -49,7 +50,7 @@ function Events() {
       );
       console.log(data);
       if (response.status === 200) {
-        setShowPopup(true); // Show popup on success
+        window.alert('RSVP Captured! We will reach out to you soon.');
       }
     } catch (error) {
       console.error('Error volunteering:', error);
@@ -61,7 +62,7 @@ function Events() {
 
   const handleClosePopup = () => {
     setShowPopup(false); // Hide the popup
-    navigate('/Logged'); // Redirect to another page if needed
+    navigate('/events'); // Redirect to another page if needed
   };
 
   const handleDayClick = (date) => {
@@ -102,6 +103,7 @@ function Events() {
 
   const handleVolunteerClick = (eventId, roles) => {
     navigate('/volunteer', { state: { eventId, roles } });
+    console.log('Event id: ', eventId, 'Roles', roles )
   };
 
   return (
@@ -153,22 +155,25 @@ function Events() {
               <p><strong>Time:</strong> {popupEvent.time}</p>
               <p><strong>Venue:</strong> {popupEvent.venue}</p>
               <button onClick={() => handleButtonClick(popupEvent.EventId)}>Confirm</button>
-            </div>
-          </div>
-        )}
-
-        {showPopup && (
-          <div className="popup">
-            <div className="popup-content">
-              <p>
-                RSVP for {showPopup.eventTitle} captured! We will reach out to you soon.
-              </p>
-              <button onClick={handleClosePopup} className="close-popup-btn">
+              <button onClick={() => setPopupEvent(null)} className="close-popup-btn" style={{marginLeft: 5}}>
                 Close
               </button>
             </div>
           </div>
         )}
+
+        {/* {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+            <p style={{ color: "black" }}>
+              RSVP {showPopup.eventTitle} captured! We will reach out to you soon.
+            </p>
+              <button onClick={handleClosePopup} className="close-popup-btn">
+                Close
+              </button>
+            </div>
+          </div>
+        )} */}
       </div>
       <Footer />
     </div>

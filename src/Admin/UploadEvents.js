@@ -73,6 +73,7 @@ const UploadEvents = () => {
       // Send form data to the API
       const response = await axios.post('http://localhost:5214/api/Admin/UploadEvents/UploadEvents', formData);
 
+      
       window.alert('Event uploaded successfully!!!');
 
       // Clear form fields
@@ -174,7 +175,7 @@ const UploadEvents = () => {
                         required
                       />
                       {index > 0 && (
-                        <Button variant="danger" onClick={() => removeVolunteerRole(index)} style={{ marginLeft: '8px' }}>
+                        <Button variant="secondary" onClick={() => removeVolunteerRole(index)} style={{ marginLeft: '8px' }}>
                           Remove
                         </Button>
                       )}

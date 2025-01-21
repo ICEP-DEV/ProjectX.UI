@@ -20,6 +20,7 @@ const ManageJobs = () => {
   });
 
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
   useEffect(() => {
     if (jobItem) {
@@ -41,7 +42,7 @@ const ManageJobs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitLoading(true);
+    setRemoveLoading(true);
     try {
       await axios.put(`http://localhost:5214/api/Admin/UpdateJob/UpdateJob/${jobItem.id}`, formData);
       alert("Job updated successfully!");
@@ -49,7 +50,7 @@ const ManageJobs = () => {
     } catch (error) {
       console.error("Error updating job:", error.response ? error.response.data : error.message);
     } finally {
-      setSubmitLoading(false);
+      setRemoveLoading(false);
     }
   };
 
@@ -139,29 +140,29 @@ const ManageJobs = () => {
 
                 <Box display="flex" justifyContent="space-between" mt={2} gap={2}>
                   <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{
-                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                      color: "#fff",
-                      ":hover": { background: "#FF8C00" },
-                      flex: 1,
-                    }}
-                  >
-                    {submitLoading ? 'Saving...' : 'Save Changes'}
-                  </Button>
-
-                  <Button
-                    variant="contained"
-                    onClick={handleRemove}
-                    sx={{
-                      background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
-                      color: "#fff",
-                      ":hover": { background: "#FF8C00" },
-                      flex: 1,
-                    }}
-                  >
-                    {submitLoading ? 'Removing...' : 'Remove Job'}
+                      type="submit"
+                      variant="contained"
+                      sx={{
+                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                        color: "#fff",
+                        ":hover": { background: "#FF8C00" },
+                        flex: 1,
+                      }}
+                    >
+                      {submitLoading ? 'Saving...' : 'Save Changes'}
+                    </Button>
+  
+                    <Button
+                      variant="contained"
+                      onClick={handleRemove}
+                      sx={{
+                        background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                        color: "#fff",
+                        ":hover": { background: "#FF8C00" },
+                        flex: 1,
+                      }}
+                    >
+                      {removeLoading ? 'Removing...' : 'Remove Event'}
                   </Button>
                 </Box>
               </form>

@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Logged.css';
 import './Carousel.css';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
+
 // import Donate from '../components/Donate';
 import NavbarLogged from './NavbarLogged'; // Import the NavBar component
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -90,11 +91,10 @@ const Logged = () => {
   const data = [
     {
       imgSrc: homepg3,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Unlock Knowledge Anytime, Anywhere',   
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
-      detailTitle: 'Aerphone GHTK',
+        'Discover a wealth of resources at your fingertips. Our Digital Library offers alumni access to academic materials, research papers, and industry insights to keep you informed and ahead.',
+      // detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
       // specifications: [
@@ -107,10 +107,9 @@ const Logged = () => {
     },
     {
       imgSrc: homepg2,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Celebrating Your Journey, Empowering Your Future',
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+        'Welcome to Alumni Space – where your achievements inspire, your connections grow, and your future takes flight. Together, we celebrate your success and open doors to endless opportunities. Let’s keep the journey going, hand in hand',
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
@@ -124,10 +123,10 @@ const Logged = () => {
     },
     {
       imgSrc: homepg1,
-      introduceTitle: 'DESIGN SLIDER',
-      introduceTopic: 'Aerphone',
+      introduceTitle: 'Strengthening Bonds, Building Futures',
+     
       introduceDes:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.',
+        'Join the Convocation and Alumni Meet, a celebration of shared journeys and future aspirations. Reconnect with peers, foster meaningful connections, and contribute to the growth of our alumni community. Together, we create opportunities and uphold the legacy of excellence.',
       detailTitle: 'Aerphone GHTK',
       detailDes:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
@@ -280,7 +279,7 @@ const Logged = () => {
         {/* Advertising Div End */}
 
         {/* What Is Alumini Space Start */}
-        <section className="section-padding" id="section_2">                  
+        <section className="section-padding" id="section_7">                  
 
                     <div className="container">
                         <div className="row">
@@ -315,7 +314,7 @@ const Logged = () => {
 
 
   {/* FAQs Start */}
-     <section className="faq-section section-padding" id="section_4">
+     <section className="faq-section section-padding" id="section_8">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-12">
@@ -407,50 +406,10 @@ const Logged = () => {
  {/* FAQs End */}
 
 
-                {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg tl-con-us" id="section_5">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 col-12 text-center tl-add-space2">
-                                <h2 className="mb-5">Get in touch</h2>
-                            </div>
-                            <div className="col-lg-5 col-12 mb-4 mb-lg-0">
-                                <iframe
-                                    className="google-map"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115198.29443520978!2d28.01449227899608!3d-25.540152249363302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfcf9c4eedb233%3A0x9e2de5e61f9e48e7!2sTshwane%20University%20of%20Technology%20-%20Soshanguve%20South%20Campus%20-%20TUT!5e0!3m2!1sen!2sza!4v1724747776372!5m2!1sen!2sza"
-                                    width="100%"
-                                    height="350"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Google Map"
-                                ></iframe>
-                            </div>
-                            <div className="col-lg-3 col-md-6 mx-auto">
-                                <h4 className="mb-3">Head office</h4>
-                                <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve,  0152 </p>
-                                <hr />
-                                <p className="d-flex align-items-center mb-1">
-                                    <span className="me-2">Phone</span>
-                                    <a href="tel:081-355-6089" className="site-footer-link">
-                                        081-355-6089
-                                    </a>
-                                </p>
-                                <p className="d-flex align-items-center">
-                                    <span className="me-2">Email</span>
-                                    <a href="mailto:info@company.com" className="site-footer-link">
-                                        info@company.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/* Contact Us End */}
+              
 
       </main>
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };

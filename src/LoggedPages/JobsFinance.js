@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarLogged from './NavbarLogged';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 import './Jobs.css';
 
 const JobsFinance = () => {
@@ -115,7 +115,7 @@ const JobsFinance = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <FooterLogged/>
     </div>
   );
 };

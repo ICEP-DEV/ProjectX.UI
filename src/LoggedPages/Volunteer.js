@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './volunteer.css';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -56,7 +56,8 @@ const Volunteer = () => {
   return (
     <div className="volunteer-container">
       <div className="content">
-        <div className="section ways-to-volunteer">
+        <div className="">
+        
           <h3>Volunteer for a role:</h3>
           <ul>
             {roles.map((role, index) => (
@@ -78,7 +79,7 @@ const Volunteer = () => {
           </button>
         </div>
 
-        <div className="section benefits">
+        <div className="">
           <h3>What are the benefits?</h3>
           <ul>
             <li>Tax relief eligibility</li>
@@ -100,7 +101,7 @@ const Volunteer = () => {
           </div>
         )}
       </div>
-      <Footer />
+      <FooterLogged />
     </div>
   );
 };

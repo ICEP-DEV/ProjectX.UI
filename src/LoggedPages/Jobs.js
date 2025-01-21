@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Jobs.css';
 import NavbarLogged from './NavbarLogged';
-import Footer from '../components/Footer';
+import FooterLogged from './FooterLogged';
 import { Link } from 'react-router-dom';
 
 import image1 from '../images/humanities.png';
@@ -83,7 +83,7 @@ const Jobs = () => {
       </Carousel>
 
     </div>
-    <Footer />
+    <FooterLogged />
     </div>
   );
 };

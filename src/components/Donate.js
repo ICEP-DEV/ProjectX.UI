@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import Footer from './Footer';
 import NavBar from './NavBar';
 import './Donate.css';
+import FooterLogged from '../LoggedPages/FooterLogged';
 
 const Donate = () => {
     return (
@@ -34,7 +34,7 @@ const Donate = () => {
                     </Col>
                 </Row>
             </Container>
-            {/* <Footer /> */}
+            { <FooterLogged />}
         </div>
     );
 };
