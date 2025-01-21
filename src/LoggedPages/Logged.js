@@ -94,32 +94,20 @@ const Logged = () => {
       introduceTitle: 'Unlock Knowledge Anytime, Anywhere',   
       introduceDes:
         'Discover a wealth of resources at your fingertips. Our Digital Library offers alumni access to academic materials, research papers, and industry insights to keep you informed and ahead.',
-      // detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Unlock Knowledge Anytime, Anywhere',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'Our Digital Library is your gateway to a world of knowledge designed to empower and inspire. Access a diverse collection of academic materials, cutting-edge research papers, and valuable industry insights – all curated to support your continuous growth and professional journey.Whether you’re diving into advanced research, exploring new career paths, or staying informed about industry trends, our library ensures you’re equipped with the tools to succeed. Stay connected to TUT’s rich academic resources, no matter where life takes you.',
+    
     },
     {
       imgSrc: homepg2,
       introduceTitle: 'Celebrating Your Journey, Empowering Your Future',
       introduceDes:
         'Welcome to Alumni Space – where your achievements inspire, your connections grow, and your future takes flight. Together, we celebrate your success and open doors to endless opportunities. Let’s keep the journey going, hand in hand',
-      detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Celebrating Your Journey, Empowering Your Future',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'As part of our vibrant community, you’ll have access to exclusive networking opportunities, career development resources, and events tailored to your growth. Stay updated on university news, connect with fellow alumni, and make a lasting impact through programs that shape the future. Together, we honour the past, embrace the present, and build a brighter future for generations to come. Continue your legacy and let your story inspire others!',
+      
     },
     {
       imgSrc: homepg1,
@@ -127,16 +115,10 @@ const Logged = () => {
      
       introduceDes:
         'Join the Convocation and Alumni Meet, a celebration of shared journeys and future aspirations. Reconnect with peers, foster meaningful connections, and contribute to the growth of our alumni community. Together, we create opportunities and uphold the legacy of excellence.',
-      detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Strengthening Bonds, Building Futures',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'The Convocation and Alumni Meet celebrates shared milestones and fosters connections among alumni. This event offers a platform to network with peers and industry leaders, contribute to impactful community initiatives, and relive cherished memories. It’s also an opportunity to engage in discussions that align alumni contributions with the evolving needs of the university. Join us in building a legacy of excellence and strengthening the bonds that unite our vibrant alumni community..',
+  
     },
     // Add other items (similar to the structure above)
   ];
@@ -255,18 +237,13 @@ const Logged = () => {
               <div className="des">{item.introduceDes}</div>
               <button className="seeMore">VIEW MORE &#8599;</button>
             </div>
+
             <div className="detail">
-              <div className="title">{item.detailTitle}</div>
+              <div className="title" style={{fontSize: '25px', fontWeight:'bold'}}>{item.detailTitle}</div>
               <div className="des">{item.detailDes}</div>
-              {/* <div className="specifications">
-                {item.specifications.map((spec, i) => (
-                  <div key={i}>
-                    <p className='label-carousel'>{spec.label}</p>
-                    <p className='value-carousel'>{spec.value}</p>
-                  </div>
-                ))}
-              </div> */}
+            
             </div>
+
           </div>
         ))}
       </div>

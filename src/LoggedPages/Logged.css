@@ -1184,3 +1184,12 @@ animation: panIn 1s ease-out forwards;
 
   margin-left: 30px;
 }
+
+.detail{
+  margin-right: -40px;
+  text-align: justify;
+}
+
+.detail .title{
+font-size: 12px;
+}
