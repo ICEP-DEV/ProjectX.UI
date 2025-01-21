@@ -182,7 +182,6 @@ function NavbarLogged() {
               </p>
 
               <ul className="profile-box-links">
-                <li><strong>Graduation Year: </strong>{profile.graduationYear}</li>
                 <li><Link to="/resetpassword">Change Password</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
               </ul>
