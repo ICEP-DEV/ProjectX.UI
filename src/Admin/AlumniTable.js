@@ -31,17 +31,28 @@ const UserTable = () => {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
 
-        const filtered = users.filter((user) =>
-            user[searchField]?.toString().toLowerCase().includes(query)
-        );
+        const filtered = users.filter((user) => {
+            const fieldValue = user[searchField]?.toString().toLowerCase() || ''; // Safely handle undefined fields
+            return fieldValue.includes(query);
+        });
 
         setFilteredUsers(filtered);
     };
 
     // Handle field change for search
     const handleFieldChange = (e) => {
-        setSearchField(e.target.value);
+        const newField = e.target.value;
+        setSearchField(newField);
+
+        // Reapply the search to update filteredUsers
+        const filtered = users.filter((user) => {
+            const fieldValue = user[newField]?.toString().toLowerCase() || '';
+            return fieldValue.includes(searchQuery);
+        });
+
+        setFilteredUsers(filtered);
     };
+
 
     // Handle page change
     const handleChangePage = (event, newPage) => {

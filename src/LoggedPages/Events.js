@@ -49,6 +49,7 @@ function Events() {
         data
       );
       console.log(data);
+      
       if (response.status === 200) {
         window.alert('RSVP Captured! We will reach out to you soon.');
       }
