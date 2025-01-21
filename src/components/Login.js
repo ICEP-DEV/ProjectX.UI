@@ -7,7 +7,7 @@ import axios from "axios";
 const Login = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [animateIcon, setAnimateIcon] = useState(false);
-  const [alumnusId, setAlumnusId] = useState('');
+  const [studentNum, setStudentNum] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
@@ -43,8 +43,7 @@ const Login = () => {
     e.preventDefault();
 
     // Validation
-    if (!alumnusId
- || !password) {
+    if (!studentNum || !password) {
       setLoginError("Both fields are required.");
       return;
     }
@@ -53,14 +52,13 @@ const Login = () => {
     setLoginLoading(true);
 
     const loginDTO = {
-      UserId: alumnusId,
+      UserId: studentNum,
       Password: password,
       Role: role,
     };
 
     try {
       const response = await axios.post("http://localhost:5214/api/Alumnus/Login/Login", loginDTO, {
-
         withCredentials: true, // If you are handling sessions/cookies
       });
 
@@ -69,11 +67,9 @@ const Login = () => {
         const { UserId, UserName, UserRole } = response.data;
             // Show popup with the UserRole value
         // alert("UserRole returned from backend: " + role);
-        sessionStorage.setItem('alumnusId', UserId);
+        sessionStorage.setItem('UserId', UserId);
         sessionStorage.setItem('UserName', UserName);
         sessionStorage.setItem('UserRole', role);
-
-        console.log(UserId)
 
         // Redirect based on the role
         if (role === "admin") {
@@ -136,11 +132,8 @@ const Login = () => {
                 <input
                   type="text"
                   placeholder={isAdmin ? "Staff number" : "Student number"}
-                  value={alumnusId
-}
-                  onChange={(e) => setAlumnusId
-
-(e.target.value)}
+                  value={studentNum}
+                  onChange={(e) => setStudentNum(e.target.value)}
                   required
                 />
               </div>
