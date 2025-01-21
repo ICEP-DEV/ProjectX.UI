@@ -598,14 +598,14 @@
 /* LinkedIn icon below profile picture */
 .linkedin-icon {
   font-size: 3vh;
-  color: #ffab14;
+  color: #0a66c2;
   transition: color 0.3s ease;
   z-index: 3; /* Keep it above background and profile picture */
   cursor: pointer;
 }
 
 .linkedin-icon:hover {
-  color: #f19d00de;
+  color: #0d58a3;
 }
 
 /* FontAwesome icon */
