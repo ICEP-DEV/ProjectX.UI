@@ -153,7 +153,7 @@ function News() {
                   {/* 2004 - 2008 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                     <h5>2004 - 2008</h5>
-                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                    <p id='hist'>Established on January 1, 2004, TUT resulted from the merger of Technikon Northern Gauteng, Technikon North-West, and Technikon Pretoria. This consolidation aimed to transform and restructure higher education in post-apartheid South Africa, fostering inclusivity and diversity.During this period, TUT expanded by establishing satellite campuses in Mbombela, Emalahleni, and Polokwane, extending its educational reach. </p>
                     <div className="row">
                       {historicalArchives1.map((image, idx) => (
                       <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
@@ -174,7 +174,7 @@ function News() {
                   {/* 2009 - 2013 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                     <h5>2009 - 2013</h5>
-                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                    <p id='hist'>By 2012, TUT's enrollment surged to approximately 88,078 students, reflecting its growing reputation and accessibility.The university predominantly offered vocational qualifications, including three-year diplomas, advanced diplomas, and postgraduate degrees, aligning with industry needs.In 2010, Webometrics ranked TUT as the 15th best university in South Africa and 5,662nd globally, indicating its emerging presence in the academic community.  </p>
                     <div className="row">
 
                       {historicalArchives1.map((image, idx) => (
@@ -196,7 +196,9 @@ function News() {
                    {/* 2009 - 2013 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                   <h5>2014 - 2018</h5>
-                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                  <p id='hist'>TUT continued its upward trajectory, with first-year applications reaching around 80,000 in 2014, underscoring its appeal among prospective students.Tshwane University of Technology (TUT) was significantly impacted by the national #FeesMustFall movement, which began in October 2015.This student-led protest aimed to halt increases in university tuition fees and advocate for greater government funding for higher education institutions across South Africa.In 2018, Times Higher Education ranked TUT among the top 1,000 universities globally and eighth in South Africa, highlighting its academic advancements 
+WIKIPEDIA
+ The university diversified its program offerings, emphasizing distance and blended learning to accommodate a broader student base </p>
                     <div className="row">
                       {historicalArchives1.map((image, idx) => (
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>

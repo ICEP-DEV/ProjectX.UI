@@ -277,12 +277,7 @@ const Logged = () => {
                               </div>
                             </div>
                  
-                            <div class="col-12 text-center mt-5">
-                               <p class="text-black">
-                                Want to learn more?
-                              <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
-                              </p>
-                            </div>
+                            
                         </div>
                     </div>
                 </section>
