@@ -225,7 +225,7 @@ const Logged = () => {
           </div>
         </section> */}
 
-        {/* Advertising Div Start */}
+        {/* Homepage Div Start */}
         <div className="carousel" ref={carouselRef}>
       <div className="list" ref={listRef}>
         {data.map((item, index) => (
