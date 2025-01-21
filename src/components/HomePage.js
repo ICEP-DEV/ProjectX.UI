@@ -161,36 +161,40 @@ const HomePage = () => {
         </section> */}
 
 <div className="slideshow-container">
-      <div
-        className="slideshow-slide"
-        style={{ backgroundImage: `url(${images[currentIndex]})` }}
-      >
-        {currentIndex === 0 && (
-      <div className="slide-text">
-        Connect. Inspire. Celebrate.
-      </div>
+  <div
+    className="slideshow-slide"
+    style={{ backgroundImage: `url(${images[currentIndex]})` }}
+  >
+    {currentIndex === 0 && (
+      <a href="https://www.youtube.com/@tshwaneuniversityoftechnol6902/featured" target="_blank" rel="noopener noreferrer">
+        <div className="slide-text">
+          Connect. Inspire. Celebrate.
+        </div>
+      </a>
     )}
 
-  {currentIndex === 1 && (
-    <div className="slide-text">
-      Shape Lives, One Donation at a Time
-    </div>
-  )}
-
+    {currentIndex === 1 && (
+      <a href="https://tut.devman.co.za/Devman/online/giving/" target="_blank" rel="noopener noreferrer">
+      <div className="slide-text">
+        Shape Lives, One Donation at a Time
       </div>
+      </a>
+    )}
+  </div>
 
-      <div className="carousel-indicators">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`indicator ${currentIndex === index ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
-      </div>
-      <button className="prev" onClick={prevSlide}> ❮ </button>
-      <button className="next" onClick={nextSlide}> ❯ </button>
-    </div>
+  <div className="carousel-indicators">
+    {images.map((_, index) => (
+      <div
+        key={index}
+        className={`indicator ${currentIndex === index ? 'active' : ''}`}
+        onClick={() => setCurrentIndex(index)}
+      />
+    ))}
+  </div>
+  
+  <button className="prev" onClick={prevSlide}> ❮ </button>
+  <button className="next" onClick={nextSlide}> ❯ </button>
+ </div>
 
         </section>
 
@@ -283,6 +287,7 @@ const HomePage = () => {
           </div>
           <div className="col-lg-6 col-12 m-auto">
             <div className="accordion" id="accordionExample">
+
               <div className="accordion-item">
                 <h2 className="accordion-header" id="headingOne">
                   <button
@@ -307,6 +312,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+
               <div className="accordion-item">
                 <h2 className="accordion-header" id="headingTwo">
                   <button
@@ -331,6 +337,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+
               <div className="accordion-item">
                 <h2 className="accordion-header" id="headingThree">
                   <button
@@ -355,6 +362,63 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingFour">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                  What should I do if my academic record is blocked?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                  <p>You can download the blocked academic record form by <a href="https://tut.ac.za/images/docs/blocked-Academic-Record.pdf" target="_blank" rel="noopener noreferrer">clicking here</a>. Once completed, please email it to <a href="mailto:SkosanaK@tut.ac.za">SkosanaK@tut.ac.za</a> and ensure to cc: <a href="mailto:SegwaneTM@tut.ac.za">SegwaneTM@tut.ac.za</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingFive">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                    aria-expanded="false"
+                    aria-controls="collapseFive"
+                  >
+                  How can I apply for the re-issuing of my certificate?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFive"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                   <p>To apply for a duplicate qualification statement, submit an affidavit (confirming the loss, theft, or destruction of the original certificate), a copy of your ID, and proof of payment. The fee is R224 per qualification, payable to:</p>
+                   <p><strong>Account Name:</strong> Tshwane University of Technology<br />
+                   <strong>Bank:</strong> ABSA<br />
+                   <strong>Account No:</strong> 04 000 000 3<br />
+                   <strong>Branch Code:</strong> 323245<br />
+                   <strong>Reference No:</strong> F224/0455</p>
+                   <p>Duplicate certificates will be issued, not original ones.</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

@@ -110,8 +110,8 @@ const AlumniCommunity = () => {
   
 
   return (
-    <div>
     <div className={`alumni-community ${isModalOpen ? 'blur-background' : ''}`}>
+      <div className="con" style={{ paddingBottom: '220px' }}>
           {/* Blur effect overlay */}
     {(isModalOpen || linkedinModalVisible) && (
       <div className="blur-overlay active"></div>
@@ -134,7 +134,7 @@ const AlumniCommunity = () => {
           </div>
         </div>
       </section>
-      <div className="search-container">
+      <div className="search-container"  >
         <i className="search-icon bi bi-search"></i>
         <input 
           type="text" 
@@ -377,10 +377,12 @@ const AlumniCommunity = () => {
           </div>
         </div>
       )}
-  
-     </div>
-      <FooterLogged/> 
-     </div>
+
+</div>
+
+<FooterLogged />
+
+    </div>
   );
 };
 

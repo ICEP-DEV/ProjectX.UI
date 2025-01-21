@@ -1,69 +1,85 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures full height of viewport */
+  height: 100vh; /* Full viewport height */
   margin: 0;
 }
 
-#root {
-  flex: 1; /* Pushes the footer down if the content is small */
+.main-content {
+  flex: 1; /* This allows the content to take up remaining space */
+}
+
+.footer-logged{
+  margin-top: auto; /* Pushes footer to the bottom */
+  /* padding: 20px; */
 }
 
 .fo-footer_section {
-  margin-top: auto;
+ /* margin-top: auto; */
+  /* padding-top: 20px;*/
+  padding-bottom:0px; 
+  background: linear-gradient(30deg, #ce1127, #005596);
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  
 }
 
 
 .fo-footer_section .fo-widget_wrapper {
   background: linear-gradient(30deg, #ce1127, #005596);
-  background-size: cover;
-  padding-top: 50px; /* Reduced from 200px */
-  padding-bottom: 30px; /* Reduced from 70px */
+  /* background-size: cover; */
+  padding-top: 20px; /* Reduced from 200px */
+  padding-bottom: 10px; /* Reduced from 70px */
+  font-size: 0.05px;
 }
 
 @media (max-width: 767px) {
   .fo-footer_section .fo-widget_wrapper .fo-widget {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget .fo-widget_title {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget .fo-widget_title h4 {
   font-weight: bold;
   color: #feb000;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget .fo-widget_title h4:after {
   content: "";
   display: block;
-  max-width: 38px;
+  max-width: 30px;
   height: 2px;
   margin-top: 5px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_about p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_about .fo-social li {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_about .fo-social li a {
   display: block;
-  width: 25px;
-  height: 25px;
-  line-height: 30px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
   text-align: center;
   border-radius: 50%;
   background:linear-gradient(30deg, #ce1127, #005596);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 10px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -72,6 +88,14 @@ body {
   color: #feb000;
   font-size: 30px;
 } */
+
+.fo-widget .fo-widget_contact{
+ margin-left: 90px;
+;
+}
+.me-2{
+ /* margin-left: 100px; */
+}
 
 @keyframes bouncearrow {
   0%, 100% {
@@ -95,7 +119,7 @@ body {
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_links ul li {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_links ul li a {
@@ -109,7 +133,7 @@ body {
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_contact .fo-contact_info .fo-single_info {
-  max-width: 250px;
+  max-width: 230px;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -131,6 +155,24 @@ color: white;
 {
   font-size: 30px;
   color: white;
+}
+
+.fo-widget p {
+  color: white;
+  font-size: 16px;
+}
+
+.fo-widget_wrapper .row {
+  display: flex;
+  justify-content: space-between; /* Ensure even spacing */
+}
+
+.contact-info-right {
+  margin-right: 50px; /* Pushes the section to the right */
+}
+
+.fo-widget_wrapper .col-lg-3 {
+  flex: 1; /* Ensure each section takes equal width */
 }
 
 .fo-footer_section .fo-widget_wrapper .fo-widget_contact .fo-contact_info .fo-single_info .fo-info p a {

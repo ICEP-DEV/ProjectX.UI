@@ -54,20 +54,28 @@ function NavBar() {
   }, []);
 
 
+  
   const handleTabClick = (tabName, sectionId) => {
     setActiveTab(tabName);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
-    } else {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  
+    // Scroll adjustment to account for the fixed navbar height
+    const section = document.getElementById(sectionId);
+    const navbarHeight = document.getElementById('navbar').offsetHeight;
+  
+    if (section) {
+      const sectionTop = section.offsetTop;
+  
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+        }, 200);
+      } else {
+        window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+      }
     }
-
   };
+  
 
   
 

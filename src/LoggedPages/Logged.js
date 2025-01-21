@@ -94,32 +94,20 @@ const Logged = () => {
       introduceTitle: 'Unlock Knowledge Anytime, Anywhere',   
       introduceDes:
         'Discover a wealth of resources at your fingertips. Our Digital Library offers alumni access to academic materials, research papers, and industry insights to keep you informed and ahead.',
-      // detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Unlock Knowledge Anytime, Anywhere',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'Our Digital Library is your gateway to a world of knowledge designed to empower and inspire. Access a diverse collection of academic materials, cutting-edge research papers, and valuable industry insights – all curated to support your continuous growth and professional journey.Whether you’re diving into advanced research, exploring new career paths, or staying informed about industry trends, our library ensures you’re equipped with the tools to succeed. Stay connected to TUT’s rich academic resources, no matter where life takes you.',
+    
     },
     {
       imgSrc: homepg2,
       introduceTitle: 'Celebrating Your Journey, Empowering Your Future',
       introduceDes:
         'Welcome to Alumni Space – where your achievements inspire, your connections grow, and your future takes flight. Together, we celebrate your success and open doors to endless opportunities. Let’s keep the journey going, hand in hand',
-      detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Celebrating Your Journey, Empowering Your Future',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'As part of our vibrant community, you’ll have access to exclusive networking opportunities, career development resources, and events tailored to your growth. Stay updated on university news, connect with fellow alumni, and make a lasting impact through programs that shape the future. Together, we honour the past, embrace the present, and build a brighter future for generations to come. Continue your legacy and let your story inspire others!',
+      
     },
     {
       imgSrc: homepg1,
@@ -127,16 +115,10 @@ const Logged = () => {
      
       introduceDes:
         'Join the Convocation and Alumni Meet, a celebration of shared journeys and future aspirations. Reconnect with peers, foster meaningful connections, and contribute to the growth of our alumni community. Together, we create opportunities and uphold the legacy of excellence.',
-      detailTitle: 'Aerphone GHTK',
+      detailTitle: 'Strengthening Bonds, Building Futures',
       detailDes:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.',
-      // specifications: [
-      //   { label: 'Date', value: '23 April 2025' },
-      //   { label: 'Time', value: '07:15' },
-      //   { label: 'Venue', value: 'Net Care' },
-      //   { label: 'Dress Code', value: 'All White' },
-      //   { label: 'Plus-One', value: 'Yes' },
-      // ],
+        'The Convocation and Alumni Meet celebrates shared milestones and fosters connections among alumni. This event offers a platform to network with peers and industry leaders, contribute to impactful community initiatives, and relive cherished memories. It’s also an opportunity to engage in discussions that align alumni contributions with the evolving needs of the university. Join us in building a legacy of excellence and strengthening the bonds that unite our vibrant alumni community..',
+  
     },
     // Add other items (similar to the structure above)
   ];
@@ -243,7 +225,7 @@ const Logged = () => {
           </div>
         </section> */}
 
-        {/* Advertising Div Start */}
+        {/* Homepage Div Start */}
         <div className="carousel" ref={carouselRef}>
       <div className="list" ref={listRef}>
         {data.map((item, index) => (
@@ -255,18 +237,13 @@ const Logged = () => {
               <div className="des">{item.introduceDes}</div>
               <button className="seeMore">VIEW MORE &#8599;</button>
             </div>
+
             <div className="detail">
-              <div className="title">{item.detailTitle}</div>
+              <div className="title" style={{fontSize: '25px', fontWeight:'bold'}}>{item.detailTitle}</div>
               <div className="des">{item.detailDes}</div>
-              {/* <div className="specifications">
-                {item.specifications.map((spec, i) => (
-                  <div key={i}>
-                    <p className='label-carousel'>{spec.label}</p>
-                    <p className='value-carousel'>{spec.value}</p>
-                  </div>
-                ))}
-              </div> */}
+            
             </div>
+
           </div>
         ))}
       </div>
@@ -398,6 +375,63 @@ const Logged = () => {
                   </div>
                 </div>
               </div>
+              
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingFour">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                  What should I do if my academic record is blocked?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                  <p>You can download the blocked academic record form by <a href="https://tut.ac.za/images/docs/blocked-Academic-Record.pdf" target="_blank" rel="noopener noreferrer">clicking here</a>. Once completed, please email it to <a href="mailto:SkosanaK@tut.ac.za">SkosanaK@tut.ac.za</a> and ensure to cc: <a href="mailto:SegwaneTM@tut.ac.za">SegwaneTM@tut.ac.za</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingFive">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                    aria-expanded="false"
+                    aria-controls="collapseFive"
+                  >
+                  How can I apply for the re-issuing of my certificate?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFive"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                   <p>To apply for a duplicate qualification statement, submit an affidavit (confirming the loss, theft, or destruction of the original certificate), a copy of your ID, and proof of payment. The fee is R224 per qualification, payable to:</p>
+                   <p><strong>Account Name:</strong> Tshwane University of Technology<br />
+                   <strong>Bank:</strong> ABSA<br />
+                   <strong>Account No:</strong> 04 000 000 3<br />
+                   <strong>Branch Code:</strong> 323245<br />
+                   <strong>Reference No:</strong> F224/0455</p>
+                   <p>Duplicate certificates will be issued, not original ones.</p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -406,47 +440,7 @@ const Logged = () => {
  {/* FAQs End */}
 
 
-                {/* Contact Us Start */}
-                <section className="contact-section section-padding section-bg tl-con-us" id="section_5">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 col-12 text-center tl-add-space2">
-                                <h2 className="mb-5">Get in touch</h2>
-                            </div>
-                            <div className="col-lg-5 col-12 mb-4 mb-lg-0">
-                                <iframe
-                                    className="google-map"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115198.29443520978!2d28.01449227899608!3d-25.540152249363302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfcf9c4eedb233%3A0x9e2de5e61f9e48e7!2sTshwane%20University%20of%20Technology%20-%20Soshanguve%20South%20Campus%20-%20TUT!5e0!3m2!1sen!2sza!4v1724747776372!5m2!1sen!2sza"
-                                    width="100%"
-                                    height="350"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Google Map"
-                                ></iframe>
-                            </div>
-                            <div className="col-lg-3 col-md-6 mx-auto">
-                                <h4 className="mb-3">Head office</h4>
-                                <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve,  0152 </p>
-                                <hr />
-                                <p className="d-flex align-items-center mb-1">
-                                    <span className="me-2">Phone</span>
-                                    <a href="tel:081-355-6089" className="site-footer-link">
-                                        081-355-6089
-                                    </a>
-                                </p>
-                                <p className="d-flex align-items-center">
-                                    <span className="me-2">Email</span>
-                                    <a href="mailto:info@company.com" className="site-footer-link">
-                                        info@company.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/* Contact Us End */}
+              
 
       </main>
       <FooterLogged />

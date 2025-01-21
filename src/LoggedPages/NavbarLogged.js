@@ -109,7 +109,7 @@ function NavbarLogged() {
             {/* Career Development Dropdown */}
             <NavDropdown title="Career Development" id="career-development-dropdown" className="spacing me-5">
 
-              <NavDropdown title={<span className="custom-faculty-title">Faculties</span>} id="faculties-dropdown" drop="end">
+              <NavDropdown title={<span className="custom-faculty-title">Chapters</span>} id="faculties-dropdown" drop="end">
                 <NavDropdown.Item as={Link} to="/arts" className={`${location.pathname === '/arts' ? 'active' : ''} custom-font-size`}>FACULTY OF ARTS AND DESIGN</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/economics" className={`${location.pathname === '/economics' ? 'active' : ''} custom-font-size`}>FACULTY OF ECONOMICS AND FINANCE</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/engineering" className={`${location.pathname === '/engineering' ? 'active' : ''} custom-font-size`}>FACULTY OF ENGINEERING AND THE BUILT ENVIRONMENT</NavDropdown.Item>
@@ -182,7 +182,6 @@ function NavbarLogged() {
               </p>
 
               <ul className="profile-box-links">
-                <li><strong>Graduation Year: </strong>{profile.graduationYear}</li>
                 <li><Link to="/resetpassword">Change Password</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
               </ul>

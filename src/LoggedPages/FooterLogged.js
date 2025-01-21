@@ -39,7 +39,7 @@ const FooterLogged = () => {
           <div className="container">
             <div className="row">
               {/* Logo and Social Media Section */}
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-4 col-md-6 col-12">
                 <div className="fo-widget fo-widget_about">
                   <div className="logo-container" onMouseMove={handleMouseMove}>
                     <img
@@ -96,9 +96,51 @@ const FooterLogged = () => {
     </div>
   </div>
 </div>
+  {/* Contact Us Start */}
+  {/* Contact Us Section (Now in the same row as Quick Links) */}
+  <div className="col-lg-2 col-md-6 col-sm-12">
+          <div className="fo-widget fo-widget_contact">
+            <h6>Contact Us</h6>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12 col-12 text-center">
+                </div>
+                {/* <div className="col-lg-5 col-12 mb-4 mb-lg-0">
+                  <iframe
+                    className="google-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115198.29443520978!2d28.01449227899608!3d-25.540152249363302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfcf9c4eedb233%3A0x9e2de5e61f9e48e7!2sTshwane%20University%20of%20Technology%20-%20Soshanguve%20South%20Campus%20-%20TUT!5e0!3m2!1sen!2sza!4v1724747776372!5m2!1sen!2sza"
+                    width="100%"
+                    height="350"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Map"
+                  ></iframe>
+                </div> */}
+                <div className="col-lg-3 col-md-6 mx-auto">
+                  {/* <h6 className="mb-3">Head office</h6> */}
+                  <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve, 0152</p>
+                  <hr />
 
+                  <div className="contact-info-right"></div>
+                  <p className="d-flex align-items-center mb-1">
+                    <span className="me-2">Phone</span>
+                    <a href="tel:081-355-6089" className="site-footer-link">081-355-6089</a>
+                  </p>
+                  <p className="d-flex align-items-center">
+                    <span className="me-2">Email</span>
+                    <a href="mailto:info@company.com" className="site-footer-link">info@company.com</a>
+                  </p>
+                  
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+      </div>
+    </div>
 
           {/* Copyright Section */}
           <div className="fo-copyright_area">
