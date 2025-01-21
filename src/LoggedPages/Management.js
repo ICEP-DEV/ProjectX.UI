@@ -3,6 +3,7 @@ import NavbarLogged from './NavbarLogged';
 import arts from '../images/artspicture.jpg';
 import './faculty.css';
 import FooterLogged from './FooterLogged';
+import mang from '../images/chaper of management science.jpg';
 
 const Humanities = () => {
   return (
@@ -34,7 +35,7 @@ const Humanities = () => {
           {/* Image and Vision Container */}
           <div className="col-md-5 image-container-wrapperZ">
             <div className="image-containerZ">
-              <img src={arts} alt="Artsp" className="img-fluid rounded" />
+              <img src={mang} alt="Artsp" className="img-fluid rounded specific-image" />
               <div className="visionZ">
                 <h3>VISION</h3>
                 <p>&bull; A people's university that makes knowledge work.</p>

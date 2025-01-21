@@ -531,7 +531,7 @@ blockquote {
 
 .timeline-container .vertical-scrollable-timeline .list-progress {
   width: 8px;
-  height: 80%;
+  height: 100%;
   background-color: var(--primary-color);
   position: absolute;
   left: 52px;
@@ -847,6 +847,13 @@ blockquote {
   background-size: cover; /* Ensure the image covers the slide */
   background-position: center; /* Center the image */
   transition: background-image 1s ease; /* Smooth transition */
+}
+
+.slideshow-slide a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer; /* Change cursor to indicate it's clickable */
 }
 
 .slide-text {

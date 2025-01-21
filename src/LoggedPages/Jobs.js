@@ -22,7 +22,7 @@ const Jobs = () => {
       <NavbarLogged />
       <h2 className="job-title">Find A Job That Suits You</h2>
 
-      <Carousel interval={null} indicators={false} className="custom-carousel" >
+      <Carousel interval={null} indicators={false} className="custom-carousel" style={{ marginTop: '100px' }} >
         <Carousel.Item>
           <div className="row">
             <div className="col-md-3 text-center">
