@@ -8,10 +8,29 @@ import news1 from '../images/news1.jpg';
 import news2 from '../images/news2..png';
 import news3 from '../images/news3.jpg';
 import news4 from '../images/news4.jpg';
+
 import mag1 from '../images/mag1.jpg';
 import mag2 from '../images/mag2.jpg';
 import mag3 from '../images/mag3.jpg';
 import mag4 from '../images/mag4.jpg';
+
+import hist1 from '../images/hist1.jpeg';
+import hist2 from '../images/hist2.jpeg';
+import hist3 from '../images/hist3.jpeg';
+import hist4 from '../images/hist4.jpeg';
+import hist5 from '../images/hist5.jpeg';
+import hist6 from '../images/hist6.jpeg';
+
+import hist7 from '../images/hist7.jpeg';
+import hist8 from '../images/hist8.jpeg';
+import hist9 from '../images/hist9.jpeg';
+import hist10 from '../images/hist10.jpeg';
+
+ import hist13 from '../images/hist13.jpeg';
+import hist14 from '../images/hist14.jpeg';
+import hist15 from '../images/hist15.jpeg';
+import hist16 from '../images/hist16.jpeg';
+
 
 function News() {
   const navigate = useNavigate();
@@ -35,30 +54,84 @@ function News() {
   const historicalArchives1 = [
     {
       // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
-      img: news1,
+      img: hist1,
     },
     {
       // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
-      img: news2,
+      img: hist2,
     },
     {
       // description: "On 13 November 2024, the Tshwane University of Technology (TUT) Academic Excellence Awards will recognize exceptional academic staff.",
-      img: news3,
+      img: hist3,
     },
     {
       // description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
-      img: news4,
+      img: hist4,
     },
     {
       // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
-      img: news1,
+      img: hist5,
     },
     {
       // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
-      img: news2,
+      img: hist6,
     },
+  ]
+    const historicalArchives2 = [
+      {
+        // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+        img: hist7,
+      },
+      {
+        // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+        img: hist8,
+      },
+      {
+        // description: "On 13 November 2024, the Tshwane University of Technology (TUT) Academic Excellence Awards will recognize exceptional academic staff.",
+        img: hist9,
+      },
+      {
+        // description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
+        img: hist10,
+      },
+      {
+        // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+        img: hist6,
+      },
+      {
+        // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+        img: hist4,
+      },
 
   ];
+
+  const historicalArchives3 = [
+    {
+      // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+      img: hist13,
+    },
+    {
+      // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+      img: hist14,
+    },
+    {
+      // description: "On 13 November 2024, the Tshwane University of Technology (TUT) Academic Excellence Awards will recognize exceptional academic staff.",
+      img: hist15,
+    },
+    {
+      // description: "The Tshwane University of Technology (TUT) – renowned for grooming elite athletes that compete on national and international stages – is inviting corporations, foundations, and individuals to partner with it to improve its sports programmes and facilities.",
+      img: hist8,
+    },
+    {
+      // description: "The first cohort of structured Master’s students in the Department of Performing Arts (DPA) in 2024 have all enthusiastically embraced their two first-year modules. One of these modules is Embodied Technologies, which requires students to conceptualise and manage a project that involves a technology as a composite performer.",
+      img: hist9,
+    },
+    {
+      // description: "The Hacker Society of the Faculty of ICT at Tshwane University of Technology hosted the “Why Women” event on 15 October 2024 at the Student Centre, in Soshanguve South.",
+      img: hist10,
+    },
+
+];
 
 
   // Fetch news data when the component mounts
@@ -153,7 +226,7 @@ function News() {
                   {/* 2004 - 2008 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                     <h5>2004 - 2008</h5>
-                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                    <p id='hist'>Established on January 1, 2004, TUT resulted from the merger of Technikon Northern Gauteng, Technikon North-West, and Technikon Pretoria. This consolidation aimed to transform and restructure higher education in post-apartheid South Africa, fostering inclusivity and diversity.During this period, TUT expanded by establishing satellite campuses in Mbombela, Emalahleni, and Polokwane, extending its educational reach. </p>
                     <div className="row">
                       {historicalArchives1.map((image, idx) => (
                       <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
@@ -174,10 +247,10 @@ function News() {
                   {/* 2009 - 2013 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                     <h5>2009 - 2013</h5>
-                    <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                    <p id='hist'>By 2012, TUT's enrollment surged to approximately 88,078 students, reflecting its growing reputation and accessibility.The university predominantly offered vocational qualifications, including three-year diplomas, advanced diplomas, and postgraduate degrees, aligning with industry needs.In 2010, Webometrics ranked TUT as the 15th best university in South Africa and 5,662nd globally, indicating its emerging presence in the academic community.  </p>
                     <div className="row">
 
-                      {historicalArchives1.map((image, idx) => (
+                      {historicalArchives2.map((image, idx) => (
                       <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
                         <div className="card shadow-sm">
                         <img
@@ -196,9 +269,11 @@ function News() {
                    {/* 2009 - 2013 */}
                   <div className="tab-pane fade show active" id="historicalarchives-tab-pane" role="tabpanel" aria-labelledby="historicalarchives-tab">
                   <h5>2014 - 2018</h5>
-                  <p id='hist'>The historical archives of Tshwane University of Technology (TUT) preserve the university's rich legacy since its formation in 2004. They contain records, research, photographs, and artifacts that reflect TUT's growth and contributions to education, technology, and community development. The archives are a valuable resource for researchers and students, offering insight into the university's role in South Africa's post-apartheid educational landscape </p>
+                  <p id='hist'>TUT continued its upward trajectory, with first-year applications reaching around 80,000 in 2014, underscoring its appeal among prospective students.Tshwane University of Technology (TUT) was significantly impacted by the national #FeesMustFall movement, which began in October 2015.This student-led protest aimed to halt increases in university tuition fees and advocate for greater government funding for higher education institutions across South Africa.In 2018, Times Higher Education ranked TUT among the top 1,000 universities globally and eighth in South Africa, highlighting its academic advancements 
+WIKIPEDIA
+ The university diversified its program offerings, emphasizing distance and blended learning to accommodate a broader student base </p>
                     <div className="row">
-                      {historicalArchives1.map((image, idx) => (
+                      {historicalArchives3.map((image, idx) => (
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={idx}>
                           <div className="card shadow-sm">
                           <img
