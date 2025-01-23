@@ -617,15 +617,38 @@
 
 .linkedin-modal {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 750px;
+  width: 90%;
+  max-width: 800px;
+  min-height: 750px;
+  max-height: 80vh;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 99000;
   border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Modern scrollbar styling */
+.linkedin-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.linkedin-modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.linkedin-modal::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.linkedin-modal::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 .linkedin-modal-content {
@@ -1041,7 +1064,8 @@
 
 .road-to-linkedin-modal {
   position: fixed;
-  top: 50%;
+  top: 60%;
+  bottom: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 800px;
@@ -1283,156 +1307,57 @@
   color: red;
 }
 
-
-
-/* Media annotations for a 15.6-inch screen */
-@media (min-width: 1366px) and (max-width: 1920px) {
-  .road-to-modal {
-    width: 600px; /* Smaller modal width */
-    padding: 25px; /* Reduce padding */
-  }
-
-  .road-to-modal-profile-picture {
-    width: 180px; /* Scale down profile picture */
-    height: 180px;
-  }
-
-  .road-to-m-inc-text {
-    font-size: 1.5rem; /* Reduce heading size */
-  }
-
-  .road-to-modal-details {
-    text-align: left; /* Keep text aligned left for readability */
-    font-size: 0.9rem; /* Reduce font size for details */
-  }
-
-  .road-to-linkedin-icon {
-    font-size: 30px; /* Scale down LinkedIn icon */
-  }
-
-  .road-to-close-modal-button {
-    font-size: 20px; /* Reduce close button size */
-  }
+.road-to-linkedin-modal {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  min-height: 750px;
+  max-height: 90vh;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 99000;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-/* Responsive design for small screens */
-@media (max-width: 768px) {
-  .road-to-modal {
-    width: 90%; /* Reduce modal width for smaller screens */
-    padding: 20px; /* Adjust padding */
-  }
-
-  .road-to-modal-profile-picture {
-    width: 150px; /* Reduce profile picture size */
-    height: 150px;
-  }
-
-  .road-to-m-inc-text {
-    font-size: 1.5rem; /* Adjust heading size */
-  }
-
-  .road-to-modal-details {
-    text-align: center; /* Center-align text for smaller screens */
-  }
+/* Modern scrollbar styling */
+.road-to-linkedin-modal::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Responsive design for extra small screens */
-@media (max-width: 480px) {
-  .road-to-modal {
-    padding: 15px; /* Further adjust padding */
-  }
-
-  .road-to-modal-profile-picture {
-    width: 120px; /* Further reduce profile picture size */
-    height: 120px;
-  }
-
-  .road-to-m-inc-text {
-    font-size: 1.25rem; /* Smaller heading size */
-  }
+.road-to-linkedin-modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
 }
 
-/* Media annotation: Adjust modal size for smaller screens */
+.road-to-linkedin-modal::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.road-to-linkedin-modal::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .road-to-linkedin-modal {
-    width: 90%; /* Reduce width for smaller screens */
-    height: auto; /* Allow height to adjust dynamically */
-    top: 10%; /* Adjust top placement */
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-
-  .road-to-linkedin-modal-content {
-    padding: 15px; /* Reduce padding for better fit */
-  }
-
-  .road-to-profile-photo-container {
-    top: 50px; /* Adjust vertical placement */
-    width: 150px; /* Reduce profile photo size */
-    height: 150px;
-  }
-
-  .road-to-linkedin-description {
-    margin-top: 30px; /* Adjust spacing */
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 95%;
+    min-height: 80vh;
   }
 }
 
-/* Media annotation: Adjustments for very small screens */
 @media (max-width: 480px) {
   .road-to-linkedin-modal {
-    width: 95%; /* Further reduce modal width */
-    padding: 10px; /* Add padding around modal */
-  }
-
-  .road-to-profile-photo-container {
-    width: 120px; /* Further reduce profile photo size */
-    height: 120px;
-  }
-
-  .road-to-linkedin-description {
-    font-size: 12px; /* Adjust text size for better readability */
-  }
-
-  .road-to-linkedin-buttons button {
-    padding: 6px 12px; /* Reduce button size */
-    font-size: 12px;
+    width: 98%;
+    min-height: 85vh;
   }
 }
 
-/* Media annotation: Optimize mutual connections layout */
-@media (max-width: 600px) {
-  .road-to-mutual-connections {
-    flex-wrap: wrap; /* Allow icons to wrap to next line */
-    justify-content: center; /* Center align content */
-  }
-
-  .road-to-mutual-connections img {
-    width: 18px; /* Slightly reduce icon size */
-    height: 18px;
-  }
-}
-
-/* Media annotation: Adjust modal image for smaller screens */
-@media (max-width: 768px) {
-  .road-to-linkedin-modal-image img {
-    max-width: 100%; /* Ensure image doesn't overflow */
-    height: auto;
-  }
-}
-
-/* Media annotation: Adjust icon size for better fit */
-@media (max-width: 768px) {
-  .road-to-linkedin-icon-container {
-    width: 30px; /* Reduce size of icon container */
-    height: 30px;
-  }
-
-  .road-to-linkedin-icon-link {
-    font-size: 24px; /* Adjust icon font size */
-  }
-}
 
 .road-to-linkedin-details-container {
   padding: 10px;
@@ -1491,4 +1416,180 @@
   pointer-events: auto;
 }
 
+/* Large Screens (Desktops & Monitors) */
+@media (min-width: 1200px) {
+  .road-to-linkedin-modal {
+    width: 800px;
+    min-height: 750px;
+    max-height: 90vh;
+  }
+
+  .road-to-linkedin-description {
+    max-height: 400px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/* Laptops & Medium Screens */
+@media (max-width: 1199px) {
+  .road-to-linkedin-modal {
+    width: 85%;
+    min-height: 700px;
+    max-height: 85vh;
+  }
+
+  .road-to-profile-photo-container {
+    width: 180px;
+    height: 180px;
+    top: 60px;
+  }
+
+  .road-to-linkedin-description {
+    max-height: 350px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .road-to-linkedin-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+  .road-to-linkedin-modal {
+    width: 90%;
+    min-height: 600px;
+    max-height: 80vh;
+  }
+
+  .road-to-profile-photo-container {
+    width: 160px;
+    height: 160px;
+    top: 50px;
+  }
+
+  .road-to-linkedin-description {
+    max-height: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .road-to-linkedin-details li {
+    font-size: 13px;
+  }
+
+  .road-to-linkedin-icon-container {
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+  }
+
+  .road-to-linkedin-icon-link {
+    font-size: 30px;
+  }
+
+  .road-to-linkedin-buttons button {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 767px) {
+  .road-to-linkedin-modal {
+    width: 95%;
+    min-height: 550px;
+    max-height: 75vh;
+    padding: 15px;
+  }
+
+  .road-to-profile-photo-container {
+    width: 140px;
+    height: 140px;
+    top: 40px;
+  }
+
+  .road-to-linkedin-description {
+    max-height: 250px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .road-to-linkedin-details li {
+    font-size: 12px;
+  }
+
+  .road-to-linkedin-icon-container {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+  }
+
+  .road-to-linkedin-icon-link {
+    font-size: 26px;
+  }
+
+  .road-to-linkedin-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .road-to-linkedin-buttons button {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .road-to-close-linkedin-modal {
+    font-size: 18px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+/* Small Mobile Devices (Extra Small Phones) */
+@media (max-width: 480px) {
+  .road-to-linkedin-modal {
+    width: 98%;
+    min-height: 500px;
+    max-height: 70vh;
+  }
+
+  .road-to-profile-photo-container {
+    width: 120px;
+    height: 120px;
+    top: 30px;
+  }
+
+  .road-to-linkedin-description {
+    max-height: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .road-to-linkedin-details li {
+    font-size: 11px;
+  }
+
+  .road-to-linkedin-icon-container {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+  }
+
+  .road-to-linkedin-icon-link {
+    font-size: 22px;
+  }
+
+  .road-to-linkedin-buttons button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .road-to-close-linkedin-modal {
+    font-size: 16px;
+  }
+}
 

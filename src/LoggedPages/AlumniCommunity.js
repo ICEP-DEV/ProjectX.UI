@@ -6,7 +6,7 @@ import TutLogo from './SearchBarDemoImages/TUT-Logo1.jpg';
 import ProfilePhoto2 from './SearchBarDemoImages/2.png';
 import ProfilePhoto3 from './SearchBarDemoImages/1.jpg';
 import ModelBackGroundPic from './Radio/radio photos/Divider 2r.png';
-import LinkedInPhoto from './LoggedInPhotos/Divider 3.png';
+import LinkedInPhoto from './Radio/radio photos/Divider 2r.png';
 import FooterLogged from './FooterLogged';
 
 const AlumniCommunity = () => {
@@ -150,8 +150,11 @@ const AlumniCommunity = () => {
       </div>
 
       {/* Alumni List */}
-      {isSearchClicked && filteredAlumni.length > 0 && (
+      {isSearchClicked && filteredAlumni.length > 0 && (        
         <div className="alumni-list">
+          <div>
+            <p>Search Results: </p>
+          </div>
           {filteredAlumni.map(alumnus => (
             <div className="alumni-card" key={alumnus.alumnusProfId}>
             <img 
@@ -332,9 +335,7 @@ const AlumniCommunity = () => {
                 }}
               >
                 Connect
-              </button>
-
-                <button className="btn-message">Message</button>
+              </button>                
                 <button className="btn-more">More</button>
               </div>
 
