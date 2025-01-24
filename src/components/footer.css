@@ -331,6 +331,16 @@ flex-wrap: wrap;
 .fo-cta_section .fo-cta_wrapper .fo-button_box .fo-cta_btn:focus {
   box-shadow: 2.5px 4.33px 15px 0px rgba(0, 0, 0, 0.15);
 }
+
+.titl{
+
+  color: #feb000 !important;
+}
+
+.inf{
+  color: white;
+}
+
 /* .left-aligned {
   text-align: left;
   padding-left: 15px; /* Optional: adjust padding as needed 
