@@ -18,13 +18,13 @@ const PieChart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5214/api/Admin/CountVolunteerPerFaculty/CountVolunteerPerFaculty');
+                const response = await axios.get('http://localhost:5214/api/Admin/CountRSVPPerFaculty/CountRSVPPerFaculty');
                 const data = response.data;
                 console.log('API Response:', data);
     
                 if (data && data.length > 0) {
                     const labels = data.map((item) => item.faculty);
-                    const counts = data.map((item) => item.volunteerCount);
+                    const counts = data.map((item) => item.rsvpCount );
 
                     console.log('Labels:', labels);
                     console.log('Counts:', counts);
@@ -36,7 +36,7 @@ const PieChart = () => {
                         labels,
                         datasets: [
                             {
-                                label: 'Volunteer Count',
+                                label: 'RSVP Count',
                                 data: counts,
                                 backgroundColor: [
                                     '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FFA07A', '#8FBC8F',
@@ -49,7 +49,7 @@ const PieChart = () => {
                     console.warn('No data available from API.');
                 }
             } catch (error) {
-                console.error('Error fetching volunteer data:', error);
+                console.error('Error fetching rsvp data:', error);
             }
         };
     
@@ -57,28 +57,32 @@ const PieChart = () => {
     }, []);
     
     if (!chartData) {
-        return <p>Loading chart...</p>;
+        return <p>No RSVPs...</p>;
     }
 
     return (
         <Card style={{ maxWidth: 800, margin: '20px auto', padding: '20px' , minHeight: 500}}>
             <CardContent>
                 <Typography variant="h5" color="textPrimary" gutterBottom style={{ textAlign: 'center', color: "#003883" , paddingBottom: "30px"}}>
-                    Volunteer by Faculty
+                    RSVPs by Faculty
                 </Typography>
                 <Grid container spacing={3}>
                     {/* Pie Chart */}
-                    <Grid item xs={12} sm={8}>
-                        <Pie data={chartData} 
-                        options={{
-                            plugins: {
-                                legend: {
-                                    position: 'bottom', // Place legend below the chart
+                    <Grid item xs={12} sm={8} style={{ height: '300px', width: '300px' }}> 
+                        <Pie 
+                            data={chartData} 
+                            options={{
+                                plugins: {
+                                    legend: {
+                                        position: 'bottom', // Place legend below the chart
+                                    },
                                 },
-                            },
-                            maintainAspectRatio: false, // Allow responsive resizing
-                        }} />
+                                maintainAspectRatio: false, // Allow responsive resizing
+                                responsive: true, // Enable responsiveness
+                            }} 
+                        />
                     </Grid>
+
 
                     {/* Faculty List */}
                     <Grid item xs={12} sm={4}>
@@ -89,7 +93,7 @@ const PieChart = () => {
                             {rsvpDetails.map((item, index) => (
                                 <ListItem key={index}>
                                     <ListItemText
-                                        primary={`${item.faculty} = ${item.volunteerCount}`}
+                                        primary={`${item.faculty} = ${item.rsvpCount }`}
                                     />
                                 </ListItem>
                             ))}
