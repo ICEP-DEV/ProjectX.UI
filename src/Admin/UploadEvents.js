@@ -182,7 +182,7 @@ const UploadEvents = () => {
                     </div>
                   ))}
                   <Button variant="secondary" onClick={addVolunteerRole} className="mt-2">
-                    Add Another Role
+                    Add Role
                   </Button>
                 </Form.Group>
                 <Form.Group controlId="formMedia">

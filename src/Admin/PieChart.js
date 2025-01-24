@@ -36,7 +36,7 @@ const PieChart = () => {
                         labels,
                         datasets: [
                             {
-                                label: 'Volunteer Count',
+                                label: 'RSVP Count',
                                 data: counts,
                                 backgroundColor: [
                                     '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FFA07A', '#8FBC8F',
@@ -49,7 +49,7 @@ const PieChart = () => {
                     console.warn('No data available from API.');
                 }
             } catch (error) {
-                console.error('Error fetching volunteer data:', error);
+                console.error('Error fetching rsvp data:', error);
             }
         };
     
@@ -57,7 +57,7 @@ const PieChart = () => {
     }, []);
     
     if (!chartData) {
-        return <p>Loading chart...</p>;
+        return <p>No RSVPs...</p>;
     }
 
     return (
