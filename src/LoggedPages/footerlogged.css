@@ -93,9 +93,7 @@ body {
  margin-left: 90px;
 ;
 }
-.me-2{
- /* margin-left: 100px; */
-}
+
 
 @keyframes bouncearrow {
   0%, 100% {
@@ -376,4 +374,13 @@ color: white;
 .fo-cta_section .fo-cta_wrapper .fo-button_box .fo-cta_btn:hover,
 .fo-cta_section .fo-cta_wrapper .fo-button_box .fo-cta_btn:focus {
   box-shadow: 2.5px 4.33px 15px 0px rgba(0, 0, 0, 0.15);
+}
+
+.titl{
+
+  color: #feb000 !important;
+}
+
+.inf{
+  color: white;
 }

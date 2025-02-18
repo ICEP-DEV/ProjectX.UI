@@ -53,9 +53,9 @@ const Footer = () => {
                   </div>
                   <ul className="fo-social">
                     <li><a href="https://www.facebook.com/TUTCommunications"><i className="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://x.com/official_tut"><i className="fab fa-twitter"></i></a></li>
+                    <li><a href="https://x.com/official_tut"><i className="fab fa-x-twitter"></i></a></li>
                     <li><a href="https://www.instagram.com/tut_official2/#"><i className="fab fa-instagram"></i></a></li>
-                    <li><Link to="/notfoundpage"><i className="fab fa-tiktok"></i></Link></li>
+                    <li><a href="https://www.tiktok.com/@tut_official1?lang=en"><i className="fab fa-tiktok"></i></a></li>
                     <li><a href="https://www.linkedin.com/company/official-tshwane-university-of-technology/posts/?feedView=all"><i className="fab fa-linkedin"></i></a></li>
                     <li><a href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber"><i className="fab fa-youtube-square"></i></a></li>
                   </ul>
@@ -99,7 +99,7 @@ const Footer = () => {
 {/* Contact Us Section (Now in the same row as Quick Links) */}
 <div className="col-lg-2 col-md-6 col-sm-12">
           <div className="fo-widget fo-widget_contact">
-            <h6>Contact Us</h6>
+            <h6>Find Us</h6>
             <div className="container">
               <div className="row">
                 <div className="col-lg-12 col-12 text-center">
@@ -122,12 +122,12 @@ const Footer = () => {
                   <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve, 0152</p>
                   <hr />
                   <p className="d-flex align-items-center mb-1">
-                    <span className="me-2">Phone</span>
-                    <a href="tel:081-355-6089" className="site-footer-link">081-355-6089</a>
+                    <span className="me-2 titl">Phone</span>
+                    <a href="tel:081-355-6089" className="site-footer-link inf">081-355-6089</a>
                   </p>
                   <p className="d-flex align-items-center">
-                    <span className="me-2">Email</span>
-                    <a href="mailto:info@company.com" className="site-footer-link">info@company.com</a>
+                    <span className="me-2 titl" >Email</span>
+                    <a href="mailto:info@company.com" className="site-footer-link inf">info@company.com</a>
                   </p>
                 </div>
               </div>
