@@ -67,10 +67,29 @@ const Login = () => {
         const { UserId, UserName, UserRole } = response.data;
             // Show popup with the UserRole value
         // alert("UserRole returned from backend: " + role);
-        sessionStorage.setItem('UserId', UserId);
+        sessionStorage.setItem('alumnusId', loginDTO.UserId);
         sessionStorage.setItem('UserName', UserName);
         sessionStorage.setItem('UserRole', role);
-
+       
+        console.log('Alumnus id :' , loginDTO.UserId);
+          // const loggedIn = async() => {
+          //   try{
+          //     const response = await fetch(
+          //       "http://localhost:5214/api/Alumnus/IsLoggedIn/IsLoggedIn",
+          //       {
+          //         method: "GET",
+          //         credentials: "include", // Include cookies in the request
+          //       }
+          //     );
+          //   }
+          //   catch(error){
+          //     console.error("Error fetching events:", error);
+          //   }
+          // };
+      
+          //   loggedIn(); // Fetch profile data only if logged in
+      
+     
         // Redirect based on the role
         if (role === "admin") {
           navigate("/admin");

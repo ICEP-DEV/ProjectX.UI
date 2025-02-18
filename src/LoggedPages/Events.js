@@ -15,8 +15,12 @@ function Events() {
   const [popupEvent, setPopupEvent] = useState(null);
   const calendarRef = useRef(null);
   const [eventsData, setEvents] = useState([]);
-  const alumnusId = sessionStorage.getItem('alumnusId'); // Ensure alumnusId is set in sessionStorage
+  const [alumnusId, setAlumnusId] = useState('');
   const { eventId } = state || {}; // Safe destructuring
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [profile, setProfile] = useState();
+
+   
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -40,9 +44,10 @@ function Events() {
 
     const data = {
       EventId,
-      AlumnusId: alumnusId,
+      AlumnusId: sessionStorage.getItem('alumnusId'),
     };
-
+    
+    console.log(data);
     try {
       const response = await axios.post(
         'http://localhost:5214/api/Alumnus/RSVP/RSVP',
@@ -54,7 +59,7 @@ function Events() {
         window.alert('RSVP Captured! We will reach out to you soon.');
       }
     } catch (error) {
-      console.error('Error volunteering:', error);
+      console.error('Error rsvping:', error);
       const errorMessage =
         error.response?.data || 'An error occurred while submitting your request.';
       window.alert(errorMessage);
