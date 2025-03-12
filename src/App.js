@@ -55,10 +55,11 @@ function App() {
   const location = useLocation();
 
   // Define paths for displaying NavBar and NavbarLogged
-  const showNavBar =  location.pathname === '/';
+// Update the showNavBar condition:
+  const showNavBar = location.pathname === '/' || location.pathname === '/radiopage';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
   const showNavBarNoDonateNotLog = location.pathname === '/donateUnLogged';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/radiopage'|| location.pathname === '/donate' ;
+  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/donate' ;
 
 
   return (

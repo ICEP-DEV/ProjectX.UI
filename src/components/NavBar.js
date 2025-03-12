@@ -28,55 +28,97 @@ function NavBar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Determine the active section
+  
+      let currentTab = activeTab; // Store the previous tab to avoid rapid switching
+  
       Object.entries(sections.current).forEach(([key, section]) => {
         if (section) {
-          const { top, height } = section.getBoundingClientRect();
-          const middleOfSection = top + height / 2;
-          const viewportMiddle = window.innerHeight / 2;
-
-          if (middleOfSection > 0 && middleOfSection <= viewportMiddle) {
-            setActiveTab(key);
+          const { top } = section.getBoundingClientRect();
+          const navbarHeight = document.getElementById('navbar').offsetHeight;
+  
+          if (top <= navbarHeight + 50 && top >= -section.offsetHeight / 2) {
+            currentTab = key;
           }
         }
       });
+  
+      setActiveTab(currentTab);
     };
-
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeTab]);
   
-
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(loggedIn === 'true');
   }, []);
 
 
+  useEffect(() => {
+    // Update the active tab based on the current pathname
+    if (location.pathname === '/radiopage') {
+      setActiveTab('podcasts');
+    } else if (location.pathname === '/') {
+      // If on the home page, update the tab based on scroll position or clicked tab
+      Object.entries(sections.current).forEach(([key, section]) => {
+        if (section) {
+          const { top } = section.getBoundingClientRect();
+          const navbarHeight = document.getElementById('navbar').offsetHeight;
+          if (top <= navbarHeight + 50 && top >= -section.offsetHeight / 2) {
+            setActiveTab(key);
+          }
+        }
+      });
+    }
+  }, [location.pathname]);
   
   const handleTabClick = (tabName, sectionId) => {
-    setActiveTab(tabName);
   
-    // Scroll adjustment to account for the fixed navbar height
     const section = document.getElementById(sectionId);
     const navbarHeight = document.getElementById('navbar').offsetHeight;
+
+    setActiveTab(tabName); // Immediately highlight the clicked tab
   
     if (section) {
+      // If section exists, scroll to it directly
       const sectionTop = section.offsetTop;
-  
+      window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+    } else {
+      // If section does not exist, check which page the user is on
       if (location.pathname !== '/') {
-        navigate('/');
+        // On a different page, navigate to home and scroll to the section
+        navigate('/');  
         setTimeout(() => {
-          window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+          const sectionOnHome = document.getElementById(sectionId);
+          if (sectionOnHome) {
+            const sectionTop = sectionOnHome.offsetTop;
+            window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+          }
         }, 200);
       } else {
-        window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+        // If on the home page, just navigate or scroll to the section
+        const sectionOnHome = document.getElementById(sectionId);
+        if (sectionOnHome) {
+          const sectionTop = sectionOnHome.offsetTop;
+          window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
+        }
       }
     }
   };
   
+  const handlePodcastClick = () => {
+    navigate('/radiopage');
+    setTimeout(() => {
+      setActiveTab('podcasts'); // Ensure the podcast tab is set after navigation
+    }, 200);
+  };
 
+  useEffect(() => {
+    if (location.pathname === '/radiopage') {
+      setActiveTab('podcasts');
+    }
+  }, [location.pathname]);
   
 
   return (
@@ -115,6 +157,12 @@ function NavBar() {
               onClick={() => handleTabClick('faqs', 'section_4')}
             >
               FAQs
+            </span>
+            <span
+              className={`nav-link mx-3 ${activeTab === 'podcasts' ? 'active' : ''}`}
+              onClick={() => handlePodcastClick()}
+            >
+              Podcasts
             </span>
             <Link
               to="/donateUnLogged"

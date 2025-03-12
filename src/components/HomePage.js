@@ -4,11 +4,7 @@ import './homepage.css';
 import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
-import Donate from './Donate'; // Adjust the path as needed
 
-
-import graduationImage3 from '../images/7.png';
-import grad from '../images/grad.jpg';
 import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
 

@@ -120,7 +120,7 @@ function NavbarLogged() {
               </NavDropdown>
 
               <NavDropdown.Item as={Link} to="/job" className={`${location.pathname === '/job-opportunities' ? 'active' : ''} custom-font-size align-items-start`}>JOB OPPORTUNITIES</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/radiopage" className={`${location.pathname === '/radiopage' ? 'active' : ''} custom-font-size align-items-start1`}>PODCASTS</NavDropdown.Item>
+              
             </NavDropdown>
 
             {/* News Dropdown */}

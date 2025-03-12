@@ -966,15 +966,6 @@ const handleIndicatorClick = (index) => {
 
       </div>
 
-           {/* Navigation Buttons */}
-           <div className="navigation-buttons">
-        <button className="nav-button prev" onClick={goToPreviousSlide}>
-          &#8592; Previous
-        </button>
-        <button className="nav-button next" onClick={goToNextSlide}>
-          Next &#8594;
-        </button>
-      </div>
 
       {/* Video Indicators */}
       <div className="video-indicators">

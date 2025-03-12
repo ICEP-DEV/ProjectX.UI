@@ -151,7 +151,7 @@ function NavbarLogged() {
               </NavDropdown>
 
               <NavDropdown.Item as={Link} to="/job" className={location.pathname === '/job-opportunities' ? 'active' : ''}>Job Opportunities</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/radiopage" className={location.pathname === '/radiopage' ? 'active' : ''}>Podcasts</NavDropdown.Item>
+              
             </NavDropdown>
 
 
