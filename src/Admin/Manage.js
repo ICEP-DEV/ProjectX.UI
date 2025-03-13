@@ -110,7 +110,7 @@ const ManageContent = () => {
           <CardContent>
             <Box display="flex" justifyContent="space-between" alignItems="center">
               <Typography variant="h5" color="#003883" gutterBottom>
-                News and Historical Archives
+                News and Magazines
               </Typography>
               <Button
                 variant="contained"

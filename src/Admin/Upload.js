@@ -110,11 +110,11 @@ const UploadContent = () => {
                     <Card style={{ maxWidth: 500, marginLeft: '20px', height: 350 }}>
                     <CardContent>
                         <Typography variant="h6" color="#003883" gutterBottom>
-                        Podcasts
+                        Alumni Conversations
                         </Typography>
                         <List>
-                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Posters" /></ListItem>
-                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Links" /></ListItem>
+                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Audio" /></ListItem>
+                        <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Video" /></ListItem>
                         <ListItem><ListItemIcon><CheckBoxRounded /></ListItemIcon><ListItemText primary="Pdf, png, jpg" /></ListItem>
                         </List>
                         <Button
