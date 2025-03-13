@@ -125,7 +125,7 @@ function NavbarLogged() {
 
             {/* News Dropdown */}
             <NavDropdown title="News" id="news-dropdown" className="spacing me-5">
-              <NavDropdown.Item as={Link} to="/news" className={`${location.pathname === '/news' ? 'active' : ''} custom-font-size`}>NEWS</NavDropdown.Item>
+              {/* <NavDropdown.Item as={Link} to="/news" className={`${location.pathname === '/news' ? 'active' : ''} custom-font-size`}>NEWS</NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to="/events" className={`${location.pathname === '/events' ? 'active' : ''} custom-font-size`}>EVENTS</NavDropdown.Item>
             </NavDropdown>
 

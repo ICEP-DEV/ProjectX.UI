@@ -783,21 +783,16 @@ blockquote {
 }
 
 .news-item {
-  background-color: white;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 1 1 calc(33.333% - 40px); /* Three items per row with spacing */
-  max-width: calc(33.333% - 40px); /* Ensure it doesn’t exceed the allocated width */
+  flex: 1 1 calc(25% - 20px); /* This ensures 4 items per row, with 20px gap between items */
+  max-width: calc(25% - 20px); /* Ensures each item doesn’t exceed 25% width */
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .news-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   transform: translateY(-10px); 
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
 }
 
 .news-image {
@@ -816,6 +811,33 @@ blockquote {
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
 }
+
+.description-text {
+  color: gray !important;
+  font-size: 0.90rem;
+  margin-bottom: 0.5rem;
+  text-align: left !important; /* Ensures text aligns to the left */
+  /* margin-left: 0; Removes any left margin */
+  display: block; /* Ensures the element takes up full width */
+}
+
+.sub-description {
+  color: rgb(219, 20, 20) !important;
+  font-size: 0.8em;
+  margin-bottom: 8px;
+  text-align: left; /* Aligns text to the left */
+  /* margin-left: 0; Removes any left margin */
+  display: block; /* Ensures full-width alignment */
+}
+.read-more-link {
+  display: inline-block;
+  margin-top: 25px;
+  font-size: 14px;
+  font-weight: bold; 
+  color: #005596;
+  text-decoration: none;
+}
+
 
 
 @media (max-width: 768px) {
