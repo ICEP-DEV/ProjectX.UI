@@ -48,6 +48,7 @@ import ManageEvents from './Admin/ManageEvents';
 import ManageJobs from './Admin/ManageJobs';
 import ViewResponses from './Admin/ViewResponses';
 import UpcomingEvents from './Admin/UpcomingEvents';
+import UploadBlogs from './Admin/UploadBlogs';
 
 
 
@@ -116,6 +117,7 @@ function App() {
         <Route path="/viewResponses" element={<ViewResponses/>} />
         <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
         {/* <Route path="/" element={<UpcomingEvents/>}/> */}
+        <Route path="/uploadBlogs" element={<UploadBlogs/>}/>
       </Routes>
 
       {/* Footer */}
