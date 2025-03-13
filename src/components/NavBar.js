@@ -19,7 +19,7 @@ function NavBar() {
     sections.current = {
       home: document.getElementById('section_1'),
       about: document.getElementById('section_2'),
-      news: document.getElementById('section_3'),
+      news: document.getElementById('News.js'),
       faqs: document.getElementById('section_4'),
     };
   }, []);
@@ -79,8 +79,11 @@ function NavBar() {
     const navbarHeight = document.getElementById('navbar').offsetHeight;
 
     setActiveTab(tabName); // Immediately highlight the clicked tab
-  
-    if (section) {
+  if(tabName === 'news'){
+
+    navigate('/news') //Reidrect to news page
+  }
+    else if (section) {
       // If section exists, scroll to it directly
       const sectionTop = section.offsetTop;
       window.scrollTo({ top: sectionTop - navbarHeight, behavior: 'smooth' });
@@ -148,13 +151,13 @@ function NavBar() {
             </span>
             <span
               className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
-              onClick={() => handleTabClick('news', 'section_3')}
+              onClick={() => handleTabClick('news', 'News.js')}
             >
               News
             </span>
             <span
               className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
-              onClick={() => handleTabClick('faqs', 'section_4')}
+              onClick={() => handleTabClick('faqs', '/news')}
             >
               FAQs
             </span>
