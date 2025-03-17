@@ -9,7 +9,7 @@ import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
 
 // Import images
-import faqGraphic from '../images/faq_graphic.jpg';
+// import faqGraphic from '../images/faq_graphic.jpg';
 
 import image1 from '../images/Nkuna at Convention.jpg';
 import image2 from '../images/late application.jpg';
@@ -48,13 +48,13 @@ const newsData = [
      link:'https://www.tut.ac.za/latest-news/548-fsati-tut-the-gift-that-keeps-on-giving'
     },
     
-//    { id: 4, 
-//    title: '20from20 Project website development helps students grow', 
-//    description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
-//    subDescription:'Publisher M Makaula', 
-//    image: image1,
-//    link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
-//  },
+  //  { id: 4, 
+  //   title: '20from20 Project website development helps students grow', 
+  //   description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
+  //   subDescription:'Publisher M Makaula', 
+  //   image: image1,
+  //  link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
+  // },
 
 ];
 
@@ -307,7 +307,7 @@ const HomePage = () => {
                 
 
   {/* FAQs Start */}
-     <section className="faq-section " id="section_4">
+     {/* <section className="faq-section " id="section_4">
       <div className="container">
         <div className="row">
           <div className="">
@@ -456,7 +456,7 @@ const HomePage = () => {
         </div>
       </div>
     </section>
- {/* FAQs End */}
+ FAQs End */}
 
 
                 {/* Contact Us Start */}

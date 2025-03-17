@@ -49,7 +49,7 @@ const Footer = () => {
                       style={{
                         transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
                       }}
-                    />
+                    /> 
                   </div>
                   <ul className="fo-social">
                     <li><a href="https://www.facebook.com/TUTCommunications"><i className="fab fa-facebook-f"></i></a></li>
@@ -90,7 +90,7 @@ const Footer = () => {
           {/* <i className="fa-solid fa-person-circle-question"></i> */}
         </div>
         <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="#section_4"><span className='Flinks'>FAQs</span></Link></p>
+          <p className="site-footer-linkf"><Link to="/FAQs"><span className='Flinks'>FAQs</span></Link></p>
         </div>
       </div>
     </div>

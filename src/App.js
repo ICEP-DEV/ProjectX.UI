@@ -49,6 +49,7 @@ import ManageJobs from './Admin/ManageJobs';
 import ViewResponses from './Admin/ViewResponses';
 import UpcomingEvents from './Admin/UpcomingEvents';
 import UploadBlogs from './Admin/UploadBlogs';
+import FAQs from './components/FAQs';
 
 
 
@@ -57,7 +58,7 @@ function App() {
 
   // Define paths for displaying NavBar and NavbarLogged
 // Update the showNavBar condition:
-  const showNavBar = location.pathname === '/' || location.pathname === '/radiopage' || location.pathname === '/news';
+  const showNavBar = location.pathname === '/' || location.pathname === '/radiopage' || location.pathname === '/news' || location.pathname === '/FAQs';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
   const showNavBarNoDonateNotLog = location.pathname === '/donateUnLogged';
   const showNavbarLogged = location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/donate' ;
@@ -116,6 +117,7 @@ function App() {
         <Route path="/manageJobs" element={<ManageJobs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
         <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
+        <Route path="/FAQs" element={<FAQs/>}/>
         {/* <Route path="/" element={<UpcomingEvents/>}/> */}
         <Route path="/uploadBlogs" element={<UploadBlogs/>}/>
       </Routes>

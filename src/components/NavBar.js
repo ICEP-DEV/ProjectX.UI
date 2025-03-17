@@ -20,7 +20,7 @@ function NavBar() {
       home: document.getElementById('section_1'),
       about: document.getElementById('section_2'),
       news: document.getElementById('News.js'),
-      faqs: document.getElementById('section_4'),
+      // faqs: document.getElementById('section_4'),
     };
   }, []);
 
@@ -155,12 +155,12 @@ function NavBar() {
             >
               News
             </span>
-            <span
+            {/* <span
               className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
               onClick={() => handleTabClick('faqs', '/news')}
             >
               FAQs
-            </span>
+            </span> */}
             <span
               className={`nav-link mx-3 ${activeTab === 'podcasts' ? 'active' : ''}`}
               onClick={() => handlePodcastClick()}
