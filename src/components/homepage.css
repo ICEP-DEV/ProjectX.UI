@@ -773,7 +773,7 @@ blockquote {
   justify-content: center; /* Center the row */
   display: flex;
   flex-wrap: wrap; /* Ensure wrapping on smaller screens */
-  gap: 80px; /* Space between columns */
+  gap: 20px; /* Space between columns */
 }
 
 .section-title {

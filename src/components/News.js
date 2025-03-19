@@ -27,7 +27,7 @@ import hist8 from '../images/hist8.jpeg';
 import hist9 from '../images/hist9.jpeg';
 import hist10 from '../images/hist10.jpeg';
 
- import hist13 from '../images/hist13.jpeg';
+import hist13 from '../images/hist13.jpeg';
 import hist14 from '../images/hist14.jpeg';
 import hist15 from '../images/hist15.jpeg';
 import hist16 from '../images/hist16.jpeg';
@@ -186,11 +186,12 @@ function News() {
                 <div className="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab">
                   <div className="row">
                     {newsArticles.map((item, idx) => (
-                      <div className="col-lg-4 col-md-6 col-12 mb-4" key={idx}>
-                        <div className="custom-block bg-white shadow-lg">
-                          <h5 className="mb-2">{item.headline}</h5>
+                      <div className="col-lg-3 col-md-6 col-12 mb-4" key={idx}>
+                        <div className="custom-block bg-white ">
+                         
                           <img src={`data:image/jpeg;base64,${item.media}`} alt="" style={{ width: "400px", height: "300px", margin: "10px 0" }} />
-                          <p className="sub-description mb-1">
+                          
+                          <h5 className="mb-2">{item.headline}</h5><p className="sub-description mb-1">
                             {`Published: ${new Date(item.publishedDate).toLocaleDateString("en-GB", {
                               day: "2-digit",
                               month: "long",
@@ -238,7 +239,7 @@ function News() {
                       src={image.img} // Use 'img' as defined in historicalArchives1
                       alt="Historical Archive" // Provide a meaningful alt text
                       className="card-img-top"
-                      style={{ height: "200px", objectFit: "cover" }}
+                      style={{ height: "150px", objectFit: "cover" }}
                       />
 
                     </div>

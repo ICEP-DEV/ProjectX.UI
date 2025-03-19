@@ -6,6 +6,7 @@
   padding: 30px;
   transition: all 0.3s ease;
   height: 100%;
+  /* text-align: left; */
 }
 /* Custom image styling for gen-newsimg */
 .gen-newsimg {
@@ -36,7 +37,7 @@
 }
 
 /* Badge styling */
-.custom-block .rounded-pill {
+/* .custom-block .rounded-pill {
   border-radius: 5px !important;
   display: flex;
   justify-content: center;
@@ -44,7 +45,7 @@
   width: 30px;
   height: 30px;
   line-height: 20px;
-}
+} */
 
 /* Description text styling */
 .description-text {
@@ -52,7 +53,7 @@
   font-size: 0.99rem;
   margin-bottom: 0.5rem;
   text-align: left !important; /* Ensures text aligns to the left */
-  /* margin-left: 0; Removes any left margin */
+  margin-left: 0; /*Removes any left margin 
   display: block; /* Ensures the element takes up full width */
 }
 
@@ -60,9 +61,10 @@
   color: rgb(219, 20, 20) !important;
   font-size: 0.8em;
   margin-bottom: 8px;
-  text-align: left; /* Aligns text to the left */
-  /* margin-left: 0; Removes any left margin */
+  text-align: left; /*Aligns text to the left */
+  margin-left: 0; /*left margin */
   display: block; /* Ensures full-width alignment */
+  /* margin-right: 50px; */
 }
 
 /* Ensuring the container aligns its contents to the start */
