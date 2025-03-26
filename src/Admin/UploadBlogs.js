@@ -10,7 +10,7 @@ const UploadBlogs = () => {
   const [formData, setFormData] = useState({
     name: '',
     role: '',
-    link: '',
+    description: '',
     image: null
   });
 
@@ -52,7 +52,7 @@ const UploadBlogs = () => {
       
       console.log('Submitted data:', formData); // Debugging step
       window.alert('Blog uploaded successfully!');
-      setFormData({ name: '', role: '', link: '', image: null }); // Reset form
+      setFormData({ name: '', role: '', description: '', image: null }); // Reset form
     } catch (error) {
       console.error('Error uploading blog:', error);
       setSubmitError(error.response?.data?.message || 'Error uploading blog.');
@@ -98,11 +98,11 @@ const UploadBlogs = () => {
                 </Form.Group>
 
                 <Form.Group controlId="formDesc">
-                  <Form.Label>Link</Form.Label>
+                  <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"
-                    name="link"
-                    value={formData.link}
+                    name="description"
+                    value={formData.description}
                     onChange={handleTextChange}
                     required
                   />
