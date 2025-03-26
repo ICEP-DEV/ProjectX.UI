@@ -63,6 +63,7 @@ const UploadNews = () => {
                 formDataToSend.append('description', formData.description);
                 formDataToSend.append('publisher', formData.publisher);
                 formDataToSend.append('publishedDate', formData.publishedDate);
+                formDataToSend.append('link', formData.link);
                 formDataToSend.append('media', formData.media);
             } else if (newsType === 'magazine') {
                 formDataToSend.append('link', formData.link);
@@ -144,17 +145,31 @@ const UploadNews = () => {
                                     </>
                                 )}
                                 {newsType && (
+                                 <>
                                     <Form.Group controlId="formDescription">
-                                    <Form.Label>Description</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="description"
-                                        value={formData.description}
-                                        onChange={handleTextChange}
-                                        required
-                                    />
-                                </Form.Group>
+                                        <Form.Label>Description</Form.Label>
+                                        <Form.Control
+                                            as="textarea"
+                                            rows={3}
+                                            name="description"
+                                            value={formData.description}
+                                            onChange={handleTextChange}
+                                            required
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="formLink">
+                                        <Form.Label>Link</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="link"
+                                            value={formData.link}
+                                            onChange={handleTextChange}
+                                            required
+                                        />
+                                    </Form.Group>
+                                 </>   
+                                    
                                 )}
                                 {newsType === 'general' && (
                                     <>
@@ -182,8 +197,9 @@ const UploadNews = () => {
                                     </Form.Group>
 
                                     </>
+
                                 )}
-                                {newsType === 'magazine' && (
+                                {/* {newsType === 'magazine' && (
                                     <Form.Group controlId="formLink">
                                     <Form.Label>Magazine Link</Form.Label>
                                     <Form.Control
@@ -194,7 +210,7 @@ const UploadNews = () => {
                                         required
                                     />
                                 </Form.Group>
-                                )}
+                                )} */}
 
                                 {newsType && (
                                     <Form.Group controlId="formImage">

@@ -11,11 +11,12 @@ import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
 
 // Import images
-import faqGraphic from '../images/faq_graphic.jpg';
+// import faqGraphic from '../images/faq_graphic.jpg';
 
 import image1 from '../images/Nkuna at Convention.jpg';
 import image2 from '../images/late application.jpg';
 import image3 from '../images/Dr Hans.png';
+import image4 from '../images/icepTeam.jpg'
 import { Description } from '@mui/icons-material';
 
 //alumni spotlight images
@@ -67,7 +68,7 @@ const teamMembers = [
 const newsData = [
   { id: 1, 
     title: 'TUTs Faculty of ICT represented at Global Forum for Women in Technology', 
-    description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+    // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
     subDescription:'Publisher M Makaula',
      image: image1,
       link:'https://www.tut.ac.za/latest-news/550-tut-takes-lead-in-nltp-study-comprising-fourteen-sa-universities'
@@ -75,7 +76,7 @@ const newsData = [
 
  { id: 2, 
   title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', 
-  description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+  // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
   subDescription:'Publisher M Makaula', 
   image: image2,
    link:'https://www.tut.ac.za/latest-news/549-sacia-welcomes-tut-students-as-young-professional-members' 
@@ -83,19 +84,21 @@ const newsData = [
 
   { id: 3,
     title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education',
-    description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+    // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
     subDescription:'Publisher M Makaula',
      image: image3, 
      link:'https://www.tut.ac.za/latest-news/548-fsati-tut-the-gift-that-keeps-on-giving'
     },
+
     
-//    { id: 4, 
-//    title: '20from20 Project website development helps students grow', 
-//    description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
-//    subDescription:'Publisher M Makaula', 
-//    image: image1,
-//    link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
-//  },
+    
+    { id: 4, 
+     title: '20from20 Project website development helps students grow', 
+    //  description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
+     subDescription:'Publisher M Makaula', 
+     image: image4,
+    link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
+   },
 
 ];
 
@@ -360,12 +363,14 @@ const HomePage = () => {
         </div>
         <div className="row">
           {newsData.map(news => (
-            <div className="col-lg-3 col-md-6 col-sm-12 news-item" key={news.id}>
-               <h4 className="news-title">{news.title}</h4>
+            <div className="col-lg-4 col-md-6 col-sm-12 news-item" key={news.id}>
+             
               <div className="news-content">
               <img src={news.image} alt={news.title} className="news-image img-fluid" />
-              </div>           
+              </div>     
+                 
               <p className="sub-description mb-1">{news.subDescription}</p>
+              <h4 className="news-title">{news.title}</h4>   
               <p className="description-text mb-0">{news.description}</p> 
               {news.link && (
             <a href={news.link} className="read-more-link" target="_blank" rel="noopener noreferrer">
@@ -420,7 +425,7 @@ const HomePage = () => {
                 
 
   {/* FAQs Start */}
-     <section className="faq-section " id="section_4">
+     {/* <section className="faq-section " id="section_4">
       <div className="container">
         <div className="row">
           <div className="">
@@ -569,7 +574,7 @@ const HomePage = () => {
         </div>
       </div>
     </section>
- {/* FAQs End */}
+ FAQs End */}
 
 
                 {/* Contact Us Start */}

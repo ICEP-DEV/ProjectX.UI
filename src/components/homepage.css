@@ -773,7 +773,7 @@ blockquote {
   justify-content: center; /* Center the row */
   display: flex;
   flex-wrap: wrap; /* Ensure wrapping on smaller screens */
-  gap: 40px; /* Space between columns */
+  gap: 20px; /* Space between columns */
 }
 
 .section-title {
@@ -784,7 +784,7 @@ blockquote {
 
 .news-item {
   flex: 1 1 calc(25% - 20px); /* This ensures 4 items per row, with 20px gap between items */
-  max-width: calc(25% - 20px); /* Ensures each item doesn’t exceed 25% width */
+  /* max-width: calc(25% - 20px); Ensures each item doesn’t exceed 25% width */
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
@@ -804,12 +804,14 @@ blockquote {
 
 .news-title {
   font-size: 18px;
-  font-weight: bold;
+  color: gray !important;
+   /* font-weight: bold;  */
   margin: 15px 0;
   flex-grow: 1; /* Ensure the title area can grow if needed */
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
+  margin-bottom: 0px;
 }
 
 .description-text {
@@ -822,7 +824,7 @@ blockquote {
 }
 
 .sub-description {
-  color: rgb(219, 20, 20) !important;
+  color: #005596;
   font-size: 0.8em;
   margin-bottom: 8px;
   text-align: left; /* Aligns text to the left */
@@ -831,10 +833,10 @@ blockquote {
 }
 .read-more-link {
   display: inline-block;
-  margin-top: 25px;
+  /* margin-top: 5px; */
   font-size: 14px;
   font-weight: bold; 
-  color: #005596;
+  color:  rgb(219, 20, 20) !important;
   text-decoration: none;
 }
 
