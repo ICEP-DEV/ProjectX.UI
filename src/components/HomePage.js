@@ -4,6 +4,8 @@ import './homepage.css';
 import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
+import { Container, Row, Col, Card } from "react-bootstrap";
+import axios from "axios";
 
 import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
@@ -14,6 +16,13 @@ import faqGraphic from '../images/faq_graphic.jpg';
 import image1 from '../images/Nkuna at Convention.jpg';
 import image2 from '../images/late application.jpg';
 import image3 from '../images/Dr Hans.png';
+import { Description } from '@mui/icons-material';
+
+//alumni spotlight images
+import img1 from '../images/Lorraine.jpg';
+import img2 from '../images/Alpha-Ramushwana.png';
+import img3 from '../images/Rorisang.jpg';
+import img4 from '../images/Ofentse Sebula.jpg';
 
 const images = [
   grad1,
@@ -21,14 +30,74 @@ const images = [
   
 ];
 
-
-const newsData = [
-  { id: 1, title: 'TUTs Faculty of ICT represented at Global Forum for Women in Technology', image: image1},
-  { id: 2, title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', image: image2 },
-  { id: 3, title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education', image: image3 },
-
+const teamMembers = [
+  {
+    id: 1,
+    name: "Lorraine Khoza",
+    role: "Gender Specialist and TUT Alumni",
+    image: img1,
+    profileLink: "http://localhost:5000/uploads/lorraine-khoza.jpg",
+  },
+  {
+    id: 2,
+    name: "Alpha Ramushwana",
+    role: "TUT alum enroute to become trusted voice in journalism",
+    image: img2,
+    profileLink: "/profile/ofentse-sebula",
+  },
+  {
+    id: 3,
+    name: "Rorisang Sechele",
+    role: "Renowned vocalist and performing artist",
+    image: img3,
+    profileLink: "/profile/ofentse-sebula",
+  },
+  {
+    id: 4,
+    name: "Ofentse Moses Sebula",
+    role: "Making strides in the world of jazz",
+    image: img4,
+    profileLink: "/profile/ofentse-sebula",
+  },
 ];
 
+
+
+
+const newsData = [
+  { id: 1, 
+    title: 'TUTs Faculty of ICT represented at Global Forum for Women in Technology', 
+    description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+    subDescription:'Publisher M Makaula',
+     image: image1,
+      link:'https://www.tut.ac.za/latest-news/550-tut-takes-lead-in-nltp-study-comprising-fourteen-sa-universities'
+    },
+
+ { id: 2, 
+  title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', 
+  description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+  subDescription:'Publisher M Makaula', 
+  image: image2,
+   link:'https://www.tut.ac.za/latest-news/549-sacia-welcomes-tut-students-as-young-professional-members' 
+  },
+
+  { id: 3,
+    title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education',
+    description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+    subDescription:'Publisher M Makaula',
+     image: image3, 
+     link:'https://www.tut.ac.za/latest-news/548-fsati-tut-the-gift-that-keeps-on-giving'
+    },
+    
+//    { id: 4, 
+//    title: '20from20 Project website development helps students grow', 
+//    description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
+//    subDescription:'Publisher M Makaula', 
+//    image: image1,
+//    link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
+//  },
+
+];
 
 
 const HomePage = () => {
@@ -136,6 +205,40 @@ const HomePage = () => {
 
 
   const currentImage = images[0];
+
+  //Blogs: Alumni Hall of Fame
+  const [teamMembers, setTeamMembers] = useState([]); // State to hold team members data
+  const [loading, setLoading] = useState(true); // To manage loading state
+  const [error, setError] = useState(null); // To handle errors
+
+  useEffect(() => {
+    // Fetch team members data when the component mounts
+    const fetchTeamMembers = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5214/api/Alumnus/GetBlogs/GetBlogs/`); // Replace with your actual backend API URL
+        setTeamMembers(response.data); // Set the team members data
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching team members:', error);
+        setError('Failed to load team members');
+        setLoading(false);
+      }
+    };
+
+    fetchTeamMembers();
+  }, []);
+
+  // If data is still loading, show a loading message
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // If there's an error fetching the data, show the error message
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+
 
   return (
     <div>
@@ -258,15 +361,61 @@ const HomePage = () => {
         <div className="row">
           {newsData.map(news => (
             <div className="col-lg-3 col-md-6 col-sm-12 news-item" key={news.id}>
+               <h4 className="news-title">{news.title}</h4>
               <div className="news-content">
               <img src={news.image} alt={news.title} className="news-image img-fluid" />
-              </div>
-              <h4 className="news-title">{news.title}</h4>
+              </div>           
+              <p className="sub-description mb-1">{news.subDescription}</p>
+              <p className="description-text mb-0">{news.description}</p> 
+              {news.link && (
+            <a href={news.link} className="read-more-link" target="_blank" rel="noopener noreferrer">
+              Read More...
+            </a>
+          )}    
+                               
             </div>
           ))}
         </div>
       </div>
     </section>
+
+
+{/* Alumni Spotlight */}
+<Container className="mt-4 text-center">
+      <h2 className="fw-bold mb-5">Alumni Hall of Fame</h2>
+      <Row className="justify-content-center align-items-stretch">
+        {teamMembers.slice(0, 4).map((member, index) => ( // Only take the first 4 team members
+          <Col key={index} xs={12} sm={6} md={3} className="mb-4 d-flex">
+            <div className="card11 text-center shadow-lg border-0 w-100">
+              {/* Check if the image exists and display it */}
+              <img
+                className="card11-img-top"
+                src={`data:image/jpeg;base64,${member.image}`}  // Image URL stored in member.image
+                
+              />
+              <div className="card11-body">
+                <h5 className="fw-bold">{member.name}</h5>
+                <p className="text-muted">{member.role}</p>
+                <div className="read-more-container">
+                {/* Update the profile link to the specific alumni description page */}
+                <Link to={`/alumni/${member.id}`} className="read-more-link">
+                    Read more
+                </Link>
+                  <span className="greater-than-symbol">&gt;&gt;</span>
+                </div>
+              </div>
+            </div>
+          </Col>
+        ))}
+      </Row>
+
+      {/* View All Link */}
+      <div className="mt-4">
+        <a href="/viewAll" className="btn btn-primary">View All</a>
+      </div>
+    </Container>
+
+
 
                 
 

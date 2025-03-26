@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './news.css';
-import FooterLogged from './FooterLogged';
+import FooterLogged from './Footer';
+import { Navbar } from 'react-bootstrap';
 
 import news1 from '../images/news1.jpg';
 import news2 from '../images/news2..png';
@@ -141,7 +142,9 @@ function News() {
   }, []);
 
   return (
+    
     <div>
+      
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">

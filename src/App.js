@@ -19,7 +19,7 @@ import ConfirmProfile from './components/ConfirmProfile';
 import NotFoundPage from './LoggedPages/NotFoundPage';
 import Signup from './components/Signup';
 import ResetPassword from './components/ResetPassword';
-import News from './LoggedPages/News'; // Corrected component name to uppercase
+import News from './components/News'; // Corrected component name to uppercase
 import AlumniCommunity from './LoggedPages/AlumniCommunity';
 import Arts from './LoggedPages/Arts';
 import Volunteer from './LoggedPages/Volunteer';
@@ -48,7 +48,9 @@ import ManageEvents from './Admin/ManageEvents';
 import ManageJobs from './Admin/ManageJobs';
 import ViewResponses from './Admin/ViewResponses';
 import UpcomingEvents from './Admin/UpcomingEvents';
-
+import UploadBlogs from './Admin/UploadBlogs';
+import ViewAllBlogs from './components/viewAll';
+import AlumniDetails from './components/AlumniDetails';
 
 
 function App() {
@@ -56,10 +58,10 @@ function App() {
 
   // Define paths for displaying NavBar and NavbarLogged
 // Update the showNavBar condition:
-  const showNavBar = location.pathname === '/' || location.pathname === '/radiopage';
+  const showNavBar = location.pathname === '/' || location.pathname === '/radiopage' || location.pathname === '/news' || location.pathname === '/viewAll';
   const showNavBarNoDonateLog =  location.pathname === '/donate';
   const showNavBarNoDonateNotLog = location.pathname === '/donateUnLogged';
-  const showNavbarLogged = location.pathname === '/news' || location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/donate' ;
+  const showNavbarLogged = location.pathname === '/alumni' || location.pathname === '/volunteer'|| location.pathname === '/events' || location.pathname === '/donate' ;
 
 
   return (
@@ -116,6 +118,10 @@ function App() {
         <Route path="/viewResponses" element={<ViewResponses/>} />
         <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
         {/* <Route path="/" element={<UpcomingEvents/>}/> */}
+        <Route path="/uploadBlogs" element={<UploadBlogs/>}/>
+        <Route path="/viewAll" element={<ViewAllBlogs/>}/>
+        <Route path="/alumni/:id" element={<AlumniDetails />} /> {/* Route for profile details */}
+      
       </Routes>
 
       {/* Footer */}
