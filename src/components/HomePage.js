@@ -37,28 +37,28 @@ const teamMembers = [
     name: "Lorraine Khoza",
     role: "Gender Specialist and TUT Alumni",
     image: img1,
-    profileLink: "http://localhost:5000/uploads/lorraine-khoza.jpg",
+    description: "http://localhost:5000/uploads/lorraine-khoza.jpg",
   },
   {
     id: 2,
     name: "Alpha Ramushwana",
     role: "TUT alum enroute to become trusted voice in journalism",
     image: img2,
-    profileLink: "/profile/ofentse-sebula",
+    description: "/profile/ofentse-sebula",
   },
   {
     id: 3,
     name: "Rorisang Sechele",
     role: "Renowned vocalist and performing artist",
     image: img3,
-    profileLink: "/profile/ofentse-sebula",
+    description: "/profile/ofentse-sebula",
   },
   {
     id: 4,
     name: "Ofentse Moses Sebula",
     role: "Making strides in the world of jazz",
     image: img4,
-    profileLink: "/profile/ofentse-sebula",
+    description: "/profile/ofentse-sebula",
   },
 ];
 
@@ -404,8 +404,9 @@ const HomePage = () => {
                 <div className="read-more-container">
                 {/* Update the profile link to the specific alumni description page */}
                 <Link to={`/alumni/${member.id}`} className="read-more-link">
-                    Read more
-                </Link>
+                   Read more
+               </Link>
+
                   <span className="greater-than-symbol">&gt;&gt;</span>
                 </div>
               </div>
