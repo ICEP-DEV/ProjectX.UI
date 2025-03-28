@@ -20,7 +20,7 @@ const ManageContent = () => {
   // Fetch news data by type
   const fetchNewsData = async (type) => {
     try {
-      const response = await axios.get(`http://localhost:5214/api/Alumnus/GetNewsByType/GetNews/${type}`);
+      const response = await axios.get(`http://localhost:5214/api/Admin/GetNewsByType/GetNews/${type}`);
       setNewsData(response.data);
     } catch (error) {
       console.error("Error fetching news data:", error);
