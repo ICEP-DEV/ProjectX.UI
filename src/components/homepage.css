@@ -934,6 +934,74 @@ button.next {
   right: 10px;
 }
 
+/* ALUMNI SPOTLIGHT */
+.card11 {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Ensures all cards have the same height */
+  display: flex;
+  flex-direction: column;
+}
+
+.card11-img-top {
+  width: 100%;
+  height: 310px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+}
+
+.card11-body {
+  flex-grow: 1; /* Makes sure all content inside takes up equal space */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card11 h5 {
+  margin-bottom: 5px;
+}
+
+.card11 p {
+  margin-bottom: 0;
+}
+
+.card11:hover {
+  transform: translateY(-5px);
+}
+
+/* Style for the "Read more" link */
+.read-more-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.read-more-link {
+  text-decoration: none;
+  color: #007bff; /* Initial color */
+  margin-top: 8px;
+}
+
+.read-more-link:hover,
+.read-more-link:hover + .greater-than-symbol {
+  color: red; /* Change both "Read more" and ">" symbol to red */
+  text-decoration: underline;
+}
+
+/* Style for the ">" symbol */
+.greater-than-symbol {
+  color: #007bff;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 11px; /* Slightly move down the ">" */
+}
+
+
 /*---------------------------------------
   RESPONSIVE DESIGN FOR SLIDESHOW
 -----------------------------------------*/
