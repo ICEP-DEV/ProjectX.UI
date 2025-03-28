@@ -6,7 +6,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card } from "react-bootstrap";
 import axios from "axios";
-import axios from 'axios';
 
 import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
@@ -210,6 +209,7 @@ const HomePage = () => {
   const [teamMembers, setTeamMembers] = useState([]); // State to hold team members data
   const [loading, setLoading] = useState(true); // To manage loading state
   const [error, setError] = useState(null); // To handle errors
+  const [newsArticles, setNewsArticles] = useState([]); //store news from backend
 
   useEffect(() => {
     // Fetch team members data when the component mounts
@@ -228,6 +228,22 @@ const HomePage = () => {
     fetchTeamMembers();
   }, []);
 
+  // Fetch news articles
+useEffect(() => {
+  const fetchNews = async (type) => {
+    try {
+      const response = await axios.get(`http://localhost:5214/api/Alumnus/GetLatestNews/GetLatestNews`);
+      if (type === 'general') {
+        setNewsArticles(response.data);
+      }
+    } catch (error) {
+      console.error(`Error fetching ${type} news:`, error);
+    }
+  };
+
+  fetchNews('general');
+}, []);
+
   // If data is still loading, show a loading message
   if (loading) {
     return <div>Loading...</div>;
@@ -239,28 +255,28 @@ const HomePage = () => {
   }
 
 
-  //news
-  const [newsArticles, setNewsArticles] = useState([]); //store news from backend
-  // const [activeTab, setActiveTab] = useState('general');
+//   //news
+//   const [newsArticles, setNewsArticles] = useState([]); //store news from backend
+//   // const [activeTab, setActiveTab] = useState('general');
 
- // Fetch news articles based on the selected type
- const fetchNews = async (type) => {
-  try {
-    const response = await axios.get(`http://localhost:5214/api/Alumnus/GetLatestNews/GetLatestNews`);
-    if (type === 'general') {
-      setNewsArticles(response.data);
-    }  
+//  // Fetch news articles based on the selected type
+//  const fetchNews = async (type) => {
+//   try {
+//     const response = await axios.get(`http://localhost:5214/api/Alumnus/GetLatestNews/GetLatestNews`);
+//     if (type === 'general') {
+//       setNewsArticles(response.data);
+//     }  
     
     
-  } catch (error) {
-    console.error(`Error fetching ${type} news:`, error);
-  }
-};
+//   } catch (error) {
+//     console.error(`Error fetching ${type} news:`, error);
+//   }
+// };
 
-useEffect(() => {
-fetchNews('general');
-},
-[]);
+// useEffect(() => {
+// fetchNews('general');
+// },
+// []);
 
   return (
     <div>
