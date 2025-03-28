@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card } from "react-bootstrap";
 import axios from "axios";
+import axios from 'axios';
 
 import grad1 from '../images/grad1.jpg';
 import picture from '../images/Picture1.png';
@@ -65,42 +66,38 @@ const teamMembers = [
 
 
 
-const newsData = [
-  { id: 1, 
-    title: 'TUTs Faculty of ICT represented at Global Forum for Women in Technology', 
-    // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
-    subDescription:'Publisher M Makaula',
-     image: image1,
-      link:'https://www.tut.ac.za/latest-news/550-tut-takes-lead-in-nltp-study-comprising-fourteen-sa-universities'
-    },
+// const newsData = [
+//  
+//       link:'https://www.tut.ac.za/latest-news/550-tut-takes-lead-in-nltp-study-comprising-fourteen-sa-universities'
+//     },
 
- { id: 2, 
-  title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', 
-  // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
-  subDescription:'Publisher M Makaula', 
-  image: image2,
-   link:'https://www.tut.ac.za/latest-news/549-sacia-welcomes-tut-students-as-young-professional-members' 
-  },
+//  { id: 2, 
+//   title: 'No walk-ins allowed in January 2025-TUTs late application process is fully online', 
+//   // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+//   subDescription:'Publisher M Makaula', 
+//   image: image2,
+//    link:'https://www.tut.ac.za/latest-news/549-sacia-welcomes-tut-students-as-young-professional-members' 
+//   },
 
-  { id: 3,
-    title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education',
-    // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
-    subDescription:'Publisher M Makaula',
-     image: image3, 
-     link:'https://www.tut.ac.za/latest-news/548-fsati-tut-the-gift-that-keeps-on-giving'
-    },
+//   { id: 3,
+//     title: 'NRF C3 rated TUT researcher wins international Best Presenter Award for Machine Learning in Education',
+//     // description: 'Women in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in TechnologyWomen in Technology', 
+//     subDescription:'Publisher M Makaula',
+//      image: image3, 
+//      link:'https://www.tut.ac.za/latest-news/548-fsati-tut-the-gift-that-keeps-on-giving'
+//     },
 
     
     
-    { id: 4, 
-     title: '20from20 Project website development helps students grow', 
-    //  description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
-     subDescription:'Publisher M Makaula', 
-     image: image4,
-    link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
-   },
+//     { id: 4, 
+//      title: '20from20 Project website development helps students grow', 
+//     //  description: 'The Tshwane University of Technology’s (TUT) Informatics Community Engagement Program (ICEP) has significantly contributed to student growth by providing work opportunities that allow them to develop digital solutions while preparing for the future of work and engaging with the community.', 
+//      subDescription:'Publisher M Makaula', 
+//      image: image4,
+//     link:'https://www.tut.ac.za/latest-news/520-20from20-project-website-development-helps-students-grow'
+//    },
 
-];
+// ];
 
 
 const HomePage = () => {
@@ -242,6 +239,28 @@ const HomePage = () => {
   }
 
 
+  //news
+  const [newsArticles, setNewsArticles] = useState([]); //store news from backend
+  // const [activeTab, setActiveTab] = useState('general');
+
+ // Fetch news articles based on the selected type
+ const fetchNews = async (type) => {
+  try {
+    const response = await axios.get(`http://localhost:5214/api/Alumnus/GetLatestNews/GetLatestNews`);
+    if (type === 'general') {
+      setNewsArticles(response.data);
+    }  
+    
+    
+  } catch (error) {
+    console.error(`Error fetching ${type} news:`, error);
+  }
+};
+
+useEffect(() => {
+fetchNews('general');
+},
+[]);
 
   return (
     <div>
@@ -362,27 +381,24 @@ const HomePage = () => {
           </div>
         </div>
         <div className="row">
-          {newsData.map(news => (
-            <div className="col-lg-4 col-md-6 col-sm-12 news-item" key={news.id}>
-             
-              <div className="news-content">
-              <img src={news.image} alt={news.title} className="news-image img-fluid" />
-              </div>     
-                 
-              <p className="sub-description mb-1">{news.subDescription}</p>
-              <h4 className="news-title">{news.title}</h4>   
-              <p className="description-text mb-0">{news.description}</p> 
-              {news.link && (
-            <a href={news.link} className="read-more-link" target="_blank" rel="noopener noreferrer">
-              Read More...
-            </a>
-          )}    
-                               
+              {newsArticles.map(news => (
+                <div className="col-lg-4 col-md-6 col-sm-12 news-item" key={news.id}>
+                  <div className="news-content">
+                    <img src={`data:image/jpeg;base64,${news.media}`} alt={news.title} className="news-image img-fluid" />
+                  </div>
+                  <p className="sub-description">{news.subDescription || "Publisher M Makaula"}</p>
+                  {/* <h4 className="news-title">{news.title}</h4> */}
+                  <p className="description-text">{news.description || "No description available."}</p>
+                  {news.link && (
+                    <a href={news.link} className="read-more-link" target="_blank" rel="noopener noreferrer">
+                      Read More...
+                    </a>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </div>
+        </section>
 
 
 {/* Alumni Spotlight */}

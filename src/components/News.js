@@ -191,14 +191,22 @@ function News() {
                          
                           <img src={`data:image/jpeg;base64,${item.media}`} alt="" style={{ width: "400px", height: "300px", margin: "10px 0" }} />
                           
-                          <h5 className="mb-2">{item.headline}</h5><p className="sub-description mb-1">
+                          <h5 className="mb-2">{item.headline}</h5>
+
+                          <p className="sub-description mb-1 ">
                             {`Published: ${new Date(item.publishedDate).toLocaleDateString("en-GB", {
                               day: "2-digit",
                               month: "long",
                               year: "numeric",
                             })}, by ${item.publisher}`}
                           </p>
+
                           <p className="description-text mb-0">{item.description}</p>
+                          {item.link && (
+                            <a href = {item.link} className="read-more-link" target="_blank" rel="noopener noreferrer" >
+                              Read More...
+                            </a>
+                          )}
                         </div>
                       </div>
                     ))}

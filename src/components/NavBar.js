@@ -19,7 +19,7 @@ function NavBar() {
     sections.current = {
       home: document.getElementById('section_1'),
       about: document.getElementById('section_2'),
-      news: document.getElementById('News.js'),
+      // news: document.getElementById('News.js'),
       // faqs: document.getElementById('section_4'),
     };
   }, []);
@@ -123,7 +123,18 @@ function NavBar() {
     }
   }, [location.pathname]);
   
+  const handleNewsClick = () => {
+    setActiveTab('news'); // Set it as active immediately
+    navigate('/news'); // Redirect to the news page
+  };
+  
+  useEffect(() => {
+    if (location.pathname === '/news') {
+      setActiveTab('news'); // Ensure the active tab is 'news' when on the news page
+    }
+  }, [location.pathname]);
 
+  
   return (
     <Navbar
       id="navbar"
@@ -149,12 +160,14 @@ function NavBar() {
             >
               What Is Alumni Space?
             </span>
+
             <span
-              className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
-              onClick={() => handleTabClick('news', 'News.js')}
-            >
-              News
-            </span>
+         className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
+  onClick={handleNewsClick}
+>
+  News
+</span>
+
             {/* <span
               className={`nav-link mx-3 ${activeTab === 'faqs' ? 'active' : ''}`}
               onClick={() => handleTabClick('faqs', '/news')}
