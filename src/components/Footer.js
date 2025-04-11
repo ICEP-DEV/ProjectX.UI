@@ -1,157 +1,77 @@
-import React, { useEffect, useState } from 'react';
-import './footer.css'; // Import your custom CSS for styling
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import FLogo from '../images/aslogo.png';
+import FLogo from '../images/elements/e5.png';
+import './footer.css';
+import e4 from '../images/elements/e4.png';
 
 const Footer = () => {
-    
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
-    useEffect(() => {
-      const handleMouseMove = (e) => {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
-      };
-  
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
+  const handleMouseMove = (e) => {
+    const logo = e.target.closest('.footer-logo-container');
+    if (!logo) return;
 
-    const [tilt, setTilt] = useState({ x: 0, y: 0 });
+    const { left, top, width, height } = logo.getBoundingClientRect();
+    const offsetX = e.clientX - left;
+    const offsetY = e.clientY - top;
 
-    const handleMouseMove = (e) => {
-      const logo = e.target.closest('.logo-container'); // Get the logo container
-      const { left, top, width, height } = logo.getBoundingClientRect();
-  
-      // Get mouse position relative to the logo container
-      const offsetX = e.clientX - left;
-      const offsetY = e.clientY - top;
-  
-      // Calculate tilt values based on mouse position
-      const tiltX = ((offsetY / height) - 0.5) * 30; // tilt range of -15deg to 15deg
-      const tiltY = ((offsetX / width) - 0.5) * -40; // tilt range of -15deg to 15deg
-  
-      setTilt({ x: tiltX, y: tiltY });
-    };
-    
-    return (
-      <footer className="fo-footer_section">
-        <div className="fo-widget_wrapper">
-          <div className="container">
-            <div className="row">
-              {/* Logo and Social Media Section */}
-              <div className="col-lg-4 col-md-6 col-12">
-                <div className="fo-widget fo-widget_about">
-                  <div className="logo-container" onMouseMove={handleMouseMove}>
-                    <img
-                      src={FLogo}
-                      className="hover-logo"
-                      alt="Animated Logo"
-                      style={{
-                        transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-                      }}
-                    /> 
-                  </div>
-                  <ul className="fo-social">
-                    <li><a href="https://www.facebook.com/TUTCommunications"><i className="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://x.com/official_tut"><i className="fab fa-x-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/tut_official2/#"><i className="fab fa-instagram"></i></a></li>
-                    <li><a href="https://www.tiktok.com/@tut_official1?lang=en"><i className="fab fa-tiktok"></i></a></li>
-                    <li><a href="https://www.linkedin.com/company/official-tshwane-university-of-technology/posts/?feedView=all"><i className="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber"><i className="fab fa-youtube-square"></i></a></li>
-                  </ul>
-                </div>
-              </div>
+    const tiltX = ((offsetY / height) - 0.5) * 20;
+    const tiltY = ((offsetX / width) - 0.5) * -20;
 
-              {/* Quick Links Section */}
-              <div className="col-lg-2 col-md-6 col-sm-12">
-  <div className="fo-widget fo-widget_links">
-    <div className="fo-widget_title">
-      <h4>Quick Links</h4>
-    </div>
-    <div className="fo-contact_info left-aligned"> {/* Added custom class here */}
-      <div className="fo-single_info">
-        <div className="fo-icon foot-icon-size-up icon-animation1">
-          {/* <i className="fa-solid fa-circle-info "></i> */}
-        </div>
-        <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/#section_2"><span className='Flinks'>About Us</span></Link></p>
-        </div>
-      </div>
-      <div className="fo-single_info">
-        <div className="fo-icon foot-icon-size-up icon-animation2">
-          {/* <i className="fa-solid fa-hand-holding-dollar"></i> */}
-        </div>
-        <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/donateUnLogged"><span className='Flinks'>Donate</span></Link></p>
-        </div>
-      </div>
-      <div className="fo-single_info">
-        <div className="fo-icon foot-icon-size-up icon-animation3">
-          {/* <i className="fa-solid fa-person-circle-question"></i> */}
-        </div>
-        <div className="fo-info">
-          <p className="site-footer-linkf"><Link to="/FAQs"><span className='Flinks'>FAQs</span></Link></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{/* Contact Us Section (Now in the same row as Quick Links) */}
-<div className="col-lg-2 col-md-6 col-sm-12">
-          <div className="fo-widget fo-widget_contact">
-            <h6>Find Us</h6>
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12 col-12 text-center">
-                </div>
-                {/* <div className="col-lg-5 col-12 mb-4 mb-lg-0">
-                  <iframe
-                    className="google-map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115198.29443520978!2d28.01449227899608!3d-25.540152249363302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfcf9c4eedb233%3A0x9e2de5e61f9e48e7!2sTshwane%20University%20of%20Technology%20-%20Soshanguve%20South%20Campus%20-%20TUT!5e0!3m2!1sen!2sza!4v1724747776372!5m2!1sen!2sza"
-                    width="100%"
-                    height="350"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Map"
-                  ></iframe>
-                </div> */}
-                <div className="col-lg-3 col-md-6 mx-auto">
-                  {/* <h6 className="mb-3">Head office</h6> */}
-                  <p>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve, 0152</p>
-                  <hr />
-                  <p className="d-flex align-items-center mb-1">
-                    <span className="me-2 titl">Phone</span>
-                    <a href="tel:081-355-6089" className="site-footer-link inf">081-355-6089</a>
-                  </p>
-                  <p className="d-flex align-items-center">
-                    <span className="me-2 titl" >Email</span>
-                    <a href="mailto:info@company.com" className="site-footer-link inf">info@company.com</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+    setTilt({ x: tiltX, y: tiltY });
+  };
+
+  return (
+    <footer className="footer">
+        <div
+    className="footer-bg-layer"
+    style={{ backgroundImage: `url(${e4})` }}
+  >
+      <div className="footer-container">
+        <div className="footer-section logo-social">
+          <div className="footer-logo-container" onMouseMove={handleMouseMove}>
+            <img
+              src={FLogo}
+              alt="Footer Logo"
+              className="footer-logo"
+              style={{
+                transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
+              }}
+            />
+          </div>
+          <div className="footer-social">
+            <a href="https://www.facebook.com/TUTCommunications"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/official_tut"><i className="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/tut_official2/#"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@tut_official1?lang=en"><i className="fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/company/official-tshwane-university-of-technology/posts/?feedView=all"><i className="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCD4jxDpRYTarILQjtsEQv9Q?view_as=subscriber"><i className="fab fa-youtube"></i></a>
           </div>
         </div>
-            </div>
-          </div>
 
-          {/* Copyright Section */}
-          <div className="fo-copyright_area">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="fo-copyright_text">
-                    <p><span className='fo-copyright_text-paragraph'>Copyright &copy; 2024 TUT All Rights Reserved</span><span className='p-footer-space'>|</span><span className='fo-copyright_text-paragraph'>Privacy Policy & POPIA</span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="footer-section links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><Link to="/#section_2">About Us</Link></li>
+            <li><Link to="/donateUnLogged">Donate</Link></li>
+            <li><Link to="/FAQs">FAQs</Link></li>
+          </ul>
         </div>
-      </footer>
-    );
+
+        <div className="footer-section contact">
+          <h4>Find Us</h4>
+          <p className='tzcc2'>Block K, 2 Aubrey Matlakala St, Soshanguve-K, Soshanguve, 0152</p>
+          <p><strong className='tzcc1'>Phone:</strong> <a href="tel:081-355-6089">081-355-6089</a></p>
+          <p><strong className='tzcc1'>Email:</strong> <a href="mailto:info@company.com">info@company.com</a></p>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p className='tzcc2'>© 2024 TUT. All Rights Reserved | Privacy Policy & POPIA</p>
+      </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

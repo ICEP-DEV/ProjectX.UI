@@ -510,7 +510,7 @@ useEffect(() => {
 
 {/* Alumni Spotlight */}
 <div style={{ textAlign: "center", marginTop: "40px" }}>
-  <h2 style={{ fontWeight: "bold", marginBottom: "8rem" }}>Alumni Hall of Fame</h2>
+  <h2 style={{ fontWeight: "bold", marginBottom: "8rem" }}> <i class="fa-solid fa-crown ztm-05-icon"></i>Alumni Hall of Fame</h2>
 
 
   
