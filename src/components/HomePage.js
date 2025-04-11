@@ -4,30 +4,32 @@ import './homepage.css';
 import Footer from './Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, Row, Col, Card } from "react-bootstrap";
 import axios from "axios";
 
-import grad1 from '../images/grad1.jpg';
-import picture from '../images/Picture1.png';
+
 
 // Import images
 // import faqGraphic from '../images/faq_graphic.jpg';
 
-import image1 from '../images/Nkuna at Convention.jpg';
-import image2 from '../images/late application.jpg';
-import image3 from '../images/Dr Hans.png';
-import image4 from '../images/icepTeam.jpg'
-import { Description } from '@mui/icons-material';
+
 
 //alumni spotlight images
 import img1 from '../images/Lorraine.jpg';
 import img2 from '../images/Alpha-Ramushwana.png';
 import img3 from '../images/Rorisang.jpg';
 import img4 from '../images/Ofentse Sebula.jpg';
+import img5 from '../images/Tshwane-University-of-Technology-21-800x533.jpg';
+import img6 from '../images/Tshwane-University-of-Technology-22-800x533.jpg';
+import img7 from '../images/Tshwane-University-of-Technology-23-800x533.jpg';
+import e1 from '../images/elements/e1.png';
+import e2 from '../images/elements/e2.png';
+import e3 from '../images/elements/e3.png';
+
 
 const images = [
-  grad1,
-  picture,
+  img5, 
+  img6, 
+  img7,
   
 ];
 
@@ -104,6 +106,15 @@ const HomePage = () => {
   const sibanda = useLocation();
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Automatically move to the next slide every 30 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -281,57 +292,44 @@ useEffect(() => {
   return (
     <div>
       <main>
-        {/* Search Start */}
+    
         <section  id="section_1"
             >
-        {/* Hero Section */}
-       {/* <section className="hero-section d-flex justify-content-center align-items-center" id="section_1">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 col-12 mx-auto text-center"></div>
-              <div className="col-lg-8 col-12 mx-auto">
-                <h1 className="text-black text-center">Connect. Inspire. Celebrate.</h1>
-                <h6 className="text-center">A Hub for TUT Graduates</h6>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-<div className="slideshow-container">
-  <div
-    className="slideshow-slide"
-    style={{ backgroundImage: `url(${images[currentIndex]})` }}
-  >
-    {currentIndex === 0 && (
-      <a href="https://www.youtube.com/@tshwaneuniversityoftechnol6902/featured" target="_blank" rel="noopener noreferrer">
-        <div className="slide-text">
-          Connect. Inspire. Celebrate.
-        </div>
-      </a>
-    )}
-
-    {currentIndex === 1 && (
-      <a href="https://tut.devman.co.za/Devman/online/giving/" target="_blank" rel="noopener noreferrer">
-      <div className="slide-text">
-        Shape Lives, One Donation at a Time
-      </div>
-      </a>
-    )}
-  </div>
-
-  <div className="carousel-indicators">
-    {images.map((_, index) => (
+       
+       <div className="ztm-03-slideshow-container">
+      {/* Background Image */}
       <div
-        key={index}
-        className={`indicator ${currentIndex === index ? 'active' : ''}`}
-        onClick={() => setCurrentIndex(index)}
-      />
-    ))}
-  </div>
-  
-  <button className="prev" onClick={prevSlide}> ❮ </button>
-  <button className="next" onClick={nextSlide}> ❯ </button>
- </div>
+        className="ztm-03-slide"
+        style={{ backgroundImage: `url(${images[currentIndex]})` }}
+      >
+        {/* Dark Overlay */}
+        <div className="ztm-03-overlay"></div>
+
+        {/* Text Content */}
+        <div className="ztm-03-text">
+          {currentIndex === 0 && (
+            <>
+              <h1 className="ztm-03-title">Connect. Inspire. Celebrate.</h1>
+              <p className="ztm-03-subtitle">A Hub For TUT Graduates</p>
+            </>
+          )}
+          {currentIndex === 1 && (
+            <>
+              <h1 className="ztm-03-title">Shape Lives, One Donation at a Time</h1>
+              <p className="ztm-03-subtitle">Support Future Graduates</p>
+            </>
+          )}
+          {currentIndex === 2 && (
+            <>
+              <h1 className="ztm-03-title">Join Our Alumni Network</h1>
+              <p className="ztm-03-subtitle">Stay Connected With Fellow Graduates</p>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+
+
 
         </section>
 
@@ -339,50 +337,73 @@ useEffect(() => {
 
                 {/* What Is Alumini Space Start */}
                 <section className="timeline-section "  id="section_2" >
-                    <div className="container" style={{ marginTop: '-40px' }}>
+                    <div className="container" >
                         <div className="row">
-                            <div className="col-12 text-center">
-                                <h2 className=" mb-4">What Is Alumni Space?</h2>
-                            </div>
-                            <div className="col-lg-10 col-12 mx-auto">
-                                <div className="timeline-container">
-                                    <ul className="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                                        <div className="list-progress">
-                                            <div className="inner"></div>
-                                        </div>
+                        <div className="col-12 text-center ztm-04-title-container">
+                          <h2 className="ztm-04-title">
+                            <i className="fas fa-search ztm-04-icon"></i> What Is Alumni Space?
+                          </h2>
+                        </div>
 
-                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '30px' }}>Career Advancement and Networking</h4>
-                                        <li>
-                                            <p className="text" style={{marginTop: '-20px', color:'#757571'}}>
-                                                The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events. This platform connects alumni with industry professionals, mentors, and former classmates, fostering networking opportunities that can lead to career advancement, job referrals, and professional growth.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-search"></i>
-                                            </div>
-                                        </li>
-                                           
-                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Continued Learning and Skill Development</h4>
-                                        <li>
-                                            <p className="text " style={{marginTop: '-20px',color:'#757571'}}>
-                                                Through the alumni website, alumni can access a timeline of educational opportunities, such as workshops, webinars, and certification courses. These resources help alumni stay updated with industry trends, learn new skills, and continue their professional development long after graduation.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-bookmark"></i>
-                                            </div>
-                                        </li>
+                        
 
-                                        <h4 className=" mb-3" style={{ textAlign: 'center', marginTop: '-45px' }}>Community Support and Engagement</h4>
-                                        <li>
-                                            <p className="text" style={{marginTop: '-20px', color:'#757571'}}>
-                                                The alumni website offers a timeline of community events, reunions, and charitable initiatives, encouraging alumni to stay connected and engaged with their alma mater. Alumni can participate in volunteering opportunities, mentor current students, and give back to the university community.
-                                            </p>
-                                            <div className="icon-holder">
-                                                <i className="bi-globe"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                        <div className="timeline-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <img src={e1} alt="Background Element" className="background-element" style={{
+                position: 'absolute',
+                zIndex: '-1',
+                width: '80%', // Adjusted size for better fit
+                height: 'auto',
+                display: 'block'
+            }} />
+            
+            <div className="col-lg-8 col-md-10 col-12 mx-auto" style={{ maxWidth: '600px' }}>
+                <div className="timeline-container">
+                    <ul className="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                        <div className="list-progress">
+                            <div className="inner"></div>
+                        </div>
+
+                        <h4 className="mb-3" style={{ textAlign: 'center', marginTop: '20px', fontSize: '1.2rem', color:'#ffab14' }}>Career Advancement and Networking</h4>
+                        <li style={{ fontSize: '0.9rem' }}>
+                            <p className="text" style={{ marginTop: '-10px', color:'#ffffff', fontSize: '1rem' }}>
+                                The alumni website provides a timeline of alumni milestones, showcasing key achievements, career progress, and events.
+                            </p>
+                            <div className="icon-holder">
+                                <i className="bi-search"></i>
                             </div>
+                        </li>
+                        
+                        <h4 className="mb-3" style={{ textAlign: 'center', marginTop: '-30px', fontSize: '1.2rem', color:'#ffab14' }}>Continued Learning and Skill Development</h4>
+                        <li style={{ fontSize: '0.9rem' }}>
+                            <p className="text" style={{ marginTop: '-10px', color:'#ffffff', fontSize: '1rem' }}>
+                                Alumni can access workshops, webinars, and courses to stay updated with industry trends and continue professional development.
+                            </p>
+                            <div className="icon-holder">
+                                <i className="bi-bookmark"></i>
+                            </div>
+                        </li>
+
+                        <h4 className="mb-3" style={{ textAlign: 'center', marginTop: '-30px', fontSize: '1.2rem', color:'#ffab14'}}>Community Support and Engagement</h4>
+                        <li style={{ fontSize: '0.9rem' }}>
+                            <p className="text" style={{ marginTop: '-10px', color:'#ffffff', fontSize: '1rem' }}>
+                                The website offers community events, reunions, and volunteering opportunities to keep alumni connected.
+                            </p>
+                            <div className="icon-holder">
+                                <i className="bi-globe"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <style jsx>{`
+                @media (max-width: 1024px) {
+                    .background-element {
+                        display: none !important;
+                    }
+                }
+            `}</style>
+        </div>
                         </div>
                     </div>
                 </section>
@@ -392,66 +413,213 @@ useEffect(() => {
       <section className="news-section" id="section_3">
       <div className="container">
         <div className="row">
-          <div className="col-12 text-center mb-5">
-            <h2 className="mb-4" style={{ paddingTop: '5px' }}>Latest News</h2>
-          </div>
+        <div className="col-12 text-center ztm-04-title-container">
+                          <h2 className="ztm-04-title">
+                            <i className="fas fa-bullhorn ztm-05-icon"></i> Latest News  
+                          </h2>
+                        </div>
         </div>
+
+        <div className="timeline-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <img src={e2} alt="Background Element" className="background-element" style={{
+                position: 'absolute',
+                zIndex: '-1',
+                width: '80%', // Adjusted size for better fit
+                height: 'auto',
+                display: 'block'
+            }} />
+        
         <div className="row">
-              {newsArticles.map(news => (
-                <div className="col-lg-4 col-md-6 col-sm-12 news-item" key={news.id}>
-                  <div className="news-content">
-                    <img src={`data:image/jpeg;base64,${news.media}`} alt={news.title} className="news-image img-fluid" />
-                  </div>
-                  <p className="sub-description">{news.subDescription || "Publisher M Makaula"}</p>
-                  {/* <h4 className="news-title">{news.title}</h4> */}
-                  <p className="description-text">{news.description || "No description available."}</p>
-                  {news.link && (
-                    <a href={news.link} className="read-more-link" target="_blank" rel="noopener noreferrer">
-                      Read More...
-                    </a>
-                  )}
-                </div>
-              ))}
+  {newsArticles.map(news => (
+    <div
+      className="news-item"
+      key={news.id}
+      style={{
+        border: "4px solid #003883",
+        backgroundColor: "white",
+        width: "600px",
+        height: "580px",
+        padding: "15px",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative", // Ensures absolute positioning of child elements works properly
+        borderRadius: "10px",
+      }}
+    >
+      <div className="news-content">
+        <img
+          src={`data:image/jpeg;base64,${news.media}`}
+          alt={news.title}
+          className="news-image img-fluid"
+          style={{ 
+            width: "100%",
+             height: "250px",
+              objectFit: "cover",
+               borderRadius: "5px",               
+        marginBottom: "40px",
+               }}
+        />
+      </div>
+      <p className="sub-description">
+        {news.subDescription || "Publisher M Makaula"}
+      </p>
+      <p className="description-text">
+        {news.description || "No description available."}
+      </p>
+      
+      {news.link && (
+        <a
+          href={news.link}
+          className="read-more-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            backgroundColor: "#003883",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "50px",
+            border: "3px solid #FFA500",
+            textDecoration: "none",
+            fontWeight: "bold",
+            display: "inline-block",
+            position: "absolute",
+            bottom: "15px",
+            right: "15px",
+            transition: "0.3s",
+          }}
+        >
+         <span style={{ color: "white" }}>Read More</span>
+        </a>
+      )}
+    </div>
+  ))}
+</div>
+
+            <style jsx>{`
+                @media (max-width: 1024px) {
+                    .background-element {
+                        display: none !important;
+                    }
+                }
+            `}</style>
             </div>
           </div>
         </section>
 
 
 {/* Alumni Spotlight */}
-<Container className="mt-4 text-center">
-      <h2 className="fw-bold mb-5">Alumni Hall of Fame</h2>
-      <Row className="justify-content-center align-items-stretch">
-        {teamMembers.slice(0, 4).map((member, index) => ( // Only take the first 4 team members
-          <Col key={index} xs={12} sm={6} md={3} className="mb-4 d-flex">
-            <div className="card11 text-center shadow-lg border-0 w-100">
-              {/* Check if the image exists and display it */}
-              <img
-                className="card11-img-top"
-                src={`data:image/jpeg;base64,${member.image}`}  // Image URL stored in member.image
-                
-              />
-              <div className="card11-body">
-                <h5 className="fw-bold">{member.name}</h5>
-                <p className="text-muted">{member.role}</p>
-                <div className="read-more-container">
-                {/* Update the profile link to the specific alumni description page */}
-                <Link to={`/alumni/${member.id}`} className="read-more-link">
-                   Read more
-               </Link>
+<div style={{ textAlign: "center", marginTop: "40px" }}>
+  <h2 style={{ fontWeight: "bold", marginBottom: "8rem" }}>Alumni Hall of Fame</h2>
 
-                  <span className="greater-than-symbol">&gt;&gt;</span>
-                </div>
-              </div>
-            </div>
-          </Col>
-        ))}
-      </Row>
 
-      {/* View All Link */}
-      <div className="mt-4">
-        <a href="/viewAll" className="btn btn-primary">View All</a>
+  
+  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
+  <div className="timeline-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <img src={e3} alt="Background Element" className="background-element" style={{
+                position: 'absolute',
+                zIndex: '-1',
+                width: '80%', // Adjusted size for better fit
+                height: 'auto',
+                display: 'block',
+            }} />
+    
+    {teamMembers.slice(0, 4).map((member, index) => (
+      <div
+        key={index}
+        style={{
+          border: "4px solid #003883",
+          backgroundColor: "white",
+          width: "400px",
+          height: "500px",
+          padding: "15px",
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          textAlign: "center",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          borderRadius: "10px",
+          transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out", // Smooth transition
+          cursor: "pointer", // Change cursor to pointer
+          marginRight: "20px", // Add margin to the right for even indexed items
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.02)"; // Slightly increase size
+          e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)"; // Enhance shadow
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)"; // Reset size
+          e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"; // Reset shadow
+        }}
+      >
+        {/* Alumni Image */}
+        <img
+          src={`data:image/jpeg;base64,${member.image}`}
+          alt={member.name}
+          style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "5px" }}
+        />
+
+        <div>
+          <h5 style={{ fontWeight: "bold", marginTop: "10px" }}>{member.name}</h5>
+          <p style={{ color: "#6c757d" }}>{member.role}</p>
+        </div>
+
+        {/* Read More Button */}
+        <Link
+          to={`/alumni/${member.id}`}
+          style={{
+            backgroundColor: "#003883",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "50px",
+            border: "3px solid #FFA500",
+            textDecoration: "none",
+            fontWeight: "bold",
+            display: "inline-block",
+            transition: "0.3s",
+          }}
+        >
+          Read more
+        </Link>
       </div>
-    </Container>
+    ))}
+      <style jsx>{`
+                @media (max-width: 1024px) {
+                    .background-element {
+                        display: none !important;
+                    }
+                }
+            `}</style>
+             </div>
+  </div>
+
+ 
+
+  {/* View All Button */}
+  <div style={{ marginTop: "40px" }}>
+    <a
+      href="/viewAll"
+      style={{
+        backgroundColor: "#cb192a",
+        color: "white",
+        padding: "10px 20px",
+        borderRadius: "50px", // Rounded corners
+        textDecoration: "none",
+        fontWeight: "bold",
+        display: "inline-block",
+        transition: "0.3s",
+        marginBottom: "8rem",
+        marginTop: "rem",
+      }}
+    >
+      <span style={{ color: "white" }}>View All</span> 
+    </a>
+  </div>
+</div>
+
+
 
 
 

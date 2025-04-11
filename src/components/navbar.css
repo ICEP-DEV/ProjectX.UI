@@ -4,14 +4,14 @@
   left: 0;
   right: 0;
   z-index: 100; /* Adjusted the z-index as specified */
-  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); /* New gradient background */
+  background-color: #003883; /* New gradient background */
   border-bottom: 1px solid rgba(128, 208, 199, 0.35); /* Border at the bottom */
   transition: padding 0.3s ease; /* Padding will still smoothly transition */
   padding: 10px 0; /* Keep the padding consistent */
 }
 
 .navbar-scrolled {
-  background: linear-gradient(15deg, #005596 0%, #ce1127 100%); /* Keep the gradient when scrolled */
+  background-color: #003883;  /* Keep the gradient when scrolled */
   border-bottom: 1px solid rgba(128, 208, 199, 0.35); /* Border at the bottom */
   padding: 10px 0; /* Maintain consistent padding */
 }
@@ -39,7 +39,7 @@
 }
 
 .donate-pulse {
-  background-color: #0e508e;
+  background-color: #cb192a;
   padding: 15px 20px;
 
   border-radius: 5px; /* Optional: rounded corners */
@@ -47,6 +47,12 @@
   display: inline-block;
   font-weight: bold;
   animation: pulse 3s infinite;
+}
+
+.donate-pulse-scrolled {
+  background-color: #000; /* Keep the gradient when scrolled */
+  border-bottom: 1px solid rgba(128, 208, 199, 0.35); /* Border at the bottom */
+  padding: 10px 0; /* Maintain consistent padding */
 }
 
 .donate-pulse {
@@ -241,5 +247,55 @@ body{padding-top: 100px;
   color: #fdb913 !important; /* Highlight color for active tab */
   font-weight: bold;
   border-bottom: 2px solid #fdb913; /* Optional: underline active tab */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+.arrow-icon {
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+  animation: bounce 2.5s ease-in-out infinite alternate;
 }
 

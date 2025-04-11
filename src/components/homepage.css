@@ -1341,6 +1341,200 @@ button.next {
   }
 }
 
+.ztm-03-slideshow-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stretch background image */
+.ztm-03-slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Stretch without cropping */
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: fadeEffect 1.5s ease-in-out forwards;
+}
+
+/* 🔥 Dark Overlay */
+.ztm-03-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust darkness */
+  z-index: 1;
+}
+
+/* Centered Text */
+.ztm-03-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.ztm-03-title {
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: textFadeIn 2s ease-in-out forwards;
+}
+
+.ztm-03-subtitle {
+  font-size: 1.5rem;
+  color: #ff9800;
+  opacity: 0;
+  animation: textFadeIn 2.5s ease-in-out forwards;
+}
+
+/* 🔥 Fade Animation */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 🔥 Text Fade-in Effect */
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+  .ztm-03-title {
+    font-size: 2rem;
+  }
+
+  .ztm-03-subtitle {
+    font-size: 1rem;
+  }
+}
+
+.ztm-04-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.ztm-04-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between icon and text */
+  margin-bottom: 3.5rem;
+}
+
+.ztm-04-icon {
+  font-size: 3.5rem; /* Adjust icon size */
+  color: #cb192a; /* FontAwesome icon color */
+}
+
+.ztm-05-icon {
+  font-size: 3.5rem; /* Adjust icon size */
+  color: #cb192a; /* FontAwesome icon color */
+  margin-right: 30px;
+  transform: rotate(-10deg);
+}
+
+@media (max-width: 1200px) {
+    .background-element {
+        width: 90%;
+    }
+    .col-lg-8 {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 992px) {
+    .background-element {
+        width: 95%;
+    }
+    .col-lg-8 {
+        max-width: 500px;
+    }
+    .timeline-container h4 {
+        font-size: 1rem;
+    }
+    .timeline-container li {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .background-element {
+        width: 100%;
+    }
+    .col-lg-8 {
+        max-width: 450px;
+    }
+    .timeline-container h4 {
+        font-size: 0.9rem;
+    }
+    .timeline-container li {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .background-element {
+        width: 110%;
+    }
+    .col-lg-8 {
+        max-width: 400px;
+    }
+    .timeline-container h4 {
+        font-size: 0.8rem;
+    }
+    .timeline-container li {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .background-element {
+        width: 120%;
+    }
+    .col-lg-8 {
+        max-width: 350px;
+    }
+    .timeline-container h4 {
+        font-size: 0.75rem;
+    }
+    .timeline-container li {
+        font-size: 0.7rem;
+    }
+}
+
+.icon-holder
+{
+  margin-right: 60px;
+}
+
+
 
 
 

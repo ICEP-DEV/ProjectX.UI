@@ -154,12 +154,20 @@ function NavBar() {
             >
               Home
             </span>
-            <span
-              className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
-              onClick={() => handleTabClick('about', 'section_2')}
-            >
-              What Is Alumni Space?
-            </span>
+                        <div className="dropdown">
+              <span
+                className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+                onClick={() => handleTabClick('about', 'section_2')}
+              >
+                Career Developments <i className="fas fa-angle-down arrow-icon"></i>
+              </span>
+              <div className="dropdown-content">
+                <a href="#mission">Our Mission</a>
+                <a href="#vision">Our Vision</a>
+                <a href="#values">Core Values</a>
+              </div>
+            </div>
+
 
             <span
          className={`nav-link mx-3 ${activeTab === 'news' ? 'active' : ''}`}
@@ -174,18 +182,24 @@ function NavBar() {
             >
               FAQs
             </span> */}
-            <span
-              className={`nav-link mx-3 ${activeTab === 'podcasts' ? 'active' : ''}`}
-              onClick={() => handlePodcastClick()}
-            >
-              Podcasts
-            </span>
+           <div className="dropdown">
+              <span
+                className={`nav-link mx-3 ${activeTab === 'about' ? 'active' : ''}`}
+                onClick={() => handleTabClick('about', 'section_2')}
+              >
+                Alumni Conversations <i className="fas fa-angle-down arrow-icon"></i>
+              </span>
+              <div className="dropdown-content">
+                <a href="#mission">Plug A Graduate</a>
+                <a href="#vision">Alumni Talk</a>
+              </div>
+            </div>
             <Link
               to="/donateUnLogged"
               className={`nav-link mx-3 donate-pulse ${activeTab === 'donate' ? 'active' : ''}`}
               onClick={() => setActiveTab('donate')}
             >
-              <span className="fix-donate-color">Donate</span>
+              <span className="fix-donate-color ">Donate</span>
             </Link>
           </Nav>
 
