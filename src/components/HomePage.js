@@ -297,37 +297,33 @@ useEffect(() => {
             >
        
        <div className="ztm-03-slideshow-container">
-      {/* Background Image */}
-      <div
-        className="ztm-03-slide"
-        style={{ backgroundImage: `url(${images[currentIndex]})` }}
-      >
-        {/* Dark Overlay */}
-        <div className="ztm-03-overlay"></div>
-
-        {/* Text Content */}
-        <div className="ztm-03-text">
-          {currentIndex === 0 && (
-            <>
-              <h1 className="ztm-03-title">Connect. Inspire. Celebrate.</h1>
-              <p className="ztm-03-subtitle">A Hub For TUT Graduates</p>
-            </>
-          )}
-          {currentIndex === 1 && (
-            <>
-              <h1 className="ztm-03-title">Shape Lives, One Donation at a Time</h1>
-              <p className="ztm-03-subtitle">Support Future Graduates</p>
-            </>
-          )}
-          {currentIndex === 2 && (
-            <>
-              <h1 className="ztm-03-title">Join Our Alumni Network</h1>
-              <p className="ztm-03-subtitle">Stay Connected With Fellow Graduates</p>
-            </>
-          )}
-        </div>
-      </div>
+  <div
+    className="ztm-03-slide"
+    style={{ backgroundImage: `url(${images[currentIndex]})` }}
+  >
+    <div className="ztm-03-overlay"></div>
+    <div className="ztm-03-text">
+      {currentIndex === 0 && (
+        <>
+          <h1 className="ztm-03-title">Connect. Inspire. Celebrate.</h1>
+          <p className="ztm-03-subtitle">A Hub For TUT Graduates</p>
+        </>
+      )}
+      {currentIndex === 1 && (
+        <>
+          <h1 className="ztm-03-title">Shape Lives, One Donation at a Time</h1>
+          <p className="ztm-03-subtitle">Support Future Graduates</p>
+        </>
+      )}
+      {currentIndex === 2 && (
+        <>
+          <h1 className="ztm-03-title">Join Our Alumni Network</h1>
+          <p className="ztm-03-subtitle">Stay Connected With Fellow Graduates</p>
+        </>
+      )}
     </div>
+  </div>
+</div>
 
 
 
