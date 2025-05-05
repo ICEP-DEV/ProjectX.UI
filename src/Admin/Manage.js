@@ -49,6 +49,21 @@ const ManageContent = () => {
     fetchEvents();
   }, []);
 
+  
+    // Fetch blogs on component mount
+    const [blogData, setBlogs] = useState([]);
+    useEffect(() => {
+      const fetchBlogs = async () => {
+        try {
+          const response = await axios.get("http://localhost:5214/api/Alumnus/GetBlogs/GetBlogs");
+          setBlogs(response.data);
+        } catch (error) {
+          console.error("Error fetching blogs:", error);
+        }
+      };
+      fetchBlogs();
+    }, []);
+
   const { faculty: routeFaculty } = useParams(); // Extract faculty from the route
   const [faculty, setFaculty] = useState(routeFaculty || ""); // State to manage faculty selection
   const [jobs, setJobs] = useState([]);
@@ -88,9 +103,9 @@ const ManageContent = () => {
       case 'jobs':
         navigate('/manageJobs', { state: { jobItem: item } });
         break;
-      // case 'podcast':
-      //   navigate('/managePodcast', { state: { podcastItem: item } });
-      //   break;
+       case 'blogs':
+         navigate('/manageBlogs', { state: { blogItem: item } });
+         break;
       default:
         console.warn("Unknown type:", type);
     }
@@ -405,17 +420,17 @@ const ManageContent = () => {
         )}
 
 
-        {/* Podcast Section */}
-        {/* <Card sx={{ background: '#ffff', color: '#fff', marginBottom: '20px' }}>
+        {/* Blog Section */}
+        { <Card sx={{ background: '#ffff', color: '#fff', marginBottom: '20px' }}>
           <CardContent>
             <Box display="flex" justifyContent="space-between" alignItems="center">
               <Typography variant="h5" color="#003883" gutterBottom>
-                Podcast
+                Blogs
               </Typography>
               <Button
                 variant="contained"
                 startIcon={<AddCircleIcon />}
-                onClick={() => toggleSection('podcast')}
+                onClick={() => toggleSection('blogs')}
                 sx={{
                   background: activeSection === 'podcast' ? '#FF8C00' : 'linear-gradient(15deg, #ce1127 0%, #003883 100%)',
                   color: '#fff',
@@ -426,36 +441,51 @@ const ManageContent = () => {
               </Button>
             </Box>
           </CardContent>
-        </Card> */}
-
+        </Card> 
+}
 
         {/* Podcast Grid */}
-        {/* {activeSection === 'podcast' && (
+        {activeSection === "blogs" && (
           <Grid container spacing={2} mb={3}>
-            {['Software Engineer', 'Data Analyst', 'UI/UX Designer', 'Product Manager'].map((job, index) => (
-              <Grid item xs={3} key={index}>
+            {blogData.map((item, index) => (
+            <Grid item xs={3} key={index}>
                 <Card>
-                  <CardContent>
-                    <Typography variant="body1" textAlign="center" mt={1}>
-                      {job}
+                <CardContent>
+                <Box
+                    sx={{
+                        height: '200px',
+                        backgroundImage: `url(data:image/jpeg;base64,${item.image})`, // Correct syntax for base64 images
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                    />
+
+                    {/* Display the title of the event */}
+                    <Typography variant="h6" textAlign="center" gutterBottom>
+                    {item.name}
                     </Typography>
+                    {/* Optional: Add more fields as needed */}
+                    <Typography variant="body2">{item.role}</Typography>
                     <Button
-                      variant="contained"
-                      sx={{
-                        background: 'linear-gradient(15deg, #ce1127 0%, #003883 100%)',
-                        color: '#fff',
-                        marginTop: '10px',marginLeft: "400px",
-                        ':hover': { background: '#FF8C00' },
-                      }}
-                    >
-                      Edit
+                        variant="contained"
+                        sx={{
+                            background: "linear-gradient(15deg, #ce1127 0%, #003883 100%)",
+                            color: "#fff",
+                            marginTop: "10px",
+                            marginLeft: "300px",
+                            ":hover": { background: "#FF8C00" },
+                        }}
+                        onClick={() => handleEdit(item, 'blogs')}  // Pass 'event' and type
+                        >
+                        Edit
                     </Button>
-                  </CardContent>
+
+                </CardContent>
                 </Card>
-              </Grid>
+            </Grid>
             ))}
-          </Grid>
-        )} */}
+        </Grid>
+        )} 
       </Box>
     </Box>
   );

@@ -46,6 +46,7 @@ import Manage from './Admin/Manage';
 import ManageNews from './Admin/MangeNews';
 import ManageEvents from './Admin/ManageEvents';
 import ManageJobs from './Admin/ManageJobs';
+import ManageBlogs from './Admin/ManageBlogs';
 import ViewResponses from './Admin/ViewResponses';
 import UpcomingEvents from './Admin/UpcomingEvents';
 import UploadBlogs from './Admin/UploadBlogs';
@@ -120,6 +121,7 @@ function App() {
         <Route path="/loggedout" element={<LoggedOutPage/>} />
         <Route path="/manage" element={<Manage/>} />
         <Route path="/manageJobs" element={<ManageJobs/>} />
+        <Route path="/manageBlogs" element={<ManageBlogs/>} />
         <Route path="/viewResponses" element={<ViewResponses/>} />
         <Route path="/upcomingEvents" element={<UpcomingEvents/>}/>
         <Route path="/FAQs" element={<FAQs/>}/>
