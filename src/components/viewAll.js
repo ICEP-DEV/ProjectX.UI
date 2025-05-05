@@ -55,7 +55,7 @@ const ViewAllBlogs = () => {
                   <p className="text-muted">{blog.role}</p>
                   <div className="read-more-container">
                     {/* Link to the AlumniDetails page, passing the blog's id */}
-                    <Link to={`/alumni-details/${blog.id}`} className="read-more-link">
+                    <Link to={`/alumni/${blog.id}`} className="read-more-link">
                       Read more
                     </Link>
                     <span className="greater-than-symbol">&gt;&gt;</span>
